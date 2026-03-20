@@ -1,0 +1,17 @@
+# Ignore the .agents
+.agents/
+skills-lock.json
+
+# Ignore references to the .venv directory
+.venv/
+# Ignore the .vscode directory
+.vscode/
+
+# Ignore references
+references-pbip/
+references-ebook/
+references-md/
+
+# Ignore the working files
+book*.txt
+extract_*.py

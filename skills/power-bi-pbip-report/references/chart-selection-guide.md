@@ -29,17 +29,40 @@ Then select the chart that makes that answer most obvious for the target audienc
 | **Ranking — emphasis on order** | Sorted horizontal bar chart | `clusteredBarChart` | Sort descending (largest at top) |
 | **Part-to-whole — few parts** | Stacked bar chart | `barChart` / `columnChart` | Max 4-5 segments; label base segment |
 | **Part-to-whole — many parts (50+)** | Treemap | `treemap` | Size = area, not height; largest top-left |
-| **Discrete progress toward target** | Bullet chart | *(custom visual)* | Preferred over gauge for density |
+| **Part-to-whole — percentage** | Waffle chart | `WaffleChart1453776852267` ★ | Discrete squares; intuitive for ratios |
+| **Hierarchical part-of-whole** | Sunburst | `Sunburst1445472000808` ★ | Multi-level ring chart; 3+ nested levels |
+| **Discrete progress toward target** | Bullet chart | `BulletChart1443347686880` ★ | Preferred over gauge for density |
+| **Gauge with target needle** | Tachometer | `Tachometer1474636471549` ★ | Semicircular gauge with color ranges |
 | **Time intervals — start/end/delta** | Waterfall chart | `waterfallChart` | Shows increases, decreases, and net result |
-| **Distribution of values** | Histogram / box plot | *(requires custom visual)* | Bin size matters in histogram |
+| **Distribution of values** | Histogram | `histogramXY6E3D5691159E41859A007A262D4B0E9E` ★ | Bin size matters |
+| **Distribution — median/quartiles** | Box & Whisker | `BoxWhiskerChart1455240051538` ★ | Shows outliers, median, IQR |
+| **Distribution — density shape** | Violin Plot | `ViolinPlot1445472000811` ★ | Richer than box plot for shape |
 | **Correlation between two metrics** | Scatter plot | `scatterChart` | Squared aspect ratio preferred; add trend line |
 | **Correlation + magnitude** | Bubble chart | `scatterChart` (with `Size` role) | Use area (not diameter) to encode size |
-| **Flows between categories** | Waterfall / Sankey | `waterfallChart` / *(custom)* | Sankey needs interactivity for complex flows |
+| **Flows between categories** | Sankey diagram | `SankeyDiagram1458048422238` ★ | Interactive flow paths between nodes |
+| **Circular relationships** | Chord chart | `ChordChart1443052498688` ★ | Inter-entity transfers, bidirectional flows |
+| **Diverging comparison (A vs B)** | Tornado chart | `TornadoChart1452517688218` ★ | Side-by-side diverging bars |
+| **Multi-dimensional scoring** | Radar chart | `RadarChart1423470498847` ★ | Spider/web chart; 5-10 attributes |
+| **Market share × segment size** | Mekko chart | `MekkoChart1513095496262` ★ | Variable-width stacked bar |
+| **Daily activity heatmap** | Calendar heatmap | `bciCalendarCC0FA2BFE4B54EE1ACCFE383B9B1DE61` ★ | Colored calendar grid by value |
 | **Geographic patterns** | Filled map | `map` | Use equal-area projections for thematic data |
 | **Single large number** | Card visual | `card` | "One or two numbers — just show the number" |
 | **Multiple KPIs** | Multi-row card | `multiRowCard` | Keep to ≤6 metrics for readability |
+| **Rich KPI with formatting** | Advance Card | `advanceCardE03760C5AB684758B56AA29F9E6C257B` ★ | Conditional colors, icons, multiple rows |
 | **Status vs. target** | KPI visual | `kpi` | Shows indicator + trend axis + goal |
 | **Before-after comparison** | Slopegraph | *(line with 2 time points)* | Very clean for exactly 2 periods |
+| **Image-based filter** | Chiclet Slicer | `ChicletSlicer1448559807354` ★ | Tile/button slicer with images |
+| **Interactive date range** | Timeline Slicer | `Timeline1447991079100` ★ | Drag-to-select date range slider |
+| **Project timeline** | Gantt Chart | `Gantt1467746032498` ★ | Task bars, milestones, dependencies |
+| **Word/text frequency** | Word Cloud | `WordCloud1447959067750` ★ | Word size proportional to measure |
+| **Fully custom chart** | Deneb | `Deneb6E97C82C58E5467CA7C3188B3E36ADE7` ★ | Vega/Vega-Lite declarative grammar |
+| **Animated time playback** | Play Axis | `playAxis23F08FF12F11460BB525B1A3ADED385C` ★ | Auto-play through time periods |
+| **Financial variance (IBCS)** | Zebra BI Cards | `zebraBiCards2C860CFAA9944091B75F0DBD117F20FA` ★ | IBCS-compliant AC/PY/FC cards |
+| **Grouped + stacked bars** | Clustered Stacked | `clusteredstackedchartB0483D9875581356AF8B510BAAC9CFE4` ★ | Combine clustering with stacking |
+| **Enhanced drill funnel** | Drill Down Funnel | `funnelDrilldownD423170ED341443BBDECDD3BA5FB49D2` ★ | Funnel with stage drill-down |
+
+★ = Custom visual — requires `publicCustomVisuals` registration in `report.json`.
+See `custom-visuals.md` for full identifiers, templates, and query roles.
 
 ---
 
@@ -239,3 +262,36 @@ Never choose a chart to impress — choose it to communicate.
 | `gauge` | Only shows one value; wastes space | `kpi` or `card` with target |
 | `funnel` | Misleading unless stages are actually sequential | `clusteredBarChart` |
 | `areaChart` | Stacked version unreadable; single area often better as line | `lineChart` |
+
+### Custom Visuals — Use for Visual Diversity
+
+| Purpose | Custom Visual | `visualType` |
+|---|---|---|
+| Rich KPI card | Advance Card | `advanceCardE03760C5AB684758B56AA29F9E6C257B` |
+| Image/tile slicer | Chiclet Slicer | `ChicletSlicer1448559807354` |
+| Date range slider | Timeline Slicer | `Timeline1447991079100` |
+| Gauge with target | Tachometer | `Tachometer1474636471549` |
+| Actual vs. target | Bullet Chart | `BulletChart1443347686880` |
+| Diverging comparison | Tornado Chart | `TornadoChart1452517688218` |
+| Distribution box plot | Box & Whisker | `BoxWhiskerChart1455240051538` |
+| Value distribution | Histogram | `histogramXY6E3D5691159E41859A007A262D4B0E9E` |
+| Hierarchical rings | Sunburst | `Sunburst1445472000808` |
+| Percentage blocks | Waffle Chart | `WaffleChart1453776852267` |
+| Flow between nodes | Sankey Diagram | `SankeyDiagram1458048422238` |
+| Circular relationships | Chord Chart | `ChordChart1443052498688` |
+| Multi-axis scoring | Radar Chart | `RadarChart1423470498847` |
+| Variable-width bars | Mekko Chart | `MekkoChart1513095496262` |
+| Calendar heatmap | BCI Calendar | `bciCalendarCC0FA2BFE4B54EE1ACCFE383B9B1DE61` |
+| Color-intensity grid | Table Heatmap | `TableHeatmap1445497103790` |
+| Any custom chart | Deneb (Vega/Vega-Lite) | `Deneb6E97C82C58E5467CA7C3188B3E36ADE7` |
+| Word frequency | Word Cloud | `WordCloud1447959067750` |
+| Project scheduling | Gantt Chart | `Gantt1467746032498` |
+| Animated playback | Play Axis | `playAxis23F08FF12F11460BB525B1A3ADED385C` |
+| Financial IBCS cards | Zebra BI Cards | `zebraBiCards2C860CFAA9944091B75F0DBD117F20FA` |
+| Grouped + stacked | Clustered Stacked Chart | `clusteredstackedchartB0483D9875581356AF8B510BAAC9CFE4` |
+| Part vs total overlay | Nested Total Bar | `nestedTotalBarChartC2D32E67DFF64FDD9564CF2CFCD20141` |
+| Variance analysis | Variance Chart | `variance8E4BB1B41A8942A7B897C7014A6E1F56` |
+| Drill funnel | Drill Down Funnel | `funnelDrilldownD423170ED341443BBDECDD3BA5FB49D2` |
+
+All custom visuals require registration in `report.json` → `publicCustomVisuals`.
+See `custom-visuals.md` for complete JSON templates and query role mappings.

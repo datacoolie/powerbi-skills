@@ -13,5 +13,5 @@ references-ebook/
 references-md/
 
 # Ignore the working files
-book*.txt
+*.txt
 extract_*.py

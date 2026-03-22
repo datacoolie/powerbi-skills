@@ -13,6 +13,62 @@ All templates use schema version `visualContainer/2.7.0`.
 
 ---
 
+## Field Expression Patterns
+
+Every data-bound visual needs field references in its `query.queryState`. Three patterns cover all cases:
+
+**Column reference** (dimension field):
+```json
+{
+  "field": {
+    "Column": {
+      "Expression": { "SourceRef": { "Entity": "TableName" } },
+      "Property": "ColumnName"
+    }
+  },
+  "queryRef": "TableName.ColumnName",
+  "nativeQueryRef": "ColumnName"
+}
+```
+
+**Measure reference** (calculated measure):
+```json
+{
+  "field": {
+    "Measure": {
+      "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+      "Property": "MeasureName"
+    }
+  },
+  "queryRef": "MeasureTable.MeasureName",
+  "nativeQueryRef": "MeasureName"
+}
+```
+
+**Aggregation reference** (inline aggregation of a column):
+```json
+{
+  "field": {
+    "Aggregation": {
+      "Expression": {
+        "Column": {
+          "Expression": { "SourceRef": { "Entity": "TableName" } },
+          "Property": "ColumnName"
+        }
+      },
+      "Function": 0
+    }
+  },
+  "queryRef": "Sum(TableName.ColumnName)",
+  "nativeQueryRef": "Total ColumnName",
+  "displayName": "Total ColumnName"
+}
+```
+
+Aggregation `Function` values: `0` = Sum, `1` = Avg, `2` = Count, `3` = Min, `4` = Max, `5` = CountNonNull, `6` = Median, `7` = StdDev, `8` = Var.
+
+---
+
 ## Card
 
 Single KPI value display. Query role: `Values`.
@@ -53,15 +109,27 @@ Single KPI value display. Query role: `Values`.
       "labels": [
         {
           "properties": {
-            "fontSize": { "expr": { "Literal": { "Value": "16D" } } },
-            "bold": { "expr": { "Literal": { "Value": "true" } } }
+            "fontSize": { "expr": { "Literal": { "Value": "22D" } } },
+            "bold": { "expr": { "Literal": { "Value": "true" } } },
+            "color": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#333333'" } } }
+              }
+            },
+            "labelDisplayUnits": { "expr": { "Literal": { "Value": "0D" } } }
           }
         }
       ],
       "categoryLabels": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "false" } } }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } },
+            "color": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#666666'" } } }
+              }
+            }
           }
         }
       ]
@@ -70,19 +138,53 @@ Single KPI value display. Query role: `Values`.
       "title": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'Card Title'" } } },
-            "fontSize": { "expr": { "Literal": { "Value": "10D" } } },
-            "bold": { "expr": { "Literal": { "Value": "true" } } },
-            "alignment": { "expr": { "Literal": { "Value": "'center'" } } }
+            "show": { "expr": { "Literal": { "Value": "false" } } }
           }
         }
       ],
       "background": [
         {
           "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
             "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
             "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#000000'" } } } } },
+            "position": { "expr": { "Literal": { "Value": "'Outer'" } } },
+            "preset": { "expr": { "Literal": { "Value": "'BottomRight'" } } },
+            "transparency": { "expr": { "Literal": { "Value": "85D" } } }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "left": { "expr": { "Literal": { "Value": "10D" } } },
+            "right": { "expr": { "Literal": { "Value": "10D" } } },
+            "top": { "expr": { "Literal": { "Value": "8D" } } },
+            "bottom": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ]
@@ -91,6 +193,11 @@ Single KPI value display. Query role: `Values`.
   }
 }
 ```
+
+For KPI cards, use `categoryLabels.show = true` to display the measure name
+below the value. Pair with background shapes at lower z-order for grouped
+visual sections. Use `labelDisplayUnits: 0D` for auto-formatting, or
+`1000000D` for millions, `1000000000D` for billions.
 
 ---
 
@@ -295,7 +402,69 @@ Vertical bars. Same structure as clustered bar but vertical. Query roles: `Categ
       "labels": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9D" } } },
+            "enableBackground": { "expr": { "Literal": { "Value": "true" } } },
+            "backgroundTransparency": { "expr": { "Literal": { "Value": "40D" } } }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Chart Title'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } },
+            "fontFamily": { "expr": { "Literal": { "Value": "'Segoe UI Semibold'" } } },
+            "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#333333'" } } } } }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#000000'" } } } } },
+            "position": { "expr": { "Literal": { "Value": "'Outer'" } } },
+            "preset": { "expr": { "Literal": { "Value": "'BottomRight'" } } },
+            "transparency": { "expr": { "Literal": { "Value": "85D" } } }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "left": { "expr": { "Literal": { "Value": "5D" } } },
+            "right": { "expr": { "Literal": { "Value": "5D" } } },
+            "top": { "expr": { "Literal": { "Value": "5D" } } },
+            "bottom": { "expr": { "Literal": { "Value": "5D" } } }
           }
         }
       ]
@@ -493,6 +662,7 @@ Filled area trend. Query roles: `Category`, `Y`.
 ## Line & Clustered Column Combo Chart
 
 Combo chart with columns and lines. Query roles: `Category`, `Y` (columns), `Y2` (lines).
+Most commonly used chart type for trend + comparison (e.g., revenue bars + growth rate line).
 
 ```json
 {
@@ -554,6 +724,77 @@ Combo chart with columns and lines. Query roles: `Category`, `Y` (columns), `Y2`
           ]
         }
       }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "gridlineShow": { "expr": { "Literal": { "Value": "true" } } },
+            "gridlineStyle": { "expr": { "Literal": { "Value": "'dotted'" } } },
+            "gridlineColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E8E8E8'" } } } } }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeWidth": { "expr": { "Literal": { "Value": "3D" } } },
+            "lineStyle": { "expr": { "Literal": { "Value": "'solid'" } } },
+            "showMarker": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9D" } } },
+            "enableBackground": { "expr": { "Literal": { "Value": "true" } } },
+            "backgroundTransparency": { "expr": { "Literal": { "Value": "40D" } } }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "position": { "expr": { "Literal": { "Value": "'Top'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9D" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#000000'" } } } } },
+            "position": { "expr": { "Literal": { "Value": "'Outer'" } } },
+            "preset": { "expr": { "Literal": { "Value": "'BottomRight'" } } },
+            "transparency": { "expr": { "Literal": { "Value": "85D" } } }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }
@@ -691,6 +932,7 @@ Same structure as donut. Query roles: `Category`, `Y`.
 ## Slicer
 
 Filter control. Query role: `Values`. Uses `slicer` within `objects` for configuration.
+Default mode is Dropdown — this saves space and works best for most scenarios.
 
 ```json
 {
@@ -728,15 +970,67 @@ Filter control. Query role: `Values`. Uses `slicer` within `objects` for configu
       "data": [
         {
           "properties": {
-            "mode": { "expr": { "Literal": { "Value": "'Basic'" } } }
+            "mode": { "expr": { "Literal": { "Value": "'Dropdown'" } } }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#333333'" } } }
+              }
+            },
+            "textSize": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#333333'" } } }
+              }
+            },
+            "textSize": { "expr": { "Literal": { "Value": "10D" } } }
           }
         }
       ]
+    },
+    "visualContainerObjects": {
+      "visualHeader": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "sync-ColumnName",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }
 }
 ```
+
+**syncGroup**: Include `syncGroup` to sync slicer selections across pages.
+Slicers with the same `groupName` stay in sync. Set to the same value on
+all pages. Omit `syncGroup` if the slicer is page-specific only.
 
 ### Slicer Modes
 
@@ -1169,6 +1463,7 @@ Dial showing progress toward a target. Query roles: `Y`, `TargetValue`, `MinValu
 ## Shape (Decorative)
 
 Background rectangle, line, or decorative element. No query — purely visual.
+Use shapes for visual grouping, header backgrounds, and section dividers.
 
 ```json
 {
@@ -1178,8 +1473,8 @@ Background rectangle, line, or decorative element. No query — purely visual.
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 720,
-    "width": 1280,
+    "height": 936,
+    "width": 1664,
     "tabOrder": -1
   },
   "visual": {
@@ -1190,10 +1485,11 @@ Background rectangle, line, or decorative element. No query — purely visual.
           "properties": {
             "lineColor": {
               "solid": {
-                "color": { "expr": { "Literal": { "Value": "'#F2F2F2'" } } }
+                "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } }
               }
             },
-            "show": { "expr": { "Literal": { "Value": "false" } } }
+            "show": { "expr": { "Literal": { "Value": "false" } } },
+            "roundEdge": { "expr": { "Literal": { "Value": "10D" } } }
           }
         }
       ],
@@ -1209,10 +1505,27 @@ Background rectangle, line, or decorative element. No query — purely visual.
           }
         }
       ]
+    },
+    "visualContainerObjects": {
+      "dropShadow": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#000000'" } } } } },
+            "position": { "expr": { "Literal": { "Value": "'Outer'" } } },
+            "preset": { "expr": { "Literal": { "Value": "'BottomRight'" } } },
+            "transparency": { "expr": { "Literal": { "Value": "85D" } } }
+          }
+        }
+      ]
     }
   }
 }
 ```
+
+For **rounded rectangle** backgrounds: set `line.roundEdge` to `10D`-`20D`.
+For **section grouping**: place multiple overlapping shapes at z:100-500 with
+different fill colors to create visual zones behind content visuals.
 
 ---
 
@@ -1266,6 +1579,7 @@ Static rich text content. No query.
 ## Image
 
 Static image visual. References an image from RegisteredResources.
+Can also be used as a navigation icon with `visualLink` for page navigation.
 
 ```json
 {
@@ -1297,6 +1611,65 @@ Static image visual. References an image from RegisteredResources.
           }
         }
       ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Image with Page Navigation
+
+Use `visualLink` in `visualContainerObjects` to make an image act as a
+clickable navigation icon to another page:
+
+```json
+{
+  "name": "image-nav-icon",
+  "position": { "x": 10, "y": 200, "z": 12000, "height": 40, "width": 40, "tabOrder": 0 },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": "RegisteredResources",
+                  "ItemName": "nav-icon.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "type": { "expr": { "Literal": { "Value": "'PageNavigation'" } } },
+            "navigationSection": { "expr": { "Literal": { "Value": "'target-page-name'" } } }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
     }
   }
 }
@@ -1306,7 +1679,8 @@ Static image visual. References an image from RegisteredResources.
 
 ## Action Button
 
-Navigation or bookmark button. No data query.
+Navigation or bookmark button. No data query. Supports page navigation,
+bookmark activation, back navigation, and web URL actions.
 
 ```json
 {
@@ -1353,6 +1727,91 @@ Navigation or bookmark button. No data query.
         {
           "properties": {
             "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ],
+      "action": [
+        {
+          "properties": {
+            "type": { "expr": { "Literal": { "Value": "'PageNavigation'" } } },
+            "destination": { "expr": { "Literal": { "Value": "'target-page-name'" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Action Types
+
+Change the `action.type` and related properties:
+
+- **Page Navigation**: `"type": "'PageNavigation'"`, `"destination": "'page-name'"`
+- **Bookmark**: `"type": "'Bookmark'"`, `"bookmark": "'bookmark-name'"`
+- **Back**: `"type": "'Back'"` (for drillthrough return)
+- **Web URL**: `"type": "'WebUrl'"`, `"url": "'https://...'"` (only for external links)
+
+### Tab-Style Button (Flat)
+
+For tab-bar navigation, use flat styling with no fill and an accent underline:
+
+```json
+{
+  "name": "actionButton-tab-sales",
+  "position": { "x": 13, "y": 58, "z": 10000, "height": 32, "width": 148, "tabOrder": 0 },
+  "visual": {
+    "visualType": "actionButton",
+    "objects": {
+      "text": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Sales'" } } },
+            "fontFamily": { "expr": { "Literal": { "Value": "'Segoe UI'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } },
+            "fontBold": { "expr": { "Literal": { "Value": "true" } } },
+            "fontColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#0078D4'" } } }
+              }
+            }
+          }
+        }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } }
+              }
+            },
+            "transparency": { "expr": { "Literal": { "Value": "100D" } } }
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ],
+      "action": [
+        {
+          "properties": {
+            "type": { "expr": { "Literal": { "Value": "'Bookmark'" } } },
+            "bookmark": { "expr": { "Literal": { "Value": "'tab-sales'" } } }
           }
         }
       ]
@@ -1452,6 +1911,785 @@ XY plot with optional size bubble. Query roles: `Category`, `X`, `Y`, `Size`.
       }
     },
     "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Line & Stacked Column Combo Chart
+
+Columns are stacked (part-to-whole) with a line overlay. Query roles: `Category`, `Y` (stacked columns), `Y2` (lines), `Series` (stack breakdown).
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "lineStackedColumnComboChart-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 5000,
+    "height": 300,
+    "width": 550,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineStackedColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "DateTable" } },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "DateTable.Month",
+              "nativeQueryRef": "Month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "Revenue"
+                }
+              },
+              "queryRef": "MeasureTable.Revenue",
+              "nativeQueryRef": "Revenue"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "GrowthRate"
+                }
+              },
+              "queryRef": "MeasureTable.GrowthRate",
+              "nativeQueryRef": "GrowthRate"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "CategoryColumn"
+                }
+              },
+              "queryRef": "TableName.CategoryColumn",
+              "nativeQueryRef": "CategoryColumn",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeWidth": { "expr": { "Literal": { "Value": "3D" } } },
+            "lineStyle": { "expr": { "Literal": { "Value": "'solid'" } } }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#000000'" } } } } },
+            "position": { "expr": { "Literal": { "Value": "'Outer'" } } },
+            "preset": { "expr": { "Literal": { "Value": "'BottomRight'" } } },
+            "transparency": { "expr": { "Literal": { "Value": "85D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Ribbon Chart
+
+Ranking chart showing how categories change rank over time. Query roles: `Category`, `Y`, `Series`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "ribbonChart-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 5000,
+    "height": 350,
+    "width": 550,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "ribbonChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "DateTable" } },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "DateTable.Month",
+              "nativeQueryRef": "Month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "Revenue"
+                }
+              },
+              "queryRef": "MeasureTable.Revenue",
+              "nativeQueryRef": "Revenue"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "ProductCategory"
+                }
+              },
+              "queryRef": "TableName.ProductCategory",
+              "nativeQueryRef": "ProductCategory",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Stacked Area Chart
+
+Area chart showing part-to-whole composition over time. Query roles: `Category`, `Y`, `Series`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "stackedAreaChart-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 5000,
+    "height": 300,
+    "width": 500,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "stackedAreaChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "DateTable" } },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "DateTable.Month",
+              "nativeQueryRef": "Month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "Amount"
+                }
+              },
+              "queryRef": "MeasureTable.Amount",
+              "nativeQueryRef": "Amount"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "TableName.Region",
+              "nativeQueryRef": "Region",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeWidth": { "expr": { "Literal": { "Value": "2D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Stacked Bar Chart (Horizontal)
+
+Horizontal stacked bars for part-to-whole by category. Query roles: `Category`, `Y`, `Series`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "stackedBarChart-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 5000,
+    "height": 300,
+    "width": 500,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "stackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "Department"
+                }
+              },
+              "queryRef": "TableName.Department",
+              "nativeQueryRef": "Department",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "Amount"
+                }
+              },
+              "queryRef": "MeasureTable.Amount",
+              "nativeQueryRef": "Amount"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "Subcategory"
+                }
+              },
+              "queryRef": "TableName.Subcategory",
+              "nativeQueryRef": "Subcategory",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "position": { "expr": { "Literal": { "Value": "'Bottom'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Page Navigator
+
+Built-in visual that renders page tabs for navigation between report pages.
+No query — automatically shows all visible pages.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "pageNavigator-nav",
+  "position": {
+    "x": 0,
+    "y": 900,
+    "z": 15000,
+    "height": 36,
+    "width": 1664,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pageNavigator",
+    "objects": {
+      "navigation": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ],
+      "pageTabs": [
+        {
+          "properties": {
+            "fontFamily": { "expr": { "Literal": { "Value": "'Segoe UI'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } },
+            "fontColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#605E5C'" } } }
+              }
+            },
+            "fontBold": { "expr": { "Literal": { "Value": "false" } } },
+            "tabFill": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } }
+              }
+            },
+            "selectedTabFill": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#0078D4'" } } }
+              }
+            },
+            "selectedFontColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } }
+              }
+            },
+            "selectedFontBold": { "expr": { "Literal": { "Value": "true" } } },
+            "hoverFill": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#E8E8E8'" } } }
+              }
+            },
+            "tabAlignment": { "expr": { "Literal": { "Value": "'Left'" } } },
+            "verticalAlignment": { "expr": { "Literal": { "Value": "'Middle'" } } },
+            "tabPaddingLeft": { "expr": { "Literal": { "Value": "12D" } } },
+            "tabPaddingRight": { "expr": { "Literal": { "Value": "12D" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+## Map (Bubble Map)
+
+Geographic bubble map. Query roles: `Category` (location), `Size` (bubble size), `Color` (optional gradient).
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "map-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 5000,
+    "height": 400,
+    "width": 600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "map",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "City"
+                }
+              },
+              "queryRef": "TableName.City",
+              "nativeQueryRef": "City",
+              "active": true
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "Revenue"
+                }
+              },
+              "queryRef": "MeasureTable.Revenue",
+              "nativeQueryRef": "Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9D" } } }
+          }
+        }
+      ],
+      "bubbles": [
+        {
+          "properties": {
+            "bubbleSize": { "expr": { "Literal": { "Value": "50D" } } }
+          }
+        }
+      ],
+      "mapControls": [
+        {
+          "properties": {
+            "autoZoom": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "theme": { "expr": { "Literal": { "Value": "'grayscale'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Filled Map (Choropleth)
+
+Geographic choropleth showing color-shaded regions. Query roles: `Category` (location), `Y` (saturation value).
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "filledMap-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 5000,
+    "height": 400,
+    "width": 600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "filledMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "TableName" } },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "TableName.Country",
+              "nativeQueryRef": "Country",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "Revenue"
+                }
+              },
+              "queryRef": "MeasureTable.Revenue",
+              "nativeQueryRef": "Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "position": { "expr": { "Literal": { "Value": "'BottomCenter'" } } }
+          }
+        }
+      ],
+      "mapControls": [
+        {
+          "properties": {
+            "autoZoom": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "theme": { "expr": { "Literal": { "Value": "'grayscale'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Card (New Visual)
+
+The new card visual (`cardVisual`) — supports multiple values and enhanced formatting.
+Query roles: `Data`, `Detail`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "cardVisual-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 8000,
+    "height": 96,
+    "width": 200,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                  "Property": "TotalRevenue"
+                }
+              },
+              "queryRef": "MeasureTable.TotalRevenue",
+              "nativeQueryRef": "TotalRevenue"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "cards": [
+        {
+          "properties": {
+            "fontSize": { "expr": { "Literal": { "Value": "28D" } } },
+            "bold": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+---
+
+## Basic Shape
+
+Geometric shape element (circle, triangle, arrow, etc.). No query — decorative only.
+Use `shapeType` to select shape: `"'rectangle'"`, `"'oval'"`, `"'triangle'"`, `"'arrow'"`, `"'pentagon'"`, `"'hexagon'"`, `"'star'"`, etc.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "basicShape-VISUAL_NAME",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 500,
+    "height": 80,
+    "width": 80,
+    "tabOrder": -1
+  },
+  "visual": {
+    "visualType": "basicShape",
+    "objects": {
+      "line": [
+        {
+          "properties": {
+            "lineColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#0078D4'" } } }
+              }
+            },
+            "weight": { "expr": { "Literal": { "Value": "2D" } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } },
+            "roundEdge": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fillColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#0078D4'" } } }
+              }
+            },
+            "transparency": { "expr": { "Literal": { "Value": "20D" } } }
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "properties": {
+            "angle": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ]
+    }
   }
 }
 ```

@@ -9,6 +9,15 @@
         "page": "2.0.0"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "custom-theme.json",
+      "reportVersionAtImport": {
+        "visual": "2.1.0",
+        "report": "2.1.0",
+        "page": "2.0.0"
+      },
+      "type": "RegisteredResources"
     }
   },
   "settings": {
@@ -28,6 +37,17 @@
           "name": "CY24SU10",
           "path": "BaseThemes/CY24SU10.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "custom-theme.json",
+          "path": "RegisteredResources/custom-theme.json",
+          "type": "Image"
         }
       ]
     }

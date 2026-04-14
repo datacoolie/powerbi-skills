@@ -1,0 +1,67 @@
+{
+  "name": "Technology IT Monitoring Theme",
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.121.json",
+  "dataColors": [
+    "#0078D4", "#50E6FF", "#9B59B6", "#FF8C00",
+    "#10893E", "#E81123", "#FFB900", "#6B6B6B",
+    "#005A9E", "#3FC4E8", "#7D3E98", "#CC7000",
+    "#0C6B30", "#C40E1F", "#CC9600", "#525252"
+  ],
+  "good": "#38B64B",
+  "bad": "#EE1C25",
+  "neutral": "#949599",
+  "maximum": "#0078D4",
+  "minimum": "#DEECF9",
+  "center": "#50E6FF",
+  "foreground": "#201F1E",
+  "background": "#F3F2F1",
+  "secondaryBackground": "#EDEBE9",
+  "backgroundLight": "#FAF9F8",
+  "foregroundNeutralSecondary": "#605E5C",
+  "foregroundNeutralTertiary": "#A19F9D",
+  "tableAccent": "#0078D4",
+  "firstLevelElements": "#201F1E",
+  "secondLevelElements": "#605E5C",
+  "thirdLevelElements": "#A19F9D",
+  "fourthLevelElements": "#D2D0CE",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI", "color": "#0078D4" },
+    "header":  { "fontFace": "Segoe UI", "color": "#201F1E" },
+    "title":   { "fontFace": "Segoe UI", "color": "#201F1E", "fontSize": 10 },
+    "largeTitle": { "fontFace": "Segoe UI", "color": "#0078D4", "fontSize": 14 },
+    "label":   { "fontFace": "Segoe UI", "color": "#605E5C", "fontSize": 9 }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "color": { "solid": { "color": "#E1DFDD" } }, "radius": 8, "show": true, "transparency": 0 }],
+        "dropShadow": [{ "show": true, "color": { "solid": { "color": "#000000" } }, "shadowSpread": 0, "shadowBlur": 6, "angle": 90, "shadowDistance": 3, "transparency": 85, "position": "Outer", "preset": "Custom" }],
+        "padding": [{ "top": 8 }, { "bottom": 8 }, { "left": 10 }, { "right": 10 }],
+        "categoryAxis": [{ "showAxisTitle": false }],
+        "valueAxis": [{ "showAxisTitle": false, "gridlineShow": true, "gridlineStyle": "dotted", "gridlineThickness": 1 }],
+        "legend": [{ "position": "TopCenter", "showTitle": false }],
+        "subTitle": [{ "show": true }],
+        "totals": [{ "show": true, "bold": true }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F3F2F1" } }, "transparency": 0 }]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [{ "backColor": { "solid": { "color": "#0078D4" } }, "fontColor": { "solid": { "color": "#FFFFFF" } } }],
+        "grid": [{ "gridHorizontal": true, "rowPadding": 3.5 }],
+        "values": [{ "backColorPrimary": { "solid": { "color": "#F3F2F1" } }, "backColorSecondary": { "solid": { "color": "#FFFFFF" } } }]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "grid": [{ "rowPadding": 5 }],
+        "stylePreset": [{ "name": "Minimal" }]
+      }
+    }
+  }
+}

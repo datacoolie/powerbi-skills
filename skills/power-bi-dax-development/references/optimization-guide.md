@@ -255,12 +255,167 @@ Design aggregation tables with:
 
 ## Composite Model Optimization
 
-Models mixing Import and DirectQuery:
+Models mixing Import and DirectQuery require special attention because queries
+cross engine boundaries. Based on "Optimizing DAX" Ch. 20-22 (Ferrari & Russo).
 
-1. **Keep dimensions in Import mode** — faster filtering and relationships
-2. **Use DISTINCTCOUNT carefully** — forces full scan in DirectQuery
-3. **Minimize cross-engine queries** — VertiPaq-to-DirectQuery joins are expensive
-4. **TREATAS is better than FILTER** for cross-source virtual relationships
+### How Cross-Engine Queries Work
+
+When a DAX query spans Import (local VertiPaq) and DirectQuery (remote) tables:
+
+1. The local FE orchestrates the query
+2. FE sends **DAX queries** (not xmSQL) to the remote engine
+3. Remote engine returns datacaches to the local FE
+4. Local FE combines results from both engines
+
+**The critical bottleneck:** Data transferred between engines. Every column and
+row in the datacache costs network time and local memory.
+
+### The Table Filter Trap
+
+Using FILTER on a full remote table forces the entire table to be serialized,
+sent to the local engine, then sent back as a filter parameter — catastrophic:
+
+```dax
+-- CATASTROPHIC in composite models:
+Customer in Segment =
+SUMX(
+    Segments,
+    COUNTROWS(
+        FILTER(
+            Customer,                        -- Remote table
+            [Sales Amount] > Segments[Min]   -- Context transition per segment row
+            && [Sales Amount] <= Segments[Max]
+        )
+    )
+)
+-- Engine behavior:
+-- 1. Downloads ALL columns of Customer table to local engine
+-- 2. For each Segment row, sends Customer table BACK to remote as filter
+-- 3. Remote evaluates [Sales Amount] per customer
+-- 4. Entire Customer table returned again as a datacache
+-- Result: Multiple round-trips with full table → query takes 30+ seconds
+
+-- FIX: Use column references instead of table references
+Customer in Segment =
+SUMX(
+    Segments,
+    VAR _min = Segments[Min]
+    VAR _max = Segments[Max]
+    RETURN COUNTROWS(
+        FILTER(
+            VALUES(Customer[CustomerKey]),   -- Single column, not full table!
+            VAR _custSales = [Sales Amount]
+            RETURN _custSales > _min && _custSales <= _max
+        )
+    )
+)
+-- Only CustomerKey is transferred, not all Customer columns → 10-50x faster
+```
+
+**Golden rule for composite models:** Never use a full table reference when a
+single column reference suffices. The engine sends ALL columns of any table
+referenced in FILTER, even if only one column is needed.
+
+### Cross-Engine Join Patterns
+
+| Pattern | Performance | Notes |
+|---------|-------------|-------|
+| Import fact → Import dimension | Best | Standard VertiPaq join |
+| DQ fact → DQ dimension (same source) | Good | Remote SQL join |
+| DQ fact → Import dimension | Moderate | Dimension sent to remote as filter |
+| Import fact → DQ dimension | Poor | Requires local materialization |
+| DQ source A → DQ source B | Very poor | No direct join; FE handles both |
+
+### DISTINCTCOUNT in DirectQuery
+
+DISTINCTCOUNT forces the remote engine to scan the full column without
+pre-aggregation optimizations. For large tables this is very slow:
+
+```dax
+-- Slow on DirectQuery:
+# Unique Customers = DISTINCTCOUNT(Sales[CustomerKey])
+
+-- Workaround: create an Import aggregation table with pre-computed distinct counts
+-- Then use agg table for common queries; DirectQuery only as fallback
+```
+
+### Composite Model Optimization Checklist
+
+```
+□ All dimension tables are in Import or Dual mode (fastest filtering)
+□ Dual mode dimensions eliminate cross-engine joins for mixed-mode queries
+□ FILTER() never references a full remote table — use VALUES(Table[Column]) instead
+□ Measures avoid context transition on remote fact tables
+□ Aggregation tables cover 80%+ of common query patterns
+□ TREATAS is used instead of FILTER for virtual relationships across engine boundaries
+□ DISTINCTCOUNT on DQ tables is minimized or pre-aggregated
+□ Server Timings checked for large datacaches (indicator of excessive materialization)
+□ Number of DAX queries to remote server is monitored (each one = round-trip latency)
+```
+
+---
+
+## Calculated Column vs. Runtime Trade-Off
+
+Based on "Optimizing DAX" Ch. 2 (Ferrari & Russo). Deciding whether to
+pre-compute a value in a calculated column or compute it at query time
+in an iterator.
+
+### Trade-Off Matrix
+
+| Factor | Calculated Column | Runtime Iterator |
+|--------|-------------------|-----------------|
+| **Query speed** | Faster (pre-computed) | Slower (computed per query) |
+| **Memory (RAM)** | Larger model (column stored in VertiPaq) | Smaller model |
+| **Refresh time** | Longer (sequential, single-threaded) | No impact on refresh |
+| **Compression** | Depends on cardinality of result | Not stored |
+| **Flexibility** | Fixed at refresh time; no filter context | Context-aware |
+
+### Decision Framework
+
+Use a **calculated column** when:
+- The expression involves **multiple columns** in a complex formula
+  and the measure is used heavily across many visuals
+- The formula is compute-intensive and the result has **low cardinality**
+  (good compression, small RAM cost)
+- You need to create a **relationship key** or **sort-by column**
+- The value is needed for **VertiPaq indexing** (e.g., boolean flag column for
+  fast filtering: `IsHighValue = Sales[Amount] >= 200`)
+
+Use a **runtime expression** (measure/iterator) when:
+- RAM is constrained and the column would have **high cardinality**
+- The expression is simple (e.g., `Qty * Price`) — the iterator overhead is tiny
+- The value must be **context-aware** (respond to filters)
+- The calculation is used in **few visuals** (pre-computing for all rows is wasteful)
+
+### How to Measure the Trade-Off
+
+```
+1. Create the calculated column; disable its AvailableInMDX property
+2. Process the model; note refresh time increase
+3. Check VertiPaq Analyzer: note RAM increase for the new column
+4. Run a benchmark query with the calculated column (SUM of it)
+5. Run the same benchmark with the iterator (SUMX with expression)
+6. Compare:
+   - If query speed improvement > 2x AND RAM increase < 10% → keep the column
+   - If RAM increase > 15% with marginal speed improvement → remove the column
+   - If the column is needed by only 1-2 reports → keep the iterator
+```
+
+### Alternative: Compute in Data Source
+
+If a calculated column is beneficial but its RAM cost is too high, compute
+it in the Power Query / SQL source instead:
+
+```
+-- In Power Query: add column at source (computed during ETL, not DAX)
+= Table.AddColumn(Source, "LineAmount", each [Quantity] * [NetPrice], Decimal.Type)
+
+-- Benefits:
+-- Processed during parallel ETL (not sequential DAX calculated column)
+-- Can be optimized by SQL Server column store indexes
+-- Same RAM cost as calculated column, but faster refresh
+```
 
 ---
 
@@ -314,3 +469,60 @@ Models mixing Import and DirectQuery:
 | 8 | Check for CallbackDataID in plans | FE bottleneck |
 | 9 | Minimize cross-source joins | Composite models |
 | 10 | Use aggregation tables for DirectQuery | Query speed |
+
+---
+
+## Direct Lake DAX Considerations
+
+Direct Lake uses the same VertiPaq engine as Import, so most DAX patterns
+work identically. However, some behaviors differ due to the on-demand
+transcoding model and the potential for DirectQuery fallback.
+
+### DAX Patterns That Work the Same
+
+All standard DAX measures, CALCULATE, iterators, time intelligence patterns,
+and SUMMARIZECOLUMNS work natively on Direct Lake tables. No DAX rewriting
+is needed when migrating measures from Import to Direct Lake.
+
+### Unsupported on Direct Lake Tables
+
+| Feature | Impact | Workaround |
+|---|---|---|
+| Calculated columns | Cannot add to DL tables | Pre-compute in Lakehouse ETL (Spark/SQL) |
+| Calculated tables referencing DL columns | Cannot reference DL column data | Use Import tables or compute upstream |
+| Hybrid tables (mixed Import + DQ partitions) | Not supported | Use pure Direct Lake for the table |
+
+### Fallback-Triggering Scenarios (DL on SQL Only)
+
+These do NOT change DAX syntax but cause the engine to silently switch
+to DirectQuery mode, degrading performance:
+
+| Scenario | Why It Triggers Fallback |
+|---|---|
+| SQL analytics endpoint enforces RLS | DL can't read Parquet directly when SQL RLS applies |
+| Source is a SQL view (not Delta table) | No Parquet files to read — must query SQL endpoint |
+| Table exceeds capacity guardrails | Too many rows/files/row groups for the SKU |
+| SQL-based column-level security | Security check requires SQL endpoint query |
+
+**Tip:** Set `DirectLakeBehavior = DirectLakeOnly` during development to
+surface these issues as errors instead of silent degradation.
+
+### Performance Differences vs Import
+
+| Aspect | Import | Direct Lake |
+|---|---|---|
+| First query (cold) | Fast (data already in memory) | Slower (must transcode from Parquet) |
+| Subsequent queries (warm) | Fast | Equally fast (same VertiPaq engine) |
+| After framing (refresh) | Full reload | Incremental — only changed segments evicted |
+| Memory pressure | Evicted data requires full refresh | Evicted data re-transcodes on next query |
+
+### Best Practices for Direct Lake DAX
+
+1. **Use variables** — Reduce repeated SE scans; even more important in Direct
+   Lake where cold-state SE scans involve Parquet reads
+2. **Avoid excessive SUMMARIZECOLUMNS nesting** — Each visual generates
+   SUMMARIZECOLUMNS; deeply nested measures can create many SE requests
+3. **Filter dimensions, not facts** — Same as Import, but the penalty for
+   scanning large Direct Lake fact columns is amplified in cold state
+4. **Test in cold state** — Clear cache (`processClear` + `processFull` via
+   XMLA) to simulate real-world first-query experience

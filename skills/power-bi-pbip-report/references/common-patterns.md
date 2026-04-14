@@ -219,3 +219,348 @@ Interaction types:
 **Default rule**: Let slicers DataFilter everything. Set chart-to-chart interactions to
 HighlightFilter (so clicking a bar highlights across all visuals but doesn't remove data).
 Use NoFilter on KPI cards so they always show the page total regardless of chart clicks.
+
+---
+
+## TOP N Chart Pattern
+
+A ranked bar chart limited to the top (or bottom) N dimension members by a measure.
+This is one of the most common analytical patterns — "Top 10 Products by Revenue", "Top 5 Customers by Margin".
+
+### Component Layout
+
+```
+┌──────────────────────────────────────────────┐
+│ title: "Top 10 Products by Revenue"          │
+│                                               │
+│  Product A  ████████████████████  $1.2M      │
+│  Product B  ████████████████      $980K      │
+│  Product C  ████████████          $820K      │
+│  ...                                          │
+│  Product J  ████                  $340K      │
+└──────────────────────────────────────────────┘
+```
+
+- `visualType: "barChart"` (horizontal) — best for ranked lists with long category labels
+- `visualType: "clusteredColumnChart"` (vertical) — use when N ≤ 5 and labels are short
+- Sort: value descending (largest bar at top / left)
+- Data labels: show on bars for direct reading (remove y-axis instead)
+
+### Complete visual.json snippet
+
+```json
+{
+  "name": "barChart-top10-products",
+  "position": { "x": 260, "y": 90, "z": 5000, "height": 400, "width": 680, "tabOrder": 500 },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [{
+            "field": {
+              "Column": {
+                "Expression": { "SourceRef": { "Entity": "DimProduct" } },
+                "Property": "ProductName"
+              }
+            },
+            "queryRef": "DimProduct.ProductName"
+          }]
+        },
+        "Y": {
+          "projections": [{
+            "field": {
+              "Measure": {
+                "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+                "Property": "Total Revenue"
+              }
+            },
+            "queryRef": "MeasureTable.Total Revenue"
+          }]
+        }
+      },
+      "sortDefinition": {
+        "sort": [{
+          "field": {
+            "Measure": {
+              "Expression": { "SourceRef": { "Entity": "MeasureTable" } },
+              "Property": "Total Revenue"
+            }
+          },
+          "direction": "Descending"
+        }],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataLabels": [{ "properties": { "show": { "expr": { "Literal": { "Value": "true" } } } } }],
+      "categoryAxis": [{ "properties": { "show": { "expr": { "Literal": { "Value": "true" } } } } }],
+      "valueAxis": [{ "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } }]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [{
+      "name": "topn-filter-revenue",
+      "field": {
+        "Column": {
+          "Expression": { "SourceRef": { "Entity": "DimProduct" } },
+          "Property": "ProductName"
+        }
+      },
+      "type": "TopN",
+      "filter": {
+        "Version": 2,
+        "From": [
+          {
+            "Name": "subquery",
+            "Expression": {
+              "Subquery": {
+                "Query": {
+                  "Version": 2,
+                  "From": [
+                    { "Name": "d", "Entity": "DimProduct", "Type": 0 },
+                    { "Name": "m", "Entity": "MeasureTable", "Type": 0 }
+                  ],
+                  "Select": [{
+                    "Column": {
+                      "Expression": { "SourceRef": { "Source": "d" } },
+                      "Property": "ProductName"
+                    },
+                    "Name": "field"
+                  }],
+                  "OrderBy": [{
+                    "Direction": 2,
+                    "Expression": {
+                      "Measure": {
+                        "Expression": { "SourceRef": { "Source": "m" } },
+                        "Property": "Total Revenue"
+                      }
+                    }
+                  }],
+                  "Top": 10
+                }
+              }
+            },
+            "Type": 2
+          },
+          { "Name": "d", "Entity": "DimProduct", "Type": 0 }
+        ],
+        "Where": [{
+          "Condition": {
+            "In": {
+              "Expressions": [{
+                "Column": {
+                  "Expression": { "SourceRef": { "Source": "d" } },
+                  "Property": "ProductName"
+                }
+              }],
+              "Table": { "SourceRef": { "Source": "subquery" } }
+            }
+          }
+        }]
+      }
+    }]
+  }
+}
+```
+
+### Bottom N variant
+
+Change `Direction: 2` → `Direction: 1` (ascending) in the `OrderBy` to get **Bottom N** (lowest values). Title and filter name should reflect this: "Bottom 5 Products by Margin".
+
+### Combining TOP N with slicer context
+
+The TOP N filter applies **after** slicer selections — slicers filter the dataset first, then
+TOP N ranks within the remaining data. This means "Top 10 by Revenue in Q1" automatically
+works when a date slicer is on the page with no additional changes needed.
+
+### Dynamic TOP N (user-controlled N value)
+
+For an interactive N selector (user picks "Top 5", "Top 10", "Top 20"), the approach shifts
+to the semantic model layer — not the report layer:
+- Create a disconnected `TopN Selector` table with values like 5, 10, 20
+- Add a slicer for that table
+- Reference the slicer selection in a RANKX/TOPN DAX measure
+- Use a visual-level filter: `type: "Advanced"` with `measure > 0` on the rank measure
+
+The static `type: "TopN"` filterConfig approach is used when N is fixed at report design time.
+
+### Design rules
+
+- Use **horizontal bar chart** for N > 5 or when category labels are long (product names, store names)
+- Use **vertical column chart** for N = 3–5 with short labels
+- Always **sort descending** (largest first) — this is the natural reading order for rankings
+- Title pattern: **"Top [N] [Dimension] by [Measure]"** — e.g., "Top 10 Customers by Gross Profit"
+- Show **data labels** on bars; hide the value axis (redundant with labels)
+- Optionally add a **rank label** column (DAX: `RANKX`) as a second series or tooltip for readability
+- Pair with a KPI card above showing the **total** so viewers understand what percentage the top N represents
+
+---
+
+## Sync Slicers (reportExtensions)
+
+Sync slicers share filter state across multiple pages. Configuration lives in
+`reportExtensions.json` at the report definition root level.
+
+### reportExtensions.json Structure
+
+```json
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtensions/1.0.0/schema.json",
+    "extensions": [
+        {
+            "extension": {
+                "name": "SlicerSync",
+                "entities": [
+                    {
+                        "name": "date-range-sync",
+                        "extends": {
+                            "visual": {
+                                "objectType": "slicer"
+                            }
+                        },
+                        "properties": {
+                            "syncGroup": "DateRangeGroup",
+                            "syncedPages": [
+                                "ReportSection_overview",
+                                "ReportSection_detail",
+                                "ReportSection_analysis"
+                            ],
+                            "visibleOnPages": [
+                                "ReportSection_overview",
+                                "ReportSection_detail"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "category-sync",
+                        "extends": {
+                            "visual": {
+                                "objectType": "slicer"
+                            }
+                        },
+                        "properties": {
+                            "syncGroup": "CategoryGroup",
+                            "syncedPages": [
+                                "ReportSection_overview",
+                                "ReportSection_detail"
+                            ],
+                            "visibleOnPages": [
+                                "ReportSection_overview"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### Sync Slicer Rules
+
+| Property | Purpose |
+|---|---|
+| `syncGroup` | Group name — slicers in the same group share state |
+| `syncedPages` | Pages where the filter is applied (even if slicer is hidden) |
+| `visibleOnPages` | Pages where the slicer visual is shown |
+
+**Design rules:**
+- **Sync date slicers** across all pages — users expect date context to persist
+- **Sync primary category slicers** (Region, Product Category) across overview + detail pages
+- **Don't sync analysis-specific slicers** (e.g., "Top N" selector) — they're page-scoped
+- A slicer can be synced (filter applied) but hidden on a page — useful when the slicer appears on page 1 but the filter should also affect page 2
+
+---
+
+## Visual Interactions
+
+Control how visuals cross-filter each other. In PBIR format, interactions are
+configured in the page.json or individual visual.json files.
+
+### Interaction Types
+
+| Type | Value | Behavior |
+|---|---|---|
+| Filter | `filter` | Source visual filters the target (removes non-matching rows) |
+| Highlight | `highlight` | Source visual highlights matching data in target (dims others) |
+| None | `none` | No interaction — target visual is unaffected |
+
+### Visual Interaction JSON
+
+```jsonc
+// In visual.json — configure how this visual RECEIVES interactions
+{
+    "visual": {
+        "visualType": "barChart",
+        "interactivity": {
+            "isExcludedFromInteraction": false,
+            "interactions": [
+                {
+                    "source": "visual_slicer_region",
+                    "type": "filter"
+                },
+                {
+                    "source": "visual_pie_category",
+                    "type": "highlight"
+                },
+                {
+                    "source": "visual_card_total",
+                    "type": "none"
+                }
+            ]
+        }
+    }
+}
+```
+
+### Interaction Best Practices
+
+| Guideline | Reason |
+|---|---|
+| Use **filter** for slicers → charts | Slicers should definitively filter data |
+| Use **highlight** for chart → chart | Shows context without removing data |
+| Use **none** for KPI cards as targets | KPI cards shouldn't change on click |
+| Limit cross-filter chains | A→B→C→A loops cause confusion |
+
+---
+
+## Page-Level Filters (pageFilters)
+
+Apply page-wide filters that affect all visuals on a page. Configured in
+the page-level filter configuration:
+
+```json
+{
+    "pageFilters": {
+        "filters": [{
+            "name": "page-filter-active-only",
+            "field": {
+                "Column": {
+                    "Expression": { "SourceRef": { "Entity": "DimProduct" } },
+                    "Property": "IsActive"
+                }
+            },
+            "type": "Categorical",
+            "filter": {
+                "Version": 2,
+                "From": [{ "Name": "p", "Entity": "DimProduct", "Type": 0 }],
+                "Where": [{
+                    "Condition": {
+                        "In": {
+                            "Expressions": [{
+                                "Column": {
+                                    "Expression": { "SourceRef": { "Source": "p" } },
+                                    "Property": "IsActive"
+                                }
+                            }],
+                            "Values": [[{ "Literal": { "Value": "true" } }]]
+                        }
+                    }
+                }]
+            }
+        }]
+    }
+}
+```

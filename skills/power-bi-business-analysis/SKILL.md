@@ -27,7 +27,7 @@ domain-specific Power BI guidance and best practices before making recommendatio
 | Task | Approach |
 |---|---|
 | New project intake | Run full Context Assessment (WHO/WHAT/HOW) |
-| Domain-specific KPIs | Use Domain Templates below + Microsoft Learn research |
+| Domain-specific KPIs | Use Domain Templates below + detailed reference (references/domain-kpi-templates.md) |
 | Page/report structure | Propose pages using Information Architecture framework |
 | Data gap analysis | Compare required metrics vs. available data sources |
 | Stakeholder alignment | Generate Requirements Document for sign-off |
@@ -83,8 +83,12 @@ Based on the business domain, identify standard KPIs, common analyses, and typic
 
 ### Domain Templates
 
-Read `references-md/storytelling-with-data-essentials-en.md` for storytelling principles
-that apply across all domains.
+Storytelling principles (pre-attentive attributes, narrative structure, audience design)
+are in the `power-bi-report-design` skill at
+`../power-bi-report-design/references/visual-design-principles.md`.
+
+For detailed KPI definitions with DAX patterns, format strings, and target logic,
+see `references/domain-kpi-templates.md`.
 
 #### Sales & Revenue
 ```

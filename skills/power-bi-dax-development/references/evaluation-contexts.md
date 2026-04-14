@@ -199,6 +199,185 @@ the preserved column is always directly filtered.
 
 ---
 
+## Expanded Tables
+
+Every table in DAX has an **expanded version** that contains all columns of the
+base table plus all columns reachable by following many-to-one relationships.
+This is the theoretical foundation for understanding filter propagation.
+
+Based on "The Definitive Guide to DAX" Ch. 14 (Ferrari & Russo).
+
+### How Expansion Works
+
+Expansion follows **many-to-one relationships** outward from the base table:
+
+```
+Model: Sales →* Product →* Product Subcategory →* Product Category
+                Sales →* Date
+
+Expanded Sales   = Sales + Product + Product Subcategory + Product Category + Date
+Expanded Product = Product + Product Subcategory + Product Category
+Expanded Product Subcategory = Product Subcategory + Product Category
+Expanded Product Category    = Product Category (no outgoing many-to-one)
+Expanded Date                = Date (no outgoing many-to-one)
+```
+
+**Rules:**
+- Expansion goes toward the **one-side** of a relationship only
+- One-to-many (reversed direction) does NOT expand the table
+- **Bidirectional cross-filter** does NOT change expansion — it uses a different
+  mechanism (filter injection by the engine)
+- **Weak relationships (MMR)** where both sides are "many" do NOT expand in
+  either direction
+- **One-to-one relationships** expand in both directions (both sides are "one")
+
+### Why Expanded Tables Matter
+
+Filter context propagation works on expanded tables:
+
+> When a filter is applied to a column, it filters **every expanded table
+> that contains that column**.
+
+```dax
+-- When a slicer filters Product[Color] = "Red":
+-- → Product is filtered (native column)
+-- → Sales is filtered (its expanded version includes Product columns)
+-- → Product Subcategory is NOT filtered (its expansion does not include Product)
+-- → Date is NOT filtered
+```
+
+This explains:
+- Why filtering a dimension automatically filters its fact table
+- Why filtering a fact table does NOT filter dimensions (unless bidirectional)
+- Why ALL(Product) removes filters from Sales too (Sales' expanded table
+  includes Product columns)
+
+### Table Filters vs. Column Filters in CALCULATE
+
+A table filter in CALCULATE filters all columns of the **expanded** table — not
+just the columns explicitly in the table:
+
+```dax
+-- Table filter: filters ALL columns of expanded Product (includes Subcategory, Category)
+CALCULATE([Sales Amount], FILTER(ALL(Product), Product[Color] = "Red"))
+-- This is equivalent to filtering on ALL columns, then keeping Red rows.
+-- The SE must group by ALL Product columns → large datacache → slow!
+
+-- Column filter: filters ONLY the specified column
+CALCULATE([Sales Amount], Product[Color] = "Red")
+-- The SE applies a simple predicate → fast!
+
+-- This is why "never use table filters in CALCULATE" is a golden rule.
+-- A table filter over a fact table (Sales) includes ALL columns of Sales'
+-- expanded table = the entire model → catastrophic performance.
+```
+
+### Expansion and RELATED / RELATEDTABLE
+
+- **RELATED** navigates from many-side to one-side (follows expansion direction).
+  Works because the expanded table already "contains" the related column.
+- **RELATEDTABLE** navigates from one-side to many-side (reverse expansion).
+  Returns the rows of the related table that match the current row context.
+
+---
+
+## ALLSELECTED and Shadow Filter Contexts
+
+ALLSELECTED is one of the most misunderstood DAX functions because it relies
+on an invisible concept: the **shadow filter context**.
+
+Based on "The Definitive Guide to DAX" Ch. 14 (Ferrari & Russo).
+
+### What ALLSELECTED Actually Does
+
+ALLSELECTED does **not** mean "remove filters from the current visual and keep
+slicer selections." That is an oversimplification.
+
+Precisely: ALLSELECTED **restores the filter context that was active just before
+the outermost SUMMARIZECOLUMNS / iterator that introduced the current
+grouping**.
+
+This "just before" context is called the **shadow filter context**.
+
+### Shadow Filter Context
+
+When Power BI generates a query for a visual, the structure is typically:
+
+```dax
+-- What Power BI generates:
+EVALUATE
+SUMMARIZECOLUMNS(
+    Product[Category],          -- Group by (creates row contexts → filter contexts)
+    TREATAS({2023}, Date[Year]), -- Slicer filter
+    "Sales", [Sales Amount]
+)
+```
+
+The shadow filter context = the context **before** SUMMARIZECOLUMNS starts
+iterating. It contains the slicer filters (Year = 2023) but NOT the per-row
+Category grouping.
+
+When a measure uses ALLSELECTED:
+
+```dax
+% of Visible Total =
+DIVIDE(
+    [Sales Amount],
+    CALCULATE([Sales Amount], ALLSELECTED(Product[Category]))
+)
+```
+
+ALLSELECTED(Product[Category]) removes the Category filter added by the
+visual's grouping, **restoring** the shadow filter context (Year = 2023 only).
+The denominator becomes the total across all visible categories.
+
+### ALLSELECTED Without Parameters
+
+`ALLSELECTED()` with no parameters restores the **entire** shadow filter
+context — removing all filters introduced by the visual's grouping columns.
+
+```dax
+% of Grand Visible Total =
+DIVIDE(
+    [Sales Amount],
+    CALCULATE([Sales Amount], ALLSELECTED())
+)
+-- Denominator = total across all visual grouping columns, but slicer filters remain
+```
+
+### Common ALLSELECTED Pitfalls
+
+**Pitfall 1: Nested CALCULATE changes the shadow**
+
+```dax
+-- UNRELIABLE: inner CALCULATE creates a new shadow context
+Bad % =
+CALCULATE(
+    DIVIDE(
+        [Sales Amount],
+        CALCULATE([Sales Amount], ALLSELECTED(Product[Category]))
+    ),
+    Product[Color] = "Red"
+)
+-- The outer CALCULATE modified the filter context.
+-- ALLSELECTED now restores a shadow that includes Color = "Red",
+-- which may not be the intended behavior.
+```
+
+**Pitfall 2: ALLSELECTED with columns not in the visual**
+
+```dax
+-- If Product[Brand] is NOT on the visual axes:
+CALCULATE([Sales Amount], ALLSELECTED(Product[Brand]))
+-- The shadow filter context has no Brand filter to restore → acts like ALL(Product[Brand])
+-- This is often the correct behavior, but can surprise when Brand IS on rows
+```
+
+**Rule:** Use ALLSELECTED only for "percentage of visual total" patterns.
+For explicit denominator control, prefer `ALL + VALUES` combinations.
+
+---
+
 ## Table Functions: Context Behavior
 
 | Function | Creates Row Context? | Modifies Filter Context? |

@@ -1,13 +1,13 @@
 ---
 name: power-bi-pbip-report
 description: >-
-  Create Power BI reports in PBIP/PBIR format by generating the complete .Report/ folder structure
-  with all required JSON files (report.json, page.json, visual.json, pages.json, etc.).
-  Use this skill whenever the user asks to create, scaffold, or generate a Power BI report,
-  PBIP project report, PBIR report pages, report visuals, or asks to build a Power BI dashboard
-  from scratch using file-based format. Also use when the user wants to add pages or visuals
-  to an existing PBIP report, copy report structures, or convert report requirements into
-  PBIR folder output. This skill covers the report layer only (not the semantic model).
+  Generate Power BI reports in PBIP/PBIR format by producing the complete .Report/ folder
+  structure with all required JSON files (report.json, page.json, visual.json, pages.json, etc.).
+  Use this skill whenever a Design Spec is ready and the user asks to generate, scaffold, or
+  build the actual PBIR JSON files for a Power BI report. Also use when adding pages or visuals
+  to an existing PBIP report, or converting a design into PBIR folder output.
+  This skill handles JSON generation and validation only — not design decisions.
+  For report design (chart selection, layout, theme, storytelling), use `power-bi-report-design` first.
 ---
 
 # Power BI PBIP Report Generation
@@ -16,24 +16,21 @@ Generate Power BI reports in **PBIR (Power BI Enhanced Report)** format — the 
 report definition used in PBIP projects. This skill produces the complete `.Report/` folder
 with all JSON files that Power BI Desktop and the Power BI service can open directly.
 
+**Input:** A Design Spec from the `power-bi-report-design` skill (or equivalent user instructions)
+specifying pages, visuals, layout positions, theme, and navigation.
+
 Canvas size: **1664 × 936** (standard Power BI canvas). Tooltip pages: **320 × 240**.
 
 ## Reference Files
-
-Detailed content is organized into reference files. Read them as needed:
 
 | Reference | When to Read |
 |---|---|
 | `references/folder-structure.md` | Understanding the full PBIR folder layout |
 | `references/visual-templates.md` | Generating `visual.json` — complete JSON templates per visual type, field expression patterns |
-| `references/chart-selection-guide.md` | Deciding WHICH chart type to use (decision matrix, hard rules) |
 | `references/custom-visuals.md` | Custom visual identifiers, JSON templates, and query roles |
-| `references/visual-design-principles.md` | Applying design theory: pre-attentive attributes, Gestalt, color, typography, narrative structure |
-| `references/formatting-patterns.md` | Advanced formatting: rounded corners, shadows, conditional colors, axis/legend/filter/sort patterns |
-| `references/common-patterns.md` | Reusable components: KPI rows, slicer panels, background shapes, page navigator, visual interactions |
-| `references/page-layout-templates.md` | Starting layouts: Overview, Detail, Drillthrough, Tooltip, Grid, Sidebar, Scorecard, Tab-Nav |
-| `references/navigation-patterns.md` | Navigation buttons, bookmark tabs, back button, reset filters |
-| `references/domain-report-structures.md` | Industry page sets: Sales, Manufacturing, Financial, Supply Chain, Retail |
+| `references/formatting-patterns.md` | Advanced formatting: rounded corners, shadows, conditional colors, axis/legend/filter/sort patterns, TOP N filter, drillthrough config, conditional formatting rules (color scales, gradient fills) |
+| `references/common-patterns.md` | Reusable components: KPI rows, slicer panels, background shapes, page navigator, visual interactions, TOP N chart, sync slicers (reportExtensions), page-level filters |
+| `references/bookmark-patterns.md` | Bookmark JSON: toggle visibility, slicer state capture, reset filters, bookmark groups, button→bookmark binding |
 | `references/mobile-layout.md` | Mobile phone layout rules and `mobile.json` template |
 | `references/required-properties.md` | Required/optional properties per file, theme selection, conditional formatting, format strings |
 | `references/report-template.json` | JSON template for `report.json` |
@@ -41,6 +38,9 @@ Detailed content is organized into reference files. Read them as needed:
 | `references/pages-metadata-template.json` | JSON template for `pages.json` |
 | `references/version-template.json` | JSON template for `version.json` |
 | `references/definition-pbir-template.json` | JSON template for `definition.pbir` |
+| `references/themes/*.json` | Ready-to-use custom theme files (8 industries) — copy to `StaticResources/RegisteredResources/` |
+| `scripts/validate_report.js` | **Run after generation** — validates against official Microsoft JSON schemas (preferred) |
+| `scripts/validate_report.py` | **Fallback** — validates JSON syntax, required properties, cross-references, naming |
 
 ## Quick Reference: Folder Structure
 
@@ -105,23 +105,7 @@ reset-all-filters           # reset-{scope} for reset bookmarks
 
 ## Workflow
 
-### Step 1: Plan the Report Structure
-
-Planning before generating prevents expensive rework. Every visual should earn its place
-by answering a specific question for the audience.
-
-1. Clarify the **semantic model** (tables, columns, measures) the report connects to
-2. Determine **pages** needed (overview, detail, drillthrough, tooltip)
-3. For each page, list the **visuals** and their data bindings
-4. Decide on **theme** (custom or base) and **navigation** approach
-5. Apply data storytelling principles — read `references/visual-design-principles.md`
-   for pre-design questions (WHO/WHAT/Big Idea), audience design, and narrative structure
-6. Select chart types — read `references/chart-selection-guide.md` for the decision matrix.
-   Start from the data relationship (trend? comparison? distribution?), not from a chart name.
-7. Choose a page layout — read `references/page-layout-templates.md` for starting templates
-8. For industry-specific reports — read `references/domain-report-structures.md`
-
-### Step 2: Generate Report-Level Files
+### Step 1: Generate Report-Level Files
 
 These files define the report container. Create them first because page and visual files
 reference the theme and settings established here.
@@ -135,7 +119,7 @@ Use JSON templates from `references/report-template.json`, `references/pages-met
 `references/version-template.json`, `references/definition-pbir-template.json`.
 See `references/required-properties.md` for property details and theme selection guidance.
 
-### Step 3: Generate Pages and Visuals
+### Step 2: Generate Pages and Visuals
 
 For each page:
 1. Create `page.json` from `references/page-template.json`
@@ -145,15 +129,46 @@ For each page:
    `references/formatting-patterns.md` for advanced patterns
 4. Set up visual interactions in `page.json` — see `references/common-patterns.md`
 
-### Step 4: Generate Supporting Files
+### Step 3: Generate Supporting Files
 
 As needed:
 - **Bookmarks**: Create `bookmarks/bookmarks.json` + individual `.bookmark.json` files
-  — see `references/navigation-patterns.md`
+  — see `references/bookmark-patterns.md` and `../power-bi-report-design/references/navigation-patterns.md`
 - **Mobile**: Add `mobile.json` alongside `visual.json` — see `references/mobile-layout.md`
 - **Custom themes**: Place theme JSON in `StaticResources/RegisteredResources/`
 - **Images**: Place logos, icons in `StaticResources/RegisteredResources/`
 - **Report extensions**: `reportExtensions.json` for report-level measures
+
+### Step 4: Validate Before Completion
+
+Power BI Desktop rejects files with JSON syntax errors silently or with cryptic messages.
+**Always validate before telling the user the report is ready.**
+
+**Preferred** (schema-driven, validates against official Microsoft JSON schemas):
+```
+node skills/power-bi-pbip-report/scripts/validate_report.js <path-to-.Report-folder>
+```
+
+**Fallback** (no Node.js):
+```
+python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder>
+```
+
+Both check:
+1. **JSON syntax** — every `.json` and `.pbir` file parses cleanly
+2. **Schema validation** — structure matches Microsoft's published JSON schemas (Node.js only)
+3. **Required properties** — `$schema`, `name`, `position`, `themeCollection`, etc.
+4. **Cross-references** — page folders match `pages.json`, custom visuals registered in `report.json`
+5. **Naming conventions** — kebab-case for page and visual folders
+
+Fix all **errors** before delivering. **Warnings** are advisory (naming, unused registrations).  
+
+If neither script is available, manually verify:
+- Every JSON file parses (`json.loads()` succeeds)
+- Every `visual.json` has `name`, `position` (with `x`, `y`, `height`, `width`), and either `visual` or `visualGroup`
+- `pages.json` → `pageOrder` entries match actual page folder names
+- `page.json` → `name` matches its parent folder name
+- Custom visual types used in visuals are registered in `report.json` → `publicCustomVisuals`
 
 ---
 
@@ -357,4 +372,5 @@ and use `isHidden` to toggle all members. Organize via Selection pane.
 Stored in `definition/bookmarks/` — `bookmarks.json` (metadata) + `<name>.bookmark.json` (state).
 Captures: page, filters, slicers, visibility, sort, drill state. Scopes: **Data**, **Display**,
 **Current page**, **All vs Selected visuals**. Use for tab navigation, toggle views, reset filters.
-See `references/navigation-patterns.md` for bookmark navigation JSON patterns.
+See `references/bookmark-patterns.md` for complete bookmark JSON patterns
+and `../power-bi-report-design/references/navigation-patterns.md` for navigation design patterns.

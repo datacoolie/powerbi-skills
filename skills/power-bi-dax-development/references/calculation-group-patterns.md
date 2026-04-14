@@ -331,3 +331,79 @@ Items:
 
 5. **Format string expressions are per-item** — Set them on every item that
    changes the output format (e.g., YoY % needs "0.0%;-0.0%;0.0%").
+
+---
+
+## Advanced Properties (TMDL)
+
+### isAvailableInMDX
+
+Controls whether the calculation group column appears in Excel PivotTable
+field lists and XMLA/MDX queries.
+
+```tmdl
+table 'Time Intelligence'
+    calculationGroup
+
+    column 'Time Calculation'
+        dataType: string
+        isKey
+        sourceColumn: Name
+        isAvailableInMDX: false    /// ← hides from Excel PivotTables
+```
+
+**When to use:**
+- Set to `false` for calculation groups designed only for Power BI reports
+  (prevents Excel PivotTable users from seeing confusing calculation items)
+- Keep `true` (default) for enterprise models consumed by both Power BI
+  and Excel/SSAS PivotTable users
+
+### hideMembers
+
+Controls whether the "Default" (blank) member appears for the calculation
+group when no item is selected. Prevents the blank row in PivotTables.
+
+```tmdl
+table 'Time Intelligence'
+    calculationGroup
+        hideMembers: autoOrDefault    /// ← hides blank member
+```
+
+Values: `default` (show blank member), `autoOrDefault` (hide blank member
+when no explicit selection), `always` (always hide all members from
+PivotTable — effectively makes the group invisible to MDX clients).
+
+### Dynamic Format String Expression
+
+For items where the format should depend on the measure being modified,
+use a DAX expression (not a static format string):
+
+```tmdl
+    calculationItem 'YoY Change' =
+        ```
+        VAR _current = SELECTEDMEASURE()
+        VAR _prior = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR('Date'[Date]))
+        RETURN _current - _prior
+        ```
+        ordinal: 1
+        formatStringDefinition =
+            ```
+            SELECTEDMEASUREFORMATSTRING()
+            ```
+        /// ← inherits format from the base measure ($ for revenue, # for units)
+
+    calculationItem 'YoY %' =
+        ```
+        VAR _current = SELECTEDMEASURE()
+        VAR _prior = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR('Date'[Date]))
+        RETURN DIVIDE(_current - _prior, _prior)
+        ```
+        ordinal: 2
+        formatStringDefinition = "0.0%;-0.0%;0.0%"
+        /// ← forces percentage format regardless of base measure
+```
+
+**Rules for format string expressions:**
+- `SELECTEDMEASUREFORMATSTRING()` — inherits the base measure's format (use for absolute values like YoY Change)
+- Static string (e.g., `"0.0%"`) — forces a specific format (use for ratios/percentages)
+- DAX `IF`/`SWITCH` expression — conditionally pick format based on `SELECTEDMEASURENAME()`

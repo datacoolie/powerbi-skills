@@ -1,0 +1,67 @@
+{
+  "name": "Sustainability ESG Theme",
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.121.json",
+  "dataColors": [
+    "#2D6A4F", "#52B788", "#40916C", "#95D5B2",
+    "#1B4332", "#D4A846", "#E76F51", "#8D99AE",
+    "#1A5235", "#3E9B6E", "#307856", "#7AC49A",
+    "#122F23", "#B08C38", "#C45B3F", "#717D8E"
+  ],
+  "good": "#38B64B",
+  "bad": "#EE1C25",
+  "neutral": "#949599",
+  "maximum": "#2D6A4F",
+  "minimum": "#D8F3DC",
+  "center": "#95D5B2",
+  "foreground": "#1B4332",
+  "background": "#F0F7F1",
+  "secondaryBackground": "#DAE8DC",
+  "backgroundLight": "#F7FBF7",
+  "foregroundNeutralSecondary": "#4A6E5A",
+  "foregroundNeutralTertiary": "#8DA89B",
+  "tableAccent": "#2D6A4F",
+  "firstLevelElements": "#1B4332",
+  "secondLevelElements": "#4A6E5A",
+  "thirdLevelElements": "#8DA89B",
+  "fourthLevelElements": "#C5D8CC",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI", "color": "#2D6A4F" },
+    "header":  { "fontFace": "Segoe UI", "color": "#1B4332" },
+    "title":   { "fontFace": "Segoe UI", "color": "#1B4332", "fontSize": 10 },
+    "largeTitle": { "fontFace": "Segoe UI", "color": "#2D6A4F", "fontSize": 14 },
+    "label":   { "fontFace": "Segoe UI", "color": "#4A6E5A", "fontSize": 9 }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "color": { "solid": { "color": "#C5D8CC" } }, "radius": 8, "show": true, "transparency": 0 }],
+        "dropShadow": [{ "show": true, "color": { "solid": { "color": "#000000" } }, "shadowSpread": 0, "shadowBlur": 6, "angle": 90, "shadowDistance": 3, "transparency": 85, "position": "Outer", "preset": "Custom" }],
+        "padding": [{ "top": 8 }, { "bottom": 8 }, { "left": 10 }, { "right": 10 }],
+        "categoryAxis": [{ "showAxisTitle": false }],
+        "valueAxis": [{ "showAxisTitle": false, "gridlineShow": true, "gridlineStyle": "dotted", "gridlineThickness": 1 }],
+        "legend": [{ "position": "TopCenter", "showTitle": false }],
+        "subTitle": [{ "show": true }],
+        "totals": [{ "show": true, "bold": true }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F0F7F1" } }, "transparency": 0 }]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [{ "backColor": { "solid": { "color": "#2D6A4F" } }, "fontColor": { "solid": { "color": "#FFFFFF" } } }],
+        "grid": [{ "gridHorizontal": true, "rowPadding": 3.5 }],
+        "values": [{ "backColorPrimary": { "solid": { "color": "#F0F7F1" } }, "backColorSecondary": { "solid": { "color": "#FFFFFF" } } }]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "grid": [{ "rowPadding": 5 }],
+        "stylePreset": [{ "name": "Minimal" }]
+      }
+    }
+  }
+}

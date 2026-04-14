@@ -11,6 +11,64 @@ Replace placeholder values:
 
 All templates use schema version `visualContainer/2.7.0`.
 
+## Table of Contents
+
+**Structure & Patterns:**
+- [visual.json Top-Level Structure](#visual.json-top-level-structure-schema-validated)
+- [Field Expression Patterns](#field-expression-patterns)
+- [Accessibility Properties](#accessibility-properties)
+
+**Data Visuals:**
+- [Card](#card) · [Card (New Visual)](#card-new-visual) · [Multi Row Card](#multi-row-card) · [KPI Visual](#kpi-visual)
+- [Clustered Bar Chart](#clustered-bar-chart-horizontal) · [Clustered Column Chart](#clustered-column-chart-vertical) · [Stacked Column Chart](#stacked-column-chart) · [Stacked Bar Chart](#stacked-bar-chart-horizontal)
+- [Line Chart](#line-chart) · [Area Chart](#area-chart) · [Stacked Area Chart](#stacked-area-chart)
+- [Line & Clustered Column Combo](#line--clustered-column-combo-chart) · [Line & Stacked Column Combo](#line--stacked-column-combo-chart)
+- [Donut Chart](#donut-chart) · [Pie Chart](#pie-chart) · [Treemap](#treemap) · [Funnel Chart](#funnel-chart)
+- [Waterfall Chart](#waterfall-chart) · [Ribbon Chart](#ribbon-chart) · [Scatter Chart](#scatter-chart) · [Gauge](#gauge)
+- [Table (tableEx)](#table-tableex) · [Matrix (pivotTable)](#matrix-pivottable)
+- [Slicer](#slicer) · [Map (Bubble)](#map-bubble-map) · [Filled Map (Choropleth)](#filled-map-choropleth)
+
+**AI Visuals:**
+- [Decomposition Tree](#decomposition-tree) · [Key Influencers](#key-influencers)
+
+**Layout & Decorative:**
+- [Shape](#shape-decorative) · [Basic Shape](#basic-shape) · [Textbox](#textbox) · [Image](#image)
+- [Action Button](#action-button) · [Page Navigator](#page-navigator)
+
+---
+
+## visual.json Top-Level Structure (Schema-Validated)
+
+```
+visual.json
+├── $schema          ← required
+├── name             ← required
+├── position         ← required (x, y, z, height, width, tabOrder)
+├── visual/          ← required
+│   ├── visualType
+│   ├── query/
+│   │   ├── queryState/   ← data bindings (Category, Y, Values, etc.)
+│   │   └── sortDefinition/  ← ✅ CORRECT location for sort
+│   ├── objects/          ← visual formatting
+│   ├── visualContainerObjects/  ← container formatting (border, shadow, etc.)
+│   └── drillFilterOtherVisuals
+├── filterConfig/    ← ✅ CORRECT location (top-level, NOT inside visual)
+│   └── filters[]
+├── isHidden
+└── annotations[]
+```
+
+**Critical placement rules:**
+
+| Property | Correct path | ❌ WRONG — do not put here |
+|---|---|---|
+| `sortDefinition` | `visual.query.sortDefinition` | `visual.sortDefinition` |
+| `filterConfig` | top-level (sibling of `visual`) | `visual.filterConfig` |
+| `filters` | `filterConfig.filters` | `visual.query.filters` |
+| `queryRef` | `query.queryState.<role>.projections[].queryRef` | `sortDefinition.sort[].queryRef` |
+
+`rowLimit` is **not a valid property** anywhere in `visual.json` — do not generate it.
+
 ---
 
 ## Field Expression Patterns
@@ -66,6 +124,55 @@ Every data-bound visual needs field references in its `query.queryState`. Three 
 ```
 
 Aggregation `Function` values: `0` = Sum, `1` = Avg, `2` = Count, `3` = Min, `4` = Max, `5` = CountNonNull, `6` = Median, `7` = StdDev, `8` = Var.
+
+---
+
+## Accessibility Properties
+
+Every non-decorative visual should include `altText` for screen readers and
+a meaningful `tabOrder` for keyboard navigation. These are top-level
+properties in `visual.json` (siblings of `visual`, `position`, `name`).
+
+### Alt Text
+
+```json
+{
+  "$schema": "...",
+  "name": "bar-revenue-by-region",
+  "position": { "..." : "..." },
+  "visual": { "..." : "..." },
+  "altText": "Bar chart showing revenue by region. North leads with $2.4M, followed by South at $1.8M."
+}
+```
+
+**Alt text rules:**
+- Describe the **visual type** and **what it shows** (chart type + key insight)
+- Include the **most important data point** when possible
+- For KPI cards: `"Total Revenue: $4.2M, up 12% from prior year"`
+- For decorative shapes/backgrounds: use `""` (empty string) to mark as decorative
+- Keep under 250 characters — screen readers truncate long descriptions
+- For dynamic data, consider using a DAX measure as alt text source
+
+### Tab Order
+
+```json
+"position": {
+    "x": 10,
+    "y": 100,
+    "z": 8000,
+    "height": 300,
+    "width": 500,
+    "tabOrder": 1000
+}
+```
+
+**Tab order rules:**
+- Assign `tabOrder` in reading order: top-left → right → down (Z-pattern)
+- Use increments of 1000 (e.g., 1000, 2000, 3000) to allow insertions
+- KPI cards first (1000–4000), then main chart (5000), then supporting (6000+)
+- Navigation buttons: highest tab order (9000+)
+- Decorative shapes: `tabOrder: -1` (skip in tab navigation)
+- `tabOrder: 0` means "auto" — avoid for important visuals; assign explicit values
 
 ---
 
@@ -2224,7 +2331,7 @@ Horizontal stacked bars for part-to-whole by category. Query roles: `Category`, 
 ```json
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "stackedBarChart-VISUAL_NAME",
+  "name": "barChart-VISUAL_NAME",
   "position": {
     "x": 0,
     "y": 0,
@@ -2234,7 +2341,7 @@ Horizontal stacked bars for part-to-whole by category. Query roles: `Category`, 
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "stackedBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -2693,3 +2800,257 @@ Use `shapeType` to select shape: `"'rectangle'"`, `"'oval'"`, `"'triangle'"`, `"
   }
 }
 ```
+
+---
+
+## KPI Visual
+
+`visualType: "kpi"`
+
+Single-metric KPI with trend indicator and target comparison.
+Best on executive dashboards where a number + directional trend is needed.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": {
+    "x": 0, "y": 0, "z": 0,
+    "height": 180, "width": 300,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "kpi",
+    "query": {
+      "queryState": {
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "ActualMeasure" }
+              },
+              "queryRef": "TableName.ActualMeasure",
+              "active": true
+            }
+          ]
+        },
+        "TrendLine": {
+          "projections": [
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Date" } }, "Property": "Date" }
+              },
+              "queryRef": "Date.Date",
+              "active": true
+            }
+          ]
+        },
+        "Goal": {
+          "projections": [
+            {
+              "field": {
+                "Measure": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "TargetMeasure" }
+              },
+              "queryRef": "TableName.TargetMeasure",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "indicator": [
+        {
+          "properties": {
+            "indicatorDisplayUnits": { "expr": { "Literal": { "Value": "0D" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "27D" } } }
+          }
+        }
+      ],
+      "trendline": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ],
+      "goal": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "12D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**Query roles:** `Indicator` (main measure), `TrendLine` (date axis for sparkline), `Goal` (target measure).
+
+---
+
+## Decomposition Tree
+
+`visualType: "decompositionTreeVisual"`
+
+AI-powered visual that breaks down a measure across multiple dimensions.
+Users expand branches interactively. Provide 3-6 ExplainBy dimensions.
+Size large (min 500×800) due to branching layout.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": {
+    "x": 0, "y": 0, "z": 0,
+    "height": 500, "width": 800,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "decompositionTreeVisual",
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Measure": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "MeasureName" }
+              },
+              "queryRef": "TableName.MeasureName",
+              "active": true
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Product" } }, "Property": "Category" }
+              },
+              "queryRef": "Product.Category",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Geography" } }, "Property": "Region" }
+              },
+              "queryRef": "Geography.Region",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Date" } }, "Property": "Year" }
+              },
+              "queryRef": "Date.Year",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "tree": [
+        {
+          "properties": {
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ],
+      "dataBar": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#0078D4'" } } }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**Query roles:** `Analyze` (measure to decompose), `ExplainBy` (dimensions to expand into — order = priority).
+
+---
+
+## Key Influencers
+
+`visualType: "keyInfluencersVisual"`
+
+AI visual analyzing which factors most influence a metric. Has two tabs:
+Key Influencers and Top Segments. Provide 4-8 ExplainBy fields.
+Size large (min 500×800).
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": {
+    "x": 0, "y": 0, "z": 0,
+    "height": 500, "width": 800,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "keyInfluencersVisual",
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Measure": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "MetricToAnalyze" }
+              },
+              "queryRef": "TableName.MetricToAnalyze",
+              "active": true
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Customer" } }, "Property": "Segment" }
+              },
+              "queryRef": "Customer.Segment",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Product" } }, "Property": "Category" }
+              },
+              "queryRef": "Product.Category",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": { "Expression": { "SourceRef": { "Entity": "Geography" } }, "Property": "Region" }
+              },
+              "queryRef": "Geography.Region",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "influencers": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**Query roles:** `Analyze` (metric/column to explain), `ExplainBy` (candidate influencer columns).

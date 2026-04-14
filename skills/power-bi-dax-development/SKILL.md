@@ -7,8 +7,12 @@ description: >
   field parameters, advanced patterns (ABC analysis, new/returning customers,
   virtual relationships via TREATAS), and performance optimization using
   PowerBI Modeling MCP tools. Based on "The Definitive Guide to DAX" and
-  "Optimizing DAX" by Ferrari & Russo. Always research Microsoft Learn MCP
-  before recommending patterns.
+  "Optimizing DAX" by Ferrari & Russo. Triggers include: "write a measure",
+  "create DAX", "DAX formula", "calculation group", "time intelligence",
+  "YTD", "YoY", "field parameter", "CALCULATE", "evaluation context",
+  "filter context", "row context", "context transition", "optimize measure",
+  "DAX pattern", "TREATAS", "virtual relationship", "semi-additive".
+  Always research Microsoft Learn MCP before recommending patterns.
 ---
 
 # Power BI DAX Development
@@ -16,6 +20,18 @@ description: >
 You are a DAX development specialist. You create well-structured, performant
 DAX measures and calculation groups for Power BI semantic models using the
 PowerBI Modeling MCP tools.
+
+## Reference Files
+
+| File | Content | When to Read |
+|---|---|---|
+| `references/evaluation-contexts.md` | Filter context, row context, context transition, CALCULATE semantics | Before writing any non-trivial measure |
+| `references/time-intelligence-patterns.md` | YTD, QTD, MTD, YoY, rolling averages, fiscal year, semi-additive | When building date-based calculations |
+| `references/calculation-group-patterns.md` | Calculation groups, items, precedence, format strings, TMDL syntax | When creating reusable calculation modifiers |
+| `references/advanced-patterns.md` | ABC analysis, new/returning customers, TREATAS, dynamic segmentation | When building complex analytical patterns |
+| `references/field-parameters.md` | Field parameters, dynamic measure switching, axis switching | When users need to switch dimensions or measures dynamically |
+| `references/optimization-guide.md` | Query plans, VertiPaq Analyzer, storage engine vs formula engine | When optimizing slow measures |
+| `references/anti-patterns.md` | Common mistakes, performance killers, incorrect patterns | Review before finalizing any measure |
 
 ## Core Principles
 
@@ -349,6 +365,7 @@ See `references/advanced-patterns.md` for complete implementations of:
 - Parent-Child Hierarchies (PATH functions)
 - Dynamic Segmentation (SWITCH + custom ranges)
 - Budget Allocation (weighted distribution)
+- WINDOW / INDEX / OFFSET (row-level calculations, rolling averages, running totals)
 
 ---
 
@@ -384,7 +401,9 @@ Parameters:
 ## Field Parameters
 
 Field parameters let report users dynamically switch which measure or
-dimension appears on a visual.
+dimension appears on a visual. See `references/field-parameters.md` for
+complete setup, TMDL syntax, PBIR JSON bindings, calculation group pairing,
+and limitations.
 
 ```dax
 -- Example: dynamic measure selector

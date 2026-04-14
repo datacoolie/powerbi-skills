@@ -13,18 +13,26 @@ The JSON template files show the complete structure — this file documents ever
 
 ### Theme Selection
 
-Choose a **custom theme that matches the report's topic, industry, or brand identity**.
+**Always apply a custom theme** that matches the report's topic, industry, or brand identity.
+Ready-to-use theme JSON files are in `references/themes/`. Copy the appropriate file into
+`StaticResources/RegisteredResources/` and reference it in `report.json`.
 
-| Report Topic | Theme Palette Direction |
-|---|---|
-| Financial / P&L | Dark navy, gold accents, conservative neutrals |
-| Sales / Revenue | Vibrant blues, greens for growth, reds for decline |
-| Manufacturing / Operations | Industrial grays, safety orange/yellow accents |
-| Healthcare | Clean whites, calming blues and teals |
-| Sustainability / ESG | Earth tones, greens, natural palette |
-| Retail / Consumer | Brand-aligned colors, warm and inviting |
+| Report Topic | Theme File | Primary Palette |
+|---|---|---|
+| Financial / P&L / Corporate | `corporate-financial.json` | Navy #003052, Gold #D4A846, Steel #6B7A8D |
+| Sales / Revenue / CRM | `sales-revenue.json` | Azure #0078D4, Teal #00B7C3, Coral #E74856 |
+| Manufacturing / Operations | `manufacturing-operations.json` | Industrial #2B5797, Safety #E8980C, Gray #7A7574 |
+| Healthcare / Pharma | `healthcare-pharma.json` | Medical #0077B6, Cyan #48CAE4, Teal #00B4D8 |
+| Supply Chain / Logistics | `supply-chain-logistics.json` | Navy #012A4A, Blue #2A6F97, Sky #468FAF |
+| Retail / Consumer / FMCG | `retail-consumer.json` | Green #3CB043, Sage #98BF64, Accent #3599B8 |
+| Sustainability / ESG | `sustainability-esg.json` | Forest #2D6A4F, Mint #52B788, Earth #D4A846 |
+| Technology / IT Monitoring | `technology-it.json` | Fluent #0078D4, Cyan #50E6FF, Purple #9B59B6 |
 
-To apply a custom theme, place a theme JSON file in `StaticResources/RegisteredResources/`
+> **Semantic colors** — all themes set: `good: #38B64B` (green), `bad: #EE1C25` (red), `neutral: #949599` (gray).
+> Use these for status indicators (succeeded/failed/skipped, above/below target, on-track/at-risk/off-track).
+> See `../../power-bi-report-design/references/theme-colors.md` for full semantic color tables, conditional formatting patterns, and colorblind-safe alternatives.
+
+To apply a custom theme, place the theme JSON file in `StaticResources/RegisteredResources/`
 and reference it in `report.json` → `themeCollection.customTheme`:
 
 ```json

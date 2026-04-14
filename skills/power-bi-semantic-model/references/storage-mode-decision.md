@@ -51,23 +51,40 @@ START: What kind of table is this?
 | **Works offline** | Yes | No | No | Partially |
 | **Incremental refresh** | Yes | N/A | Automatic | Yes (Import parts) |
 
-## DirectLake Mode (Fabric)
+## Direct Lake Mode (Fabric)
 
-DirectLake is the recommended mode for Fabric environments:
+Direct Lake is the recommended mode for Fabric environments. It reads Delta
+Parquet files directly from OneLake into the VertiPaq engine — combining
+Import-level query speed with near-real-time data freshness.
 
 ```
 Requirements:
 - Data must be in Delta format in a Fabric Lakehouse or Warehouse
-- Semantic model must be in a Fabric workspace
+- Semantic model must be in a Fabric workspace (not My Workspace)
+- Requires Fabric capacity (F SKU) or Premium (P SKU)
 - Tables are read directly from Delta Parquet files (no import/copy)
-- Falls back to DirectQuery if data exceeds memory limits
+- V-Order optimization recommended for best transcoding performance
+
+Two variants:
+- Direct Lake on OneLake: no fallback (errors on guardrail breach)
+- Direct Lake on SQL: falls back to DirectQuery when needed
+
+Key limitations (pre-compute these in Lakehouse ETL):
+✗ No calculated columns on Direct Lake tables
+✗ No user-defined aggregation tables
+✗ No hybrid tables or model-level partitions
 
 Benefits:
-✅ Fast query performance (reads columnar Parquet directly)
-✅ No scheduled refresh needed (auto-detects Delta changes)
-✅ No data duplication (single copy in lakehouse)
-✅ Supports large datasets without Import size limits
+✅ VertiPaq engine (same as Import) — comparable query speed
+✅ Framing refresh in seconds (metadata only, no data copy)
+✅ Automatic updates detect Delta changes (near-real-time)
+✅ No data duplication (single copy in OneLake)
+✅ Supports very large datasets via per-query column loading
 ```
+
+**For comprehensive Direct Lake guidance** — framing lifecycle, SKU guardrails,
+fallback behavior, composite patterns, V-Order tuning, monitoring —
+read `directlake-guide.md`.
 
 ## Composite Model Patterns
 
@@ -93,12 +110,32 @@ Dimensions: Dual mode
 Power BI auto-selects aggregation when query matches grain
 ```
 
+### Pattern 4: Direct Lake + Import (Fabric)
+```
+Fact tables: Direct Lake on OneLake (large, auto-refreshed from Lakehouse)
+Small reference tables: Import (external sources, Power Query transforms)
+Calculated tables: Import (DL tables don't support calculated columns)
+Dimensions shared by both: Dual mode
+```
+
+### Pattern 5: Chained Composite on Direct Lake
+```
+Published Direct Lake model: DirectQuery (chained live connection)
+Analyst's local tables: Import (additional data sources)
+Bridge tables: Dual mode
+Use when IT publishes DL model and analysts need to extend it
+```
+
 ## Anti-Patterns
 
 | Anti-Pattern | Problem | Fix |
 |---|---|---|
 | DirectQuery for small tables | Unnecessary source queries | Switch to Import |
-| Import for 10GB+ on shared capacity | Exceeds capacity limits | Use DirectLake or DQ |
+| Import for 10GB+ on shared capacity | Exceeds capacity limits | Use Direct Lake or DQ |
 | Bi-directional across DQ + Import | Performance killer | Use single-direction + DAX |
 | No aggregation for >100M row DQ | Slow queries | Add Import aggregation layer |
 | Mixed storage without Dual dimensions | Filter propagation breaks | Set dimensions to Dual |
+| Direct Lake without running OPTIMIZE | Too many small Parquet files → guardrail breach | Schedule regular OPTIMIZE on Delta tables |
+| Overwrite mode on DL Delta tables | Destroys Delta log → forces cold reload | Use append + delete patterns for incremental framing |
+| Direct Lake without V-Order | Slow transcoding, poor compression | Ensure V-Order enabled in Lakehouse |
+| Direct Lake on SQL with SQL-based RLS | Silent fallback to DirectQuery | Use semantic model RLS with fixed identity instead |

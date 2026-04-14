@@ -34,9 +34,15 @@ Read `references/mcp-tool-reference.md` for the complete tool mapping.
 | Connect to gold layer | `connection_operations` → configure data source |
 | Design star schema | Run Star Schema Checklist (references/star-schema-checklist.md) |
 | Choose storage mode | Use Decision Matrix (references/storage-mode-decision.md) |
+| Direct Lake guide | Framing, guardrails, fallback, composite (references/directlake-guide.md) |
 | Build relationships | `relationship_operations` → create with proper cardinality |
+| Advanced relationships | M:M, weak, role-playing, ambiguity (references/advanced-relationships.md) |
 | Optimize columns | `column_operations` → set data types, remove unused, hide keys |
-| Implement RLS | `security_role_operations` → define roles with DAX filters |
+| Power Query / ETL | M language, query folding, transformations (references/power-query-reference.md) |
+| Implement RLS | Dynamic RLS, OLS, DirectLake RLS patterns (references/rls-patterns.md) |
+| TMDL syntax | Tables, columns, measures, relationships, roles (references/tmdl-reference.md) |
+| Deploy to workspace | Git integration, CI/CD, Fabric pipelines (references/deployment-alm-guide.md) |
+| Gateway & refresh | On-prem gateway, scheduled/incremental refresh (references/gateway-refresh-guide.md) |
 | Test the model | `dax_query_operations` → run EVALUATE queries |
 
 ## Workflow
@@ -126,7 +132,8 @@ for the full decision matrix.
 | Scenario | Recommended Mode |
 |---|---|
 | Historical data, < 1GB | Import |
-| Historical data, > 1GB with Fabric | DirectLake |
+| Historical data, > 1GB with Fabric | Direct Lake |
+| Direct Lake + external reference data | Composite (DL on OneLake + Import) |
 | Real-time operational data | DirectQuery |
 | Mix of real-time + historical | Composite (DQ for recent, Import for historical) |
 | Dimension tables in composite model | Dual (best of both worlds) |
@@ -170,6 +177,10 @@ DimCustomer ──1:M──► BridgeCustomerAccount ◄──M:1── DimAccou
 DimEmployee [EmployeeKey] ──self-referencing──► DimEmployee [ManagerKey]
 // Flatten with PATH() function in DAX
 ```
+
+For advanced patterns (MMR weak relationships, granularity mismatch detection,
+ambiguity resolution, virtual vs physical trade-offs), read
+`references/advanced-relationships.md`.
 
 ### Step 5: Optimize the Model
 

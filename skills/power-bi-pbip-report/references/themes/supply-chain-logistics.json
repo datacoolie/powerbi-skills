@@ -1,0 +1,72 @@
+{
+  "name": "Supply Chain Logistics Theme",
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.121.json",
+  "dataColors": [
+    "#012A4A", "#01497C", "#014F86", "#2A6F97",
+    "#468FAF", "#8AD4EB", "#FE9666", "#A66999",
+    "#013A63", "#2C7DA0", "#61A5C2", "#89C2D9",
+    "#A9D6E5", "#D4A846", "#E76F51", "#7A7574"
+  ],
+  "good": "#38B64B",
+  "bad": "#EE1C25",
+  "neutral": "#949599",
+  "maximum": "#012A4A",
+  "minimum": "#A9D6E5",
+  "center": "#2A6F97",
+  "foreground": "#292E6B",
+  "background": "#E6ECF0",
+  "secondaryBackground": "#F6F8F9",
+  "backgroundLight": "#FAFAFA",
+  "foregroundNeutralSecondary": "#4A4D6A",
+  "foregroundNeutralTertiary": "#8C8FA0",
+  "tableAccent": "#012A4A",
+  "firstLevelElements": "#292E6B",
+  "secondLevelElements": "#4A4D6A",
+  "thirdLevelElements": "#8C8FA0",
+  "fourthLevelElements": "#D2D0CE",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI", "color": "#012A4A" },
+    "header":  { "fontFace": "Segoe UI", "color": "#292E6B" },
+    "title":   { "fontFace": "Segoe UI", "color": "#292E6B", "fontSize": 10 },
+    "largeTitle": { "fontFace": "Segoe UI", "color": "#012A4A", "fontSize": 14 },
+    "label":   { "fontFace": "Segoe UI", "color": "#4A4D6A", "fontSize": 9 }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "color": { "solid": { "color": "#D2D0CE" } }, "radius": 8, "show": true, "transparency": 0 }],
+        "dropShadow": [{ "show": true, "color": { "solid": { "color": "#001A29" } }, "shadowSpread": 0, "shadowBlur": 8, "angle": 45, "shadowDistance": 4, "transparency": 80, "position": "Outer", "preset": "Custom" }],
+        "padding": [{ "top": 8 }, { "bottom": 8 }, { "left": 10 }, { "right": 10 }],
+        "categoryAxis": [{ "showAxisTitle": false }],
+        "valueAxis": [{ "showAxisTitle": false, "gridlineShow": true, "gridlineStyle": "dotted", "gridlineThickness": 1 }],
+        "legend": [{ "position": "TopCenter", "showTitle": false }],
+        "subTitle": [{ "show": true }],
+        "totals": [{ "show": true, "bold": true }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#E6ECF0" } }, "transparency": 0 }],
+        "outspacePane": [{ "backgroundColor": { "solid": { "color": "#E6ECF0" } } }],
+        "filterCard": [
+          { "$id": "Available", "backgroundColor": { "solid": { "color": "#E6ECF0" } }, "foregroundColor": { "solid": { "color": "#292E6B" } }, "transparency": 0 },
+          { "$id": "Applied", "backgroundColor": { "solid": { "color": "#F6F8F9" } }, "foregroundColor": { "solid": { "color": "#292E6B" } }, "transparency": 0 }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [{ "backColor": { "solid": { "color": "#012A4A" } }, "fontColor": { "solid": { "color": "#FFFFFF" } } }],
+        "grid": [{ "gridHorizontal": true, "rowPadding": 3.5 }],
+        "values": [{ "backColorPrimary": { "solid": { "color": "#F6F8F9" } }, "backColorSecondary": { "solid": { "color": "#FFFFFF" } } }]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "grid": [{ "rowPadding": 5 }],
+        "stylePreset": [{ "name": "Minimal" }]
+      }
+    }
+  }
+}

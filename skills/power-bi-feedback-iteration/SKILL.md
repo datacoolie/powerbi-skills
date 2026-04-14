@@ -26,13 +26,15 @@ relevant best practices before implementing changes.
 |---|---|---|
 | "Data is wrong / missing" | Semantic model skill | Fix source, add table/column, adjust relationships |
 | "Need a new metric" | DAX development skill | Create measure, add to visuals |
-| "Chart is confusing" | PBIP report skill | Redesign visual, change chart type, improve layout |
-| "Report is slow" | Performance troubleshooting | Diagnose with Performance Analyzer, optimize |
-| "Need a new page" | PBIP report skill | Design and generate new page |
-| "Need drill-down" | PBIP report skill | Add drillthrough page, configure interactions |
+| "Chart is confusing / wrong type" | Report design skill → PBIP report skill | Re-design visual, change chart type, update layout, then regenerate |
+| "Fix formatting / JSON error" | PBIP report skill | Fix visual.json directly |
+| "Report is slow" | Performance troubleshooting skill | Diagnose with Performance Analyzer, optimize |
+| "Need a new page" | Report design skill → PBIP report skill | Design new page, then generate PBIR files |
+| "Need drill-down" | Report design skill → PBIP report skill | Design drillthrough page, then generate |
 | "Mobile doesn't work" | PBIP report skill | Generate mobile.json layouts |
 | "Access / security issue" | Semantic model skill | Review and fix RLS rules |
-| "Complete redesign" | Business analysis skill | Re-run full requirements → model → DAX → report |
+| "Change theme / colors" | Report design skill → PBIP report skill | Re-select theme, then regenerate theme file |
+| "Complete redesign" | Business analysis skill | Re-run full requirements → model → DAX → design → report |
 
 ## Phase 1: Feedback Intake
 
@@ -48,12 +50,17 @@ Feedback Classification:
 │ Data accuracy      │ Critical  │ semantic-model     │
 │ Missing insight    │ High      │ business-analysis  │
 │ New measure needed │ High      │ dax-development    │
-│ UX / visual issue  │ Medium    │ pbip-report        │
-│ Performance        │ High      │ (troubleshooting)  │
+│ Chart type / layout│ Medium    │ report-design→     │
+│                    │           │ pbip-report        │
+│ Visual formatting  │ Medium    │ pbip-report        │
+│ Performance        │ High      │ performance-       │
+│                    │           │ troubleshooting    │
 │ New requirement    │ Medium    │ business-analysis  │
 │ Filter / slicer    │ Medium    │ pbip-report        │
-│ Navigation         │ Low       │ pbip-report        │
-│ Cosmetic / theme   │ Low       │ pbip-report        │
+│ Navigation         │ Low       │ report-design→     │
+│                    │           │ pbip-report        │
+│ Cosmetic / theme   │ Low       │ report-design→     │
+│                    │           │ pbip-report        │
 │ Security / access  │ Critical  │ semantic-model     │
 └─────────────────────────────────────────────────────┘
 ```
@@ -88,8 +95,8 @@ Gap Analysis Matrix:
 
 ### Performance Assessment
 
-If performance is a concern, follow the diagnostic framework from
-`references-md/skill.power-bi-performance-troubleshooting.md`:
+If performance is a concern, use the **power-bi-performance-troubleshooting** skill
+for systematic diagnosis:
 
 ```
 Performance Quick Check:
@@ -163,13 +170,16 @@ Based on the classification, invoke the correct skill:
 - Calculation group additions
 - Field parameter changes
 
-**Visual / UX Issues → `power-bi-pbip-report` skill**
-- Chart type changes
-- Layout restructuring
-- New pages (including drillthrough/tooltip)
+**Visual / UX Issues → `power-bi-report-design` skill first, then `power-bi-pbip-report` skill**
+- Chart type changes (redesign decision → regenerate visual)
+- Layout restructuring (design spec update → regenerate page)
+- Theme/color changes (theme selection → regenerate theme file)
+- Navigation and bookmark redesign
+
+**Visual Formatting / JSON Fixes → `power-bi-pbip-report` skill directly**
+- Formatting adjustments (padding, borders, font sizes)
+- New pages with known design (drillthrough/tooltip)
 - Slicer/filter modifications
-- Navigation and bookmark updates
-- Theme/color changes
 - Mobile layout fixes
 
 **Performance Issues → Troubleshooting workflow**
@@ -210,6 +220,87 @@ Acceptance Criteria:
 □ Key stakeholders review changes
 □ No new issues introduced
 □ Documentation updated if requirements changed
+```
+
+### A/B Design Testing
+
+When stakeholders are unsure between two design approaches, use variant branches:
+
+```
+1. Create Variants
+   git checkout -b design/variant-a
+   # Implement approach A (e.g., bar chart layout)
+   git checkout dev
+   git checkout -b design/variant-b
+   # Implement approach B (e.g., matrix layout)
+
+2. Present Side-by-Side
+   - Open both branches in separate Power BI Desktop instances
+   - Walk stakeholders through each variant with the same dataset
+   - Collect preference votes and specific reasons
+
+3. Select Winner
+   - Merge chosen variant: git merge design/variant-a
+   - Delete unused branch: git branch -d design/variant-b
+   - Document decision rationale in commit message
+```
+
+**Evaluation criteria**: readability, data density, interaction speed, mobile compatibility.
+
+### Formal UAT Workflow
+
+For production reports or reports with regulatory/compliance needs:
+
+```
+UAT Steps:
+1. PREPARATION
+   □ Deploy report to a UAT workspace (not production)
+   □ Use production-equivalent data (or sanitized copy)
+   □ Prepare test cases covering all pages, filters, drillthroughs
+
+2. TEST EXECUTION
+   □ Functional: each visual shows correct data for known inputs
+   □ Filters: slicers, cross-filters, drillthrough, bookmarks all work
+   □ Edge cases: empty data, single-row, max date range, null values
+   □ Performance: page load < 10s, interactions < 3s
+   □ Access: RLS returns correct data for each test role
+   □ Mobile: key pages render on tablet/phone layout
+
+3. ISSUE TRACKING
+   □ Log issues with: page, visual, steps to reproduce, expected vs actual
+   □ Classify: blocker / major / minor / cosmetic
+   □ All blockers must be fixed before sign-off
+
+4. SIGN-OFF
+   □ Business owner signs off on data accuracy
+   □ Report consumers confirm usability
+   □ IT/admin confirms performance and security
+   □ Record sign-off date, names, and version in changelog
+```
+
+### Changelog / Release Notes Template
+
+Maintain a changelog for production reports to track iteration history:
+
+```markdown
+# Report Changelog — [Report Name]
+
+## [v2.1] — 2024-07-15
+### Added
+- Supplier scorecard drillthrough page
+- YoY growth sparklines on overview
+
+### Changed
+- Switched Sales Trend from clustered bar to line chart
+- Updated theme colors to match 2024 brand guidelines
+
+### Fixed
+- YTD calculation now respects fiscal year (Apr start)
+- Overview page load time reduced from 18s to 6s
+
+### Sign-off
+- Business Owner: [Name] — 2024-07-14
+- Data Team: [Name] — 2024-07-13
 ```
 
 ## Phase 6: Version Control (PBIP-Friendly)

@@ -234,3 +234,70 @@ Use **VertiPaq Analyzer** (free in DAX Studio) to measure:
 □ VertiPaq Analyzer shows RLE ratio > 3x on common columns
 □ Model size under capacity target
 ```
+
+---
+
+## Direct Lake–Specific Optimization
+
+Direct Lake uses the same VertiPaq engine, but column data is transcoded
+from Delta Parquet files on demand rather than loaded during a refresh.
+This changes the optimization priorities.
+
+### V-Order: Critical for Direct Lake
+
+V-Order is a write-time Parquet optimization (enabled by default in Fabric)
+that reorders data for optimal VertiScan compression. Without V-Order,
+Direct Lake must re-encode data during transcoding — significantly slower.
+
+```
+V-Order enabled:   Parquet → fast stream → VertiPaq (skip decompression)
+V-Order disabled:  Parquet → decode → re-encode → VertiPaq (much slower)
+```
+
+**Action:** Verify V-Order is ON for all Delta tables used by Direct Lake
+models. External ETL tools (non-Fabric Spark) may not apply V-Order.
+
+### Row Group Size Impact
+
+Each Parquet row group becomes one VertiPaq column segment. Too many
+small row groups = too many small segments = poor scan performance.
+
+| Row Groups per Table | Assessment |
+|---|---|
+| Ideal: 1M–16M rows/group | Optimal — default Fabric behavior |
+| < 1M rows/group | Too small → many segments → run OPTIMIZE |
+| > 16M rows/group | Acceptable — Fabric uses larger for compressible data |
+
+### Dictionary Transcoding
+
+VertiPaq uses a single global dictionary per column; Parquet uses local
+dictionaries per row group. Direct Lake merges these during transcoding.
+More row groups = more dictionaries to merge = slower cold-state queries.
+
+**Optimization:** Keep row group counts low (run OPTIMIZE) and use
+incremental framing to preserve dictionaries across refreshes.
+
+### Column Pruning
+
+Direct Lake loads **all columns** present in the semantic model table
+definition. Columns not used in any report still get transcoded if a
+query touches their table.
+
+**Action:** Remove unused columns from the semantic model definition.
+This reduces transcoding time and memory consumption.
+
+### Direct Lake Optimization Checklist
+
+```
+□ V-Order enabled on all source Delta tables
+□ OPTIMIZE runs regularly (compact small files)
+□ VACUUM runs (retention > framing interval)
+□ Row groups average 1M–16M rows
+□ Unused columns removed from model definition
+□ Partition column has < 100-200 distinct values (if partitioned)
+□ INT surrogate keys for relationships (same as Import)
+□ Guardrails checked against capacity SKU limits
+```
+
+**For comprehensive Direct Lake guidance** — framing, guardrails, fallback,
+composite patterns, monitoring — read `directlake-guide.md`.

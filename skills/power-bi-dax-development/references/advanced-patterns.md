@@ -365,3 +365,194 @@ RETURN
         EXCEPT(ALLSELECTED(DimProduct[ProductName]), _top5)
     )
 ```
+
+---
+
+## WINDOW, INDEX, and OFFSET Functions
+
+These functions (introduced in late 2022/2023) enable row-level calculations
+within a window of rows — similar to SQL window functions. They operate
+over a **relation** (table expression) and use an **orderBy** clause to
+define the sort/partition.
+
+> **Always search Microsoft Learn** before using these functions — syntax and
+> behavior may have been updated since this reference was written.
+
+### OFFSET — Access a Row at a Fixed Distance
+
+Returns a single row from a relation, offset from the current row.
+
+```dax
+-- Previous month's sales (like LAG in SQL)
+Previous Month Sales =
+CALCULATE(
+    [Total Sales],
+    OFFSET(
+        -1,
+        ALLSELECTED(DimDate[YearMonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[YearMonthNumber], ASC)
+    )
+)
+
+-- Next month's sales (like LEAD in SQL)
+Next Month Sales =
+CALCULATE(
+    [Total Sales],
+    OFFSET(
+        1,
+        ALLSELECTED(DimDate[YearMonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[YearMonthNumber], ASC)
+    )
+)
+
+-- Month-over-Month change
+MoM Change % =
+VAR _current = [Total Sales]
+VAR _previous = [Previous Month Sales]
+RETURN
+    DIVIDE(_current - _previous, _previous)
+```
+
+**Syntax:** `OFFSET(delta, relation[, orderBy[, blanks[, partitionBy]]])`
+
+- `delta`: Integer offset (-1 = previous row, +1 = next row)
+- `relation`: Table expression defining the set of rows (use ALLSELECTED for visual context)
+- `orderBy`: ORDERBY() clause defining sort
+- `blanks`: Optional — `KEEP` (default) or `DEFAULT`
+- `partitionBy`: Optional — PARTITIONBY() clause to restart offsets per partition
+
+### INDEX — Access a Row by Absolute Position
+
+Returns a single row from a relation at a specific ordinal position.
+
+```dax
+-- First month's sales in the visible range
+First Month Sales =
+CALCULATE(
+    [Total Sales],
+    INDEX(
+        1,
+        ALLSELECTED(DimDate[YearMonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[YearMonthNumber], ASC)
+    )
+)
+
+-- Last row (use -1 for the last position)
+Last Month Sales =
+CALCULATE(
+    [Total Sales],
+    INDEX(
+        -1,
+        ALLSELECTED(DimDate[YearMonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[YearMonthNumber], ASC)
+    )
+)
+
+-- Growth vs. first month (index to base period)
+Growth vs First Month % =
+VAR _current = [Total Sales]
+VAR _first = [First Month Sales]
+RETURN
+    DIVIDE(_current - _first, _first)
+```
+
+**Syntax:** `INDEX(position, relation[, orderBy[, blanks[, partitionBy]]])`
+
+- `position`: 1-based ordinal position (negative = from end; -1 = last row)
+
+### WINDOW — Access a Range of Rows
+
+Returns a set of rows from a relation between two boundary positions.
+Boundaries can be absolute (from start/end) or relative (from current row).
+
+```dax
+-- 3-month rolling average
+Rolling 3M Avg Sales =
+VAR _rollingTable =
+    WINDOW(
+        -2, REL,
+        0, REL,
+        ALLSELECTED(DimDate[YearMonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[YearMonthNumber], ASC)
+    )
+RETURN
+    AVERAGEX(_rollingTable, [Total Sales])
+
+-- Year-to-date using WINDOW (alternative to TOTALYTD)
+YTD Sales (Window) =
+VAR _ytdRows =
+    WINDOW(
+        1, ABS,
+        0, REL,
+        ALLSELECTED(DimDate[MonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[MonthNumber], ASC),
+        PARTITIONBY(DimDate[Year])
+    )
+RETURN
+    SUMX(_ytdRows, [Total Sales])
+
+-- Running total
+Running Total Sales =
+VAR _runningRows =
+    WINDOW(
+        1, ABS,
+        0, REL,
+        ALLSELECTED(DimDate[YearMonthNumber], DimDate[YearMonth]),
+        ORDERBY(DimDate[YearMonthNumber], ASC)
+    )
+RETURN
+    SUMX(_runningRows, [Total Sales])
+```
+
+**Syntax:** `WINDOW(from, from_type, to, to_type, relation[, orderBy[, blanks[, partitionBy]]])`
+
+- `from` / `to`: Integer boundary positions
+- `from_type` / `to_type`: `REL` (relative to current row) or `ABS` (1-based from start; negative from end)
+
+### PARTITIONBY — Restart Calculations per Group
+
+Used with OFFSET, INDEX, or WINDOW to restart the window per partition.
+
+```dax
+-- Previous month sales, restarting for each product category
+Previous Month Sales by Category =
+CALCULATE(
+    [Total Sales],
+    OFFSET(
+        -1,
+        ALLSELECTED(
+            DimDate[YearMonthNumber],
+            DimDate[YearMonth],
+            DimProduct[Category]
+        ),
+        ORDERBY(DimDate[YearMonthNumber], ASC),
+        PARTITIONBY(DimProduct[Category])
+    )
+)
+
+-- Rank within category (dense rank using INDEX)
+Rank in Category =
+VAR _currentSales = [Total Sales]
+RETURN
+    COUNTROWS(
+        FILTER(
+            ALLSELECTED(DimProduct[ProductName]),
+            [Total Sales] >= _currentSales
+        )
+    )
+```
+
+### When to Use WINDOW Functions vs. Traditional Patterns
+
+| Scenario | Traditional (pre-2023) | Window Functions |
+|---|---|---|
+| Previous period value | CALCULATE + DATEADD / SAMEPERIODLASTYEAR | OFFSET(-1) |
+| Running total | CALCULATE + DATESBETWEEN / DATESYTD | WINDOW(1, ABS, 0, REL) |
+| Moving average | AVERAGEX + DATESINPERIOD | WINDOW(-N, REL, 0, REL) |
+| First/last value | CALCULATE + FIRSTDATE/LASTDATE | INDEX(1) / INDEX(-1) |
+| Row-by-row comparison | Nested iterators | OFFSET with PARTITIONBY |
+
+**Guidance**: WINDOW/INDEX/OFFSET produce cleaner, more readable DAX for these
+scenarios but require the tabular model to be at compatibility level 1601+
+(December 2022+). For maximum backwards compatibility, use the traditional
+patterns. For new models, prefer window functions when they simplify the logic.

@@ -60,20 +60,20 @@ table 'Metric Selection'
 
     column 'Metric Selection'
         dataType: string
-        isNameInferredFromColumn
+        isNameInferred
         sourceColumn: Metric Selection.[Value1]
         sortByColumn: 'Metric Selection Ordinal'
 
     column 'Metric Selection Fields'
         dataType: string
         isHidden
-        isNameInferredFromColumn
+        isNameInferred
         sourceColumn: Metric Selection.[Value2]
 
     column 'Metric Selection Ordinal'
         dataType: int64
         isHidden
-        isNameInferredFromColumn
+        isNameInferred
         sourceColumn: Metric Selection.[Value3]
 
     partition 'Metric Selection' = calculated

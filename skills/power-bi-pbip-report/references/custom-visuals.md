@@ -713,6 +713,179 @@ Verify `visualType` identifiers from AppSource before first use.
 
 ---
 
+## Additional Visuals Observed in Reference Reports
+
+These identifiers appear in the reference PBIP reports and are verified from real usage. Add them
+to `publicCustomVisuals` before use.
+
+### Enterprise IBCS Suite — 3AG Systems
+
+3AG Systems publishes an IBCS-compliant suite popular for financial reporting. Multiple variants
+appear in the reference reports (table, chart, and card components):
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **3AG Systems Visual A** | `PBI_3AGSystems_0B9C9FBA_15A2_4A94_8AE4_8F778869B190` | `Category`, `Values` | IBCS-style chart with variance markers (5 reports) |
+| **3AG Systems Visual B** | `PBI_3AGSystems_0B9C9FBA_15A2_4A94_8AE4_8F778869B191` | `Category`, `Values`, `PY` | IBCS-style with prior-year comparison |
+| **3AG Systems Visual C** | `PBI_3AGSystems_0B9C9FBA_15A2_4A94_8AE4_8F778869B192` | `Category`, `Values`, `PY`, `PL` | IBCS tables/charts with plan and prior year (heavy usage: 5 reports) |
+
+### Generic `PBI_CV_*` Identifiers
+
+Microsoft's generic Custom Visual GUID pattern. These wrap various publishers' visuals — identify the
+actual publisher via the AppSource lookup when encountered. The following appear in reference reports:
+
+| `visualType` | Reports | Likely Category |
+|---|---|---|
+| `PBI_CV_9272D058_BEA0_476A_B090_A712545F92FA` | 14 (highest usage) | Card/KPI or slicer |
+| `PBI_CV_7B952816_A48F_49B4_9E13_15E3BB2C0337` | 6 | Chart/data visual |
+| `PBI_CV_25997FEB_F466_44FA_B562_AC4063283C4C` | 5 | Chart/data visual |
+| `PBI_CV_0B9C9FBA_15A2_4A94_8AE4_8F778869B200` | 4 | Chart/data visual |
+| `PBI_CV_3C80B1F2_09AF_4123_8E99_C3CBC46B23E0` | 3 | Chart/data visual |
+| `PBI_CV_309E6B47_39A5_4681_808F_132AFB230872` | 2 | Chart/data visual |
+| `PBI_CV_0B9C9FBA_15A2_4A94_8AE4_8F778869B190` | 2 | Chart/data visual |
+| `PBI_CV_73744D90_4DC9_4F18_8BA5_EE8FA5C98035` | 1 | Specialty |
+| `PBI_CV_815282F9_27F5_4950_9430_E910E0A8DB6A` | 1 | Specialty |
+
+> **Tip:** When copying a visual from a reference PBIP, always copy its `publicCustomVisuals`
+> entry from `report.json` along with the visual itself. Generic identifiers cannot be
+> re-created from the identifier alone.
+
+### Timeline & Slicer Variants
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **Timeline Storyteller** | `timelineD7EACB3A04E64A5FA9D86F6E035F3523` | `Time`, `Values` | Storytelling-oriented timeline with events and labels |
+| **Timeline Variation** | `timelineVariation3D7EACB3A04E64A5FA9D86F6E035F3524` | `Time`, `Values` | Alternative timeline layout — richer formatting options |
+| **Custom Slicer** | `CustomSlicer` | `Category` | Generic third-party slicer identifier (publisher-specific; verify on AppSource) |
+| **Slicer1448559807355** | `Slicer1448559807355` | `Category`, `Values` | Enhanced Microsoft slicer variant |
+
+### Tree & Hierarchy Visuals
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **D3 JS Tree** | `D3JsTree2F7A67F154D04FA3A4CA3E01DE5AE54B` | `Node`, `ParentNode`, `Values` | D3-based hierarchical tree visualization — org chart, family tree, classification tree |
+| **Hierarchical Tree** | `HierarchicalTreeF39DAE8D57A743EF89F5C3809DEE2B67` | `Nodes`, `Values` | Expanding tree view (note: shares identifier pattern with Hierarchy Slicer — verify on AppSource) |
+
+### Calendar Variants
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **Calendar Visual (MAQ Software)** | `calendarVisual74934D05B71F4C31B0F79D925EE89638` | `Date`, `Value` | Alternate calendar heatmap implementation |
+| **Calendar Visual (Generic)** | `CalendarVisualA45056645E4E428B9D26EF971839A6B5` | `Date`, `Value` | Additional calendar heatmap variant |
+
+### Process & Flow
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **Process Mining** | `processMiningD4BFA18191D74FA5AEEEB307FC3EAED1` | `Case`, `Activity`, `Timestamp` | Discover and visualize process flows from event logs — manufacturing, customer journey, workflow analysis |
+| **Informaxyz 3D BI Connected** | `Informaxyz3DBIConnected69f2181a7e5a44a9a709014959414bf0` | `Category`, `Values`, `Connections` | 3D connected BI visual — network-style data relationships in 3D space |
+
+**Process Mining** template:
+```json
+{
+  "visual": {
+    "visualType": "processMiningD4BFA18191D74FA5AEEEB307FC3EAED1",
+    "query": {
+      "queryState": {
+        "Case": {
+          "projections": [{
+            "field": {
+              "Column": {
+                "Expression": { "SourceRef": { "Entity": "EventLog" } },
+                "Property": "CaseId"
+              }
+            },
+            "queryRef": "EventLog.CaseId"
+          }]
+        },
+        "Activity": {
+          "projections": [{
+            "field": {
+              "Column": {
+                "Expression": { "SourceRef": { "Entity": "EventLog" } },
+                "Property": "Activity"
+              }
+            },
+            "queryRef": "EventLog.Activity"
+          }]
+        },
+        "Timestamp": {
+          "projections": [{
+            "field": {
+              "Column": {
+                "Expression": { "SourceRef": { "Entity": "EventLog" } },
+                "Property": "Timestamp"
+              }
+            },
+            "queryRef": "EventLog.Timestamp"
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
+### Column & Bar Variants
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **Advanced Column Bar Chart** | `AdvancedColumnBarChart149CBDF1945A4455952D90C68DD649AA` | `Category`, `Values`, `Series` | Combined column+bar chart with advanced formatting |
+| **Clustered Stacked Bar Chart** | `ClusteredStackedBarChart39ECD6FE50G` | `Category`, `Series`, `Values` | Both clustered and stacked breakdown in one visual |
+| **Horizontal Bullet Chart** | `horizontalbullechartAD848DB2E71C1BBC88C027512FD82044` | `Category`, `Value`, `Target` | Horizontal bullet chart variant — actual vs. target in compact rows |
+| **Lipstick Column Chart** | `lipstickcolumnchartA0919059F5DBE50C75F3D8D6A166710D` | `Category`, `Values`, `Overlay` | Stacked column with thin overlay bar — actual vs. plan variance |
+| **Lollipop Chart** | `lollipopChart50393786178B4137A75F3257CB590B96` | `Category`, `Values` | Alternate lollipop variant (different publisher) |
+| **Lollipop Column Chart** | `lollipopColumnChart0D874BBC87DE40189C387BBA89739F6C` | `Category`, `Values` | Alternate vertical lollipop variant |
+
+### KPI & Card Variants
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **Multi-Card KPIs** | `multicardkpis` | `Values` | Compact grid of multiple KPI cards in one visual |
+| **Data Goods 5 (`dg5...`)** | `dg5AAA90EFEFE747CB9357C4FC19B85A58` | *(varies)* | Generic data-goods identifier — verify exact capability on AppSource |
+
+### Utility Visuals
+
+| Marketplace Name | `visualType` | Query Roles | Use Case |
+|---|---|---|---|
+| **Dynamic Tooltip** | `dynamicTooltip1859AB39DB23051788ADF752BCB90749` | `Values` | Report-page tooltip that dynamically formats based on hover context |
+
+**Lipstick Column Chart** template — common variance pattern:
+```json
+{
+  "visual": {
+    "visualType": "lipstickcolumnchartA0919059F5DBE50C75F3D8D6A166710D",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [{
+            "field": {
+              "Column": {
+                "Expression": { "SourceRef": { "Entity": "Calendar" } },
+                "Property": "Month"
+              }
+            },
+            "queryRef": "Calendar.Month"
+          }]
+        },
+        "Values": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Plan" } }, "queryRef": "Measures.Plan" }
+          ]
+        },
+        "Overlay": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Actual" } }, "queryRef": "Measures.Actual" }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+---
+
 ## When to Use Custom Visuals
 
 ### Scenarios Where Custom Visuals Add Clear Value
@@ -803,3 +976,34 @@ Verify `visualType` identifiers from AppSource before first use.
 | Word Cloud | `WordCloud1447959067750` | Microsoft |
 | Gantt Chart | `Gantt1467746032498` | Microsoft |
 | Play Axis | `playAxis23F08FF12F11460BB525B1A3ADED385C` | Community |
+| 3AG Systems Visual A | `PBI_3AGSystems_0B9C9FBA_15A2_4A94_8AE4_8F778869B190` | 3AG Systems |
+| 3AG Systems Visual B | `PBI_3AGSystems_0B9C9FBA_15A2_4A94_8AE4_8F778869B191` | 3AG Systems |
+| 3AG Systems Visual C | `PBI_3AGSystems_0B9C9FBA_15A2_4A94_8AE4_8F778869B192` | 3AG Systems |
+| Generic Custom Visual (9272D058) | `PBI_CV_9272D058_BEA0_476A_B090_A712545F92FA` | *(various)* |
+| Generic Custom Visual (7B952816) | `PBI_CV_7B952816_A48F_49B4_9E13_15E3BB2C0337` | *(various)* |
+| Generic Custom Visual (25997FEB) | `PBI_CV_25997FEB_F466_44FA_B562_AC4063283C4C` | *(various)* |
+| Generic Custom Visual (0B9C9FBA_200) | `PBI_CV_0B9C9FBA_15A2_4A94_8AE4_8F778869B200` | *(various)* |
+| Generic Custom Visual (3C80B1F2) | `PBI_CV_3C80B1F2_09AF_4123_8E99_C3CBC46B23E0` | *(various)* |
+| Generic Custom Visual (309E6B47) | `PBI_CV_309E6B47_39A5_4681_808F_132AFB230872` | *(various)* |
+| Generic Custom Visual (0B9C9FBA_190) | `PBI_CV_0B9C9FBA_15A2_4A94_8AE4_8F778869B190` | *(various)* |
+| Generic Custom Visual (73744D90) | `PBI_CV_73744D90_4DC9_4F18_8BA5_EE8FA5C98035` | *(various)* |
+| Generic Custom Visual (815282F9) | `PBI_CV_815282F9_27F5_4950_9430_E910E0A8DB6A` | *(various)* |
+| Timeline Storyteller | `timelineD7EACB3A04E64A5FA9D86F6E035F3523` | Community |
+| Timeline Variation | `timelineVariation3D7EACB3A04E64A5FA9D86F6E035F3524` | Community |
+| Custom Slicer | `CustomSlicer` | *(various)* |
+| Slicer 1448559807355 | `Slicer1448559807355` | Community |
+| D3 JS Tree | `D3JsTree2F7A67F154D04FA3A4CA3E01DE5AE54B` | Community |
+| Hierarchical Tree | `HierarchicalTreeF39DAE8D57A743EF89F5C3809DEE2B67` | Community |
+| Calendar Visual (MAQ) | `calendarVisual74934D05B71F4C31B0F79D925EE89638` | MAQ Software |
+| Calendar Visual (Generic) | `CalendarVisualA45056645E4E428B9D26EF971839A6B5` | Community |
+| Process Mining | `processMiningD4BFA18191D74FA5AEEEB307FC3EAED1` | Community |
+| Informaxyz 3D BI Connected | `Informaxyz3DBIConnected69f2181a7e5a44a9a709014959414bf0` | Informaxyz |
+| Advanced Column Bar Chart | `AdvancedColumnBarChart149CBDF1945A4455952D90C68DD649AA` | Community |
+| Clustered Stacked Bar Chart | `ClusteredStackedBarChart39ECD6FE50G` | Community |
+| Horizontal Bullet Chart | `horizontalbullechartAD848DB2E71C1BBC88C027512FD82044` | Community |
+| Lipstick Column Chart | `lipstickcolumnchartA0919059F5DBE50C75F3D8D6A166710D` | Community |
+| Lollipop Chart (alt) | `lollipopChart50393786178B4137A75F3257CB590B96` | Community |
+| Lollipop Column Chart (alt) | `lollipopColumnChart0D874BBC87DE40189C387BBA89739F6C` | Community |
+| Multi-Card KPIs | `multicardkpis` | Community |
+| Data Goods 5 (`dg5...`) | `dg5AAA90EFEFE747CB9357C4FC19B85A58` | Community |
+| Dynamic Tooltip | `dynamicTooltip1859AB39DB23051788ADF752BCB90749` | Community |

@@ -21,15 +21,23 @@ All templates use schema version `visualContainer/2.7.0`.
 **Data Visuals:**
 - [Card](#card) · [Card (New Visual)](#card-new-visual) · [Multi Row Card](#multi-row-card) · [KPI Visual](#kpi-visual)
 - [Clustered Bar Chart](#clustered-bar-chart-horizontal) · [Clustered Column Chart](#clustered-column-chart-vertical) · [Stacked Column Chart](#stacked-column-chart) · [Stacked Bar Chart](#stacked-bar-chart-horizontal)
+- [100% Stacked Bar Chart](#100-stacked-bar-chart) · [100% Stacked Column Chart](#100-stacked-column-chart)
 - [Line Chart](#line-chart) · [Area Chart](#area-chart) · [Stacked Area Chart](#stacked-area-chart)
 - [Line & Clustered Column Combo](#line--clustered-column-combo-chart) · [Line & Stacked Column Combo](#line--stacked-column-combo-chart)
 - [Donut Chart](#donut-chart) · [Pie Chart](#pie-chart) · [Treemap](#treemap) · [Funnel Chart](#funnel-chart)
 - [Waterfall Chart](#waterfall-chart) · [Ribbon Chart](#ribbon-chart) · [Scatter Chart](#scatter-chart) · [Gauge](#gauge)
 - [Table (tableEx)](#table-tableex) · [Matrix (pivotTable)](#matrix-pivottable)
-- [Slicer](#slicer) · [Map (Bubble)](#map-bubble-map) · [Filled Map (Choropleth)](#filled-map-choropleth)
+- [Slicer](#slicer) · [Map (Bubble)](#map-bubble-map) · [Filled Map (Choropleth)](#filled-map-choropleth) · [Shape Map](#shape-map)
+- [Azure Map](#azure-map) · [ArcGIS Maps (esriVisual)](#arcgis-maps-esrivisual)
 
 **AI Visuals:**
-- [Decomposition Tree](#decomposition-tree) · [Key Influencers](#key-influencers)
+- [Decomposition Tree](#decomposition-tree) · [Key Influencers](#key-influencers) · [Q&A Visual](#qa-visual) · [Smart Narrative](#smart-narrative)
+
+**Scripting Visuals:**
+- [R Script Visual](#r-script-visual) · [Python Script Visual](#python-script-visual)
+
+**Enterprise & Integration:**
+- [Paginated Report Visual](#paginated-report-visual) · [Metrics / Scorecard](#metrics--scorecard) · [PowerApps Visual](#powerapps-visual) · [Power Automate Visual](#power-automate-visual)
 
 **Layout & Decorative:**
 - [Shape](#shape-decorative) · [Basic Shape](#basic-shape) · [Textbox](#textbox) · [Image](#image)
@@ -3054,3 +3062,546 @@ Size large (min 500×800).
 ```
 
 **Query roles:** `Analyze` (metric/column to explain), `ExplainBy` (candidate influencer columns).
+
+---
+
+## 100% Stacked Bar Chart
+
+`visualType: "hundredPercentStackedBarChart"` — Horizontal bars normalized to 100% for part-to-whole comparison. Query roles: `Category`, `Y`, `Series`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 320, "width": 560, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "hundredPercentStackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "CategoryColumn" } }, "queryRef": "TableName.CategoryColumn", "nativeQueryRef": "CategoryColumn" }
+          ]
+        },
+        "Series": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "SeriesColumn" } }, "queryRef": "TableName.SeriesColumn", "nativeQueryRef": "SeriesColumn" }
+          ]
+        },
+        "Y": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "MeasureName" } }, "queryRef": "TableName.MeasureName", "nativeQueryRef": "MeasureName" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "labelPosition": { "expr": { "Literal": { "Value": "'InsideCenter'" } } } } }
+      ],
+      "legend": [
+        { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "position": { "expr": { "Literal": { "Value": "'Top'" } } } } }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** compare proportional composition across categories when share matters more than absolute value.
+
+---
+
+## 100% Stacked Column Chart
+
+`visualType: "hundredPercentStackedColumnChart"` — Vertical orientation of 100% stacked bars. Query roles: `Category`, `Y`, `Series`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 320, "width": 560, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "hundredPercentStackedColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Calendar" } }, "Property": "Month" } }, "queryRef": "Calendar.Month", "nativeQueryRef": "Month", "active": true }
+          ]
+        },
+        "Series": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "SeriesColumn" } }, "queryRef": "TableName.SeriesColumn", "nativeQueryRef": "SeriesColumn" }
+          ]
+        },
+        "Y": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "TableName" } }, "Property": "MeasureName" } }, "queryRef": "TableName.MeasureName", "nativeQueryRef": "MeasureName" }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Calendar" } }, "Property": "Month" } }, "direction": "Ascending" }
+        ]
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        { "properties": { "axisType": { "expr": { "Literal": { "Value": "'Categorical'" } } } } }
+      ],
+      "labels": [
+        { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } } } }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** time-series composition analysis (e.g., monthly account-category mix that always totals 100%).
+
+---
+
+## Shape Map
+
+`visualType: "shapeMap"` — Choropleth using custom TopoJSON shapes (country, state, custom region boundaries). Query roles: `Category` (location key), `Values` (color-saturation measure). Desktop-only preview feature.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 480, "width": 720, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "shapeMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Geography" } }, "Property": "StateCode" } }, "queryRef": "Geography.StateCode" }
+          ]
+        },
+        "Values": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Sales Amount" } }, "queryRef": "Measures.Sales Amount" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "mapSettings": [
+        { "properties": { "mapType": { "expr": { "Literal": { "Value": "'usa'" } } } } }
+      ],
+      "dataColors": [
+        { "properties": { "minColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#EDF8FB'" } } } } }, "maxColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#006D2C'" } } } } } } }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** custom regional maps (sales territories, school districts) where built-in Bing geocoding isn't sufficient. Upload custom TopoJSON files.
+
+---
+
+## Azure Map
+
+`visualType: "azureMap"` — Azure Maps geospatial visual with bubble, heat, cluster, choropleth, and reference layers. Query roles: `Category` (location), `Latitude`, `Longitude`, `Size`, `Legend`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 480, "width": 720, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "azureMap",
+    "query": {
+      "queryState": {
+        "Latitude": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Location" } }, "Property": "Latitude" } }, "queryRef": "Location.Latitude" }
+          ]
+        },
+        "Longitude": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Location" } }, "Property": "Longitude" } }, "queryRef": "Location.Longitude" }
+          ]
+        },
+        "Category": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Location" } }, "Property": "StoreName" } }, "queryRef": "Location.StoreName" }
+          ]
+        },
+        "Size": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Sales Amount" } }, "queryRef": "Measures.Sales Amount" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "mapStyles": [
+        { "properties": { "style": { "expr": { "Literal": { "Value": "'road'" } } } } }
+      ],
+      "bubbleLayer": [
+        { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } } } }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** richer geospatial analytics than classic Bing map — heat maps, clustering, 3D bar extrusion, reference layer overlays.
+
+---
+
+## ArcGIS Maps (esriVisual)
+
+`visualType: "esriVisual"` — ArcGIS Maps for Power BI. Query roles: `Latitude`, `Longitude`, `Location`, `Size`, `Color`, `Tooltips`, `Time`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 500, "width": 800, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "esriVisual",
+    "query": {
+      "queryState": {
+        "Location": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "DimBranch" } }, "Property": "BrandName" } }, "queryRef": "DimBranch.BrandName" }
+          ]
+        },
+        "Latitude": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "DimBranch" } }, "Property": "Latitude" } }, "queryRef": "DimBranch.Latitude" }
+          ]
+        },
+        "Longitude": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "DimBranch" } }, "Property": "Longitude" } }, "queryRef": "DimBranch.Longitude" }
+          ]
+        },
+        "Size": {
+          "projections": [
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measure" } }, "Property": "Sales Amount" } }, "queryRef": "Measure.Sales Amount" }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** enterprise geospatial features — drive-time analysis, demographic overlays, custom shapefiles. Requires ArcGIS Online for advanced features.
+
+---
+
+## Q&A Visual
+
+`visualType: "qnaVisual"` — Natural-language question-and-answer interface. No data roles — uses the entire semantic model. Configure synonyms and linguistic schema in `cultures/<locale>.tmdl`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 2000, "height": 600, "width": 1200, "tabOrder": 2000 },
+  "visual": {
+    "visualType": "qnaVisual",
+    "objects": {
+      "hiddenProperties": [
+        { "properties": { "savedUtterance": { "expr": { "Literal": { "Value": "''" } } } } }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** self-service exploration. Invest in linguistic synonyms in the semantic model (`cultures/*.tmdl`) for best results.
+
+---
+
+## Smart Narrative
+
+`visualType: "textbox"` with auto-generated narrative content, or dedicated `narrativeVisual` in newer versions. Uses dynamic text tokens bound to measures to produce written insights.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 220, "width": 560, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  { "value": "Total revenue is " },
+                  {
+                    "value": "",
+                    "valueExpr": {
+                      "expr": {
+                        "Measure": {
+                          "Expression": { "SourceRef": { "Entity": "Measures" } },
+                          "Property": "Total Revenue"
+                        }
+                      }
+                    },
+                    "textStyle": { "fontWeight": "bold" }
+                  },
+                  { "value": " showing " },
+                  {
+                    "value": "",
+                    "valueExpr": {
+                      "expr": {
+                        "Measure": {
+                          "Expression": { "SourceRef": { "Entity": "Measures" } },
+                          "Property": "Revenue YoY %"
+                        }
+                      }
+                    }
+                  },
+                  { "value": " change year-over-year." }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** executive summaries, auto-written highlights, accessibility (screen-reader friendly text version of chart data).
+
+---
+
+## R Script Visual
+
+`visualType: "scriptVisual"` — Custom chart rendered by R script (ggplot2, lattice). Query role: `Values` (columns passed to R as a data frame named `dataset`). Requires R runtime configured locally and on the service.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 400, "width": 600, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "scriptVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Sales" } }, "Property": "Region" } }, "queryRef": "Sales.Region" },
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Revenue" } }, "queryRef": "Measures.Revenue" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "script": [
+        {
+          "properties": {
+            "provider": { "expr": { "Literal": { "Value": "'R'" } } },
+            "source": { "expr": { "Literal": { "Value": "'library(ggplot2)\\nggplot(dataset, aes(x=Region, y=Revenue)) + geom_bar(stat=\"identity\")'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** advanced statistical visuals (violin plots, regression diagnostics, clustering output) not available in built-in visuals.
+
+---
+
+## Python Script Visual
+
+`visualType: "pythonVisual"` — Same pattern as R visual but renders via Python (matplotlib, seaborn). Dataset is passed as a pandas DataFrame named `dataset`.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 400, "width": 600, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "pythonVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Sales" } }, "Property": "Region" } }, "queryRef": "Sales.Region" },
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Revenue" } }, "queryRef": "Measures.Revenue" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "script": [
+        {
+          "properties": {
+            "provider": { "expr": { "Literal": { "Value": "'Python'" } } },
+            "source": { "expr": { "Literal": { "Value": "'import matplotlib.pyplot as plt\\ndataset.plot.bar(x=\"Region\", y=\"Revenue\")\\nplt.show()'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** ML output (SHAP plots, prediction charts), seaborn heatmaps, custom data transforms at render-time.
+
+---
+
+## Paginated Report Visual
+
+`visualType: "rdlVisual"` — Embeds a published Power BI paginated report (.rdl) inside an interactive report. Parameters flow from slicers/filters. No direct query role — configured via the `general` object.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 600, "width": 900, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "rdlVisual",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "reportId": { "expr": { "Literal": { "Value": "'00000000-0000-0000-0000-000000000000'" } } },
+            "workspaceId": { "expr": { "Literal": { "Value": "'00000000-0000-0000-0000-000000000000'" } } },
+            "toolbarVisible": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** pixel-perfect printable output — invoices, statements, operational reports with precise typography and PDF export.
+
+---
+
+## Metrics / Scorecard
+
+`visualType: "scorecard"` — Embeds a Power BI Metrics scorecard (goals with owner, status, trend, check-ins) into a report page.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 500, "width": 800, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "scorecard",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "scorecardId": { "expr": { "Literal": { "Value": "'00000000-0000-0000-0000-000000000000'" } } },
+            "workspaceId": { "expr": { "Literal": { "Value": "'00000000-0000-0000-0000-000000000000'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** OKR tracking, executive goal dashboards, connected metrics with owner / check-in workflow.
+
+---
+
+## PowerApps Visual
+
+`visualType: "PowerApps"` — Embeds a Power Apps canvas app. Query role: `PowerAppsData` (context passed to the app). Requires the app to be published and user-accessible.
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 400, "width": 500, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "PowerApps",
+    "query": {
+      "queryState": {
+        "PowerAppsData": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Customer" } }, "Property": "CustomerId" } }, "queryRef": "Customer.CustomerId" },
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Customer" } }, "Property": "CustomerName" } }, "queryRef": "Customer.CustomerName" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "appId": { "expr": { "Literal": { "Value": "'00000000-0000-0000-0000-000000000000'" } } },
+            "appName": { "expr": { "Literal": { "Value": "'CustomerEditApp'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** write-back scenarios — update records, approve items, trigger actions from within a report. Combines with RLS for per-user editing.
+
+---
+
+## Power Automate Visual
+
+`visualType: "flowVisual"` — Button that triggers a Power Automate cloud flow with optional data context. Query role: `Values` (data passed to the flow run).
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "VISUAL_NAME",
+  "position": { "x": 0, "y": 0, "z": 1000, "height": 80, "width": 200, "tabOrder": 1000 },
+  "visual": {
+    "visualType": "flowVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "Customer" } }, "Property": "CustomerId" } }, "queryRef": "Customer.CustomerId" },
+            { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "Measures" } }, "Property": "Outstanding Balance" } }, "queryRef": "Measures.Outstanding Balance" }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "flowId": { "expr": { "Literal": { "Value": "'00000000-0000-0000-0000-000000000000'" } } },
+            "buttonText": { "expr": { "Literal": { "Value": "'Send Reminder'" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
+```
+
+**When to use:** trigger emails, Teams notifications, approval flows, or service actions from a report (e.g., "Send reminder" for overdue invoices).

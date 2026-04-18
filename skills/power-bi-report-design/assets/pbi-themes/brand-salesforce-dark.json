@@ -1,0 +1,73 @@
+{
+  "name": "Salesforce Lightning (Dark)",
+  "dataColors": [
+    "#2B97EE",
+    "#2BEE97",
+    "#F09447",
+    "#EE2B3E",
+    "#5867E8",
+    "#34D8E5",
+    "#EEAC2B",
+    "#8C8C8C"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2B97EE",
+  "good": "#55C479",
+  "bad": "#EE2B3E",
+  "neutral": "#8F8D8A",
+  "warning": "#F09447",
+  "info": "#2B97EE",
+  "minimum": "#A71E2B",
+  "center": "#4A4A52",
+  "maximum": "#3B8955",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

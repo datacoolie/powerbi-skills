@@ -1,0 +1,73 @@
+{
+  "name": "Retail / Consumer / FMCG (Dark)",
+  "dataColors": [
+    "#54C55B",
+    "#98BF64",
+    "#8ED148",
+    "#5DBB63",
+    "#4DAECC",
+    "#F2D15C",
+    "#F47C7B",
+    "#849294"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#54C55B",
+  "good": "#54C55B",
+  "bad": "#F47C7B",
+  "neutral": "#849294",
+  "warning": "#F2D15C",
+  "info": "#4DAECC",
+  "minimum": "#AB5756",
+  "center": "#4A4A52",
+  "maximum": "#3B8A40",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

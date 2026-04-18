@@ -1,0 +1,35 @@
+/* Theme tokens: Telecom / Network (telecom-network) — auto-generated */
+:root[data-theme="telecom-network"] {
+  --color-data-1: #006778;
+  --color-data-2: #FF6F00;
+  --color-data-3: #1976D2;
+  --color-data-4: #00ACC1;
+  --color-data-5: #7B1FA2;
+  --color-data-6: #E53935;
+  --color-data-7: #00838F;
+  --color-data-8: #546E7A;
+  --color-semantic-good: #43A047;
+  --color-semantic-bad: #E53935;
+  --color-semantic-neutral: #78909C;
+  --color-semantic-warning: #FF6F00;
+  --color-semantic-info: #1976D2;
+  --color-neutral-muted: #8A9AA5;
+  --color-neutral-disabled: #C3CED4;
+  --color-neutral-gridline: #E2E8EC;
+  --color-neutral-divider: #CCD4D9;
+  --color-bg: #F5F9FC;
+  --color-fg: #102A3E;
+  --color-table-accent: #006778;
+  --color-diverging-1: #E53935;
+  --color-diverging-2: #EFB3B2;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #B7D7B8;
+  --color-diverging-5: #43A047;
+  --font-title: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body:  'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono:  'IBM Plex Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

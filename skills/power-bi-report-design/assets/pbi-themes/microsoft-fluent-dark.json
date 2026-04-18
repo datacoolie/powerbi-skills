@@ -1,0 +1,73 @@
+{
+  "name": "Microsoft Fluent 2 (Dark)",
+  "dataColors": [
+    "#2B93EE",
+    "#32ED2C",
+    "#F0C24C",
+    "#EE2B3C",
+    "#8764B8",
+    "#2BE2EE",
+    "#EE732B",
+    "#95EE2B"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2B93EE",
+  "good": "#32ED2C",
+  "bad": "#EE2B3C",
+  "neutral": "#8C8C8C",
+  "warning": "#F0C24C",
+  "info": "#2B93EE",
+  "minimum": "#A71E2A",
+  "center": "#4A4A52",
+  "maximum": "#23A61F",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

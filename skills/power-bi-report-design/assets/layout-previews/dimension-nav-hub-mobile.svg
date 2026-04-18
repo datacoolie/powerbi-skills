@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 519" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>dimension-nav-hub-mobile</title>
+<rect x="0" y="0" width="240" height="519" fill="#FFFFFF"/>
+<rect x="0" y="0" width="240" height="3" fill="#2563EB"/>
+<rect x="7.38" y="9.84" width="225.23" height="28.29" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="7.38" y="9.84" width="4" height="28.29" rx="2" fill="#2563EB"/>
+<text x="21.38" y="27.3798" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Mobile Title</text>
+<rect x="142.60999999999999" y="17.761200000000002" width="70" height="12.7" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="177.60999999999999" y="28.511400000000002" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.7502" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="11.379999999999999" y="49.5" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="49.5" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="55.5" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="105.598625" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">545</text>
+<rect x="16.38" y="139.49750272525458" width="10.348666666666665" height="6.0" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="139.43209301464222" width="10.348666666666665" height="6.1" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="126.65479677528212" width="10.348666666666665" height="18.8" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="129.08585202182093" width="10.348666666666665" height="16.4" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="137.37326031060334" width="10.348666666666665" height="8.1" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="49.5" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="49.5" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="55.5" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="105.598625" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">679</text>
+<rect x="90.12333333333332" y="124.62303924969123" width="10.348666666666665" height="20.9" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="116.70958790998696" width="10.348666666666665" height="28.8" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="138.44599861509747" width="10.348666666666665" height="7.1" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="125.63022276829267" width="10.348666666666665" height="19.9" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="122.41331547977015" width="10.348666666666665" height="23.1" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="49.5" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="49.5" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="55.5" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="105.598625" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">772</text>
+<rect x="163.86666666666665" y="132.28566313534466" width="10.348666666666665" height="13.2" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="120.90711914268692" width="10.348666666666665" height="24.6" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="123.57641485067299" width="10.348666666666665" height="21.9" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="131.35182853111266" width="10.348666666666665" height="14.1" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="135.0428845399826" width="10.348666666666665" height="10.5" fill="#60A5FA"/>
+<rect x="11.379999999999999" y="155.4975" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="155.4975" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="161.4975" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="211.596125" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">762</text>
+<rect x="16.38" y="248.827520310664" width="10.348666666666665" height="2.7" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="231.64156569176808" width="10.348666666666665" height="19.9" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="241.57603963965715" width="10.348666666666665" height="9.9" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="247.21569123587534" width="10.348666666666665" height="4.3" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="232.04467555063536" width="10.348666666666665" height="19.5" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="155.4975" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="155.4975" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="161.4975" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="211.596125" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">633</text>
+<rect x="90.12333333333332" y="243.2133691927002" width="10.348666666666665" height="8.3" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="249.4605471144109" width="10.348666666666665" height="2.0" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="233.77401548823252" width="10.348666666666665" height="17.7" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="234.3896474684924" width="10.348666666666665" height="17.1" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="223.91903457550927" width="10.348666666666665" height="27.6" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="155.4975" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="155.4975" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="161.4975" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="211.596125" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">154</text>
+<rect x="163.86666666666665" y="235.73476329964473" width="10.348666666666665" height="15.8" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="240.14779148453243" width="10.348666666666665" height="11.3" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="235.19765375933343" width="10.348666666666665" height="16.3" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="229.10883510530633" width="10.348666666666665" height="22.4" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="238.62446510873838" width="10.348666666666665" height="12.9" fill="#60A5FA"/>
+<rect x="11.379999999999999" y="261.495" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="261.495" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="267.495" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="317.59362500000003" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">678</text>
+<rect x="16.38" y="337.75411373694044" width="10.348666666666665" height="19.7" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="333.6476728877994" width="10.348666666666665" height="23.8" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="351.94842004812955" width="10.348666666666665" height="5.5" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="339.39017615222843" width="10.348666666666665" height="18.1" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="334.12505467032327" width="10.348666666666665" height="23.4" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="261.495" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="261.495" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="267.495" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="317.59362500000003" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">339</text>
+<rect x="90.12333333333332" y="349.25350697493764" width="10.348666666666665" height="8.2" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="329.7288773873361" width="10.348666666666665" height="27.8" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="336.0592621878207" width="10.348666666666665" height="21.4" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="340.64191161357144" width="10.348666666666665" height="16.9" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="336.901320748113" width="10.348666666666665" height="20.6" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="261.495" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="261.495" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="267.495" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="317.59362500000003" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">476</text>
+<rect x="163.86666666666665" y="351.6864954561696" width="10.348666666666665" height="5.8" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="343.4100094250423" width="10.348666666666665" height="14.1" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="352.3802794807829" width="10.348666666666665" height="5.1" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="350.34723693124704" width="10.348666666666665" height="7.1" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="336.46194942588903" width="10.348666666666665" height="21.0" fill="#60A5FA"/>
+<rect x="11.379999999999999" y="367.4925" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="367.4925" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="373.4925" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="423.59112500000003" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">14</text>
+<rect x="16.38" y="454.09998060230794" width="10.348666666666665" height="9.4" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="439.9405799338352" width="10.348666666666665" height="23.5" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="438.6668979712156" width="10.348666666666665" height="24.8" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="437.2791060094789" width="10.348666666666665" height="26.2" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="449.9269183648582" width="10.348666666666665" height="13.6" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="367.4925" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="367.4925" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="373.4925" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="423.59112500000003" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">356</text>
+<rect x="90.12333333333332" y="460.1703181636855" width="10.348666666666665" height="3.3" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="434.6380498983103" width="10.348666666666665" height="28.9" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="456.05670266539965" width="10.348666666666665" height="7.4" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="445.2820147729971" width="10.348666666666665" height="18.2" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="458.05074153504404" width="10.348666666666665" height="5.4" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="367.4925" width="69.74333333333333" height="101.9975" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="367.4925" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="373.4925" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="423.59112500000003" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">845</text>
+<rect x="163.86666666666665" y="458.1529118717581" width="10.348666666666665" height="5.3" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="438.10963134839864" width="10.348666666666665" height="25.4" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="434.1780168975719" width="10.348666666666665" height="29.3" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="445.14009335953676" width="10.348666666666665" height="18.3" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="436.28820993802475" width="10.348666666666665" height="27.2" fill="#60A5FA"/>
+<rect x="7.38" y="480.87" width="225.23" height="28.29" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="14.379999999999999" y="486.528" width="48.3075" height="16.974" rx="8.487" fill="#2563EB"/>
+<text x="38.53375" y="499.2585" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Overview</text>
+<text x="92.84125" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Sales</text>
+<text x="147.14874999999998" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Finance</text>
+<text x="201.45624999999998" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Ops</text>
+<line x1="7.38" y1="509.16" x2="232.60999999999999" y2="509.16" stroke="#E5E7EB" stroke-width="1"/>
+<text x="120.0" y="514" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">dimension-nav-hub-mobile</text>
+</svg>

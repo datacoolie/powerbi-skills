@@ -1,0 +1,444 @@
+{
+  "$schema": "./logos-index.schema.json",
+  "version": 2,
+  "description": "Industry-neutral placeholder logos used as examples / fallbacks when a project has not yet supplied its actual brand mark. Each logo is a combined badge+wordmark SVG using currentColor. Replace the <text> wordmark with the customer's real company name; keep or swap the glyph as appropriate.",
+  "usage": [
+    "Placeholder logo during report scaffolding (before brand assets arrive).",
+    "Sample / demo reports showcased by this skill.",
+    "Layout-preview rendering where a logo zone is required (landing-navigation, customer-360 corporate slot, etc.)."
+  ],
+  "logos": [
+    {
+      "id": "logo-sales",
+      "industry": "sales",
+      "file": "logo-sales.svg",
+      "glyph": "trend-arrow + bars",
+      "placeholder_company": "ACME Sales",
+      "tag": "SALES \u00b7 REVENUE",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "sales-performance",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-finance",
+      "industry": "finance",
+      "file": "logo-finance.svg",
+      "glyph": "coin with dollar",
+      "placeholder_company": "ACME Finance",
+      "tag": "FINANCE \u00b7 FP&A",
+      "pairs_with_layouts": [
+        "finance-pnl-waterfall",
+        "exec-overview-16x9",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-healthcare",
+      "industry": "healthcare",
+      "file": "logo-healthcare.svg",
+      "glyph": "medical cross tile",
+      "placeholder_company": "ACME Health",
+      "tag": "HEALTHCARE \u00b7 CLINICAL",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "ops-single-screen",
+        "customer-360"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-manufacturing",
+      "industry": "manufacturing",
+      "file": "logo-manufacturing.svg",
+      "glyph": "gear with hub",
+      "placeholder_company": "ACME Industries",
+      "tag": "MANUFACTURING \u00b7 OPS",
+      "pairs_with_layouts": [
+        "mfg-line-status",
+        "ops-single-screen",
+        "exec-overview-16x9"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-retail",
+      "industry": "retail",
+      "file": "logo-retail.svg",
+      "glyph": "storefront with awning",
+      "placeholder_company": "ACME Retail",
+      "tag": "RETAIL \u00b7 STORES",
+      "pairs_with_layouts": [
+        "sales-performance",
+        "geo-territory-map",
+        "exec-overview-16x9"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-logistics",
+      "industry": "logistics",
+      "file": "logo-logistics.svg",
+      "glyph": "delivery truck",
+      "placeholder_company": "ACME Logistics",
+      "tag": "LOGISTICS \u00b7 FLEET",
+      "pairs_with_layouts": [
+        "ops-single-screen",
+        "geo-territory-map",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-marketing",
+      "industry": "marketing",
+      "file": "logo-marketing.svg",
+      "glyph": "megaphone with waves",
+      "placeholder_company": "ACME Marketing",
+      "tag": "MARKETING \u00b7 GROWTH",
+      "pairs_with_layouts": [
+        "marketing-funnel",
+        "exec-overview-16x9",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-hr",
+      "industry": "hr",
+      "file": "logo-hr.svg",
+      "glyph": "two silhouettes",
+      "placeholder_company": "ACME People",
+      "tag": "HR \u00b7 PEOPLE",
+      "pairs_with_layouts": [
+        "scorecard-kpi-grid",
+        "drillthrough-detail",
+        "exec-overview-16x9"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-technology",
+      "industry": "technology",
+      "file": "logo-technology.svg",
+      "glyph": "circuit chip",
+      "placeholder_company": "ACME Tech",
+      "tag": "TECHNOLOGY \u00b7 IT",
+      "pairs_with_layouts": [
+        "ops-single-screen",
+        "scorecard-kpi-grid",
+        "exec-overview-16x9"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-energy",
+      "industry": "energy",
+      "file": "logo-energy.svg",
+      "glyph": "lightning bolt",
+      "placeholder_company": "ACME Energy",
+      "tag": "ENERGY \u00b7 UTILITIES",
+      "pairs_with_layouts": [
+        "mfg-line-status",
+        "ops-single-screen",
+        "geo-territory-map"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-education",
+      "industry": "education",
+      "file": "logo-education.svg",
+      "glyph": "graduation cap",
+      "placeholder_company": "ACME Academy",
+      "tag": "EDUCATION \u00b7 LEARNING",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "scorecard-kpi-grid",
+        "drillthrough-detail"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-hospitality",
+      "industry": "hospitality",
+      "file": "logo-hospitality.svg",
+      "glyph": "cup with steam",
+      "placeholder_company": "ACME Hospitality",
+      "tag": "HOSPITALITY \u00b7 F&B",
+      "pairs_with_layouts": [
+        "sales-performance",
+        "geo-territory-map",
+        "exec-overview-16x9"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-automotive",
+      "industry": "automotive",
+      "file": "logo-automotive.svg",
+      "glyph": "car silhouette",
+      "placeholder_company": "ACME Motors",
+      "tag": "AUTOMOTIVE \u00b7 MOBILITY",
+      "pairs_with_layouts": [
+        "sales-performance",
+        "mfg-line-status",
+        "geo-territory-map"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-pharma",
+      "industry": "pharma",
+      "file": "logo-pharma.svg",
+      "glyph": "pill capsule",
+      "placeholder_company": "ACME Pharma",
+      "tag": "PHARMA \u00b7 LIFE SCIENCES",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "scorecard-kpi-grid",
+        "customer-360"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-telecom",
+      "industry": "telecom",
+      "file": "logo-telecom.svg",
+      "glyph": "antenna with signal",
+      "placeholder_company": "ACME Telecom",
+      "tag": "TELECOM \u00b7 NETWORK",
+      "pairs_with_layouts": [
+        "ops-single-screen",
+        "geo-territory-map",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-real-estate",
+      "industry": "real-estate",
+      "file": "logo-real-estate.svg",
+      "glyph": "house with roof",
+      "placeholder_company": "ACME Realty",
+      "tag": "REAL ESTATE \u00b7 PROPERTY",
+      "pairs_with_layouts": [
+        "sales-performance",
+        "geo-territory-map",
+        "exec-overview-16x9"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-construction",
+      "industry": "construction",
+      "file": "logo-construction.svg",
+      "glyph": "hard hat",
+      "placeholder_company": "ACME Build",
+      "tag": "CONSTRUCTION \u00b7 PROJECTS",
+      "pairs_with_layouts": [
+        "ops-single-screen",
+        "scorecard-kpi-grid",
+        "mfg-line-status"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-food-beverage",
+      "industry": "food-beverage",
+      "file": "logo-food-beverage.svg",
+      "glyph": "leaf + fork",
+      "placeholder_company": "ACME Foods",
+      "tag": "FOOD & BEVERAGE \u00b7 CPG",
+      "pairs_with_layouts": [
+        "sales-performance",
+        "exec-overview-16x9",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-media",
+      "industry": "media",
+      "file": "logo-media.svg",
+      "glyph": "play tile",
+      "placeholder_company": "ACME Media",
+      "tag": "MEDIA \u00b7 STREAMING",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "marketing-funnel",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-government",
+      "industry": "government",
+      "file": "logo-government.svg",
+      "glyph": "classical building",
+      "placeholder_company": "ACME Gov",
+      "tag": "GOVERNMENT \u00b7 PUBLIC",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "scorecard-kpi-grid",
+        "drillthrough-detail"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-insurance",
+      "industry": "insurance",
+      "file": "logo-insurance.svg",
+      "glyph": "shield with check",
+      "placeholder_company": "ACME Insurance",
+      "tag": "INSURANCE \u00b7 RISK",
+      "pairs_with_layouts": [
+        "scorecard-kpi-grid",
+        "exec-overview-16x9",
+        "drillthrough-detail"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-agriculture",
+      "industry": "agriculture",
+      "file": "logo-agriculture.svg",
+      "glyph": "wheat stalk",
+      "placeholder_company": "ACME Agri",
+      "tag": "AGRICULTURE \u00b7 FARMING",
+      "pairs_with_layouts": [
+        "geo-territory-map",
+        "exec-overview-16x9",
+        "scorecard-kpi-grid"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-aviation",
+      "industry": "aviation",
+      "file": "logo-aviation.svg",
+      "glyph": "airplane",
+      "placeholder_company": "ACME Air",
+      "tag": "AVIATION \u00b7 AEROSPACE",
+      "pairs_with_layouts": [
+        "exec-overview-16x9",
+        "ops-single-screen",
+        "geo-territory-map"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    },
+    {
+      "id": "logo-ecommerce",
+      "industry": "ecommerce",
+      "file": "logo-ecommerce.svg",
+      "glyph": "shopping bag",
+      "placeholder_company": "ACME Shop",
+      "tag": "ECOMMERCE \u00b7 DIGITAL",
+      "pairs_with_layouts": [
+        "sales-performance",
+        "marketing-funnel",
+        "customer-360"
+      ],
+      "viewBox": "0 0 160 48",
+      "badge_crop": "0 0 48 48",
+      "style": "combined-mark",
+      "recolor": "currentColor",
+      "license": "CC0"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="80" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="140" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.2"/>
+
+<g fill="currentColor" stroke="none">
+  <polygon points="60,44   260,44   248,64  72,64"  fill-opacity="0.85"/>
+  <polygon points="72,68   248,68   232,88  88,88"  fill-opacity="0.72"/>
+  <polygon points="88,92   232,92   212,112 108,112" fill-opacity="0.58"/>
+  <polygon points="108,116 212,116 192,136 128,136" fill-opacity="0.42"/>
+  <polygon points="128,140 192,140 178,160 142,160" fill-opacity="0.28"/>
+</g>
+<g font-family="system-ui,Segoe UI,Arial" font-size="8" fill="currentColor" fill-opacity="0.65" stroke="none">
+  <text x="268" y="58">100%</text>
+  <text x="268" y="82">72%</text>
+  <text x="268" y="106">48%</text>
+  <text x="268" y="130">28%</text>
+  <text x="268" y="154">12%</text>
+</g>
+</svg>

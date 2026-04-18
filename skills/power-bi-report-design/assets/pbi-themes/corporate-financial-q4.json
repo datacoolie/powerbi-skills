@@ -1,0 +1,73 @@
+{
+  "name": "Corporate / Financial (Q4)",
+  "dataColors": [
+    "#062A52",
+    "#1B6FB8",
+    "#E8B653",
+    "#6B7A8D",
+    "#9B59B6",
+    "#2ECC71",
+    "#E67E22",
+    "#95A5A6"
+  ],
+  "background": "#F8F9FA",
+  "foreground": "#1A1A2E",
+  "tableAccent": "#003052",
+  "good": "#38B64B",
+  "bad": "#EE1C25",
+  "neutral": "#949599",
+  "warning": "#F5A623",
+  "info": "#0078D4",
+  "minimum": "#A7141A",
+  "center": "#F5F5F5",
+  "maximum": "#277F34",
+  "null": "#D1D5DB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E5E7EB"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E5E7EB"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#B4B9C2"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#B4B9C2"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

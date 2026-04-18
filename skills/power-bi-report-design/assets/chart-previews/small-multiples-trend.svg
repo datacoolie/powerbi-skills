@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="80" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="140" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.2"/>
+
+<rect x="20" y="40" width="88" height="34" rx="3" fill-opacity="0.05" fill="currentColor" stroke="currentColor" stroke-opacity="0.2"/>
+<polyline points="22,64 27,60 32,62 37,56 42,58 47,52 52,54 57,48 62,50 67,44 72,46 77,42 82,44 87,40 92,42 97,44 102,46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.85"/>
+<rect x="116" y="40" width="88" height="34" rx="3" fill-opacity="0.05" fill="currentColor" stroke="currentColor" stroke-opacity="0.2"/>
+<polyline points="118,52 123,54 128,50 133,52 138,48 143,50 148,46 153,48 158,50 163,52 168,54 173,56 178,58 183,60 188,62 193,64 198,66" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.85"/>
+<rect x="212" y="40" width="88" height="34" rx="3" fill-opacity="0.05" fill="currentColor" stroke="currentColor" stroke-opacity="0.2"/>
+<polyline points="214,62 219,58 224,60 229,62 234,64 239,60 244,58 249,54 254,56 259,52 264,54 269,50 274,48 279,46 284,48 289,44 294,46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.85"/>
+<rect x="20" y="104" width="88" height="34" rx="3" fill-opacity="0.05" fill="currentColor" stroke="currentColor" stroke-opacity="0.2"/>
+<polyline points="22,132 27,130 32,131 37,128 42,129 47,126 52,127 57,124 62,126 67,122 72,124 77,120 82,122 87,118 92,120 97,116 102,118" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.85"/>
+<rect x="116" y="104" width="88" height="34" rx="3" fill-opacity="0.05" fill="currentColor" stroke="currentColor" stroke-opacity="0.2"/>
+<polyline points="118,108 123,112 128,110 133,114 138,112 143,116 148,114 153,118 158,116 163,120 168,118 173,122 178,120 183,124 188,122 193,126 198,124" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.85"/>
+<rect x="212" y="104" width="88" height="34" rx="3" fill-opacity="0.05" fill="currentColor" stroke="currentColor" stroke-opacity="0.2"/>
+<polyline points="214,122 219,120 224,122 229,118 234,120 239,116 244,118 249,120 254,122 259,124 264,126 269,124 274,122 279,124 284,120 289,122 294,118" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.85"/></svg>

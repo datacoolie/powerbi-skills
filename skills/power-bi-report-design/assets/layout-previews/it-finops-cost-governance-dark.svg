@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>it-finops-cost-governance</title>
+<rect x="0" y="0" width="480" height="270" fill="#0F172A"/>
+<rect x="0" y="0" width="480" height="3" fill="#38BDF8"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#38BDF8"/>
+<text x="18.62" y="16.245" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="420.39" y="16.995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#111827" stroke="#334155"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#1E293B" stroke="#334155"/>
+<text x="18.62" y="37.354479999999995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#1E293B" stroke="#334155"/>
+<text x="111.574" y="37.354479999999995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#1E293B" stroke="#334155"/>
+<text x="204.528" y="37.354479999999995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#1E293B" stroke="#334155"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#1E293B" stroke="#334155"/>
+<text x="390.436" y="37.354479999999995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="10.620000000000001" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="10.620000000000001" y="53.6" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="18.62" y="58.5436" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="65.22659999999999" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="126.8125" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="126.8125" y="53.6" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="134.8125" y="58.5436" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="134.8125" y="65.22659999999999" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="243.005" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="243.005" y="53.6" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="251.005" y="58.5436" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="251.005" y="65.22659999999999" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="359.1975" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="359.1975" y="53.6" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="367.1975" y="58.5436" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="367.1975" y="65.22659999999999" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="4.62" y="76.44" width="270.29" height="92.88" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="12.620000000000001" y="88.44" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Cloud Spend Stack</text>
+<polygon points="12.6,161.32 12.6,132.8 30.8,131.0 48.9,142.4 67.1,126.1 85.3,122.0 103.4,109.7 121.6,130.2 139.8,112.2 157.9,122.8 176.1,135.6 194.3,115.3 212.4,133.7 230.6,113.0 248.7,114.2 266.9,120.8 266.9,161.32" fill="#38BDF8" opacity="0.18"/>
+<polyline points="12.6,132.8 30.8,131.0 48.9,142.4 67.1,126.1 85.3,122.0 103.4,109.7 121.6,130.2 139.8,112.2 157.9,122.8 176.1,135.6 194.3,115.3 212.4,133.7 230.6,113.0 248.7,114.2 266.9,120.8" fill="none" stroke="#38BDF8" stroke-width="1.8"/>
+<polyline points="12.6,124.9 30.8,134.8 48.9,143.0 67.1,150.6 85.3,124.9 103.4,147.2 121.6,128.1 139.8,139.5 157.9,134.3 176.1,128.4 194.3,133.2 212.4,125.8 230.6,145.5 248.7,130.7 266.9,149.3" fill="none" stroke="#FBBF24" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="12.620000000000001" y1="161.32" x2="266.91" y2="161.32" stroke="#334155"/>
+<rect x="279.52" y="76.44" width="195.87" height="92.88" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="287.52" y="88.44" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Anomaly Flags</text>
+<polygon points="287.5,161.32 287.5,126.0 300.4,119.1 313.2,143.2 326.1,122.1 338.9,133.9 351.8,126.4 364.6,142.9 377.5,111.2 390.3,128.0 403.2,118.3 416.0,121.9 428.8,112.3 441.7,130.3 454.5,110.5 467.4,115.3 467.4,161.32" fill="#38BDF8" opacity="0.18"/>
+<polyline points="287.5,126.0 300.4,119.1 313.2,143.2 326.1,122.1 338.9,133.9 351.8,126.4 364.6,142.9 377.5,111.2 390.3,128.0 403.2,118.3 416.0,121.9 428.8,112.3 441.7,130.3 454.5,110.5 467.4,115.3" fill="none" stroke="#38BDF8" stroke-width="1.8"/>
+<polyline points="287.5,137.2 300.4,144.3 313.2,140.3 326.1,142.8 338.9,140.8 351.8,141.4 364.6,147.9 377.5,131.0 390.3,138.2 403.2,128.5 416.0,127.4 428.8,138.0 441.7,152.0 454.5,150.6 467.4,130.7" fill="none" stroke="#FBBF24" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="287.52" y1="161.32" x2="467.39" y2="161.32" stroke="#334155"/>
+<rect x="4.62" y="172.79" width="470.77" height="92.6" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="12.620000000000001" y="184.79" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Budget Burn Gauge</text>
+<path d="M 175.2 245.0 A 64.8 64.8 0 0 1 304.8 245.0" fill="none" stroke="#1F2937" stroke-width="14.3"/>
+<path d="M 175.2 245.0 A 64.8 64.8 0 0 1 265.9 185.4" fill="none" stroke="#34D399" stroke-width="14.3"/>
+<line x1="240.0" y1="245.0" x2="265.9" y2="189.9" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round"/>
+<circle cx="240.0" cy="245.0" r="3" fill="#F1F5F9"/>
+<text x="240.0" y="274.2" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">82%</text>
+<text x="240.0" y="265" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">it-finops-cost-governance</text>
+</svg>

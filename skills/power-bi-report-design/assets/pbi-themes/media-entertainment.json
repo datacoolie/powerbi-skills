@@ -1,0 +1,71 @@
+{
+  "name": "Media / Entertainment",
+  "dataColors": [
+    "#8B1A5C",
+    "#FFB400",
+    "#E91E63",
+    "#1A1A2E",
+    "#00BCD4",
+    "#FF5722",
+    "#673AB7",
+    "#4CAF50"
+  ],
+  "background": "#FAFAFA",
+  "foreground": "#1A1A2E",
+  "tableAccent": "#8B1A5C",
+  "good": "#4CAF50",
+  "bad": "#E53935",
+  "neutral": "#7E7E9A",
+  "warning": "#FFB400",
+  "info": "#00BCD4",
+  "minimum": "#E53935",
+  "center": "#F2F2F2",
+  "maximum": "#4CAF50",
+  "null": "#CFCEDB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#EBEAEF"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#D5D4DE"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#9A99B1"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#EBEAEF"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#9A99B1"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

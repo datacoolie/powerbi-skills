@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="80" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="140" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.2"/>
+<line x1="30" y1="150" x2="300" y2="150" stroke-opacity="0.35"/>
+<line x1="30" y1="150" x2="30" y2="50" stroke-opacity="0.35"/>
+
+<g stroke="currentColor" stroke-dasharray="3 2" stroke-opacity="0.45">
+  <line x1="165" y1="50"  x2="165" y2="150"/>
+  <line x1="30"  y1="100" x2="300" y2="100"/>
+</g>
+<g fill="currentColor" stroke="none">
+  <circle cx="60" cy="134" r="3" fill-opacity="0.35"/>
+  <circle cx="80" cy="120" r="4" fill-opacity="0.55"/>
+  <circle cx="100" cy="140" r="3" fill-opacity="0.3"/>
+  <circle cx="120" cy="116" r="5" fill-opacity="0.65"/>
+  <circle cx="140" cy="124" r="4" fill-opacity="0.5"/>
+  <circle cx="60" cy="80" r="3" fill-opacity="0.4"/>
+  <circle cx="90" cy="68" r="5" fill-opacity="0.65"/>
+  <circle cx="110" cy="90" r="4" fill-opacity="0.55"/>
+  <circle cx="130" cy="72" r="3" fill-opacity="0.4"/>
+  <circle cx="150" cy="86" r="4" fill-opacity="0.5"/>
+  <circle cx="180" cy="64" r="6" fill-opacity="0.75"/>
+  <circle cx="200" cy="78" r="4" fill-opacity="0.55"/>
+  <circle cx="220" cy="56" r="7" fill-opacity="0.85"/>
+  <circle cx="240" cy="72" r="5" fill-opacity="0.6"/>
+  <circle cx="260" cy="64" r="4" fill-opacity="0.5"/>
+  <circle cx="280" cy="76" r="5" fill-opacity="0.6"/>
+  <circle cx="180" cy="132" r="4" fill-opacity="0.45"/>
+  <circle cx="210" cy="146" r="3" fill-opacity="0.35"/>
+  <circle cx="230" cy="128" r="4" fill-opacity="0.45"/>
+  <circle cx="260" cy="140" r="3" fill-opacity="0.35"/>
+  <circle cx="285" cy="134" r="4" fill-opacity="0.45"/>
+</g>
+<g font-family="system-ui,Segoe UI,Arial" font-size="7" fill="currentColor" fill-opacity="0.5" stroke="none">
+  <text x="36" y="58">LAG</text>
+  <text x="272" y="58">LEAD</text>
+  <text x="36" y="148">DRAG</text>
+  <text x="266" y="148">VOLUME</text>
+</g>
+</svg>

@@ -1,0 +1,71 @@
+{
+  "name": "High-Contrast Dark",
+  "dataColors": [
+    "#4FC3F7",
+    "#81C784",
+    "#FFB74D",
+    "#BA68C8",
+    "#F06292",
+    "#64FFDA",
+    "#FFD54F",
+    "#FF8A65"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E8EAED",
+  "tableAccent": "#4FC3F7",
+  "good": "#81C784",
+  "bad": "#EF5350",
+  "neutral": "#B0BEC5",
+  "warning": "#FFB74D",
+  "info": "#4FC3F7",
+  "minimum": "#EF5350",
+  "center": "#4A4A52",
+  "maximum": "#81C784",
+  "null": "#455A64",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#263238"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#37474F"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#78909C"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#263238"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#78909C"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

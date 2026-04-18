@@ -1,0 +1,71 @@
+{
+  "name": "Nord / Frost",
+  "dataColors": [
+    "#5E81AC",
+    "#88C0D0",
+    "#81A1C1",
+    "#8FBCBB",
+    "#A3BE8C",
+    "#EBCB8B",
+    "#D08770",
+    "#B48EAD"
+  ],
+  "background": "#ECEFF4",
+  "foreground": "#2E3440",
+  "tableAccent": "#5E81AC",
+  "good": "#A3BE8C",
+  "bad": "#BF616A",
+  "neutral": "#4C566A",
+  "warning": "#EBCB8B",
+  "info": "#5E81AC",
+  "minimum": "#BF616A",
+  "center": "#F2F2F2",
+  "maximum": "#A3BE8C",
+  "null": "#D8DEE9",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E5E9F0"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#D8DEE9"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#4C566A"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E5E9F0"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#4C566A"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

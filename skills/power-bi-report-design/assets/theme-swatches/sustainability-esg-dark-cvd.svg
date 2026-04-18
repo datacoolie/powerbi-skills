@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="sans-serif">
+  <title>cvd preview: sustainability-esg-dark</title>
+  <style>svg{background:#ffffff;color:#1f2937;}text{fill:currentColor;}.title{font-size:12px;font-weight:bold;}.row{font-size:9px;font-weight:bold;fill-opacity:0.8;}.hex{font-family:monospace;font-size:6.5px;fill:#ffffff;fill-opacity:0.9;}.note{font-size:8px;fill-opacity:0.6;}</style>
+  <text x="12" y="18" class="title">Colorblind vision preview — Sustainability / ESG (Dark)</text>
+  <text x="548" y="18" class="note" text-anchor="end">sustainability-esg-dark</text>
+  <text x="12" y="32" class="note">Machado-Oliveira-Fernandes 2009 simulation matrices at severity 1.0</text>
+  <text x="12" y="62" class="row">Normal vision</text>
+  <rect x="100" y="44" width="52" height="48" fill="#5EBB92" rx="2" ry="2"/>
+  <text x="126" y="88" class="hex" text-anchor="middle">#5EBB92</text>
+  <rect x="156" y="44" width="52" height="48" fill="#5DBC90" rx="2" ry="2"/>
+  <text x="182" y="88" class="hex" text-anchor="middle">#5DBC90</text>
+  <rect x="212" y="44" width="52" height="48" fill="#95D5B2" rx="2" ry="2"/>
+  <text x="238" y="88" class="hex" text-anchor="middle">#95D5B2</text>
+  <rect x="268" y="44" width="52" height="48" fill="#92DD9D" rx="2" ry="2"/>
+  <text x="294" y="88" class="hex" text-anchor="middle">#92DD9D</text>
+  <rect x="324" y="44" width="52" height="48" fill="#BA865F" rx="2" ry="2"/>
+  <text x="350" y="88" class="hex" text-anchor="middle">#BA865F</text>
+  <rect x="380" y="44" width="52" height="48" fill="#D4A846" rx="2" ry="2"/>
+  <text x="406" y="88" class="hex" text-anchor="middle">#D4A846</text>
+  <rect x="436" y="44" width="52" height="48" fill="#E76F51" rx="2" ry="2"/>
+  <text x="462" y="88" class="hex" text-anchor="middle">#E76F51</text>
+  <rect x="492" y="44" width="52" height="48" fill="#629EB7" rx="2" ry="2"/>
+  <text x="518" y="88" class="hex" text-anchor="middle">#629EB7</text>
+  <text x="12" y="122" class="row">Deuteranopia</text>
+  <rect x="100" y="104" width="52" height="48" fill="#A29F94" rx="2" ry="2"/>
+  <text x="126" y="148" class="hex" text-anchor="middle">#A29F94</text>
+  <rect x="156" y="104" width="52" height="48" fill="#A39F93" rx="2" ry="2"/>
+  <text x="182" y="148" class="hex" text-anchor="middle">#A39F93</text>
+  <rect x="212" y="104" width="52" height="48" fill="#C5C1B4" rx="2" ry="2"/>
+  <text x="238" y="148" class="hex" text-anchor="middle">#C5C1B4</text>
+  <rect x="268" y="104" width="52" height="48" fill="#D0C5A0" rx="2" ry="2"/>
+  <text x="294" y="148" class="hex" text-anchor="middle">#D0C5A0</text>
+  <rect x="324" y="104" width="52" height="48" fill="#A29360" rx="2" ry="2"/>
+  <text x="350" y="148" class="hex" text-anchor="middle">#A29360</text>
+  <rect x="380" y="104" width="52" height="48" fill="#CEB049" rx="2" ry="2"/>
+  <text x="406" y="148" class="hex" text-anchor="middle">#CEB049</text>
+  <rect x="436" y="104" width="52" height="48" fill="#A28F50" rx="2" ry="2"/>
+  <text x="462" y="148" class="hex" text-anchor="middle">#A28F50</text>
+  <rect x="492" y="104" width="52" height="48" fill="#828EB7" rx="2" ry="2"/>
+  <text x="518" y="148" class="hex" text-anchor="middle">#828EB7</text>
+  <text x="12" y="182" class="row">Protanopia</text>
+  <rect x="100" y="164" width="52" height="48" fill="#B5AC90" rx="2" ry="2"/>
+  <text x="126" y="208" class="hex" text-anchor="middle">#B5AC90</text>
+  <rect x="156" y="164" width="52" height="48" fill="#B7AD8E" rx="2" ry="2"/>
+  <text x="182" y="208" class="hex" text-anchor="middle">#B7AD8E</text>
+  <rect x="212" y="164" width="52" height="48" fill="#D2CAB0" rx="2" ry="2"/>
+  <text x="238" y="208" class="hex" text-anchor="middle">#D2CAB0</text>
+  <rect x="268" y="164" width="52" height="48" fill="#DFCE9A" rx="2" ry="2"/>
+  <text x="294" y="208" class="hex" text-anchor="middle">#DFCE9A</text>
+  <rect x="324" y="164" width="52" height="48" fill="#96885D" rx="2" ry="2"/>
+  <text x="350" y="208" class="hex" text-anchor="middle">#96885D</text>
+  <rect x="380" y="164" width="52" height="48" fill="#C3A341" rx="2" ry="2"/>
+  <text x="406" y="208" class="hex" text-anchor="middle">#C3A341</text>
+  <rect x="436" y="164" width="52" height="48" fill="#877A4F" rx="2" ry="2"/>
+  <text x="462" y="208" class="hex" text-anchor="middle">#877A4F</text>
+  <rect x="492" y="164" width="52" height="48" fill="#909AB9" rx="2" ry="2"/>
+  <text x="518" y="208" class="hex" text-anchor="middle">#909AB9</text>
+  <text x="12" y="242" class="row">Tritanopia</text>
+  <rect x="100" y="224" width="52" height="48" fill="#4EBCAE" rx="2" ry="2"/>
+  <text x="126" y="268" class="hex" text-anchor="middle">#4EBCAE</text>
+  <rect x="156" y="224" width="52" height="48" fill="#4DBDAE" rx="2" ry="2"/>
+  <text x="182" y="268" class="hex" text-anchor="middle">#4DBDAE</text>
+  <rect x="212" y="224" width="52" height="48" fill="#8BD5CA" rx="2" ry="2"/>
+  <text x="238" y="268" class="hex" text-anchor="middle">#8BD5CA</text>
+  <rect x="268" y="224" width="52" height="48" fill="#8ADAC9" rx="2" ry="2"/>
+  <text x="294" y="268" class="hex" text-anchor="middle">#8ADAC9</text>
+  <rect x="324" y="224" width="52" height="48" fill="#CE7C7A" rx="2" ry="2"/>
+  <text x="350" y="268" class="hex" text-anchor="middle">#CE7C7A</text>
+  <rect x="380" y="224" width="52" height="48" fill="#F1968A" rx="2" ry="2"/>
+  <text x="406" y="268" class="hex" text-anchor="middle">#F1968A</text>
+  <rect x="436" y="224" width="52" height="48" fill="#FF6166" rx="2" ry="2"/>
+  <text x="462" y="268" class="hex" text-anchor="middle">#FF6166</text>
+  <rect x="492" y="224" width="52" height="48" fill="#4EA7A5" rx="2" ry="2"/>
+  <text x="518" y="268" class="hex" text-anchor="middle">#4EA7A5</text>
+  <text x="12" y="292" class="note">Safety rating: unsafe · min ΔE = 0.58 · worst under tritanopia</text>
+</svg>

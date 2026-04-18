@@ -5,6 +5,14 @@ audience, and editorial intent. Derived from *Storytelling with Data* (Knaflic, 
 *Storytelling with Data: Let's Practice!* (Knaflic, 2020), and *Data Visualization:
 A Handbook for Data Driven Design* (Kirk, 2nd ed., 2019).
 
+> **Intent-first alternate entry point.** If you already know the *data
+> relationship* (Deviation, Correlation, Ranking, Distribution, Change over
+> Time, Magnitude, Part-to-whole, Spatial, Flow) — skip to the taxonomy-driven
+> catalog in [`visual-vocabulary.md`](visual-vocabulary.md) (adapted from the
+> Financial Times Visual Vocabulary via Gramener's Vega edition). Return here
+> for the hard rules (never-3D, no pie, no secondary axis) and per-chart
+> mistake patterns.
+
 ---
 
 ## Decision Framework

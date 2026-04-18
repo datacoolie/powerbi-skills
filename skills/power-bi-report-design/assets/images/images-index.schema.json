@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://powerbi-skills.local/images-index.schema.json",
+  "title": "Images Index",
+  "type": "object",
+  "required": ["version", "images"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+    "description": { "type": "string" },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "file", "category", "width", "height", "alt", "license"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "file": { "type": "string", "pattern": "^[a-z0-9\\-/]+\\.(webp|jpg|jpeg|png)$" },
+          "category": {
+            "type": "string",
+            "enum": ["background", "banner", "divider", "logo"]
+          },
+          "width": { "type": "integer", "minimum": 16 },
+          "height": { "type": "integer", "minimum": 16 },
+          "alt": { "type": "string", "minLength": 20 },
+          "license": { "type": "string", "minLength": 2 },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "gaps": { "type": "array", "items": { "type": "string" } }
+  }
+}

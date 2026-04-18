@@ -1,0 +1,73 @@
+{
+  "name": "Google Material 3 (Dark)",
+  "dataColors": [
+    "#327EE7",
+    "#3ADE71",
+    "#EE9A2B",
+    "#E03C39",
+    "#9334E6",
+    "#2CD5EC",
+    "#EEB12B",
+    "#878D91"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#327EE7",
+  "good": "#3ADE71",
+  "bad": "#E03C39",
+  "neutral": "#878C91",
+  "warning": "#EEB12B",
+  "info": "#327EE7",
+  "minimum": "#9D2A28",
+  "center": "#4A4A52",
+  "maximum": "#299B4F",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

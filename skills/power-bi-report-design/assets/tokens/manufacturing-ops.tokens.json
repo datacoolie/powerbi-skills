@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Manufacturing / Operations' (manufacturing-ops).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#2B5797"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#7A7574"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#E8980C"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#DF5022"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#38B64B"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#A4262C"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#8764B8"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#00B294"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#38B64B"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#A4262C"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#7A7574"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#E8980C"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#2B5797"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#8F8A8A"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#C5C1C0"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#E4E1E0"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#CBC7C6"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#F6F8F9"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#292E6B"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#2B5797"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#A4E2AD"
+        },
+        {
+          "$type": "color",
+          "$value": "#38B64A"
+        },
+        {
+          "$type": "color",
+          "$value": "#1A5422"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#F9D493"
+        },
+        {
+          "$type": "color",
+          "$value": "#E8980B"
+        },
+        {
+          "$type": "color",
+          "$value": "#6E4805"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#E18185"
+        },
+        {
+          "$type": "color",
+          "$value": "#A4252B"
+        },
+        {
+          "$type": "color",
+          "$value": "#3E0E10"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#80A5DA"
+        },
+        {
+          "$type": "color",
+          "$value": "#2A5697"
+        },
+        {
+          "$type": "color",
+          "$value": "#10223B"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#A4262C"
+        },
+        {
+          "$type": "color",
+          "$value": "#D9ADAF"
+        },
+        {
+          "$type": "color",
+          "$value": "#F2F2F2"
+        },
+        {
+          "$type": "color",
+          "$value": "#B3DFBA"
+        },
+        {
+          "$type": "color",
+          "$value": "#38B64B"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Inter', 'Helvetica Neue', 'Arial', sans-serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Inter', 'Helvetica Neue', 'Arial', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'IBM Plex Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 11.61
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": ""
+    }
+  }
+}

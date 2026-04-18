@@ -1,0 +1,73 @@
+{
+  "name": "Stripe Indigo",
+  "dataColors": [
+    "#635BFF",
+    "#00D924",
+    "#FF5996",
+    "#F5BE58",
+    "#0A2540",
+    "#00D4FF",
+    "#EF5A5A",
+    "#8792A2"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0A2540",
+  "tableAccent": "#635BFF",
+  "good": "#00D924",
+  "bad": "#EF5A5A",
+  "neutral": "#8792A2",
+  "warning": "#F5BE58",
+  "info": "#635BFF",
+  "minimum": "#A73F3F",
+  "center": "#F5F5F5",
+  "maximum": "#009819",
+  "null": "#C2C8CF",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E2E5E8"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E2E5E8"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#919DA9"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#919DA9"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

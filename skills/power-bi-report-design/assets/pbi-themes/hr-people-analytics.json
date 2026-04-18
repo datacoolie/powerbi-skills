@@ -1,0 +1,71 @@
+{
+  "name": "HR / People Analytics",
+  "dataColors": [
+    "#00796B",
+    "#FF7043",
+    "#5C6BC0",
+    "#26A69A",
+    "#EC407A",
+    "#8D6E63",
+    "#7CB342",
+    "#AB47BC"
+  ],
+  "background": "#F9FBFA",
+  "foreground": "#263238",
+  "tableAccent": "#00796B",
+  "good": "#43A047",
+  "bad": "#EF5350",
+  "neutral": "#90A4AE",
+  "warning": "#FFA726",
+  "info": "#29B6F6",
+  "minimum": "#EF5350",
+  "center": "#F2F2F2",
+  "maximum": "#43A047",
+  "null": "#CBD2D6",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E8ECEE"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#D4D9DC"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#98A6AC"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E8ECEE"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#98A6AC"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

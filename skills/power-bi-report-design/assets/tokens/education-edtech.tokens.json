@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Education / EdTech' (education-edtech).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#4A3B8C"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#00897B"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#F57C00"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#5E35B1"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#43A047"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#D81B60"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#00ACC1"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#6D4C41"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#43A047"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#D81B60"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#78909C"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#F57C00"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#00897B"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#8F8CA3"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#CAC6D9"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#EAE6F2"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#D4CFE0"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#FAF7FF"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#1C1B2E"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#4A3B8C"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#A3D8A5"
+        },
+        {
+          "$type": "color",
+          "$value": "#42A047"
+        },
+        {
+          "$type": "color",
+          "$value": "#1D461F"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#FEC78F"
+        },
+        {
+          "$type": "color",
+          "$value": "#F57B00"
+        },
+        {
+          "$type": "color",
+          "$value": "#753B00"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#F299BA"
+        },
+        {
+          "$type": "color",
+          "$value": "#D81A5F"
+        },
+        {
+          "$type": "color",
+          "$value": "#660C2D"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#9B8FD0"
+        },
+        {
+          "$type": "color",
+          "$value": "#493B8C"
+        },
+        {
+          "$type": "color",
+          "$value": "#1C1635"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#D81B60"
+        },
+        {
+          "$type": "color",
+          "$value": "#EBA9C1"
+        },
+        {
+          "$type": "color",
+          "$value": "#F2F2F2"
+        },
+        {
+          "$type": "color",
+          "$value": "#B7D7B8"
+        },
+        {
+          "$type": "color",
+          "$value": "#43A047"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Playfair Display', 'Georgia', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Work Sans', 'Inter', 'Arial', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'JetBrains Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.91
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": ""
+    }
+  }
+}

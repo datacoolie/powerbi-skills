@@ -1,0 +1,35 @@
+/* Theme tokens: Manufacturing / Operations (manufacturing-ops) — auto-generated */
+:root[data-theme="manufacturing-ops"] {
+  --color-data-1: #2B5797;
+  --color-data-2: #7A7574;
+  --color-data-3: #E8980C;
+  --color-data-4: #DF5022;
+  --color-data-5: #38B64B;
+  --color-data-6: #A4262C;
+  --color-data-7: #8764B8;
+  --color-data-8: #00B294;
+  --color-semantic-good: #38B64B;
+  --color-semantic-bad: #A4262C;
+  --color-semantic-neutral: #7A7574;
+  --color-semantic-warning: #E8980C;
+  --color-semantic-info: #2B5797;
+  --color-neutral-muted: #8F8A8A;
+  --color-neutral-disabled: #C5C1C0;
+  --color-neutral-gridline: #E4E1E0;
+  --color-neutral-divider: #CBC7C6;
+  --color-bg: #F6F8F9;
+  --color-fg: #292E6B;
+  --color-table-accent: #2B5797;
+  --color-diverging-1: #A4262C;
+  --color-diverging-2: #D9ADAF;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #B3DFBA;
+  --color-diverging-5: #38B64B;
+  --font-title: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body:  'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono:  'IBM Plex Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

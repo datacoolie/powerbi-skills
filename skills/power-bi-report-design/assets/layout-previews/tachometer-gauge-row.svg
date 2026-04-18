@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>tachometer-gauge-row</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="80.19" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="16.62" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Gauge Band</text>
+<path d="M 183.9 67.2 A 56.1 56.1 0 0 1 296.1 67.2" fill="none" stroke="#F3F4F6" stroke-width="12.3"/>
+<path d="M 183.9 67.2 A 56.1 56.1 0 0 1 262.5 15.5" fill="none" stroke="#10B981" stroke-width="12.3"/>
+<line x1="240.0" y1="67.2" x2="262.5" y2="19.5" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+<circle cx="240.0" cy="67.2" r="3" fill="#111827"/>
+<text x="240.0" y="92.4" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">82%</text>
+<rect x="10.620000000000001" y="94.27" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="94.27" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="18.62" y="99.2136" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="105.89659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="126.8125" y="94.27" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="126.8125" y="94.27" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="134.8125" y="99.2136" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="134.8125" y="105.89659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="243.005" y="94.27" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="243.005" y="94.27" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="251.005" y="99.2136" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="251.005" y="105.89659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="359.1975" y="94.27" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="359.1975" y="94.27" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="367.1975" y="99.2136" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="367.1975" y="105.89659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="4.62" y="117.12" width="470.77" height="79.9" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="129.12" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Hero Chart</text>
+<polygon points="12.6,189.02 12.6,149.3 45.1,163.0 77.6,159.8 110.1,150.4 142.6,159.7 175.0,148.9 207.5,168.4 240.0,150.3 272.5,170.2 305.0,175.9 337.5,159.0 369.9,158.6 402.4,172.3 434.9,157.6 467.4,152.5 467.4,189.02" fill="#2563EB" opacity="0.18"/>
+<polyline points="12.6,149.3 45.1,163.0 77.6,159.8 110.1,150.4 142.6,159.7 175.0,148.9 207.5,168.4 240.0,150.3 272.5,170.2 305.0,175.9 337.5,159.0 369.9,158.6 402.4,172.3 434.9,157.6 467.4,152.5" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="12.6,173.3 45.1,165.6 77.6,162.4 110.1,176.1 142.6,167.2 175.0,172.6 207.5,176.5 240.0,173.7 272.5,165.6 305.0,160.3 337.5,176.9 369.9,169.4 402.4,176.8 434.9,164.3 467.4,176.8" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="12.620000000000001" y1="189.02" x2="467.39" y2="189.02" stroke="#E5E7EB"/>
+<rect x="4.62" y="200.48" width="470.77" height="64.9" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="4.62" y="200.48" width="470.77" height="14" fill="#EFF6FF"/>
+<text x="12.620000000000001" y="210.48" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="210.48" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="210.48" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="210.48" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="210.48" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="214.48" x2="475.39" y2="214.48" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="217.48" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="217.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="217.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="219.48" r="2.5" fill="#10B981"/>
+<polyline points="378.4,219.6 380.4,219.5 382.4,220.8 384.4,221.0 386.4,219.0" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="224.48" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="227.48" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="227.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="227.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="229.48" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,229.5 380.4,227.6 382.4,228.5 384.4,229.2 386.4,227.9" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="237.48" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="237.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="237.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="239.48" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,238.6 380.4,240.6 382.4,238.7 384.4,239.2 386.4,239.2" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="244.48" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="247.48" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="247.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="247.48" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="249.48" r="2.5" fill="#10B981"/>
+<polyline points="378.4,248.7 380.4,250.3 382.4,249.8 384.4,251.1 386.4,247.6" fill="none" stroke="#2563EB" stroke-width="1"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">tachometer-gauge-row</text>
+</svg>

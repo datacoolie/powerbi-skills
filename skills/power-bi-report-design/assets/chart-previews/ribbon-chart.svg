@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="80" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="140" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.2"/>
+<line x1="30" y1="150" x2="300" y2="150" stroke-opacity="0.35"/>
+<line x1="30" y1="150" x2="30" y2="50" stroke-opacity="0.35"/>
+
+<g fill="currentColor" stroke="none">
+  <!-- top ribbon (rank #1) -->
+  <path d="M40,56   C80,56   100,100 140,100   C180,100 200,60  240,60  C270,60  280,56  300,56
+           L300,72  C280,72  270,76  240,76   C200,76  180,116 140,116  C100,116 80,72   40,72 Z" fill-opacity="0.85"/>
+  <!-- 2nd ribbon -->
+  <path d="M40,78   C80,78   100,60  140,60   C180,60  200,110 240,110  C270,110 280,96 300,96
+           L300,112 C280,112 270,126 240,126  C200,126 180,76  140,76   C100,76  80,94  40,94 Z" fill-opacity="0.6"/>
+  <!-- 3rd ribbon -->
+  <path d="M40,100  C80,100  100,120 140,120  C180,120 200,80  240,80   C270,80  280,118 300,118
+           L300,134 C280,134 270,134 240,134  C200,134 180,96  140,96   C100,96  80,116  40,116 Z" fill-opacity="0.4"/>
+  <!-- 4th ribbon -->
+  <path d="M40,122  C80,122  100,136 140,136  C180,136 200,130 240,130  C270,130 280,132 300,132
+           L300,146 C280,146 270,146 240,146  C200,146 180,146 140,146  C100,146 80,136  40,136 Z" fill-opacity="0.25"/>
+</g>
+<g stroke="currentColor" stroke-opacity="0.35" fill="none" stroke-dasharray="2 2">
+  <line x1="40"  y1="42" x2="40"  y2="152"/>
+  <line x1="105" y1="42" x2="105" y2="152"/>
+  <line x1="170" y1="42" x2="170" y2="152"/>
+  <line x1="235" y1="42" x2="235" y2="152"/>
+  <line x1="300" y1="42" x2="300" y2="152"/>
+</g>
+<g font-family="system-ui,Segoe UI,Arial" font-size="7" fill="currentColor" fill-opacity="0.55" stroke="none">
+  <text x="40"  y="166" text-anchor="middle">Q1</text>
+  <text x="105" y="166" text-anchor="middle">Q2</text>
+  <text x="170" y="166" text-anchor="middle">Q3</text>
+  <text x="235" y="166" text-anchor="middle">Q4</text>
+  <text x="300" y="166" text-anchor="middle">Q5</text>
+</g>
+</svg>

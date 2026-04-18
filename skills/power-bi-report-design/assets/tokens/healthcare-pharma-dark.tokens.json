@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Healthcare / Pharma (Dark)' (healthcare-pharma-dark).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#2BAAEE"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#48CAE4"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#2BCDEE"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#82DCED"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#2B81EE"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#50C962"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#E63946"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#6096B9"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#50C962"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#E63946"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#6096B9"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#EEA42B"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#2BAAEE"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#707377"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#45494E"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#292D32"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#3A3E43"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#0F1419"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#E6E8EB"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#2BAAEE"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#4C7057"
+        },
+        {
+          "$type": "color",
+          "$value": "#50C962"
+        },
+        {
+          "$type": "color",
+          "$value": "#245A2C"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#7B6546"
+        },
+        {
+          "$type": "color",
+          "$value": "#EEA42B"
+        },
+        {
+          "$type": "color",
+          "$value": "#6B4A13"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#79454E"
+        },
+        {
+          "$type": "color",
+          "$value": "#E63946"
+        },
+        {
+          "$type": "color",
+          "$value": "#671A1F"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#416781"
+        },
+        {
+          "$type": "color",
+          "$value": "#2BAAEE"
+        },
+        {
+          "$type": "color",
+          "$value": "#134C6B"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#A12831"
+        },
+        {
+          "$type": "color",
+          "$value": "#81444E"
+        },
+        {
+          "$type": "color",
+          "$value": "#4A4A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#4C7658"
+        },
+        {
+          "$type": "color",
+          "$value": "#388D45"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Segoe UI Semibold', 'Inter', 'Arial', sans-serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Segoe UI', 'Inter', 'Arial', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'Cascadia Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "400ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "350ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "240ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.6, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.08
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "healthcare-pharma"
+    }
+  }
+}

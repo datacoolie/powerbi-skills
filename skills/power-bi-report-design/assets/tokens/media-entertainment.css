@@ -1,0 +1,35 @@
+/* Theme tokens: Media / Entertainment (media-entertainment) — auto-generated */
+:root[data-theme="media-entertainment"] {
+  --color-data-1: #8B1A5C;
+  --color-data-2: #FFB400;
+  --color-data-3: #E91E63;
+  --color-data-4: #1A1A2E;
+  --color-data-5: #00BCD4;
+  --color-data-6: #FF5722;
+  --color-data-7: #673AB7;
+  --color-data-8: #4CAF50;
+  --color-semantic-good: #4CAF50;
+  --color-semantic-bad: #E53935;
+  --color-semantic-neutral: #7E7E9A;
+  --color-semantic-warning: #FFB400;
+  --color-semantic-info: #00BCD4;
+  --color-neutral-muted: #9A99B1;
+  --color-neutral-disabled: #CFCEDB;
+  --color-neutral-gridline: #EBEAEF;
+  --color-neutral-divider: #D5D4DE;
+  --color-bg: #FAFAFA;
+  --color-fg: #1A1A2E;
+  --color-table-accent: #8B1A5C;
+  --color-diverging-1: #E53935;
+  --color-diverging-2: #EFB3B2;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #BADCBB;
+  --color-diverging-5: #4CAF50;
+  --font-title: 'Playfair Display', 'Georgia', serif;
+  --font-body:  'Work Sans', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'JetBrains Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 150ms;
+  --motion-drill-transition: 180ms;
+  --motion-fade-in: 120ms;
+  --motion-easing: cubic-bezier(0.2, 0, 0.2, 1);
+}

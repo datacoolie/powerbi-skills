@@ -1,0 +1,11 @@
+{
+  "$schema": "./images-index.schema.json",
+  "version": "0.1",
+  "description": "Manifest of raster images (backgrounds, banners, dividers, demo logos).",
+  "images": [],
+  "gaps": [
+    "add 3 neutral gradient backgrounds (1664x936 WebP) for executive style",
+    "add 2 banner strips (1664x120) for page headers",
+    "add placeholder demo-customer logos (never real customer marks)"
+  ]
+}

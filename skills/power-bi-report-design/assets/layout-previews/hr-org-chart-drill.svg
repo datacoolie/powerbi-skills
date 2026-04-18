@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>hr-org-chart-drill</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="18.62" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="111.574" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="204.528" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="390.436" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="10.620000000000001" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="53.6" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="18.62" y="58.5436" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="65.22659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="126.8125" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="126.8125" y="53.6" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="134.8125" y="58.5436" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="134.8125" y="65.22659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="243.005" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="243.005" y="53.6" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="251.005" y="58.5436" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="251.005" y="65.22659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="359.1975" y="53.6" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="359.1975" y="53.6" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="367.1975" y="58.5436" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="367.1975" y="65.22659999999999" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="4.62" y="76.44" width="270.29" height="188.94" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="88.44" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Org Chart Tree</text>
+<rect x="18.62" y="162.91" width="48.7" height="16" rx="3" fill="#2563EB"/>
+<text x="42.9" y="174.91" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600" text-anchor="middle">Root</text>
+<line x1="67.3" y1="170.91" x2="139.8" y2="114.2" stroke="#9CA3AF" stroke-width="1"/>
+<rect x="139.8" y="108.2" width="67.6" height="12" rx="2" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="173.6" y="117.2" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Child 1</text>
+<line x1="67.3" y1="170.91" x2="139.8" y2="170.9" stroke="#9CA3AF" stroke-width="1"/>
+<rect x="139.8" y="164.9" width="67.6" height="12" rx="2" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="173.6" y="173.9" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Child 2</text>
+<line x1="67.3" y1="170.91" x2="139.8" y2="227.6" stroke="#9CA3AF" stroke-width="1"/>
+<rect x="139.8" y="221.6" width="67.6" height="12" rx="2" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="173.6" y="230.6" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Child 3</text>
+<rect x="279.52" y="76.44" width="195.87" height="188.94" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="287.52" y="88.44" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Manager Detail Panel</text>
+<polygon points="287.5,257.38 287.5,155.4 300.4,128.6 313.2,193.1 326.1,163.8 338.9,216.2 351.8,176.9 364.6,199.4 377.5,188.7 390.3,186.5 403.2,132.6 416.0,175.8 428.8,157.6 441.7,157.3 454.5,198.5 467.4,203.2 467.4,257.38" fill="#2563EB" opacity="0.18"/>
+<polyline points="287.5,155.4 300.4,128.6 313.2,193.1 326.1,163.8 338.9,216.2 351.8,176.9 364.6,199.4 377.5,188.7 390.3,186.5 403.2,132.6 416.0,175.8 428.8,157.6 441.7,157.3 454.5,198.5 467.4,203.2" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="287.5,218.7 300.4,202.7 313.2,218.3 326.1,180.2 338.9,166.0 351.8,181.6 364.6,217.7 377.5,184.9 390.3,212.6 403.2,197.3 416.0,216.1 428.8,196.0 441.7,185.8 454.5,195.3 467.4,163.5" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="287.52" y1="257.38" x2="467.39" y2="257.38" stroke="#E5E7EB"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">hr-org-chart-drill</text>
+</svg>

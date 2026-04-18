@@ -1,0 +1,73 @@
+{
+  "name": "Atlassian Blue (Dark)",
+  "dataColors": [
+    "#2B79EE",
+    "#4FCA96",
+    "#EEAE2B",
+    "#EE522B",
+    "#6857C1",
+    "#2BD0EE",
+    "#EE952B",
+    "#7987A0"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2B79EE",
+  "good": "#4FCA96",
+  "bad": "#EE522B",
+  "neutral": "#7987A0",
+  "warning": "#EEAE2B",
+  "info": "#2B79EE",
+  "minimum": "#A7391E",
+  "center": "#4A4A52",
+  "maximum": "#378D69",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

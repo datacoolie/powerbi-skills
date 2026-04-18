@@ -1,0 +1,71 @@
+{
+  "name": "Telecom / Network",
+  "dataColors": [
+    "#006778",
+    "#FF6F00",
+    "#1976D2",
+    "#00ACC1",
+    "#7B1FA2",
+    "#E53935",
+    "#00838F",
+    "#546E7A"
+  ],
+  "background": "#F5F9FC",
+  "foreground": "#102A3E",
+  "tableAccent": "#006778",
+  "good": "#43A047",
+  "bad": "#E53935",
+  "neutral": "#78909C",
+  "warning": "#FF6F00",
+  "info": "#1976D2",
+  "minimum": "#E53935",
+  "center": "#F2F2F2",
+  "maximum": "#43A047",
+  "null": "#C3CED4",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E2E8EC"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#CCD4D9"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8A9AA5"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E2E8EC"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8A9AA5"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

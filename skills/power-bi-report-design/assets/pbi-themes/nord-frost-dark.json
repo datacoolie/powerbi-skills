@@ -1,0 +1,73 @@
+{
+  "name": "Nord / Frost (Dark)",
+  "dataColors": [
+    "#6888B1",
+    "#88C0D0",
+    "#81A1C1",
+    "#8FBCBB",
+    "#A3BE8C",
+    "#EAC885",
+    "#D08770",
+    "#B48EAD"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#6888B1",
+  "good": "#A3BE8C",
+  "bad": "#BF616A",
+  "neutral": "#79869F",
+  "warning": "#EAC885",
+  "info": "#6888B1",
+  "minimum": "#86444A",
+  "center": "#4A4A52",
+  "maximum": "#728562",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

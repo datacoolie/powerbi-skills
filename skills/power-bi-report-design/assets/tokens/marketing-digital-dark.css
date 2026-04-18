@@ -1,0 +1,35 @@
+/* Theme tokens: Marketing / Digital (Dark) (marketing-digital-dark) — auto-generated */
+:root[data-theme="marketing-digital-dark"] {
+  --color-data-1: #EB2E6E;
+  --color-data-2: #C043D5;
+  --color-data-3: #2BD8EE;
+  --color-data-4: #EEBD2B;
+  --color-data-5: #5566C4;
+  --color-data-6: #EE6033;
+  --color-data-7: #5FBA63;
+  --color-data-8: #7794A1;
+  --color-semantic-good: #5FBA63;
+  --color-semantic-bad: #EF473B;
+  --color-semantic-neutral: #9E9E9E;
+  --color-semantic-warning: #EEBD2B;
+  --color-semantic-info: #2BD8EE;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #EB2E6E;
+  --color-diverging-1: #A73229;
+  --color-diverging-2: #84494A;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #517158;
+  --color-diverging-5: #428245;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 150ms;
+  --motion-drill-transition: 180ms;
+  --motion-fade-in: 120ms;
+  --motion-easing: cubic-bezier(0.2, 0, 0.2, 1);
+}

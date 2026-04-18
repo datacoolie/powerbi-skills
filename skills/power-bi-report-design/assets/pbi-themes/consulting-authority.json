@@ -1,0 +1,71 @@
+{
+  "name": "Consulting / Authority",
+  "dataColors": [
+    "#005587",
+    "#0076A8",
+    "#003F6C",
+    "#6B7A8D",
+    "#D4A846",
+    "#7A8A99",
+    "#2D6A4F",
+    "#A4262C"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1A1A2E",
+  "tableAccent": "#005587",
+  "good": "#2D6A4F",
+  "bad": "#A4262C",
+  "neutral": "#6B7A8D",
+  "warning": "#D4A846",
+  "info": "#0076A8",
+  "minimum": "#A4262C",
+  "center": "#F2F2F2",
+  "maximum": "#2D6A4F",
+  "null": "#C4CAD2",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E4E7EC"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#CFD4DA"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8A94A0"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E4E7EC"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8A94A0"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" font-family="Segoe UI, Inter, system-ui, sans-serif">
+  <title>logo-telecom</title>
+  <desc>ACME Telecom placeholder logo — antenna tower with signal arcs. Badge uses currentColor; glyph is white.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="currentColor" fill-opacity="0.92" stroke="none"/>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="#fff" fill-opacity="0.08" stroke="none"/>
+  <g transform="translate(12,12)">
+    <g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 10 L10 22 H14 Z" fill="#fff" fill-opacity="0.6" stroke="none"/>
+  <circle cx="12" cy="10" r="1.5" fill="#fff"/>
+  <path d="M8 8 Q12 4 16 8" stroke-opacity="0.8"/>
+  <path d="M5 6 Q12 -2 19 6" stroke-opacity="0.5"/>
+  <path d="M2 4 Q12 -6 22 4" stroke-opacity="0.3"/>
+</g>
+  </g>
+  <text x="56" y="22" fill="currentColor" stroke="none" font-size="14" font-weight="700" fill-opacity="0.96">ACME Telecom</text>
+  <line x1="56" y1="27" x2="72" y2="27" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="56" y="38" fill="currentColor" stroke="none" font-size="7.5" letter-spacing="1.6" font-weight="600" fill-opacity="0.6">TELECOM · NETWORK</text>
+</svg>

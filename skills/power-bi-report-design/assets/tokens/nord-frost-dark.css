@@ -1,0 +1,35 @@
+/* Theme tokens: Nord / Frost (Dark) (nord-frost-dark) — auto-generated */
+:root[data-theme="nord-frost-dark"] {
+  --color-data-1: #6888B1;
+  --color-data-2: #88C0D0;
+  --color-data-3: #81A1C1;
+  --color-data-4: #8FBCBB;
+  --color-data-5: #A3BE8C;
+  --color-data-6: #EAC885;
+  --color-data-7: #D08770;
+  --color-data-8: #B48EAD;
+  --color-semantic-good: #A3BE8C;
+  --color-semantic-bad: #BF616A;
+  --color-semantic-neutral: #79869F;
+  --color-semantic-warning: #EAC885;
+  --color-semantic-info: #6888B1;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #6888B1;
+  --color-diverging-1: #86444A;
+  --color-diverging-2: #73525A;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #697366;
+  --color-diverging-5: #728562;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

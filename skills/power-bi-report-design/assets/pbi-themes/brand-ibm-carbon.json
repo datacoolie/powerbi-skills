@@ -1,0 +1,73 @@
+{
+  "name": "IBM Carbon",
+  "dataColors": [
+    "#0F62FE",
+    "#6929C4",
+    "#1192E8",
+    "#005D5D",
+    "#9F1853",
+    "#FA4D56",
+    "#570408",
+    "#198038"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#161616",
+  "tableAccent": "#0F62FE",
+  "good": "#198038",
+  "bad": "#DA1E28",
+  "neutral": "#525252",
+  "warning": "#F1C21B",
+  "info": "#0F62FE",
+  "minimum": "#99151C",
+  "center": "#F5F5F5",
+  "maximum": "#125A27",
+  "null": "#C5C5C5",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E3E3E3"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E3E3E3"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#969696"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#969696"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

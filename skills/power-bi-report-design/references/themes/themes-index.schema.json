@@ -1,0 +1,505 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "themes-index.schema.json",
+  "title": "Report Themes Catalog",
+  "type": "object",
+  "required": [
+    "version",
+    "themes"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "principles": {
+      "type": "object",
+      "description": "Global color-usage principles applied by all themes. Inspired by consulting-grade presentation practice (60-30-10, WCAG contrast, monochromatic depth, focus-in-color).",
+      "additionalProperties": false,
+      "properties": {
+        "proportion_rule": {
+          "type": "string"
+        },
+        "max_colors_per_page": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 8
+        },
+        "min_text_contrast_ratio": {
+          "type": "number",
+          "minimum": 3.0
+        },
+        "data_ink_pattern": {
+          "type": "string"
+        },
+        "focus_pattern": {
+          "type": "string"
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/theme"
+      }
+    }
+  },
+  "$defs": {
+    "hex": {
+      "type": "string",
+      "pattern": "^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$"
+    },
+    "ramp3": {
+      "type": "array",
+      "description": "3-stop sequential ramp (light / mid / dark or equivalent). Used for trend gradients, heatmaps, conditional formatting.",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/hex"
+      }
+    },
+    "theme": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "personality",
+        "industries",
+        "mode",
+        "data_colors",
+        "semantic",
+        "ui",
+        "swatch"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "personality": {
+          "type": "string",
+          "minLength": 1
+        },
+        "industries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          }
+        },
+        "mode": {
+          "enum": [
+            "light",
+            "dark",
+            "dual"
+          ]
+        },
+        "data_colors": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/hex"
+          }
+        },
+        "semantic": {
+          "type": "object",
+          "required": [
+            "good",
+            "bad",
+            "neutral"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "good": {
+              "$ref": "#/$defs/hex"
+            },
+            "bad": {
+              "$ref": "#/$defs/hex"
+            },
+            "neutral": {
+              "$ref": "#/$defs/hex"
+            },
+            "warning": {
+              "$ref": "#/$defs/hex"
+            },
+            "info": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        },
+        "sequential": {
+          "type": "object",
+          "description": "3-stop single-hue ramps for trend / heatmap encoding, plus an optional 5-stop diverging ramp (negative → neutral → positive) for variance, correlation, and gain/loss visuals.",
+          "additionalProperties": false,
+          "properties": {
+            "positive": {
+              "$ref": "#/$defs/ramp3"
+            },
+            "warning": {
+              "$ref": "#/$defs/ramp3"
+            },
+            "negative": {
+              "$ref": "#/$defs/ramp3"
+            },
+            "primary": {
+              "$ref": "#/$defs/ramp3"
+            },
+            "diverging": {
+              "type": "array",
+              "description": "5-stop diverging ramp: deep-negative / light-negative / neutral / light-positive / deep-positive. Use for variance, correlation heatmaps, bipolar KPIs.",
+              "minItems": 5,
+              "maxItems": 5,
+              "items": {
+                "$ref": "#/$defs/hex"
+              }
+            }
+          }
+        },
+        "neutrals": {
+          "type": "object",
+          "description": "Neutral tier for the 'focus in color, rest in gray' pattern — muted series, disabled state, gridlines, dividers.",
+          "additionalProperties": false,
+          "properties": {
+            "muted": {
+              "$ref": "#/$defs/hex"
+            },
+            "disabled": {
+              "$ref": "#/$defs/hex"
+            },
+            "gridline": {
+              "$ref": "#/$defs/hex"
+            },
+            "divider": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        },
+        "ui": {
+          "type": "object",
+          "required": [
+            "background",
+            "foreground"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "background": {
+              "$ref": "#/$defs/hex"
+            },
+            "foreground": {
+              "$ref": "#/$defs/hex"
+            },
+            "table_accent": {
+              "$ref": "#/$defs/hex"
+            },
+            "text_contrast": {
+              "type": "number",
+              "minimum": 1.0,
+              "maximum": 21.0,
+              "description": "Computed WCAG 2.1 contrast ratio for foreground on background. Must be >= 4.5 for normal body text."
+            },
+            "contrast_rating": {
+              "enum": [
+                "AAA",
+                "AA",
+                "AA-large",
+                "fail"
+              ]
+            }
+          }
+        },
+        "usage_rules": {
+          "type": "object",
+          "description": "Per-theme deviations from the global principles (e.g. tech themes may allow a 5th hue).",
+          "additionalProperties": false,
+          "properties": {
+            "primary_share": {
+              "type": "integer",
+              "minimum": 40,
+              "maximum": 80
+            },
+            "secondary_share": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 40
+            },
+            "accent_share": {
+              "type": "integer",
+              "minimum": 5,
+              "maximum": 20
+            },
+            "max_colors_per_page": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 8
+            }
+          }
+        },
+        "base_theme": {
+          "type": "string"
+        },
+        "pairs_with_layouts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          }
+        },
+        "swatch": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+\\.svg$"
+        },
+        "typography": {
+          "type": "object",
+          "description": "Typography pairing aligned with ppt-master P1–P5 presets. Title/body/mono are CSS-style font stacks with PBI-safe fallbacks.",
+          "required": [
+            "preset_id",
+            "title_font",
+            "body_font"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "preset_id": {
+              "enum": [
+                "P1-editorial",
+                "P2-corporate",
+                "P3-technical",
+                "P4-warm",
+                "P5-minimal"
+              ]
+            },
+            "title_font": {
+              "type": "string",
+              "minLength": 1
+            },
+            "body_font": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mono_font": {
+              "type": "string",
+              "minLength": 1
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        },
+        "gradient_stops": {
+          "type": "object",
+          "description": "Theme-scoped gradients for hero backgrounds, KPI card fills, and subtle bands. Each entry is a list of {offset, color} stops plus an angle in degrees.",
+          "additionalProperties": false,
+          "properties": {
+            "hero": {
+              "$ref": "#/$defs/gradient"
+            },
+            "card_fill": {
+              "$ref": "#/$defs/gradient"
+            },
+            "subtle": {
+              "$ref": "#/$defs/gradient"
+            }
+          }
+        },
+        "cvd_safety": {
+          "type": "object",
+          "description": "Computed colorblind-vision safety metric: minimum Lab deltaE between any two data_colors[] under normal + deuteranopia + protanopia + tritanopia simulations.",
+          "required": [
+            "rating",
+            "min_delta_e"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rating": {
+              "enum": [
+                "safe",
+                "caution",
+                "unsafe"
+              ]
+            },
+            "min_delta_e": {
+              "type": "number",
+              "minimum": 0
+            },
+            "worst_pair": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 2,
+              "items": {
+                "$ref": "#/$defs/hex"
+              }
+            },
+            "worst_under": {
+              "enum": [
+                "normal",
+                "deuteranopia",
+                "protanopia",
+                "tritanopia"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "chart_defaults": {
+          "type": "object",
+          "description": "Per-theme recipe: which data_color index or semantic role to use per visual type. Executor consumes this when emitting Power BI visualStyles per-chart.",
+          "additionalProperties": true
+        },
+        "personality_axes": {
+          "type": "object",
+          "description": "Numeric axes 0..1 for quantitative theme matching. formality (restrained<->playful), spaciousness (dense<->airy), warmth (cool<->warm), boldness (restrained<->loud).",
+          "required": [
+            "formality",
+            "spaciousness",
+            "warmth",
+            "boldness"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "formality": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "spaciousness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "warmth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "boldness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "motion": {
+          "type": "object",
+          "description": "Motion tokens per theme — tooltip delay, drill transition, fade-in, easing. Used by Executor when emitting visualStyles for interactions.",
+          "required": [
+            "preset",
+            "tooltip_delay_ms",
+            "drill_transition_ms",
+            "easing"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "preset": {
+              "enum": [
+                "snappy",
+                "balanced",
+                "quiet"
+              ]
+            },
+            "tooltip_delay_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "drill_transition_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "fade_in_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "easing": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "print_safe": {
+          "type": "boolean",
+          "description": "True if theme is safe for printed board packs (near-white bg, near-black fg, no ink-heavy neon data colors with CMYK sum > 320)."
+        },
+        "cmyk": {
+          "type": "object",
+          "description": "CMYK equivalents for each hex in data_colors[], as {\"#RRGGBB\": [c, m, y, k]} with integer percentages.",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "parent_theme": {
+          "type": "string",
+          "description": "Theme this entry inherits from conceptually (brand themes extend a stock palette; dark companions extend their light parent; seasonal variants extend the base theme).",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "swatch_cvd": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+-cvd\\.svg$",
+          "description": "Optional CVD (color-vision-deficient) simulation swatch in assets/theme-swatches/."
+        }
+      }
+    },
+    "gradient": {
+      "type": "object",
+      "required": [
+        "stops"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "angle_deg": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360
+        },
+        "stops": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "offset",
+              "color"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "offset": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "color": {
+                "$ref": "#/$defs/hex"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

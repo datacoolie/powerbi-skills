@@ -1,0 +1,73 @@
+{
+  "name": "Sustainability ESG (Earth Day)",
+  "dataColors": [
+    "#1B7A3E",
+    "#3BB371",
+    "#E6B800",
+    "#D8F3DC",
+    "#8B5E3C",
+    "#D4A846",
+    "#E76F51",
+    "#264653"
+  ],
+  "background": "#F5F5F0",
+  "foreground": "#1B4332",
+  "tableAccent": "#2D6A4F",
+  "good": "#2D6A4F",
+  "bad": "#E76F51",
+  "neutral": "#8B5E3C",
+  "warning": "#D4A846",
+  "info": "#264653",
+  "minimum": "#A24E39",
+  "center": "#F5F5F5",
+  "maximum": "#1F4A37",
+  "null": "#C2CABF",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E1E6DD"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E1E6DD"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#8C9A88"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#8C9A88"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

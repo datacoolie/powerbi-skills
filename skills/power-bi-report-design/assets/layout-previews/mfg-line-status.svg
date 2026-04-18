@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>mfg-line-status</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="10.620000000000001" y="32.83" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="32.83" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="18.62" y="37.7736" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="44.4566" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="126.8125" y="32.83" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="126.8125" y="32.83" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="134.8125" y="37.7736" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="134.8125" y="44.4566" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="243.005" y="32.83" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="243.005" y="32.83" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="251.005" y="37.7736" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="251.005" y="44.4566" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="359.1975" y="32.83" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="359.1975" y="32.83" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="367.1975" y="37.7736" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="367.1975" y="44.4566" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="4.62" y="55.67" width="470.77" height="44.13" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="67.67" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Hourly Output</text>
+<rect x="21.1" y="85.0" width="39.8" height="6.8" rx="1" fill="#2563EB"/>
+<rect x="78.0" y="79.1" width="39.8" height="12.7" rx="1" fill="#60A5FA"/>
+<rect x="134.8" y="82.9" width="39.8" height="8.9" rx="1" fill="#2563EB"/>
+<rect x="191.7" y="84.8" width="39.8" height="7.0" rx="1" fill="#60A5FA"/>
+<rect x="248.5" y="86.2" width="39.8" height="5.6" rx="1" fill="#2563EB"/>
+<rect x="305.4" y="83.1" width="39.8" height="8.7" rx="1" fill="#60A5FA"/>
+<rect x="362.2" y="83.7" width="39.8" height="8.1" rx="1" fill="#2563EB"/>
+<rect x="419.1" y="86.8" width="39.8" height="5.0" rx="1" fill="#60A5FA"/>
+<line x1="12.620000000000001" y1="91.80000000000001" x2="467.39" y2="91.80000000000001" stroke="#E5E7EB"/>
+<polyline points="41.0,87.9 97.9,84.5 154.7,85.4 211.6,80.9 268.4,87.8 325.3,84.1 382.1,83.4 439.0,85.6" fill="none" stroke="#F59E0B" stroke-width="1.6"/>
+<circle cx="41.0" cy="87.9" r="1.8" fill="#F59E0B"/>
+<circle cx="97.9" cy="84.5" r="1.8" fill="#F59E0B"/>
+<circle cx="154.7" cy="85.4" r="1.8" fill="#F59E0B"/>
+<circle cx="211.6" cy="80.9" r="1.8" fill="#F59E0B"/>
+<circle cx="268.4" cy="87.8" r="1.8" fill="#F59E0B"/>
+<circle cx="325.3" cy="84.1" r="1.8" fill="#F59E0B"/>
+<circle cx="382.1" cy="83.4" r="1.8" fill="#F59E0B"/>
+<circle cx="439.0" cy="85.6" r="1.8" fill="#F59E0B"/>
+<rect x="4.62" y="103.27" width="470.77" height="44.13" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="115.27" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Downtime Pareto</text>
+<rect x="21.1" y="132.1" width="39.8" height="7.3" rx="1" fill="#2563EB"/>
+<rect x="78.0" y="132.7" width="39.8" height="6.7" rx="1" fill="#60A5FA"/>
+<rect x="134.8" y="130.7" width="39.8" height="8.7" rx="1" fill="#2563EB"/>
+<rect x="191.7" y="130.0" width="39.8" height="9.4" rx="1" fill="#60A5FA"/>
+<rect x="248.5" y="129.1" width="39.8" height="10.3" rx="1" fill="#2563EB"/>
+<rect x="305.4" y="131.5" width="39.8" height="7.9" rx="1" fill="#60A5FA"/>
+<rect x="362.2" y="133.4" width="39.8" height="6.0" rx="1" fill="#2563EB"/>
+<rect x="419.1" y="134.0" width="39.8" height="5.4" rx="1" fill="#60A5FA"/>
+<line x1="12.620000000000001" y1="139.4" x2="467.39" y2="139.4" stroke="#E5E7EB"/>
+<polyline points="41.0,128.2 97.9,135.2 154.7,131.9 211.6,136.4 268.4,130.7 325.3,134.2 382.1,130.5 439.0,133.0" fill="none" stroke="#F59E0B" stroke-width="1.6"/>
+<circle cx="41.0" cy="128.2" r="1.8" fill="#F59E0B"/>
+<circle cx="97.9" cy="135.2" r="1.8" fill="#F59E0B"/>
+<circle cx="154.7" cy="131.9" r="1.8" fill="#F59E0B"/>
+<circle cx="211.6" cy="136.4" r="1.8" fill="#F59E0B"/>
+<circle cx="268.4" cy="130.7" r="1.8" fill="#F59E0B"/>
+<circle cx="325.3" cy="134.2" r="1.8" fill="#F59E0B"/>
+<circle cx="382.1" cy="130.5" r="1.8" fill="#F59E0B"/>
+<circle cx="439.0" cy="133.0" r="1.8" fill="#F59E0B"/>
+<rect x="10.620000000000001" y="156.87" width="147.59" height="31.85" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="16.62" y="166.87" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Sessions</text>
+<text x="16.62" y="178.87" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">2,972</text>
+<polygon points="16.62,184.72 16.6,184.3 28.9,183.7 41.3,184.0 53.6,183.4 65.9,183.8 78.3,184.0 90.6,184.0 102.9,183.4 115.2,183.6 127.6,183.4 139.9,184.2 152.2,182.9 152.21,184.72" fill="#2563EB" opacity="0.15"/>
+<polyline points="16.6,184.3 28.9,183.7 41.3,184.0 53.6,183.4 65.9,183.8 78.3,184.0 90.6,184.0 102.9,183.4 115.2,183.6 127.6,183.4 139.9,184.2 152.2,182.9" fill="none" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="166.21" y="156.87" width="147.59" height="31.85" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="172.21" y="166.87" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Revenue</text>
+<text x="172.21" y="178.87" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">1,337</text>
+<polygon points="172.21,184.72 172.2,183.6 184.5,183.0 196.9,183.1 209.2,183.5 221.5,183.7 233.8,183.5 246.2,184.6 258.5,183.7 270.8,183.6 283.1,183.4 295.5,183.8 307.8,183.2 307.8,184.72" fill="#2563EB" opacity="0.15"/>
+<polyline points="172.2,183.6 184.5,183.0 196.9,183.1 209.2,183.5 221.5,183.7 233.8,183.5 246.2,184.6 258.5,183.7 270.8,183.6 283.1,183.4 295.5,183.8 307.8,183.2" fill="none" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="321.8" y="156.87" width="147.59" height="31.85" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="327.8" y="166.87" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Orders</text>
+<text x="327.8" y="178.87" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">4,057</text>
+<polygon points="327.8,184.72 327.8,184.3 340.1,184.7 352.5,183.6 364.8,184.0 377.1,183.6 389.4,184.7 401.8,183.9 414.1,183.1 426.4,184.6 438.7,184.0 451.1,183.2 463.4,183.3 463.39,184.72" fill="#2563EB" opacity="0.15"/>
+<polyline points="327.8,184.3 340.1,184.7 352.5,183.6 364.8,184.0 377.1,183.6 389.4,184.7 401.8,183.9 414.1,183.1 426.4,184.6 438.7,184.0 451.1,183.2 463.4,183.3" fill="none" stroke="#2563EB" stroke-width="1.4"/>
+<rect x="4.62" y="198.17" width="470.77" height="67.21" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="4.62" y="198.17" width="470.77" height="14" fill="#EFF6FF"/>
+<text x="12.620000000000001" y="208.17" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="208.17" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="208.17" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="208.17" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="208.17" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="212.17" x2="475.39" y2="212.17" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="215.17" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="215.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="215.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="217.17" r="2.5" fill="#10B981"/>
+<polyline points="378.4,215.8 380.4,219.1 382.4,218.6 384.4,215.4 386.4,217.5" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="222.17" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="225.17" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="225.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="225.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="227.17" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,228.9 380.4,226.3 382.4,228.0 384.4,225.6 386.4,225.9" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="235.17" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="235.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="235.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="237.17" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,236.8 380.4,235.5 382.4,236.9 384.4,235.7 386.4,235.9" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="242.17" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="245.17" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="245.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="245.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="247.17" r="2.5" fill="#10B981"/>
+<polyline points="378.4,247.2 380.4,247.8 382.4,246.1 384.4,246.4 386.4,245.8" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="255.17" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="255.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="255.17" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="257.16999999999996" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,258.4 380.4,255.2 382.4,255.4 384.4,255.4 386.4,257.6" fill="none" stroke="#2563EB" stroke-width="1"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">mfg-line-status</text>
+</svg>

@@ -1,0 +1,35 @@
+/* Theme tokens: Google Material 3 (brand-google-material) — auto-generated */
+:root[data-theme="brand-google-material"] {
+  --color-data-1: #1967D2;
+  --color-data-2: #137333;
+  --color-data-3: #EA8600;
+  --color-data-4: #C5221F;
+  --color-data-5: #9334E6;
+  --color-data-6: #12B5CB;
+  --color-data-7: #F9AB00;
+  --color-data-8: #80868B;
+  --color-semantic-good: #137333;
+  --color-semantic-bad: #C5221F;
+  --color-semantic-neutral: #5F6368;
+  --color-semantic-warning: #F9AB00;
+  --color-semantic-info: #1967D2;
+  --color-neutral-muted: #9B9B9C;
+  --color-neutral-disabled: #C7C8C8;
+  --color-neutral-gridline: #E4E4E5;
+  --color-neutral-divider: #D2D3D3;
+  --color-bg: #FFFFFF;
+  --color-fg: #202124;
+  --color-table-accent: #1967D2;
+  --color-diverging-1: #8A1816;
+  --color-diverging-2: #E4ABAA;
+  --color-diverging-3: #F5F5F5;
+  --color-diverging-4: #A6C8B1;
+  --color-diverging-5: #0D5024;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

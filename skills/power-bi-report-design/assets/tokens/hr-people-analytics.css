@@ -1,0 +1,35 @@
+/* Theme tokens: HR / People Analytics (hr-people-analytics) — auto-generated */
+:root[data-theme="hr-people-analytics"] {
+  --color-data-1: #00796B;
+  --color-data-2: #FF7043;
+  --color-data-3: #5C6BC0;
+  --color-data-4: #26A69A;
+  --color-data-5: #EC407A;
+  --color-data-6: #8D6E63;
+  --color-data-7: #7CB342;
+  --color-data-8: #AB47BC;
+  --color-semantic-good: #43A047;
+  --color-semantic-bad: #EF5350;
+  --color-semantic-neutral: #90A4AE;
+  --color-semantic-warning: #FFA726;
+  --color-semantic-info: #29B6F6;
+  --color-neutral-muted: #98A6AC;
+  --color-neutral-disabled: #CBD2D6;
+  --color-neutral-gridline: #E8ECEE;
+  --color-neutral-divider: #D4D9DC;
+  --color-bg: #F9FBFA;
+  --color-fg: #263238;
+  --color-table-accent: #00796B;
+  --color-diverging-1: #EF5350;
+  --color-diverging-2: #F3BCBB;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #B7D7B8;
+  --color-diverging-5: #43A047;
+  --font-title: 'Lora', 'Georgia', serif;
+  --font-body:  'Nunito', 'Segoe UI', sans-serif;
+  --font-mono:  'Fira Code', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

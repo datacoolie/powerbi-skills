@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Retail / Consumer / FMCG (Dark)' (retail-fmcg-dark).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#54C55B"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#98BF64"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#8ED148"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#5DBB63"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#4DAECC"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#F2D15C"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#F47C7B"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#849294"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#54C55B"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#F47C7B"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#849294"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#F2D15C"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#4DAECC"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#707377"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#45494E"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#292D32"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#3A3E43"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#0F1419"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#E6E8EB"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#54C55B"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#4D6F55"
+        },
+        {
+          "$type": "color",
+          "$value": "#54C55B"
+        },
+        {
+          "$type": "color",
+          "$value": "#265929"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#7C7255"
+        },
+        {
+          "$type": "color",
+          "$value": "#F2D15C"
+        },
+        {
+          "$type": "color",
+          "$value": "#6D5E29"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#7D595E"
+        },
+        {
+          "$type": "color",
+          "$value": "#F47C7B"
+        },
+        {
+          "$type": "color",
+          "$value": "#6E3837"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#4D6F55"
+        },
+        {
+          "$type": "color",
+          "$value": "#54C55B"
+        },
+        {
+          "$type": "color",
+          "$value": "#265929"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#AB5756"
+        },
+        {
+          "$type": "color",
+          "$value": "#865C60"
+        },
+        {
+          "$type": "color",
+          "$value": "#4A4A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#4E7555"
+        },
+        {
+          "$type": "color",
+          "$value": "#3B8A40"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Lora', 'Georgia', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Nunito', 'Segoe UI', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'Fira Code', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.08
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "retail-fmcg"
+    }
+  }
+}

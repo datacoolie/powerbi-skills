@@ -1,0 +1,71 @@
+{
+  "name": "Sustainability / ESG",
+  "dataColors": [
+    "#2D6A4F",
+    "#52B788",
+    "#95D5B2",
+    "#D8F3DC",
+    "#8B5E3C",
+    "#D4A846",
+    "#E76F51",
+    "#264653"
+  ],
+  "background": "#F5F5F0",
+  "foreground": "#1B4332",
+  "tableAccent": "#2D6A4F",
+  "good": "#2D6A4F",
+  "bad": "#E76F51",
+  "neutral": "#8B5E3C",
+  "warning": "#D4A846",
+  "info": "#264653",
+  "minimum": "#E76F51",
+  "center": "#F2F2F2",
+  "maximum": "#2D6A4F",
+  "null": "#C2CABF",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E1E6DD"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#CBD3C7"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8C9A88"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E1E6DD"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8C9A88"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

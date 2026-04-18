@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Education / EdTech (Dark)' (education-edtech-dark).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#6F5EBB"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#2BEEDA"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#EE8D2B"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#774ECA"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#5DBB61"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#E63374"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#2BD9EE"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#A97E6F"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#5DBB61"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#E63374"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#7B929E"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#EE8D2B"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#2BEEDA"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#707377"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#45494E"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#292D32"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#3A3E43"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#0F1419"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#E6E8EB"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#6F5EBB"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#506C56"
+        },
+        {
+          "$type": "color",
+          "$value": "#5DBB61"
+        },
+        {
+          "$type": "color",
+          "$value": "#2A542C"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#7B5E46"
+        },
+        {
+          "$type": "color",
+          "$value": "#EE8D2B"
+        },
+        {
+          "$type": "color",
+          "$value": "#6B3F13"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#79435C"
+        },
+        {
+          "$type": "color",
+          "$value": "#E63374"
+        },
+        {
+          "$type": "color",
+          "$value": "#671734"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#555072"
+        },
+        {
+          "$type": "color",
+          "$value": "#6F5EBB"
+        },
+        {
+          "$type": "color",
+          "$value": "#322A54"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#A12451"
+        },
+        {
+          "$type": "color",
+          "$value": "#81425E"
+        },
+        {
+          "$type": "color",
+          "$value": "#4A4A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#517257"
+        },
+        {
+          "$type": "color",
+          "$value": "#418344"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Playfair Display', 'Georgia', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Work Sans', 'Inter', 'Arial', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'JetBrains Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.08
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "education-edtech"
+    }
+  }
+}

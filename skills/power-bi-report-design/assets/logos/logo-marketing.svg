@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" font-family="Segoe UI, Inter, system-ui, sans-serif">
+  <title>logo-marketing</title>
+  <desc>ACME Marketing placeholder logo — megaphone with sound wave arcs. Badge uses currentColor; glyph is white.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="currentColor" fill-opacity="0.92" stroke="none"/>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="#fff" fill-opacity="0.08" stroke="none"/>
+  <g transform="translate(12,12)">
+    <g fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 9 L3 15 L8 15 L18 20 V4 L8 9 Z" fill="#fff" fill-opacity="0.3"/>
+  <path d="M8 9 V15"/>
+  <path d="M20 8 Q22 12 20 16" stroke-opacity="0.7"/>
+  <path d="M22 6 Q25 12 22 18" stroke-opacity="0.45"/>
+</g>
+  </g>
+  <text x="56" y="22" fill="currentColor" stroke="none" font-size="14" font-weight="700" fill-opacity="0.96">ACME Marketing</text>
+  <line x1="56" y1="27" x2="72" y2="27" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="56" y="38" fill="currentColor" stroke="none" font-size="7.5" letter-spacing="1.6" font-weight="600" fill-opacity="0.6">MARKETING · GROWTH</text>
+</svg>

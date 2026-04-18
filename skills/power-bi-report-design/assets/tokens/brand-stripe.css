@@ -1,0 +1,35 @@
+/* Theme tokens: Stripe Indigo (brand-stripe) — auto-generated */
+:root[data-theme="brand-stripe"] {
+  --color-data-1: #635BFF;
+  --color-data-2: #00D924;
+  --color-data-3: #FF5996;
+  --color-data-4: #F5BE58;
+  --color-data-5: #0A2540;
+  --color-data-6: #00D4FF;
+  --color-data-7: #EF5A5A;
+  --color-data-8: #8792A2;
+  --color-semantic-good: #00D924;
+  --color-semantic-bad: #EF5A5A;
+  --color-semantic-neutral: #8792A2;
+  --color-semantic-warning: #F5BE58;
+  --color-semantic-info: #635BFF;
+  --color-neutral-muted: #919DA9;
+  --color-neutral-disabled: #C2C8CF;
+  --color-neutral-gridline: #E2E5E8;
+  --color-neutral-divider: #CED3D9;
+  --color-bg: #FFFFFF;
+  --color-fg: #0A2540;
+  --color-table-accent: #635BFF;
+  --color-diverging-1: #A73F3F;
+  --color-diverging-2: #F3BFBF;
+  --color-diverging-3: #F5F5F5;
+  --color-diverging-4: #9FEBAC;
+  --color-diverging-5: #009819;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

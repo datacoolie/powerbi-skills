@@ -1,0 +1,73 @@
+{
+  "name": "Media / Entertainment (Dark)",
+  "dataColors": [
+    "#DB3E99",
+    "#EEB42B",
+    "#EB2E6E",
+    "#6C6CAC",
+    "#2BD8EE",
+    "#EE6033",
+    "#7C51C8",
+    "#5FBA63"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#DB3E99",
+  "good": "#5FBA63",
+  "bad": "#E53935",
+  "neutral": "#7E7E9A",
+  "warning": "#EEB42B",
+  "info": "#2BD8EE",
+  "minimum": "#A02825",
+  "center": "#4A4A52",
+  "maximum": "#428245",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

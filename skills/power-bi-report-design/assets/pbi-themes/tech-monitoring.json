@@ -1,0 +1,71 @@
+{
+  "name": "Technology / IT / Monitoring",
+  "dataColors": [
+    "#0078D4",
+    "#50E6FF",
+    "#9B59B6",
+    "#FF8C00",
+    "#10893E",
+    "#E81123",
+    "#FFB900",
+    "#6B6B6B"
+  ],
+  "background": "#F3F2F1",
+  "foreground": "#201F1E",
+  "tableAccent": "#0078D4",
+  "good": "#10893E",
+  "bad": "#E81123",
+  "neutral": "#6B6B6B",
+  "warning": "#FFB900",
+  "info": "#50E6FF",
+  "minimum": "#E81123",
+  "center": "#F2F2F2",
+  "maximum": "#10893E",
+  "null": "#BEBEBE",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E2E2E2"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#CCCCCC"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8E8E8E"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E2E2E2"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8E8E8E"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

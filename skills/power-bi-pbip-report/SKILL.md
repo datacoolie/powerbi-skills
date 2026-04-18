@@ -41,6 +41,8 @@ Canvas size: **1664 × 936** (standard Power BI canvas). Tooltip pages: **320 ×
 | `references/themes/*.json` | Ready-to-use custom theme files (8 industries) — copy to `StaticResources/RegisteredResources/` |
 | `scripts/validate_report.js` | **Run after generation** — validates against official Microsoft JSON schemas (preferred) |
 | `scripts/validate_report.py` | **Fallback** — validates JSON syntax, required properties, cross-references, naming |
+| `scripts/finalize_pbir.py` | **Phase 4c polish** — snap_grid, align_kpi_row, apply_theme_tokens, normalize_fonts, ensure_alt_text. Supports `--dry-run`, `--skip`, `--only`. |
+| `scripts/design_quality_check.py` | **Phase 4c lint** — 8 checks (visual counts, drillthrough back button, pie slices, alt text, default page names, bad titles, hardcoded hex, bookmark targets). Use `--style executive\|analytical\|operational` and `--write-report` to emit `design_report.md`. |
 
 ## Quick Reference: Folder Structure
 
@@ -143,6 +145,25 @@ As needed:
 
 Power BI Desktop rejects files with JSON syntax errors silently or with cryptic messages.
 **Always validate before telling the user the report is ready.**
+
+**If invoked from the `power-bi-developer` agent (Phase 4c), run the full polish chain first:**
+
+```powershell
+# 1. Mechanical polish (snap grid, align KPIs, tokenize theme colors, unify fonts, alt text)
+python skills/power-bi-pbip-report/scripts/finalize_pbir.py --report <path-to-.Report-folder>
+
+# 2. Design-quality lint (style-aware: executive / analytical / operational)
+python skills/power-bi-pbip-report/scripts/design_quality_check.py `
+    --report <path-to-.Report-folder> `
+    --style <style-from-design-spec> `
+    --write-report
+
+# 3. Schema validation (always last)
+node skills/power-bi-pbip-report/scripts/validate_report.js <path-to-.Report-folder>
+```
+
+Exit codes: `0` = pass, `1` = warnings only, `2` = errors present (must fix). See
+`../power-bi-report-design/references/polisher.md` for the full Phase 4c routing table.
 
 **Preferred** (schema-driven, validates against official Microsoft JSON schemas):
 ```

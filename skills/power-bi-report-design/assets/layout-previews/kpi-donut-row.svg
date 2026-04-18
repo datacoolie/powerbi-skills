@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>kpi-donut-row</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Header Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="25.38" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="38.83" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Donut KPIs</text>
+<rect x="10.620000000000001" y="61.67" width="148.92333333333332" height="88.1" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="61.67" width="3" height="88.1" fill="#2563EB"/>
+<text x="20.62" y="75.67" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="500">Revenue</text>
+<text x="20.62" y="91.67" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="14" font-weight="700">$1.24M</text>
+<text x="20.62" y="105.67" fill="#10B981" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600">▲ +12.3% vs plan</text>
+<rect x="20.6" y="129.8" width="15.0" height="16.0" fill="#9CA3AF" opacity="0.75"/>
+<rect x="42.1" y="135.9" width="15.0" height="9.9" fill="#9CA3AF" opacity="0.75"/>
+<rect x="63.6" y="138.4" width="15.0" height="7.3" fill="#9CA3AF" opacity="0.75"/>
+<rect x="85.1" y="135.2" width="15.0" height="10.5" fill="#10B981" opacity="0.75"/>
+<rect x="106.6" y="130.5" width="15.0" height="15.3" fill="#10B981" opacity="0.75"/>
+<rect x="128.1" y="133.6" width="15.0" height="12.2" fill="#10B981" opacity="0.75"/>
+<rect x="165.54333333333332" y="61.67" width="148.92333333333332" height="88.1" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="165.54333333333332" y="61.67" width="3" height="88.1" fill="#2563EB"/>
+<text x="175.54333333333332" y="75.67" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="500">Margin</text>
+<text x="175.54333333333332" y="91.67" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="14" font-weight="700">38.2%</text>
+<text x="175.54333333333332" y="105.67" fill="#10B981" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600">▲ +1.5pp vs plan</text>
+<rect x="175.5" y="139.7" width="15.0" height="6.0" fill="#9CA3AF" opacity="0.75"/>
+<rect x="197.0" y="129.8" width="15.0" height="16.0" fill="#9CA3AF" opacity="0.75"/>
+<rect x="218.5" y="131.6" width="15.0" height="14.2" fill="#9CA3AF" opacity="0.75"/>
+<rect x="240.0" y="130.0" width="15.0" height="15.7" fill="#10B981" opacity="0.75"/>
+<rect x="261.5" y="131.1" width="15.0" height="14.6" fill="#10B981" opacity="0.75"/>
+<rect x="283.0" y="138.1" width="15.0" height="7.7" fill="#10B981" opacity="0.75"/>
+<rect x="320.46666666666664" y="61.67" width="148.92333333333332" height="88.1" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="320.46666666666664" y="61.67" width="3" height="88.1" fill="#2563EB"/>
+<text x="330.46666666666664" y="75.67" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="500">COGS</text>
+<text x="330.46666666666664" y="91.67" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="14" font-weight="700">$612K</text>
+<text x="330.46666666666664" y="105.67" fill="#EF4444" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600">▼ -4.8% vs plan</text>
+<rect x="330.5" y="140.8" width="15.0" height="5.0" fill="#9CA3AF" opacity="0.75"/>
+<rect x="352.0" y="138.9" width="15.0" height="6.9" fill="#9CA3AF" opacity="0.75"/>
+<rect x="373.4" y="130.4" width="15.0" height="15.4" fill="#9CA3AF" opacity="0.75"/>
+<rect x="394.9" y="135.5" width="15.0" height="10.3" fill="#EF4444" opacity="0.75"/>
+<rect x="416.4" y="130.5" width="15.0" height="15.3" fill="#EF4444" opacity="0.75"/>
+<rect x="437.9" y="134.4" width="15.0" height="11.4" fill="#EF4444" opacity="0.75"/>
+<rect x="4.62" y="159.23" width="232.385" height="106.15" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="171.23" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Trend Pair A</text>
+<polygon points="12.6,257.38 12.6,237.1 28.1,224.6 43.5,213.7 59.0,201.0 74.4,213.8 89.9,201.1 105.4,215.7 120.8,198.0 136.3,225.5 151.7,228.8 167.2,218.0 182.6,225.9 198.1,207.9 213.5,237.7 229.0,208.4 229.0,257.38" fill="#2563EB" opacity="0.18"/>
+<polyline points="12.6,237.1 28.1,224.6 43.5,213.7 59.0,201.0 74.4,213.8 89.9,201.1 105.4,215.7 120.8,198.0 136.3,225.5 151.7,228.8 167.2,218.0 182.6,225.9 198.1,207.9 213.5,237.7 229.0,208.4" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="12.6,246.2 28.1,239.8 43.5,244.9 59.0,213.6 74.4,237.2 89.9,233.0 105.4,228.0 120.8,229.3 136.3,231.4 151.7,215.5 167.2,240.4 182.6,231.3 198.1,231.0 213.5,221.2 229.0,222.4" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="12.620000000000001" y1="257.38" x2="229.005" y2="257.38" stroke="#E5E7EB"/>
+<rect x="243.005" y="159.23" width="232.385" height="106.15" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="251.005" y="171.23" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Trend Pair B</text>
+<rect x="255.1" y="215.6" width="18.9" height="41.8" rx="1" fill="#2563EB"/>
+<rect x="282.1" y="207.7" width="18.9" height="49.7" rx="1" fill="#60A5FA"/>
+<rect x="309.2" y="211.8" width="18.9" height="45.6" rx="1" fill="#2563EB"/>
+<rect x="336.2" y="231.9" width="18.9" height="25.5" rx="1" fill="#60A5FA"/>
+<rect x="363.3" y="227.5" width="18.9" height="29.9" rx="1" fill="#2563EB"/>
+<rect x="390.3" y="206.2" width="18.9" height="51.1" rx="1" fill="#60A5FA"/>
+<rect x="417.4" y="189.7" width="18.9" height="67.7" rx="1" fill="#2563EB"/>
+<rect x="444.4" y="228.8" width="18.9" height="28.6" rx="1" fill="#60A5FA"/>
+<line x1="251.005" y1="257.38" x2="467.39" y2="257.38" stroke="#E5E7EB"/>
+<polyline points="264.5,200.6 291.6,216.2 318.6,202.4 345.7,201.4 372.7,213.6 399.8,214.1 426.8,217.8 453.9,232.1" fill="none" stroke="#F59E0B" stroke-width="1.6"/>
+<circle cx="264.5" cy="200.6" r="1.8" fill="#F59E0B"/>
+<circle cx="291.6" cy="216.2" r="1.8" fill="#F59E0B"/>
+<circle cx="318.6" cy="202.4" r="1.8" fill="#F59E0B"/>
+<circle cx="345.7" cy="201.4" r="1.8" fill="#F59E0B"/>
+<circle cx="372.7" cy="213.6" r="1.8" fill="#F59E0B"/>
+<circle cx="399.8" cy="214.1" r="1.8" fill="#F59E0B"/>
+<circle cx="426.8" cy="217.8" r="1.8" fill="#F59E0B"/>
+<circle cx="453.9" cy="232.1" r="1.8" fill="#F59E0B"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">kpi-donut-row</text>
+</svg>

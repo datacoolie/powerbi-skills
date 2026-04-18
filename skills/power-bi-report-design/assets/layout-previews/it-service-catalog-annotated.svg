@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>it-service-catalog</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="18.62" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="111.574" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="204.528" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="390.436" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="8.620000000000001" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="8.620000000000001" y="51.6" width="29.286250000000003" height="2" fill="#2563EB"/>
+<rect x="41.90625" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="41.90625" y="51.6" width="29.286250000000003" height="2" fill="#F59E0B"/>
+<rect x="75.19250000000001" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="75.19250000000001" y="51.6" width="29.286250000000003" height="2" fill="#10B981"/>
+<rect x="108.47875000000002" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="108.47875000000002" y="51.6" width="29.286250000000003" height="2" fill="#2563EB"/>
+<rect x="141.76500000000001" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="141.76500000000001" y="51.6" width="29.286250000000003" height="2" fill="#F59E0B"/>
+<rect x="175.05125" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="175.05125" y="51.6" width="29.286250000000003" height="2" fill="#10B981"/>
+<rect x="208.33750000000003" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="208.33750000000003" y="51.6" width="29.286250000000003" height="2" fill="#2563EB"/>
+<rect x="241.62375000000003" y="51.6" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="241.62375000000003" y="51.6" width="29.286250000000003" height="2" fill="#F59E0B"/>
+<rect x="8.620000000000001" y="60.995000000000005" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="8.620000000000001" y="60.995000000000005" width="29.286250000000003" height="2" fill="#10B981"/>
+<rect x="41.90625" y="60.995000000000005" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="41.90625" y="60.995000000000005" width="29.286250000000003" height="2" fill="#2563EB"/>
+<rect x="75.19250000000001" y="60.995000000000005" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="75.19250000000001" y="60.995000000000005" width="29.286250000000003" height="2" fill="#F59E0B"/>
+<rect x="108.47875000000002" y="60.995000000000005" width="29.286250000000003" height="5.395" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="108.47875000000002" y="60.995000000000005" width="29.286250000000003" height="2" fill="#10B981"/>
+<rect x="279.52" y="47.6" width="195.87" height="22.79" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="287.52" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Dependency Ribbon</text>
+<polygon points="287.5,62.39 287.5,68.9 300.4,65.5 313.2,69.6 326.1,65.5 338.9,65.3 351.8,64.8 364.6,68.8 377.5,67.3 390.3,68.9 403.2,68.2 416.0,67.5 428.8,69.0 441.7,65.7 454.5,65.7 467.4,69.9 467.4,62.39" fill="#2563EB" opacity="0.18"/>
+<polyline points="287.5,68.9 300.4,65.5 313.2,69.6 326.1,65.5 338.9,65.3 351.8,64.8 364.6,68.8 377.5,67.3 390.3,68.9 403.2,68.2 416.0,67.5 428.8,69.0 441.7,65.7 454.5,65.7 467.4,69.9" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="287.5,66.0 300.4,67.5 313.2,65.8 326.1,67.5 338.9,64.2 351.8,64.4 364.6,66.8 377.5,64.3 390.3,67.0 403.2,65.6 416.0,67.7 428.8,67.0 441.7,64.7 454.5,64.6 467.4,66.7" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="287.52" y1="62.39" x2="467.39" y2="62.39" stroke="#E5E7EB"/>
+<rect x="4.62" y="73.85" width="470.77" height="191.54" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="93.6" width="10" height="18.4" fill="#2563EB" rx="1"/>
+<text x="26.62" y="112.0" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Actual</text>
+<rect x="12.620000000000001" y="139.5" width="10" height="18.4" fill="#F59E0B" rx="1"/>
+<text x="26.62" y="157.9" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Plan</text>
+<rect x="12.620000000000001" y="185.4" width="10" height="18.4" fill="#10B981" rx="1"/>
+<text x="26.62" y="203.7" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Forecast</text>
+<rect x="12.620000000000001" y="231.3" width="10" height="18.4" fill="#93C5FD" rx="1"/>
+<text x="26.62" y="249.6" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">LY</text>
+<circle cx="465.39" cy="14.620000000000001" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="17.62" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">1</text>
+<circle cx="465.39" cy="36.83" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="39.83" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">2</text>
+<circle cx="264.91" cy="57.6" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="264.91" y="60.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">3</text>
+<circle cx="465.39" cy="57.6" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="60.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">4</text>
+<circle cx="465.39" cy="83.85" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="86.85" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">5</text>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">it-service-catalog</text>
+</svg>

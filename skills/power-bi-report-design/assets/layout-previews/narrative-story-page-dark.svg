@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>narrative-story-page</title>
+<rect x="0" y="0" width="480" height="270" fill="#0F172A"/>
+<rect x="0" y="0" width="480" height="3" fill="#38BDF8"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#38BDF8"/>
+<text x="18.62" y="16.245" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="420.39" y="16.995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="77.02" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<rect x="4.62" y="26.83" width="3" height="77.02" fill="#38BDF8"/>
+<text x="14.620000000000001" y="40.83" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">💡 Key insight</text>
+<rect x="14.620000000000001" y="50.8" width="270.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="56.8" width="414.7" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="62.8" width="414.7" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="68.8" width="270.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="74.8" width="414.7" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="80.8" width="414.7" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="86.8" width="270.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="92.8" width="414.7" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="14.620000000000001" y="98.8" width="414.7" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="4.62" y="107.31" width="270.29" height="145.38" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="12.620000000000001" y="119.31" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Annotated Chart Large</text>
+<polygon points="12.6,244.69 12.6,195.3 30.8,181.8 48.9,170.7 67.1,173.8 85.3,161.6 103.4,213.3 121.6,166.2 139.8,175.1 157.9,189.7 176.1,200.9 194.3,149.3 212.4,189.0 230.6,181.2 248.7,185.7 266.9,209.5 266.9,244.69" fill="#38BDF8" opacity="0.18"/>
+<polyline points="12.6,195.3 30.8,181.8 48.9,170.7 67.1,173.8 85.3,161.6 103.4,213.3 121.6,166.2 139.8,175.1 157.9,189.7 176.1,200.9 194.3,149.3 212.4,189.0 230.6,181.2 248.7,185.7 266.9,209.5" fill="none" stroke="#38BDF8" stroke-width="1.8"/>
+<polyline points="12.6,197.7 30.8,199.9 48.9,193.8 67.1,209.4 85.3,196.2 103.4,191.9 121.6,216.9 139.8,214.5 157.9,220.5 176.1,211.7 194.3,181.3 212.4,213.2 230.6,224.0 248.7,213.0 266.9,225.8" fill="none" stroke="#FBBF24" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="12.620000000000001" y1="244.69" x2="266.91" y2="244.69" stroke="#334155"/>
+<rect x="279.52" y="107.31" width="195.87" height="145.38" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<rect x="279.52" y="107.31" width="3" height="145.38" fill="#38BDF8"/>
+<text x="289.52" y="121.31" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">💡 Key insight</text>
+<rect x="289.52" y="131.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="137.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="143.3" width="105.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="149.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="155.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="161.3" width="105.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="167.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="173.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="179.3" width="105.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="185.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="191.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="197.3" width="105.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="203.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="209.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="215.3" width="105.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="221.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="227.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="233.3" width="105.5" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="239.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="289.52" y="245.3" width="161.8" height="2.5" fill="#F1F5F9" opacity="0.45" rx="1"/>
+<rect x="4.62" y="256.15" width="470.77" height="9.23" rx="2" fill="#111827" stroke="#334155"/>
+<text x="14.620000000000001" y="262.1495" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0765" font-weight="400">Source: Data warehouse · Last refresh 08:15</text>
+<text x="415.39" y="262.1495" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0765" font-weight="500" text-anchor="start">Confidential</text>
+<rect x="455.39" y="258.4575" width="14" height="4.6" rx="2" fill="#38BDF8" opacity="0.15"/>
+<text x="462.39" y="262.611" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.615" font-weight="700" text-anchor="middle">1</text>
+<text x="240.0" y="265" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">narrative-story-page</text>
+</svg>

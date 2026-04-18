@@ -1,0 +1,35 @@
+/* Theme tokens: Nord / Frost (nord-frost) — auto-generated */
+:root[data-theme="nord-frost"] {
+  --color-data-1: #5E81AC;
+  --color-data-2: #88C0D0;
+  --color-data-3: #81A1C1;
+  --color-data-4: #8FBCBB;
+  --color-data-5: #A3BE8C;
+  --color-data-6: #EBCB8B;
+  --color-data-7: #D08770;
+  --color-data-8: #B48EAD;
+  --color-semantic-good: #A3BE8C;
+  --color-semantic-bad: #BF616A;
+  --color-semantic-neutral: #4C566A;
+  --color-semantic-warning: #EBCB8B;
+  --color-semantic-info: #5E81AC;
+  --color-neutral-muted: #4C566A;
+  --color-neutral-disabled: #D8DEE9;
+  --color-neutral-gridline: #E5E9F0;
+  --color-neutral-divider: #D8DEE9;
+  --color-bg: #ECEFF4;
+  --color-fg: #2E3440;
+  --color-table-accent: #5E81AC;
+  --color-diverging-1: #BF616A;
+  --color-diverging-2: #E2C1C4;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #D8E2D0;
+  --color-diverging-5: #A3BE8C;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

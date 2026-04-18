@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>tooltip-page</title>
+<rect x="0" y="0" width="480" height="360" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="9.0" y="24.0" width="462.0" height="39.0" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="9.0" y="24.0" width="4" height="39.0" rx="2" fill="#2563EB"/>
+<text x="23.0" y="48.18" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Tooltip Title</text>
+<rect x="381.0" y="34.92" width="70" height="17.6" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="416.0" y="49.74" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="14.82" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="15.0" y="87.0" width="108.0" height="27.0" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="15.0" y="87.0" width="3" height="27.0" fill="#2563EB"/>
+<text x="23.0" y="94.94" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.94" font-weight="500">Revenue</text>
+<text x="23.0" y="106.39" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9.45" font-weight="700">$1.24M</text>
+<rect x="129.0" y="87.0" width="108.0" height="27.0" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="129.0" y="87.0" width="3" height="27.0" fill="#2563EB"/>
+<text x="137.0" y="94.94" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.94" font-weight="500">Orders</text>
+<text x="137.0" y="106.39" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9.45" font-weight="700">48,912</text>
+<rect x="243.0" y="87.0" width="108.0" height="27.0" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="243.0" y="87.0" width="3" height="27.0" fill="#2563EB"/>
+<text x="251.0" y="94.94" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.94" font-weight="500">Margin</text>
+<text x="251.0" y="106.39" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9.45" font-weight="700">38.2%</text>
+<rect x="357.0" y="87.0" width="108.0" height="27.0" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="357.0" y="87.0" width="3" height="27.0" fill="#2563EB"/>
+<text x="365.0" y="94.94" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.94" font-weight="500">CSAT</text>
+<text x="365.0" y="106.39" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9.45" font-weight="700">4.7 / 5</text>
+<rect x="9.0" y="138.0" width="462.0" height="198.0" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="17.0" y="150.0" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Micro Chart</text>
+<polygon points="17.0,328.0 17.0,266.2 48.9,232.1 80.7,280.9 112.6,229.4 144.4,246.1 176.3,260.5 208.1,204.3 240.0,192.8 271.9,200.7 303.7,236.8 335.6,254.4 367.4,197.7 399.3,213.1 431.1,220.1 463.0,221.4 463.0,328.0" fill="#2563EB" opacity="0.18"/>
+<polyline points="17.0,266.2 48.9,232.1 80.7,280.9 112.6,229.4 144.4,246.1 176.3,260.5 208.1,204.3 240.0,192.8 271.9,200.7 303.7,236.8 335.6,254.4 367.4,197.7 399.3,213.1 431.1,220.1 463.0,221.4" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="17.0,261.1 48.9,255.8 80.7,264.9 112.6,286.4 144.4,229.1 176.3,243.3 208.1,243.9 240.0,271.8 271.9,242.8 303.7,288.8 335.6,295.8 367.4,283.4 399.3,285.5 431.1,242.3 463.0,287.7" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="17.0" y1="328.0" x2="463.0" y2="328.0" stroke="#E5E7EB"/>
+<text x="240.0" y="355" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">tooltip-page</text>
+</svg>

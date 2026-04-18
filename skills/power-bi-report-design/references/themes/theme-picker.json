@@ -1,0 +1,864 @@
+{
+  "$schema": "./theme-picker.schema.json",
+  "version": "0.2",
+  "description": "Decision matrix for picking a theme given query criteria. Each branch returns theme ids in priority order. Intersect multiple branches to narrow results.",
+  "generated_from": "themes-index.json v0.7",
+  "by_industry": {
+    "academia": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "academic": [
+      "accessible-okabe-ito"
+    ],
+    "accessibility": [
+      "accessible-okabe-ito"
+    ],
+    "agriculture": [
+      "sustainability-esg",
+      "sustainability-esg-dark",
+      "sustainability-esg-earthday"
+    ],
+    "azure": [
+      "microsoft-fluent",
+      "microsoft-fluent-dark"
+    ],
+    "b2b": [
+      "brand-salesforce",
+      "brand-ibm-carbon",
+      "brand-stripe",
+      "brand-salesforce-dark",
+      "brand-ibm-carbon-dark",
+      "brand-stripe-dark"
+    ],
+    "banking": [
+      "corporate-financial",
+      "corporate-financial-dark",
+      "corporate-financial-q4"
+    ],
+    "board-reporting": [
+      "consulting-authority",
+      "consulting-authority-dark"
+    ],
+    "brand": [
+      "marketing-digital",
+      "marketing-digital-dark"
+    ],
+    "broadcast": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "campaign": [
+      "sustainability-esg-earthday"
+    ],
+    "civic-services": [
+      "public-sector-gov",
+      "public-sector-gov-dark"
+    ],
+    "cloud-infrastructure": [
+      "high-contrast-dark"
+    ],
+    "connectivity": [
+      "telecom-network",
+      "telecom-network-dark"
+    ],
+    "consulting": [
+      "consulting-authority",
+      "brand-ibm-carbon",
+      "consulting-authority-dark",
+      "brand-ibm-carbon-dark"
+    ],
+    "consumer-goods": [
+      "retail-fmcg",
+      "retail-fmcg-dark",
+      "retail-fmcg-holiday"
+    ],
+    "consumer-tech": [
+      "brand-google-material",
+      "brand-google-material-dark"
+    ],
+    "crm": [
+      "brand-salesforce",
+      "brand-salesforce-dark"
+    ],
+    "cybersecurity": [
+      "tech-monitoring",
+      "high-contrast-dark"
+    ],
+    "defense": [
+      "public-sector-gov",
+      "public-sector-gov-dark"
+    ],
+    "design-systems": [
+      "nord-frost",
+      "nord-frost-dark"
+    ],
+    "developer-tools": [
+      "nord-frost",
+      "tailwind-slate",
+      "nord-frost-dark",
+      "tailwind-slate-dark"
+    ],
+    "devops": [
+      "tech-monitoring",
+      "high-contrast-dark",
+      "brand-atlassian",
+      "brand-atlassian-dark"
+    ],
+    "digital-advertising": [
+      "marketing-digital",
+      "marketing-digital-dark"
+    ],
+    "diversity-equity-inclusion": [
+      "hr-people-analytics",
+      "hr-people-analytics-dark"
+    ],
+    "dynamics-365": [
+      "microsoft-fluent",
+      "microsoft-fluent-dark"
+    ],
+    "ecommerce": [
+      "sales-growth",
+      "sales-growth-dark"
+    ],
+    "edtech": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "education": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "energy": [
+      "manufacturing-ops",
+      "manufacturing-ops-dark"
+    ],
+    "engineering": [
+      "brand-atlassian",
+      "brand-atlassian-dark"
+    ],
+    "enterprise-it": [
+      "brand-ibm-carbon",
+      "brand-ibm-carbon-dark"
+    ],
+    "entertainment": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "esg": [
+      "sustainability-esg",
+      "sustainability-esg-dark",
+      "sustainability-esg-earthday"
+    ],
+    "finance": [
+      "corporate-financial",
+      "corporate-financial-dark",
+      "corporate-financial-q4"
+    ],
+    "fintech": [
+      "brand-stripe",
+      "brand-stripe-dark"
+    ],
+    "fmcg": [
+      "retail-fmcg",
+      "retail-fmcg-dark",
+      "retail-fmcg-holiday"
+    ],
+    "gaming": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "general-business": [
+      "microsoft-fluent",
+      "microsoft-fluent-dark"
+    ],
+    "government": [
+      "public-sector-gov",
+      "public-sector-gov-dark"
+    ],
+    "grocery": [
+      "retail-fmcg",
+      "retail-fmcg-dark",
+      "retail-fmcg-holiday"
+    ],
+    "growth": [
+      "marketing-digital",
+      "marketing-digital-dark"
+    ],
+    "healthcare": [
+      "healthcare-pharma",
+      "healthcare-pharma-dark"
+    ],
+    "higher-ed": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "holiday": [
+      "retail-fmcg-holiday"
+    ],
+    "hospitality": [
+      "real-estate-hospitality",
+      "real-estate-hospitality-dark"
+    ],
+    "hotels": [
+      "real-estate-hospitality",
+      "real-estate-hospitality-dark"
+    ],
+    "human-resources": [
+      "hr-people-analytics",
+      "hr-people-analytics-dark"
+    ],
+    "inclusive-design": [
+      "accessible-okabe-ito"
+    ],
+    "insurance": [
+      "corporate-financial",
+      "corporate-financial-dark",
+      "corporate-financial-q4"
+    ],
+    "investor-relations": [
+      "corporate-financial",
+      "consulting-authority",
+      "corporate-financial-dark",
+      "consulting-authority-dark",
+      "corporate-financial-q4"
+    ],
+    "isp": [
+      "telecom-network",
+      "telecom-network-dark"
+    ],
+    "it-ops": [
+      "tech-monitoring",
+      "high-contrast-dark"
+    ],
+    "k-12": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "l-and-d": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "life-sciences": [
+      "healthcare-pharma",
+      "healthcare-pharma-dark"
+    ],
+    "logistics": [
+      "supply-chain-logistics",
+      "supply-chain-logistics-dark"
+    ],
+    "manufacturing": [
+      "manufacturing-ops",
+      "manufacturing-ops-dark"
+    ],
+    "marketing": [
+      "sales-growth",
+      "marketing-digital",
+      "sales-growth-dark",
+      "marketing-digital-dark"
+    ],
+    "media": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "microsoft-365": [
+      "microsoft-fluent",
+      "microsoft-fluent-dark"
+    ],
+    "mobile": [
+      "brand-google-material",
+      "brand-google-material-dark"
+    ],
+    "mobile-5g": [
+      "telecom-network",
+      "telecom-network-dark"
+    ],
+    "mobile-carriers": [
+      "telecom-network",
+      "telecom-network-dark"
+    ],
+    "monitoring": [
+      "high-contrast-dark"
+    ],
+    "network": [
+      "telecom-network",
+      "telecom-network-dark"
+    ],
+    "noc-soc": [
+      "high-contrast-dark"
+    ],
+    "non-profit": [
+      "sustainability-esg",
+      "sustainability-esg-dark",
+      "sustainability-esg-earthday"
+    ],
+    "non-profit-gov": [
+      "public-sector-gov",
+      "public-sector-gov-dark"
+    ],
+    "office": [
+      "microsoft-fluent",
+      "microsoft-fluent-dark"
+    ],
+    "open-source": [
+      "nord-frost",
+      "nord-frost-dark"
+    ],
+    "operations": [
+      "manufacturing-ops",
+      "manufacturing-ops-dark"
+    ],
+    "payments": [
+      "brand-stripe",
+      "brand-stripe-dark"
+    ],
+    "people-analytics": [
+      "hr-people-analytics",
+      "hr-people-analytics-dark"
+    ],
+    "performance-marketing": [
+      "marketing-digital",
+      "marketing-digital-dark"
+    ],
+    "pharma": [
+      "healthcare-pharma",
+      "healthcare-pharma-dark"
+    ],
+    "procurement": [
+      "supply-chain-logistics",
+      "supply-chain-logistics-dark"
+    ],
+    "product-analytics": [
+      "nord-frost",
+      "tailwind-slate",
+      "nord-frost-dark",
+      "tailwind-slate-dark"
+    ],
+    "productivity": [
+      "microsoft-fluent",
+      "brand-google-material",
+      "microsoft-fluent-dark",
+      "brand-google-material-dark"
+    ],
+    "project-management": [
+      "brand-atlassian",
+      "brand-atlassian-dark"
+    ],
+    "property-management": [
+      "real-estate-hospitality",
+      "real-estate-hospitality-dark"
+    ],
+    "public-health": [
+      "healthcare-pharma",
+      "accessible-okabe-ito",
+      "healthcare-pharma-dark"
+    ],
+    "public-sector": [
+      "public-sector-gov",
+      "public-sector-gov-dark"
+    ],
+    "publishing": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "real-estate": [
+      "real-estate-hospitality",
+      "real-estate-hospitality-dark"
+    ],
+    "recruiting": [
+      "hr-people-analytics",
+      "hr-people-analytics-dark"
+    ],
+    "research": [
+      "accessible-okabe-ito",
+      "brand-ibm-carbon",
+      "brand-ibm-carbon-dark"
+    ],
+    "retail": [
+      "sales-growth",
+      "retail-fmcg",
+      "sales-growth-dark",
+      "retail-fmcg-dark",
+      "retail-fmcg-holiday"
+    ],
+    "saas": [
+      "tech-monitoring",
+      "tailwind-slate",
+      "brand-salesforce",
+      "brand-google-material",
+      "brand-stripe",
+      "brand-atlassian",
+      "tailwind-slate-dark",
+      "brand-salesforce-dark",
+      "brand-google-material-dark",
+      "brand-stripe-dark",
+      "brand-atlassian-dark"
+    ],
+    "sales": [
+      "sales-growth",
+      "sales-growth-dark"
+    ],
+    "sales-ops": [
+      "brand-salesforce",
+      "brand-salesforce-dark"
+    ],
+    "scientific-publishing": [
+      "accessible-okabe-ito"
+    ],
+    "social-media": [
+      "marketing-digital",
+      "marketing-digital-dark"
+    ],
+    "sports": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "startup": [
+      "tailwind-slate",
+      "tailwind-slate-dark"
+    ],
+    "strategy": [
+      "consulting-authority",
+      "consulting-authority-dark"
+    ],
+    "streaming": [
+      "media-entertainment",
+      "media-entertainment-dark"
+    ],
+    "supply-chain": [
+      "supply-chain-logistics",
+      "supply-chain-logistics-dark"
+    ],
+    "sustainability": [
+      "sustainability-esg",
+      "sustainability-esg-dark",
+      "sustainability-esg-earthday"
+    ],
+    "talent": [
+      "hr-people-analytics",
+      "hr-people-analytics-dark"
+    ],
+    "technical-writing": [
+      "nord-frost",
+      "nord-frost-dark"
+    ],
+    "telecom": [
+      "telecom-network",
+      "telecom-network-dark"
+    ],
+    "tourism": [
+      "real-estate-hospitality",
+      "real-estate-hospitality-dark"
+    ],
+    "training": [
+      "education-edtech",
+      "education-edtech-dark"
+    ],
+    "transportation": [
+      "supply-chain-logistics",
+      "supply-chain-logistics-dark"
+    ],
+    "travel": [
+      "real-estate-hospitality",
+      "real-estate-hospitality-dark"
+    ],
+    "utilities": [
+      "manufacturing-ops",
+      "manufacturing-ops-dark"
+    ],
+    "web-development": [
+      "tailwind-slate",
+      "tailwind-slate-dark"
+    ],
+    "workforce": [
+      "hr-people-analytics",
+      "hr-people-analytics-dark"
+    ]
+  },
+  "by_audience": {
+    "executive-board": [
+      "consulting-authority",
+      "corporate-financial",
+      "brand-ibm-carbon",
+      "public-sector-gov",
+      "microsoft-fluent"
+    ],
+    "operations-floor": [
+      "manufacturing-ops",
+      "tech-monitoring",
+      "supply-chain-logistics",
+      "telecom-network",
+      "high-contrast-dark"
+    ],
+    "sales-team": [
+      "sales-growth",
+      "brand-salesforce",
+      "retail-fmcg",
+      "marketing-digital",
+      "brand-atlassian"
+    ],
+    "analyst-technical": [
+      "tailwind-slate",
+      "nord-frost",
+      "brand-ibm-carbon",
+      "microsoft-fluent",
+      "tech-monitoring"
+    ],
+    "external-customer": [
+      "brand-stripe",
+      "brand-google-material",
+      "marketing-digital",
+      "media-entertainment",
+      "retail-fmcg"
+    ],
+    "accessibility-first": [
+      "accessible-okabe-ito",
+      "high-contrast-dark",
+      "public-sector-gov"
+    ],
+    "public-civic": [
+      "public-sector-gov",
+      "sustainability-esg",
+      "education-edtech",
+      "healthcare-pharma"
+    ],
+    "investor-relations": [
+      "corporate-financial",
+      "consulting-authority",
+      "brand-ibm-carbon",
+      "brand-stripe"
+    ],
+    "clinical-medical": [
+      "healthcare-pharma",
+      "accessible-okabe-ito",
+      "public-sector-gov"
+    ],
+    "monitoring-wall": [
+      "high-contrast-dark",
+      "tech-monitoring",
+      "telecom-network"
+    ],
+    "marketing-campaign": [
+      "marketing-digital",
+      "media-entertainment",
+      "retail-fmcg",
+      "brand-google-material",
+      "retail-fmcg-holiday",
+      "sustainability-esg-earthday"
+    ],
+    "year-end-finance": [
+      "corporate-financial-q4",
+      "corporate-financial",
+      "consulting-authority",
+      "brand-stripe"
+    ],
+    "dark-mode-ops": [
+      "high-contrast-dark",
+      "corporate-financial-dark",
+      "sales-growth-dark",
+      "manufacturing-ops-dark",
+      "healthcare-pharma-dark",
+      "supply-chain-logistics-dark",
+      "retail-fmcg-dark",
+      "sustainability-esg-dark",
+      "consulting-authority-dark",
+      "public-sector-gov-dark"
+    ]
+  },
+  "by_mode": {
+    "light": [
+      "corporate-financial",
+      "sales-growth",
+      "manufacturing-ops",
+      "healthcare-pharma",
+      "supply-chain-logistics",
+      "retail-fmcg",
+      "sustainability-esg",
+      "consulting-authority",
+      "public-sector-gov",
+      "education-edtech",
+      "media-entertainment",
+      "real-estate-hospitality",
+      "hr-people-analytics",
+      "marketing-digital",
+      "telecom-network",
+      "microsoft-fluent",
+      "nord-frost",
+      "tailwind-slate",
+      "accessible-okabe-ito",
+      "brand-salesforce",
+      "brand-ibm-carbon",
+      "brand-google-material",
+      "brand-stripe",
+      "brand-atlassian",
+      "corporate-financial-q4",
+      "retail-fmcg-holiday",
+      "sustainability-esg-earthday"
+    ],
+    "dark": [
+      "high-contrast-dark",
+      "corporate-financial-dark",
+      "sales-growth-dark",
+      "manufacturing-ops-dark",
+      "healthcare-pharma-dark",
+      "supply-chain-logistics-dark",
+      "retail-fmcg-dark",
+      "sustainability-esg-dark",
+      "consulting-authority-dark",
+      "public-sector-gov-dark",
+      "education-edtech-dark",
+      "media-entertainment-dark",
+      "real-estate-hospitality-dark",
+      "hr-people-analytics-dark",
+      "marketing-digital-dark",
+      "telecom-network-dark",
+      "microsoft-fluent-dark",
+      "nord-frost-dark",
+      "tailwind-slate-dark",
+      "brand-salesforce-dark",
+      "brand-ibm-carbon-dark",
+      "brand-google-material-dark",
+      "brand-stripe-dark",
+      "brand-atlassian-dark"
+    ],
+    "dual": [
+      "tech-monitoring"
+    ]
+  },
+  "by_cvd_requirement": {
+    "strict_safe_only": [
+      "accessible-okabe-ito"
+    ],
+    "caution_acceptable": [
+      "accessible-okabe-ito",
+      "corporate-financial",
+      "sales-growth",
+      "sustainability-esg",
+      "tech-monitoring",
+      "public-sector-gov",
+      "media-entertainment-dark"
+    ],
+    "notes": "Use 'strict_safe_only' for accessibility-critical reports. Use 'caution_acceptable' when limiting to first 4-5 data colors is acceptable."
+  },
+  "by_formality": {
+    "high (>=0.75)": [
+      "consulting-authority",
+      "consulting-authority-dark",
+      "corporate-financial",
+      "corporate-financial-dark",
+      "corporate-financial-q4",
+      "public-sector-gov",
+      "brand-ibm-carbon",
+      "public-sector-gov-dark",
+      "brand-ibm-carbon-dark",
+      "healthcare-pharma",
+      "healthcare-pharma-dark",
+      "manufacturing-ops",
+      "manufacturing-ops-dark"
+    ],
+    "medium (0.5-0.75)": [
+      "sales-growth",
+      "supply-chain-logistics",
+      "sustainability-esg",
+      "tech-monitoring",
+      "education-edtech",
+      "real-estate-hospitality",
+      "hr-people-analytics",
+      "telecom-network",
+      "microsoft-fluent",
+      "nord-frost",
+      "tailwind-slate",
+      "accessible-okabe-ito",
+      "high-contrast-dark",
+      "brand-salesforce",
+      "brand-google-material",
+      "brand-stripe",
+      "brand-atlassian",
+      "sales-growth-dark",
+      "supply-chain-logistics-dark",
+      "sustainability-esg-dark",
+      "education-edtech-dark",
+      "real-estate-hospitality-dark",
+      "hr-people-analytics-dark",
+      "telecom-network-dark",
+      "microsoft-fluent-dark",
+      "nord-frost-dark",
+      "tailwind-slate-dark",
+      "brand-salesforce-dark",
+      "brand-google-material-dark",
+      "brand-stripe-dark",
+      "brand-atlassian-dark",
+      "sustainability-esg-earthday"
+    ],
+    "low (<0.5)": [
+      "retail-fmcg",
+      "media-entertainment",
+      "marketing-digital",
+      "retail-fmcg-dark",
+      "media-entertainment-dark",
+      "marketing-digital-dark",
+      "retail-fmcg-holiday"
+    ]
+  },
+  "by_print_requirement": {
+    "print_safe": [
+      "corporate-financial",
+      "sales-growth",
+      "manufacturing-ops",
+      "healthcare-pharma",
+      "retail-fmcg",
+      "sustainability-esg",
+      "tech-monitoring",
+      "consulting-authority",
+      "public-sector-gov",
+      "education-edtech",
+      "media-entertainment",
+      "real-estate-hospitality",
+      "hr-people-analytics",
+      "marketing-digital",
+      "telecom-network",
+      "microsoft-fluent",
+      "nord-frost",
+      "tailwind-slate",
+      "accessible-okabe-ito",
+      "brand-salesforce",
+      "brand-ibm-carbon",
+      "brand-google-material",
+      "brand-stripe",
+      "brand-atlassian",
+      "corporate-financial-q4",
+      "retail-fmcg-holiday",
+      "sustainability-esg-earthday"
+    ],
+    "notes": "print_safe=true means bg is near-white, fg is near-black, and no data_color requires >320% total ink coverage (CMYK sum)."
+  },
+  "by_motion_preset": {
+    "snappy": [
+      "sales-growth",
+      "tech-monitoring",
+      "media-entertainment",
+      "marketing-digital",
+      "high-contrast-dark",
+      "sales-growth-dark",
+      "media-entertainment-dark",
+      "marketing-digital-dark",
+      "telecom-network-dark",
+      "brand-stripe-dark"
+    ],
+    "balanced": [
+      "manufacturing-ops",
+      "retail-fmcg",
+      "education-edtech",
+      "telecom-network",
+      "microsoft-fluent",
+      "accessible-okabe-ito",
+      "brand-salesforce",
+      "brand-google-material",
+      "brand-stripe",
+      "brand-atlassian",
+      "corporate-financial-dark",
+      "manufacturing-ops-dark",
+      "supply-chain-logistics-dark",
+      "retail-fmcg-dark",
+      "education-edtech-dark",
+      "real-estate-hospitality-dark",
+      "hr-people-analytics-dark",
+      "microsoft-fluent-dark",
+      "tailwind-slate-dark",
+      "brand-salesforce-dark",
+      "brand-ibm-carbon-dark",
+      "brand-google-material-dark",
+      "brand-atlassian-dark",
+      "retail-fmcg-holiday"
+    ],
+    "quiet": [
+      "corporate-financial",
+      "healthcare-pharma",
+      "supply-chain-logistics",
+      "sustainability-esg",
+      "consulting-authority",
+      "public-sector-gov",
+      "real-estate-hospitality",
+      "hr-people-analytics",
+      "nord-frost",
+      "tailwind-slate",
+      "brand-ibm-carbon",
+      "healthcare-pharma-dark",
+      "sustainability-esg-dark",
+      "consulting-authority-dark",
+      "public-sector-gov-dark",
+      "nord-frost-dark",
+      "corporate-financial-q4",
+      "sustainability-esg-earthday"
+    ]
+  },
+  "picking_algorithm": [
+    "1. Intersect by_industry[<domain>] with by_audience[<audience>]",
+    "2. If cvd required, intersect with by_cvd_requirement.strict_safe_only",
+    "3. Filter by_mode if user requires light/dark",
+    "4. If printed output, intersect with by_print_requirement.print_safe",
+    "5. Within remaining set, sort by formality tier matching target",
+    "6. Tiebreak: prefer domain-specific themes over brand/design-system; prefer light over -dark companions unless audience=monitoring-wall"
+  ],
+  "example_queries": [
+    {
+      "query": {
+        "industry": "finance",
+        "audience": "executive-board"
+      },
+      "result": [
+        "corporate-financial",
+        "consulting-authority",
+        "brand-stripe"
+      ],
+      "rationale": "Domain match first, then audience preference, then finance-adjacent brand"
+    },
+    {
+      "query": {
+        "industry": "manufacturing",
+        "audience": "operations-floor",
+        "mode": "dark"
+      },
+      "result": [
+        "high-contrast-dark",
+        "manufacturing-ops-dark",
+        "tech-monitoring-dark"
+      ],
+      "rationale": "Dark-mode-only filter yields both the stock dark theme and auto-generated companions"
+    },
+    {
+      "query": {
+        "audience": "accessibility-first",
+        "cvd_required": true
+      },
+      "result": [
+        "accessible-okabe-ito"
+      ],
+      "rationale": "Only theme rated cvd_safety.safe at 8-color width"
+    },
+    {
+      "query": {
+        "audience": "investor-relations",
+        "print_required": true
+      },
+      "result": [
+        "corporate-financial",
+        "consulting-authority",
+        "brand-ibm-carbon"
+      ],
+      "rationale": "Intersection with print_safe; board packs print cleanly"
+    },
+    {
+      "query": {
+        "audience": "marketing-campaign",
+        "season": "holiday"
+      },
+      "result": [
+        "retail-fmcg-holiday",
+        "marketing-digital",
+        "media-entertainment"
+      ],
+      "rationale": "Seasonal variant leads when audience matches"
+    }
+  ]
+}

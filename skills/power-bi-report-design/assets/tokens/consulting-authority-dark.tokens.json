@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Consulting / Authority (Dark)' (consulting-authority-dark).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#2BA6EE"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#2BB4EE"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#2B9DEE"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#7D8A9C"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#D4A846"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#7D8D9B"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#5EBB92"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#D4454B"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#5EBB92"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#D4454B"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#7D8A9C"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#D4A846"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#2BB4EE"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#707377"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#45494E"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#292D32"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#3A3E43"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#0F1419"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#E6E8EB"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#2BA6EE"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#506C65"
+        },
+        {
+          "$type": "color",
+          "$value": "#5EBB92"
+        },
+        {
+          "$type": "color",
+          "$value": "#2A5442"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#73664E"
+        },
+        {
+          "$type": "color",
+          "$value": "#D4A846"
+        },
+        {
+          "$type": "color",
+          "$value": "#5F4C1F"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#734850"
+        },
+        {
+          "$type": "color",
+          "$value": "#D4454B"
+        },
+        {
+          "$type": "color",
+          "$value": "#5F1F22"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#416681"
+        },
+        {
+          "$type": "color",
+          "$value": "#2BA6EE"
+        },
+        {
+          "$type": "color",
+          "$value": "#134B6B"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#943034"
+        },
+        {
+          "$type": "color",
+          "$value": "#7A4850"
+        },
+        {
+          "$type": "color",
+          "$value": "#4A4A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#517268"
+        },
+        {
+          "$type": "color",
+          "$value": "#428366"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Source Serif Pro', 'Georgia', 'Times New Roman', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Inter', 'Segoe UI', -apple-system, sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'JetBrains Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "400ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "350ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "240ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.6, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.08
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "consulting-authority"
+    }
+  }
+}

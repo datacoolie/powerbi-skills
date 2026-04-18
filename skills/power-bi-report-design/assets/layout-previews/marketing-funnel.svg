@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>marketing-funnel</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="18.62" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="111.574" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="204.528" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="390.436" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="4.62" y="47.6" width="470.77" height="64.9" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Funnel Hero</text>
+<rect x="10.6" y="67.6" width="458.8" height="6.2" rx="2" fill="#2563EB" opacity="0.85"/>
+<text x="16.6" y="72.9" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="600">Visitors</text>
+<text x="463.4" y="72.9" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="700" text-anchor="end">100%</text>
+<rect x="43.6" y="75.8" width="392.9" height="6.2" rx="2" fill="#60A5FA" opacity="0.85"/>
+<text x="49.6" y="81.1" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="600">Leads</text>
+<text x="430.4" y="81.1" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="700" text-anchor="end">64%</text>
+<rect x="76.5" y="84.0" width="327.0" height="6.2" rx="2" fill="#93C5FD" opacity="0.85"/>
+<text x="82.5" y="89.3" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="600">MQL</text>
+<text x="397.5" y="89.3" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="700" text-anchor="end">38%</text>
+<rect x="109.5" y="92.1" width="261.0" height="6.2" rx="2" fill="#F59E0B" opacity="0.85"/>
+<text x="115.5" y="97.5" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="600">SQL</text>
+<text x="364.5" y="97.5" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="700" text-anchor="end">18%</text>
+<rect x="142.4" y="100.3" width="195.1" height="6.2" rx="2" fill="#10B981" opacity="0.85"/>
+<text x="148.4" y="105.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="600">Won</text>
+<text x="331.6" y="105.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="3.681000000000001" font-weight="700" text-anchor="end">7%</text>
+<rect x="4.62" y="115.96" width="470.77" height="64.62" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="127.96" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Channel Mix Donut</text>
+<circle cx="240.0" cy="151.5" r="23.3" fill="none" stroke="#2563EB" stroke-width="8.1" stroke-dasharray="61.39 146.17" stroke-dashoffset="0.00" transform="rotate(-90 240.0 151.5)"/>
+<circle cx="240.0" cy="151.5" r="23.3" fill="none" stroke="#F59E0B" stroke-width="8.1" stroke-dasharray="36.54 146.17" stroke-dashoffset="-61.39" transform="rotate(-90 240.0 151.5)"/>
+<circle cx="240.0" cy="151.5" r="23.3" fill="none" stroke="#10B981" stroke-width="8.1" stroke-dasharray="26.31 146.17" stroke-dashoffset="-97.93" transform="rotate(-90 240.0 151.5)"/>
+<circle cx="240.0" cy="151.5" r="23.3" fill="none" stroke="#93C5FD" stroke-width="8.1" stroke-dasharray="21.93 146.17" stroke-dashoffset="-124.24" transform="rotate(-90 240.0 151.5)"/>
+<text x="240.005" y="154.501" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.468440000000001" font-weight="700" text-anchor="middle">100%</text>
+<rect x="10.620000000000001" y="190.04" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="190.04" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="18.62" y="194.9836" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="201.6666" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="126.8125" y="190.04" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="126.8125" y="190.04" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="134.8125" y="194.9836" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="134.8125" y="201.6666" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="243.005" y="190.04" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="243.005" y="190.04" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="251.005" y="194.9836" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="251.005" y="201.6666" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="359.1975" y="190.04" width="110.1925" height="13.379999999999999" rx="4" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="359.1975" y="190.04" width="3" height="13.379999999999999" fill="#2563EB"/>
+<text x="367.1975" y="194.9836" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="367.1975" y="201.6666" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="4.62" y="212.88" width="470.77" height="52.5" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="4.62" y="212.88" width="470.77" height="14" fill="#EFF6FF"/>
+<text x="12.620000000000001" y="222.88" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="222.88" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="222.88" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="222.88" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="222.88" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="226.88" x2="475.39" y2="226.88" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="229.88" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="229.88" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="229.88" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="231.88" r="2.5" fill="#10B981"/>
+<polyline points="378.4,232.0 380.4,232.9 382.4,233.5 384.4,230.9 386.4,233.3" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="236.88" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="239.88" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="239.88" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="239.88" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="241.88" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,240.7 380.4,243.8 382.4,241.8 384.4,243.7 386.4,241.2" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="249.88" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="249.88" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="249.88" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="251.88" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,252.9 380.4,252.9 382.4,253.2 384.4,250.0 386.4,251.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">marketing-funnel</text>
+</svg>

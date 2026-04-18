@@ -1,0 +1,35 @@
+/* Theme tokens: Salesforce Lightning (brand-salesforce) — auto-generated */
+:root[data-theme="brand-salesforce"] {
+  --color-data-1: #0176D3;
+  --color-data-2: #04844B;
+  --color-data-3: #FE9339;
+  --color-data-4: #BA0517;
+  --color-data-5: #5867E8;
+  --color-data-6: #14919B;
+  --color-data-7: #AE7300;
+  --color-data-8: #747474;
+  --color-semantic-good: #2E844A;
+  --color-semantic-bad: #BA0517;
+  --color-semantic-neutral: #706E6B;
+  --color-semantic-warning: #FE9339;
+  --color-semantic-info: #0176D3;
+  --color-neutral-muted: #979797;
+  --color-neutral-disabled: #C5C5C5;
+  --color-neutral-gridline: #E3E3E3;
+  --color-neutral-divider: #D1D1D1;
+  --color-bg: #FFFFFF;
+  --color-fg: #181818;
+  --color-table-accent: #0176D3;
+  --color-diverging-1: #820410;
+  --color-diverging-2: #E0A1A7;
+  --color-diverging-3: #F5F5F5;
+  --color-diverging-4: #AFCDB9;
+  --color-diverging-5: #205C34;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

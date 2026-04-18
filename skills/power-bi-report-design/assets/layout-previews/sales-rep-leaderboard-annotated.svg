@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>sales-rep-leaderboard</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="18.62" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="111.574" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="204.528" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="390.436" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="4.62" y="47.6" width="270.29" height="137.31" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Rep Leaderboard</text>
+<circle cx="14.620000000000001" cy="71.6" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="73.6" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">1</text>
+<text x="24.62" y="74.6" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">North</text>
+<rect x="24.62" y="76.6" width="184.4" height="3" fill="#2563EB" rx="1" opacity="0.8"/>
+<circle cx="14.620000000000001" cy="88.07285714285715" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="90.07285714285715" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">2</text>
+<text x="24.62" y="91.07285714285715" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">South</text>
+<rect x="24.62" y="93.1" width="161.3" height="3" fill="#2563EB" rx="1" opacity="0.7200000000000001"/>
+<circle cx="14.620000000000001" cy="104.54571428571428" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="106.54571428571428" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">3</text>
+<text x="24.62" y="107.54571428571428" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">East</text>
+<rect x="24.62" y="109.5" width="139.0" height="3" fill="#2563EB" rx="1" opacity="0.64"/>
+<circle cx="14.620000000000001" cy="121.01857142857142" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="123.01857142857142" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">4</text>
+<text x="24.62" y="124.01857142857142" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">West</text>
+<rect x="24.62" y="126.0" width="116.4" height="3" fill="#2563EB" rx="1" opacity="0.56"/>
+<circle cx="14.620000000000001" cy="137.49142857142857" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="139.49142857142857" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">5</text>
+<text x="24.62" y="140.49142857142857" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">Central</text>
+<rect x="24.62" y="142.5" width="99.4" height="3" fill="#2563EB" rx="1" opacity="0.48000000000000004"/>
+<circle cx="14.620000000000001" cy="153.96428571428572" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="155.96428571428572" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">6</text>
+<text x="24.62" y="156.96428571428572" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">Metro</text>
+<rect x="24.62" y="159.0" width="72.3" height="3" fill="#2563EB" rx="1" opacity="0.4"/>
+<circle cx="14.620000000000001" cy="170.43714285714287" r="4" fill="#EFF6FF" stroke="#2563EB"/>
+<text x="14.620000000000001" y="172.43714285714287" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6" font-weight="700" text-anchor="middle">7</text>
+<text x="24.62" y="173.43714285714287" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="500">Outlet</text>
+<rect x="24.62" y="175.4" width="51.2" height="3" fill="#2563EB" rx="1" opacity="0.32000000000000006"/>
+<rect x="279.52" y="47.6" width="195.87" height="137.31" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="287.52" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Attainment Gauge</text>
+<path d="M 299.1 154.7 A 78.3 78.3 0 0 1 455.8 154.7" fill="none" stroke="#F3F4F6" stroke-width="17.2"/>
+<path d="M 299.1 154.7 A 78.3 78.3 0 0 1 408.8 82.6" fill="none" stroke="#10B981" stroke-width="17.2"/>
+<line x1="377.5" y1="154.7" x2="408.8" y2="88.1" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+<circle cx="377.5" cy="154.7" r="3" fill="#111827"/>
+<text x="377.5" y="190.0" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">82%</text>
+<rect x="4.62" y="188.37" width="470.77" height="77.02" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="200.37" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Win Rate Spark</text>
+<polygon points="12.6,257.39 12.6,243.5 45.1,244.0 77.6,221.8 110.1,232.3 142.6,232.4 175.0,241.6 207.5,240.2 240.0,237.5 272.5,231.2 305.0,236.2 337.5,221.0 369.9,245.9 402.4,240.9 434.9,225.7 467.4,224.9 467.4,257.39" fill="#2563EB" opacity="0.18"/>
+<polyline points="12.6,243.5 45.1,244.0 77.6,221.8 110.1,232.3 142.6,232.4 175.0,241.6 207.5,240.2 240.0,237.5 272.5,231.2 305.0,236.2 337.5,221.0 369.9,245.9 402.4,240.9 434.9,225.7 467.4,224.9" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="12.6,235.5 45.1,234.2 77.6,250.4 110.1,231.3 142.6,238.2 175.0,249.8 207.5,242.8 240.0,242.7 272.5,234.4 305.0,246.9 337.5,246.0 369.9,238.4 402.4,245.5 434.9,239.5 467.4,250.6" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="12.620000000000001" y1="257.39" x2="467.39" y2="257.39" stroke="#E5E7EB"/>
+<circle cx="465.39" cy="14.620000000000001" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="17.62" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">1</text>
+<circle cx="465.39" cy="36.83" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="39.83" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">2</text>
+<circle cx="264.91" cy="57.6" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="264.91" y="60.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">3</text>
+<circle cx="465.39" cy="57.6" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="60.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">4</text>
+<circle cx="465.39" cy="198.37" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="465.39" y="201.37" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">5</text>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">sales-rep-leaderboard</text>
+</svg>

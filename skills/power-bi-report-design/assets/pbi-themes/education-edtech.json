@@ -1,0 +1,71 @@
+{
+  "name": "Education / EdTech",
+  "dataColors": [
+    "#4A3B8C",
+    "#00897B",
+    "#F57C00",
+    "#5E35B1",
+    "#43A047",
+    "#D81B60",
+    "#00ACC1",
+    "#6D4C41"
+  ],
+  "background": "#FAF7FF",
+  "foreground": "#1C1B2E",
+  "tableAccent": "#4A3B8C",
+  "good": "#43A047",
+  "bad": "#D81B60",
+  "neutral": "#78909C",
+  "warning": "#F57C00",
+  "info": "#00897B",
+  "minimum": "#D81B60",
+  "center": "#F2F2F2",
+  "maximum": "#43A047",
+  "null": "#CAC6D9",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#EAE6F2"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#D4CFE0"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8F8CA3"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#EAE6F2"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#8F8CA3"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

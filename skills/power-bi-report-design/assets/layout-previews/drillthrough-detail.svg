@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>drillthrough-detail</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="428.08" y="4.62" width="47.31" height="18.75" rx="2.8125" fill="#FFFFFF" stroke="#E5E7EB"/>
+<path d="M 446.3 10.0 L 440.3 13.995000000000001 L 446.3 18.0" fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="450.7888" y="16.995" fill="#2563EB" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="600">Back</text>
+<rect x="4.62" y="26.83" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="26.83" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="38.455" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Entity Header</text>
+<rect x="385.39" y="32.08" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="39.205" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="49.04" width="470.77" height="106.44" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="4.62" y="49.04" width="470.77" height="14" fill="#EFF6FF"/>
+<text x="12.620000000000001" y="59.04" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="59.04" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="59.04" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="59.04" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="59.04" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="63.04" x2="475.39" y2="63.04" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="66.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="66.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="66.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="68.03999999999999" r="2.5" fill="#10B981"/>
+<polyline points="378.4,68.2 380.4,68.9 382.4,67.6 384.4,69.6 386.4,68.5" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="73.03999999999999" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="76.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="76.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="76.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="78.03999999999999" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,79.6 380.4,78.2 382.4,79.7 384.4,78.2 386.4,79.0" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="86.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="86.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="86.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="88.03999999999999" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,88.8 380.4,87.9 382.4,88.7 384.4,87.5 386.4,89.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="93.03999999999999" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="96.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="96.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="96.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="98.03999999999999" r="2.5" fill="#10B981"/>
+<polyline points="378.4,99.7 380.4,98.6 382.4,99.0 384.4,98.3 386.4,98.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="106.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="106.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="106.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="108.03999999999999" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,106.5 380.4,106.2 382.4,109.4 384.4,107.5 386.4,106.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="113.03999999999999" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="116.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="116.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="116.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="118.03999999999999" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,119.7 380.4,119.5 382.4,118.8 384.4,116.8 386.4,119.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="126.03999999999999" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="126.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="126.03999999999999" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="128.04" r="2.5" fill="#10B981"/>
+<polyline points="378.4,129.7 380.4,127.8 382.4,127.1 384.4,129.3 386.4,127.1" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="133.04" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="136.04" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="136.04" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="136.04" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="138.04" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,136.8 380.4,138.7 382.4,137.4 384.4,138.8 386.4,138.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="146.04" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="146.04" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="146.04" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="148.04" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,147.8 380.4,149.6 382.4,149.3 384.4,147.9 386.4,147.6" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="158.94" width="470.77" height="106.44" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="4.62" y="158.94" width="470.77" height="14" fill="#EFF6FF"/>
+<text x="12.620000000000001" y="168.94" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="168.94" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="168.94" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="168.94" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="168.94" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="172.94" x2="475.39" y2="172.94" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="175.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="175.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="175.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="177.94" r="2.5" fill="#10B981"/>
+<polyline points="378.4,179.9 380.4,177.4 382.4,179.7 384.4,179.6 386.4,176.2" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="182.94" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="185.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="185.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="185.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="187.94" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,189.3 380.4,188.5 382.4,189.5 384.4,189.7 386.4,187.1" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="195.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="195.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="195.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="197.94" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,196.7 380.4,197.3 382.4,199.2 384.4,197.7 386.4,199.2" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="202.94" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="205.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="205.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="205.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="207.94" r="2.5" fill="#10B981"/>
+<polyline points="378.4,206.4 380.4,206.4 382.4,206.5 384.4,207.8 386.4,207.8" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="215.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="215.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="215.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="217.94" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,217.9 380.4,216.8 382.4,217.5 384.4,219.6 386.4,217.2" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="222.94" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="225.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="225.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="225.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="227.94" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,228.7 380.4,229.4 382.4,228.1 384.4,227.6 386.4,229.1" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="235.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="235.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="235.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="237.94" r="2.5" fill="#10B981"/>
+<polyline points="378.4,238.8 380.4,239.9 382.4,238.4 384.4,238.3 386.4,239.7" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="242.94" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="245.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="245.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="245.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="247.94" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,248.3 380.4,247.8 382.4,249.4 384.4,248.8 386.4,248.0" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="255.94" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="255.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="255.94" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="257.94" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,259.8 380.4,259.9 382.4,258.3 384.4,256.7 386.4,257.5" fill="none" stroke="#2563EB" stroke-width="1"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">drillthrough-detail</text>
+</svg>

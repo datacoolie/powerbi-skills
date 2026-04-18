@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" font-family="Segoe UI, Inter, system-ui, sans-serif">
+  <title>logo-healthcare</title>
+  <desc>ACME Health placeholder logo — bold plus-cross on rounded tile. Badge uses currentColor; glyph is white.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="currentColor" fill-opacity="0.92" stroke="none"/>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="#fff" fill-opacity="0.08" stroke="none"/>
+  <g transform="translate(12,12)">
+    <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="2" width="20" height="20" rx="4" fill="#fff" fill-opacity="0.12"/>
+  <rect x="9.5" y="4" width="5" height="16" rx="1" fill="#fff" stroke="none"/>
+  <rect x="4" y="9.5" width="16" height="5" rx="1" fill="#fff" stroke="none"/>
+</g>
+  </g>
+  <text x="56" y="22" fill="currentColor" stroke="none" font-size="14" font-weight="700" fill-opacity="0.96">ACME Health</text>
+  <line x1="56" y1="27" x2="72" y2="27" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="56" y="38" fill="currentColor" stroke="none" font-size="7.5" letter-spacing="1.6" font-weight="600" fill-opacity="0.6">HEALTHCARE · CLINICAL</text>
+</svg>

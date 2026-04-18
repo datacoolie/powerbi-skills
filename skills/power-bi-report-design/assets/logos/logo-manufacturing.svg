@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" font-family="Segoe UI, Inter, system-ui, sans-serif">
+  <title>logo-manufacturing</title>
+  <desc>ACME Industries placeholder logo — gear wheel with solid hub. Badge uses currentColor; glyph is white.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="currentColor" fill-opacity="0.92" stroke="none"/>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="#fff" fill-opacity="0.08" stroke="none"/>
+  <g transform="translate(12,12)">
+    <g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2 l1.8 2.6 3.1 -.6 .6 3.1 2.6 1.8 -1.4 2.8 1.4 2.8 -2.6 1.8 -.6 3.1 -3.1 -.6 -1.8 2.6 -1.8 -2.6 -3.1 .6 -.6 -3.1 -2.6 -1.8 1.4 -2.8 -1.4 -2.8 2.6 -1.8 .6 -3.1 3.1 .6 z" fill="#fff" fill-opacity="0.25"/>
+  <circle cx="12" cy="12" r="3.5" fill="#fff"/>
+</g>
+  </g>
+  <text x="56" y="22" fill="currentColor" stroke="none" font-size="14" font-weight="700" fill-opacity="0.96">ACME Industries</text>
+  <line x1="56" y1="27" x2="72" y2="27" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="56" y="38" fill="currentColor" stroke="none" font-size="7.5" letter-spacing="1.6" font-weight="600" fill-opacity="0.6">MANUFACTURING · OPS</text>
+</svg>

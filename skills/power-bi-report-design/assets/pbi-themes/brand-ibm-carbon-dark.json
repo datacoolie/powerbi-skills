@@ -1,0 +1,73 @@
+{
+  "name": "IBM Carbon (Dark)",
+  "dataColors": [
+    "#2B6EEE",
+    "#7F41D7",
+    "#2BA0EE",
+    "#2BEEEE",
+    "#E13882",
+    "#F1565E",
+    "#EE2B34",
+    "#3FDA6E"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2B6EEE",
+  "good": "#3FDA6E",
+  "bad": "#E3353F",
+  "neutral": "#8C8C8C",
+  "warning": "#EEC32B",
+  "info": "#2B6EEE",
+  "minimum": "#9F252C",
+  "center": "#4A4A52",
+  "maximum": "#2C994D",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

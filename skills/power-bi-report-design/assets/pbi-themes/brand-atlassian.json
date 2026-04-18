@@ -1,0 +1,73 @@
+{
+  "name": "Atlassian Blue",
+  "dataColors": [
+    "#0052CC",
+    "#36B37E",
+    "#FFAB00",
+    "#DE350B",
+    "#6554C0",
+    "#00B8D9",
+    "#FF8B00",
+    "#5E6C84"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#172B4D",
+  "tableAccent": "#0052CC",
+  "good": "#36B37E",
+  "bad": "#DE350B",
+  "neutral": "#5E6C84",
+  "warning": "#FFAB00",
+  "info": "#0052CC",
+  "minimum": "#9B2508",
+  "center": "#F5F5F5",
+  "maximum": "#267D58",
+  "null": "#C5CAD2",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E3E6EA"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E3E6EA"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#97A0AF"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#97A0AF"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

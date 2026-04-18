@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>hr-compensation-bands</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="18.62" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="111.574" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="204.528" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="390.436" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="4.62" y="47.6" width="270.29" height="107.31" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Salary Band Scatter</text>
+<line x1="12.620000000000001" y1="85.9" x2="266.91" y2="85.9" stroke="#F3F4F6" stroke-dasharray="2 3"/>
+<line x1="12.620000000000001" y1="106.3" x2="266.91" y2="106.3" stroke="#F3F4F6" stroke-dasharray="2 3"/>
+<line x1="12.620000000000001" y1="126.6" x2="266.91" y2="126.6" stroke="#F3F4F6" stroke-dasharray="2 3"/>
+<circle cx="55.2" cy="65.9" r="4.5" fill="#2563EB" opacity="0.75"/>
+<circle cx="26.7" cy="122.0" r="3.2" fill="#F59E0B" opacity="0.75"/>
+<circle cx="223.6" cy="91.9" r="4.3" fill="#10B981" opacity="0.75"/>
+<circle cx="155.8" cy="127.9" r="2.4" fill="#2563EB" opacity="0.75"/>
+<circle cx="230.9" cy="80.4" r="2.8" fill="#F59E0B" opacity="0.75"/>
+<circle cx="243.2" cy="133.3" r="2.2" fill="#10B981" opacity="0.75"/>
+<circle cx="97.1" cy="70.5" r="3.4" fill="#2563EB" opacity="0.75"/>
+<circle cx="22.6" cy="78.4" r="4.1" fill="#F59E0B" opacity="0.75"/>
+<circle cx="202.6" cy="104.9" r="2.2" fill="#10B981" opacity="0.75"/>
+<circle cx="249.2" cy="140.3" r="3.8" fill="#2563EB" opacity="0.75"/>
+<circle cx="44.2" cy="71.6" r="4.6" fill="#F59E0B" opacity="0.75"/>
+<circle cx="215.4" cy="83.1" r="3.6" fill="#10B981" opacity="0.75"/>
+<circle cx="254.3" cy="106.1" r="2.5" fill="#2563EB" opacity="0.75"/>
+<circle cx="54.8" cy="82.8" r="2.6" fill="#F59E0B" opacity="0.75"/>
+<rect x="279.52" y="47.6" width="195.87" height="107.31" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="287.52" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Comp Benchmark Panel</text>
+<polygon points="287.5,146.91 287.5,93.7 300.4,117.3 313.2,99.5 326.1,118.9 338.9,95.0 351.8,87.1 364.6,96.1 377.5,122.0 390.3,88.0 403.2,91.4 416.0,125.6 428.8,93.4 441.7,102.1 454.5,120.5 467.4,110.9 467.4,146.91" fill="#2563EB" opacity="0.18"/>
+<polyline points="287.5,93.7 300.4,117.3 313.2,99.5 326.1,118.9 338.9,95.0 351.8,87.1 364.6,96.1 377.5,122.0 390.3,88.0 403.2,91.4 416.0,125.6 428.8,93.4 441.7,102.1 454.5,120.5 467.4,110.9" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+<polyline points="287.5,117.4 300.4,110.4 313.2,105.5 326.1,110.3 338.9,103.9 351.8,125.3 364.6,113.2 377.5,124.5 390.3,119.3 403.2,114.9 416.0,111.0 428.8,134.7 441.7,112.9 454.5,106.6 467.4,128.9" fill="none" stroke="#F59E0B" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="287.52" y1="146.91" x2="467.39" y2="146.91" stroke="#E5E7EB"/>
+<rect x="4.62" y="158.37" width="470.77" height="107.02" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="170.37" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Comparatio Heatmap</text>
+<rect x="12.6" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.46"/>
+<rect x="50.5" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.58"/>
+<rect x="88.4" y="176.4" width="36.9" height="10.6" fill="#F59E0B" opacity="0.23"/>
+<rect x="126.3" y="176.4" width="36.9" height="10.6" fill="#F59E0B" opacity="0.22"/>
+<rect x="164.2" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.54"/>
+<rect x="202.1" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.44"/>
+<rect x="240.0" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.43"/>
+<rect x="277.9" y="176.4" width="36.9" height="10.6" fill="#F59E0B" opacity="0.29"/>
+<rect x="315.8" y="176.4" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="353.7" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.34"/>
+<rect x="391.6" y="176.4" width="36.9" height="10.6" fill="#F59E0B" opacity="0.28"/>
+<rect x="429.5" y="176.4" width="36.9" height="10.6" fill="#2563EB" opacity="0.34"/>
+<rect x="12.6" y="187.9" width="36.9" height="10.6" fill="#F59E0B" opacity="0.26"/>
+<rect x="50.5" y="187.9" width="36.9" height="10.6" fill="#F59E0B" opacity="0.22"/>
+<rect x="88.4" y="187.9" width="36.9" height="10.6" fill="#2563EB" opacity="0.39"/>
+<rect x="126.3" y="187.9" width="36.9" height="10.6" fill="#F59E0B" opacity="0.32"/>
+<rect x="164.2" y="187.9" width="36.9" height="10.6" fill="#F59E0B" opacity="0.26"/>
+<rect x="202.1" y="187.9" width="36.9" height="10.6" fill="#2563EB" opacity="0.37"/>
+<rect x="240.0" y="187.9" width="36.9" height="10.6" fill="#2563EB" opacity="0.57"/>
+<rect x="277.9" y="187.9" width="36.9" height="10.6" fill="#F59E0B" opacity="0.23"/>
+<rect x="315.8" y="187.9" width="36.9" height="10.6" fill="#F59E0B" opacity="0.24"/>
+<rect x="353.7" y="187.9" width="36.9" height="10.6" fill="#2563EB" opacity="0.45"/>
+<rect x="391.6" y="187.9" width="36.9" height="10.6" fill="#2563EB" opacity="0.43"/>
+<rect x="429.5" y="187.9" width="36.9" height="10.6" fill="#2563EB" opacity="0.40"/>
+<rect x="12.6" y="199.5" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="50.5" y="199.5" width="36.9" height="10.6" fill="#F59E0B" opacity="0.24"/>
+<rect x="88.4" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.49"/>
+<rect x="126.3" y="199.5" width="36.9" height="10.6" fill="#F59E0B" opacity="0.21"/>
+<rect x="164.2" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.65"/>
+<rect x="202.1" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.56"/>
+<rect x="240.0" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.55"/>
+<rect x="277.9" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.48"/>
+<rect x="315.8" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.45"/>
+<rect x="353.7" y="199.5" width="36.9" height="10.6" fill="#F59E0B" opacity="0.24"/>
+<rect x="391.6" y="199.5" width="36.9" height="10.6" fill="#2563EB" opacity="0.43"/>
+<rect x="429.5" y="199.5" width="36.9" height="10.6" fill="#F59E0B" opacity="0.22"/>
+<rect x="12.6" y="211.1" width="36.9" height="10.6" fill="#F59E0B" opacity="0.18"/>
+<rect x="50.5" y="211.1" width="36.9" height="10.6" fill="#F59E0B" opacity="0.21"/>
+<rect x="88.4" y="211.1" width="36.9" height="10.6" fill="#F59E0B" opacity="0.17"/>
+<rect x="126.3" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.49"/>
+<rect x="164.2" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.63"/>
+<rect x="202.1" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.49"/>
+<rect x="240.0" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.33"/>
+<rect x="277.9" y="211.1" width="36.9" height="10.6" fill="#F59E0B" opacity="0.22"/>
+<rect x="315.8" y="211.1" width="36.9" height="10.6" fill="#F59E0B" opacity="0.17"/>
+<rect x="353.7" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.43"/>
+<rect x="391.6" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.33"/>
+<rect x="429.5" y="211.1" width="36.9" height="10.6" fill="#2563EB" opacity="0.37"/>
+<rect x="12.6" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.17"/>
+<rect x="50.5" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.21"/>
+<rect x="88.4" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.23"/>
+<rect x="126.3" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.16"/>
+<rect x="164.2" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.21"/>
+<rect x="202.1" y="222.7" width="36.9" height="10.6" fill="#2563EB" opacity="0.62"/>
+<rect x="240.0" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.25"/>
+<rect x="277.9" y="222.7" width="36.9" height="10.6" fill="#2563EB" opacity="0.40"/>
+<rect x="315.8" y="222.7" width="36.9" height="10.6" fill="#2563EB" opacity="0.61"/>
+<rect x="353.7" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.25"/>
+<rect x="391.6" y="222.7" width="36.9" height="10.6" fill="#2563EB" opacity="0.42"/>
+<rect x="429.5" y="222.7" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="12.6" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.23"/>
+<rect x="50.5" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.16"/>
+<rect x="88.4" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.16"/>
+<rect x="126.3" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="164.2" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.22"/>
+<rect x="202.1" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.31"/>
+<rect x="240.0" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.27"/>
+<rect x="277.9" y="234.2" width="36.9" height="10.6" fill="#2563EB" opacity="0.42"/>
+<rect x="315.8" y="234.2" width="36.9" height="10.6" fill="#2563EB" opacity="0.33"/>
+<rect x="353.7" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.25"/>
+<rect x="391.6" y="234.2" width="36.9" height="10.6" fill="#F59E0B" opacity="0.32"/>
+<rect x="429.5" y="234.2" width="36.9" height="10.6" fill="#2563EB" opacity="0.58"/>
+<rect x="12.6" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.17"/>
+<rect x="50.5" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="88.4" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.20"/>
+<rect x="126.3" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.22"/>
+<rect x="164.2" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.29"/>
+<rect x="202.1" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="240.0" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.24"/>
+<rect x="277.9" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="315.8" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.15"/>
+<rect x="353.7" y="245.8" width="36.9" height="10.6" fill="#F59E0B" opacity="0.23"/>
+<rect x="391.6" y="245.8" width="36.9" height="10.6" fill="#2563EB" opacity="0.35"/>
+<rect x="429.5" y="245.8" width="36.9" height="10.6" fill="#2563EB" opacity="0.35"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">hr-compensation-bands</text>
+</svg>

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 339" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>esg-carbon-scorecard-a4</title>
+<rect x="0" y="0" width="480" height="339" fill="#0F172A"/>
+<rect x="0" y="0" width="480" height="3" fill="#38BDF8"/>
+<rect x="6.57" y="6.57" width="466.86" height="23.39" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="6.57" y="6.57" width="4" height="23.39" rx="2" fill="#38BDF8"/>
+<text x="20.57" y="21.071800000000003" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Print Header</text>
+<rect x="383.43" y="13.119200000000001" width="70" height="10.5" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="418.43" y="22.0074" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8.8882" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="6.57" y="34.88" width="466.86" height="23.39" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="6.57" y="34.88" width="4" height="23.39" rx="2" fill="#38BDF8"/>
+<text x="20.57" y="49.381800000000005" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Title Bar</text>
+<rect x="383.43" y="41.4292" width="70" height="10.5" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="418.43" y="50.317400000000006" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8.8882" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="6.57" y="63.2" width="466.86" height="21.75" rx="3" fill="#111827" stroke="#334155"/>
+<rect x="12.57" y="67.55" width="86.172" height="13.049999999999999" rx="6.5249999999999995" fill="#1E293B" stroke="#334155"/>
+<text x="20.57" y="76.42399999999999" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.5249999999999995" font-weight="500">Region</text>
+<text x="88.74199999999999" y="76.163" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.8725" font-weight="500" text-anchor="end">▾</text>
+<rect x="104.74199999999999" y="67.55" width="86.172" height="13.049999999999999" rx="6.5249999999999995" fill="#1E293B" stroke="#334155"/>
+<text x="112.74199999999999" y="76.42399999999999" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.5249999999999995" font-weight="500">Period</text>
+<text x="180.914" y="76.163" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.8725" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.914" y="67.55" width="86.172" height="13.049999999999999" rx="6.5249999999999995" fill="#1E293B" stroke="#334155"/>
+<text x="204.914" y="76.42399999999999" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.5249999999999995" font-weight="500">Product</text>
+<text x="273.086" y="76.163" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.8725" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.08599999999996" y="67.55" width="86.172" height="13.049999999999999" rx="6.5249999999999995" fill="#1E293B" stroke="#334155"/>
+<text x="297.08599999999996" y="76.42399999999999" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.5249999999999995" font-weight="500">Segment</text>
+<text x="365.2579999999999" y="76.163" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.8725" font-weight="500" text-anchor="end">▾</text>
+<rect x="381.258" y="67.55" width="86.172" height="13.049999999999999" rx="6.5249999999999995" fill="#1E293B" stroke="#334155"/>
+<text x="389.258" y="76.42399999999999" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.5249999999999995" font-weight="500">Channel</text>
+<text x="457.42999999999995" y="76.163" fill="#64748B" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.8725" font-weight="500" text-anchor="end">▾</text>
+<rect x="6.57" y="89.88" width="266.89" height="112.86" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="14.57" y="101.88" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Scope Emission Stack</text>
+<polygon points="14.6,194.74 14.6,131.3 32.5,150.0 50.4,173.6 68.3,170.8 86.3,169.0 104.2,135.8 122.1,156.3 140.0,170.7 157.9,169.1 175.9,128.8 193.8,166.6 211.7,142.6 229.6,158.8 247.5,131.9 265.5,152.2 265.5,194.74" fill="#38BDF8" opacity="0.18"/>
+<polyline points="14.6,131.3 32.5,150.0 50.4,173.6 68.3,170.8 86.3,169.0 104.2,135.8 122.1,156.3 140.0,170.7 157.9,169.1 175.9,128.8 193.8,166.6 211.7,142.6 229.6,158.8 247.5,131.9 265.5,152.2" fill="none" stroke="#38BDF8" stroke-width="1.8"/>
+<polyline points="14.6,160.5 32.5,146.7 50.4,150.6 68.3,155.6 86.3,151.8 104.2,158.8 122.1,180.8 140.0,165.9 157.9,173.8 175.9,178.5 193.8,163.1 211.7,166.2 229.6,146.3 247.5,181.4 265.5,179.9" fill="none" stroke="#FBBF24" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="14.57" y1="194.74" x2="265.46" y2="194.74" stroke="#334155"/>
+<rect x="280.03" y="89.88" width="193.4" height="112.86" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="288.03" y="101.88" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Intensity Trend</text>
+<rect x="291.4" y="162.3" width="15.5" height="32.5" rx="1" fill="#38BDF8"/>
+<rect x="313.5" y="122.2" width="15.5" height="72.5" rx="1" fill="#60A5FA"/>
+<rect x="335.7" y="125.8" width="15.5" height="69.0" rx="1" fill="#38BDF8"/>
+<rect x="357.9" y="142.8" width="15.5" height="51.9" rx="1" fill="#60A5FA"/>
+<rect x="380.1" y="168.0" width="15.5" height="26.7" rx="1" fill="#38BDF8"/>
+<rect x="402.2" y="134.6" width="15.5" height="60.2" rx="1" fill="#60A5FA"/>
+<rect x="424.4" y="120.3" width="15.5" height="74.4" rx="1" fill="#38BDF8"/>
+<rect x="446.6" y="139.0" width="15.5" height="55.7" rx="1" fill="#60A5FA"/>
+<line x1="288.03" y1="194.74" x2="465.42999999999995" y2="194.74" stroke="#334155"/>
+<polyline points="299.1,153.1 321.3,129.1 343.5,128.5 365.6,140.3 387.8,156.5 410.0,130.0 432.2,164.4 454.3,176.1" fill="none" stroke="#FBBF24" stroke-width="1.6"/>
+<circle cx="299.1" cy="153.1" r="1.8" fill="#FBBF24"/>
+<circle cx="321.3" cy="129.1" r="1.8" fill="#FBBF24"/>
+<circle cx="343.5" cy="128.5" r="1.8" fill="#FBBF24"/>
+<circle cx="365.6" cy="140.3" r="1.8" fill="#FBBF24"/>
+<circle cx="387.8" cy="156.5" r="1.8" fill="#FBBF24"/>
+<circle cx="410.0" cy="130.0" r="1.8" fill="#FBBF24"/>
+<circle cx="432.2" cy="164.4" r="1.8" fill="#FBBF24"/>
+<circle cx="454.3" cy="176.1" r="1.8" fill="#FBBF24"/>
+<rect x="6.57" y="207.67" width="466.86" height="91.93" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="6.57" y="207.67" width="466.86" height="14" fill="#0C2A4A"/>
+<text x="14.57" y="217.67" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="104.74199999999999" y="217.67" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.914" y="217.67" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.08599999999996" y="217.67" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="375.258" y="217.67" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="6.57" y1="221.67" x2="473.43" y2="221.67" stroke="#334155"/>
+<rect x="14.57" y="224.67" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="224.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="224.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="226.67" r="2.5" fill="#34D399"/>
+<polyline points="377.3,226.3 379.3,225.6 381.3,226.2 383.3,226.0 385.3,225.5" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="6.57" y="231.67" width="466.86" height="10" fill="#1F2937"/>
+<rect x="14.57" y="234.67" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="234.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="234.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="236.67" r="2.5" fill="#FBBF24"/>
+<polyline points="377.3,235.3 379.3,234.7 381.3,237.4 383.3,235.2 385.3,234.8" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="14.57" y="244.67" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="244.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="244.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="246.67" r="2.5" fill="#F87171"/>
+<polyline points="377.3,245.5 379.3,247.1 381.3,248.6 383.3,244.9 385.3,247.2" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="6.57" y="251.67" width="466.86" height="10" fill="#1F2937"/>
+<rect x="14.57" y="254.67" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="254.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="254.67" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="256.66999999999996" r="2.5" fill="#34D399"/>
+<polyline points="377.3,257.2 379.3,256.8 381.3,255.2 383.3,257.6 385.3,258.2" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="14.57" y="264.66999999999996" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="264.66999999999996" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="264.66999999999996" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="266.66999999999996" r="2.5" fill="#FBBF24"/>
+<polyline points="377.3,264.7 379.3,265.5 381.3,264.8 383.3,266.2 385.3,265.5" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="6.57" y="271.66999999999996" width="466.86" height="10" fill="#1F2937"/>
+<rect x="14.57" y="274.66999999999996" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="274.66999999999996" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="274.66999999999996" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="276.66999999999996" r="2.5" fill="#F87171"/>
+<polyline points="377.3,275.2 379.3,275.2 381.3,278.1 383.3,277.1 385.3,275.9" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="14.57" y="284.66999999999996" width="63.1" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="104.74199999999999" y="284.66999999999996" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.914" y="284.66999999999996" width="45.1" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.08599999999996" cy="286.66999999999996" r="2.5" fill="#34D399"/>
+<polyline points="377.3,284.8 379.3,284.8 381.3,286.4 383.3,288.1 385.3,288.3" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="6.57" y="304.53" width="466.86" height="11.49" rx="2" fill="#111827" stroke="#334155"/>
+<text x="16.57" y="311.9985" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.319500000000001" font-weight="400">Source: Data warehouse · Last refresh 08:15</text>
+<text x="413.43" y="311.9985" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.319500000000001" font-weight="500" text-anchor="start">Confidential</text>
+<rect x="453.43" y="307.4025" width="14" height="5.7" rx="2" fill="#38BDF8" opacity="0.15"/>
+<text x="460.43" y="312.573" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.745" font-weight="700" text-anchor="middle">1</text>
+<rect x="6.57" y="320.94" width="466.86" height="11.49" rx="2" fill="#111827" stroke="#334155"/>
+<text x="16.57" y="328.4085" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.319500000000001" font-weight="400">Source: Data warehouse · Last refresh 08:15</text>
+<text x="413.43" y="328.4085" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="6.319500000000001" font-weight="500" text-anchor="start">Confidential</text>
+<rect x="453.43" y="323.8125" width="14" height="5.7" rx="2" fill="#38BDF8" opacity="0.15"/>
+<text x="460.43" y="328.983" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.745" font-weight="700" text-anchor="middle">1</text>
+<text x="240.0" y="334" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">esg-carbon-scorecard-a4</text>
+</svg>

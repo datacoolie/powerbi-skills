@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "logos-index.schema.json",
+  "title": "Industry Logo Catalog",
+  "type": "object",
+  "required": ["version", "logos"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "description": { "type": "string" },
+    "usage": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "logos": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "industry", "file", "placeholder_company",
+          "viewBox", "style", "recolor", "license"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^logo-[a-z0-9\\-]+$" },
+          "industry": { "type": "string", "pattern": "^[a-z0-9\\-]+$" },
+          "file": { "type": "string", "pattern": "^[a-z0-9\\-]+\\.svg$" },
+          "glyph": { "type": "string" },
+          "placeholder_company": { "type": "string", "minLength": 1 },
+          "tag": { "type": "string" },
+          "pairs_with_layouts": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9\\-]+$" }
+          },
+          "viewBox": {
+            "type": "string",
+            "pattern": "^\\d+ \\d+ \\d+ \\d+$"
+          },
+          "badge_crop": {
+            "type": "string",
+            "pattern": "^\\d+ \\d+ \\d+ \\d+$"
+          },
+          "style": {
+            "type": "string",
+            "enum": ["combined-mark", "monogram", "wordmark"]
+          },
+          "recolor": {
+            "type": "string",
+            "enum": ["currentColor", "fixed"]
+          },
+          "license": {
+            "type": "string",
+            "enum": ["CC0", "CC-BY", "MIT", "Apache-2.0", "ISC"]
+          },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

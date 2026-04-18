@@ -1,0 +1,71 @@
+{
+  "name": "Accessible / Okabe-Ito",
+  "dataColors": [
+    "#0072B2",
+    "#E69F00",
+    "#009E73",
+    "#56B4E9",
+    "#F0E442",
+    "#D55E00",
+    "#CC79A7",
+    "#000000"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0A0A0A",
+  "tableAccent": "#0072B2",
+  "good": "#009E73",
+  "bad": "#D55E00",
+  "neutral": "#5C5C5C",
+  "warning": "#E69F00",
+  "info": "#0072B2",
+  "minimum": "#D55E00",
+  "center": "#F2F2F2",
+  "maximum": "#009E73",
+  "null": "#BFBFBF",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E5E5E5"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#CCCCCC"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#7A7A7A"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E5E5E5"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#7A7A7A"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

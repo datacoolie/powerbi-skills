@@ -4,6 +4,84 @@ Comprehensive guide for choosing themes, color palettes, and semantic colors
 in Power BI PBIR reports. Based on analysis of 25 production reference reports
 and modern data visualization best practices.
 
+> **Machine-readable companion:** the twenty-one themes documented or
+> catalogued below are also available as a structured catalog at
+> [`themes/themes-index.json`](themes/themes-index.json) with visual
+> swatches in [`../assets/theme-swatches/`](../assets/theme-swatches/).
+> Layouts reference themes via `recommended_themes[]` — see
+> [`themes/README.md`](themes/README.md) for the full catalog map
+> (16 domain themes + 4 design-system themes + 1 dark-mode).
+
+---
+
+## Color Usage Principles (v0.2)
+
+The themes catalog encodes *palettes*. These principles govern *how a palette
+is applied on a page*. They are consulting-grade rules borrowed from deck-design
+practice and stored in `themes-index.json` under the top-level `principles` key.
+
+### 1. 60-30-10 Proportion Rule
+
+On any single page, color weight should split roughly **60% primary / 30%
+secondary / 10% accent**. The primary is usually the first `data_colors` slot
+(or `ui.table_accent`); the secondary is a neutral or muted variant; the
+accent is reserved for the one thing the page is *about*.
+
+Per-theme overrides live in `usage_rules.primary_share` / `secondary_share` /
+`accent_share` — e.g. `consulting-authority` tightens to 70/20/10 for
+executive restraint; `tech-monitoring` loosens to 50/30/20 because dashboards
+legitimately use more hues.
+
+### 2. Maximum 4 Colors per Page
+
+Hard ceiling. Data series should use same-hue depth variations (see
+`sequential.primary` ramp) rather than N distinct hues. If you need more than
+four colors the chart is probably the wrong visual choice. Per-theme override:
+`usage_rules.max_colors_per_page` (range 3–5 across the catalog).
+
+### 3. Text Contrast ≥ 4.5:1 (WCAG AA)
+
+Every theme stores a computed `ui.text_contrast` and `ui.contrast_rating`
+(AAA / AA / AA-large / fail) for `foreground` on `background`. All nine
+current themes rate **AAA** (≥ 7:1). When authoring a page, any text placed
+on a non-default background (KPI card, callout, table header) must be
+re-verified against the chosen background hex.
+
+### 4. Monochromatic Depth for Data Series
+
+Default encoding for multi-series charts:
+
+| Role | Color | Source |
+|------|-------|--------|
+| Primary series | `sequential.primary[2]` (dark) at 100% opacity | primary ramp |
+| Comparison series | same hue at 60% opacity | same ramp |
+| Highlight | `data_colors[1]` or semantic accent at 100% | accent |
+
+Avoid assigning a different hue per series (the "rainbow anti-pattern") except
+when the series legitimately encode categorical identity (region, SKU family).
+
+### 5. Focus-in-Color Pattern
+
+The data point the page is *about* takes the primary or accent color;
+**everything else uses `neutrals.muted` / `neutrals.gridline`**. Color
+communicates attention, not decoration. Use `neutrals.muted` for
+de-emphasized series, `neutrals.gridline` for axes and rule lines,
+`neutrals.divider` for card separators, `neutrals.disabled` for
+not-applicable states.
+
+### 6. Sequential Ramps
+
+Each theme provides 3-stop light → mid → dark ramps for `positive`,
+`warning`, `negative`, and `primary`. Use them for:
+
+- Trend heatmaps (conditional formatting)
+- Choropleth / filled maps
+- Gradient fills on area charts
+- Stacked series where a single semantic dimension is varying intensity
+
+The dark stop is *not* the same as the semantic base color — ramps are
+computed to preserve hue while spanning a usable luminance range.
+
 ---
 
 ## Theme Architecture

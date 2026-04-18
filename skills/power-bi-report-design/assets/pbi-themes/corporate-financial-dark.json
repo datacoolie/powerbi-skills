@@ -1,0 +1,73 @@
+{
+  "name": "Corporate / Financial (Dark)",
+  "dataColors": [
+    "#2B9DEE",
+    "#2B99EE",
+    "#D4A846",
+    "#7D8A9C",
+    "#9F60B9",
+    "#44D581",
+    "#E88731",
+    "#95A5A6"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2B9DEE",
+  "good": "#50C962",
+  "bad": "#EE2B33",
+  "neutral": "#949599",
+  "warning": "#EEA42B",
+  "info": "#2B99EE",
+  "minimum": "#A71E24",
+  "center": "#4A4A52",
+  "maximum": "#388D45",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

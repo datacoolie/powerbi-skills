@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>hr-engagement-survey</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="17.31" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="10.620000000000001" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="18.62" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Region</text>
+<text x="87.574" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="103.574" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="111.574" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Period</text>
+<text x="180.528" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="196.528" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="204.528" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Product</text>
+<text x="273.48199999999997" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="289.48199999999997" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="297.48199999999997" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Segment</text>
+<text x="366.436" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="382.436" y="30.291999999999998" width="86.954" height="10.386" rx="5.193" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="390.436" y="37.354479999999995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.193" font-weight="500">Channel</text>
+<text x="459.39" y="37.14676" fill="#9CA3AF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.6737" font-weight="500" text-anchor="end">▾</text>
+<rect x="4.62" y="47.6" width="270.29" height="118.27" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Enps Gauge</text>
+<path d="M 57.0 139.9 A 82.8 82.8 0 0 1 222.6 139.9" fill="none" stroke="#F3F4F6" stroke-width="18.2"/>
+<path d="M 57.0 139.9 A 82.8 82.8 0 0 1 172.9 63.7" fill="none" stroke="#10B981" stroke-width="18.2"/>
+<line x1="139.8" y1="139.9" x2="172.9" y2="69.5" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+<circle cx="139.8" cy="139.9" r="3" fill="#111827"/>
+<text x="139.8" y="177.1" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">82%</text>
+<rect x="279.52" y="47.6" width="195.87" height="118.27" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="287.52" y="59.6" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Driver Analysis Bar</text>
+<rect x="290.9" y="114.5" width="15.7" height="43.4" rx="1" fill="#2563EB"/>
+<rect x="313.4" y="104.6" width="15.7" height="53.3" rx="1" fill="#60A5FA"/>
+<rect x="335.9" y="103.4" width="15.7" height="54.4" rx="1" fill="#2563EB"/>
+<rect x="358.3" y="83.9" width="15.7" height="74.0" rx="1" fill="#60A5FA"/>
+<rect x="380.8" y="80.5" width="15.7" height="77.4" rx="1" fill="#2563EB"/>
+<rect x="403.3" y="123.3" width="15.7" height="34.6" rx="1" fill="#60A5FA"/>
+<rect x="425.8" y="114.0" width="15.7" height="43.9" rx="1" fill="#2563EB"/>
+<rect x="448.3" y="101.6" width="15.7" height="56.3" rx="1" fill="#60A5FA"/>
+<line x1="287.52" y1="157.87" x2="467.39" y2="157.87" stroke="#E5E7EB"/>
+<rect x="4.62" y="169.33" width="470.77" height="96.06" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="4.62" y="169.33" width="470.77" height="14" fill="#EFF6FF"/>
+<text x="12.620000000000001" y="179.33" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="179.33" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="179.33" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="179.33" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="179.33" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="183.33" x2="475.39" y2="183.33" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="186.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="186.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="186.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="188.33" r="2.5" fill="#10B981"/>
+<polyline points="378.4,189.5 380.4,186.4 382.4,188.3 384.4,188.0 386.4,187.1" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="193.33" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="196.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="196.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="196.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="198.33" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,199.9 380.4,197.6 382.4,197.8 384.4,199.6 386.4,196.7" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="206.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="206.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="206.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="208.33" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,206.6 380.4,207.7 382.4,207.6 384.4,208.2 386.4,209.8" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="213.33" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="216.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="216.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="216.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="218.33" r="2.5" fill="#10B981"/>
+<polyline points="378.4,219.7 380.4,219.8 382.4,218.1 384.4,218.9 386.4,218.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="226.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="226.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="226.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="228.33" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,226.4 380.4,228.8 382.4,227.6 384.4,229.5 386.4,227.5" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="233.33" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="236.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="236.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="236.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="238.33" r="2.5" fill="#EF4444"/>
+<polyline points="378.4,238.5 380.4,239.6 382.4,239.0 384.4,238.5 386.4,236.4" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="12.620000000000001" y="246.33" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="246.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="246.33" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="248.33" r="2.5" fill="#10B981"/>
+<polyline points="378.4,247.1 380.4,248.4 382.4,248.5 384.4,250.1 386.4,247.8" fill="none" stroke="#2563EB" stroke-width="1"/>
+<rect x="4.62" y="253.33" width="470.77" height="10" fill="#F3F4F6"/>
+<rect x="12.620000000000001" y="256.33000000000004" width="63.7" height="4" fill="#6B7280" rx="1" opacity="0.5"/>
+<rect x="103.574" y="256.33000000000004" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<rect x="194.528" y="256.33000000000004" width="45.5" height="4" fill="#111827" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="258.33000000000004" r="2.5" fill="#F59E0B"/>
+<polyline points="378.4,257.0 380.4,257.9 382.4,260.0 384.4,257.6 386.4,259.1" fill="none" stroke="#2563EB" stroke-width="1"/>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">hr-engagement-survey</text>
+</svg>

@@ -25,9 +25,41 @@ the latest visualization guidance before recommending chart types or patterns.
 
 ## Reference Files
 
+### Role files (phase-driven workflow)
+
+These role files correspond to the `power-bi-developer` agent's design phases. Load the
+one matching the current phase.
+
+| Role File | Used In | Purpose |
+|---|---|---|
+| `references/strategist.md` | Phase 4a | 5-question intake, style selection, layout/chart picks, produces the Design Spec |
+| `references/executor-base.md` | Phase 4b | Shared two-pass (Layout → Narrative) rules inherited by all executors |
+| `references/executor-executive.md` | Phase 4b | Executive personality — ≤4 visuals, Big-Idea titles, high whitespace |
+| `references/executor-analytical.md` | Phase 4b | Analytical personality — 5-8 visuals, KPI + hero + 3-col grid, direct labels |
+| `references/executor-operational.md` | Phase 4b | Operational personality — 8-12 visuals, traffic-light status, large fonts |
+| `references/polisher.md` | Phase 4c | Drives `finalize_pbir.py` + `design_quality_check.py`, Design Spec reconciliation |
+
+### Shared standards & templates
+
+| Reference | When to Read |
+|---|---|
+| `references/shared-standards.md` | **Non-negotiable PBIR design rules** — banned patterns, grid, typography scale, color 60/30/10, accessibility, performance budgets. All roles must load this. |
+| `references/design-spec-reference.md` | 11-section Design Spec contract template + Seven Confirmations sign-off table |
+| `references/layouts/layouts-index.json` | Index of starter page layouts (slot coordinates, style tags) |
+| `references/layouts/*.md` | Individual layout recipes (exec-overview-16x9, sales-performance, drillthrough-detail, …) |
+| `references/chart-templates/chart-templates-index.json` | Index of chart recipes (composition + slots + gotchas) |
+| `references/chart-templates/*.md` | Individual chart recipes (kpi-banner, bar-comparison, trend-line, yoy-variance, waterfall-bridge, …) |
+| `assets/icons/` | SVG icon library (Tabler / Lucide / custom sets). Strategist binds a **set** in Seven Confirmations item #6. |
+| `assets/images/` | Raster artwork — backgrounds, banners, dividers, demo logos. |
+| `assets/layout-previews/` | PNG thumbnails (1 per layout) used in Seven Confirmations item #2 |
+| `assets/chart-previews/` | SVG/PNG thumbnails (1 per chart recipe) used in Design Spec §5 |
+
+### Legacy / cross-skill references
+
 | Reference | When to Read |
 |---|---|
 | `references/chart-selection-guide.md` | Deciding WHICH chart type to use — decision matrix, hard rules (why bar beats pie) |
+| `references/visual-vocabulary.md` | **Intent-first** catalog: 9 data-relationship categories × ~70 charts (FT Visual Vocabulary / Gramener edition) mapped to Power BI `visualType`s |
 | `references/visual-design-principles.md` | Pre-attentive attributes, Gestalt principles, color theory, typography, narrative structure, Kirk's 5-layer design process, **accessibility design** (alt text, tab order, markers, contrast, checklist) |
 | `references/page-layout-templates.md` | Starting layouts: Overview, Detail, Drillthrough, Tooltip, Grid, Sidebar, Scorecard, Tab-Nav |
 | `references/domain-report-structures.md` | Industry page sets: Sales, Manufacturing, Financial, Supply Chain, Retail, Healthcare, Technology |
@@ -224,3 +256,20 @@ REPORT DESIGN SPEC: [Report Name]
 
 The `power-bi-pbip-report` skill uses this spec to generate all PBIR JSON files
 without re-making design decisions.
+
+---
+
+## Phase-Driven Workflow (agent-aligned)
+
+The seven-step workflow above is the classic, skill-internal flow. When invoked
+from the `power-bi-developer` agent, follow the role-based phase gates instead:
+
+| Agent Phase | Role to load | Output |
+|---|---|---|
+| 4a Design Strategy | `references/strategist.md` + `shared-standards.md` + layouts/chart-templates indexes | Filled `design-spec-reference.md` |
+| 4a.5 Seven Confirmations | *(no role file — bundled confirmation message)* | User sign-off on Canvas / Pages / Audience / Style / Palette / Iconography / Navigation |
+| 4b Generation | `references/executor-base.md` + one of `executor-executive.md` / `executor-analytical.md` / `executor-operational.md` | PBIR files (Pass 1 Layout → Pass 2 Narrative) |
+| 4c Polish & Design QA | `references/polisher.md` | `finalize_pbir.py` → `design_quality_check.py` → `validate_report.js` → evidence package |
+
+Do NOT skip 4a.5 — the Seven Confirmations gate is blocking. Do NOT run 4b
+without a signed-off Design Spec. Every 4b regeneration MUST be followed by 4c.

@@ -1,0 +1,35 @@
+/* Theme tokens: Public Sector / Government (public-sector-gov) — auto-generated */
+:root[data-theme="public-sector-gov"] {
+  --color-data-1: #1A3A5F;
+  --color-data-2: #C41E3A;
+  --color-data-3: #5A6D7F;
+  --color-data-4: #D4A017;
+  --color-data-5: #2E5E4E;
+  --color-data-6: #8B5A3C;
+  --color-data-7: #6B7F2C;
+  --color-data-8: #A89384;
+  --color-semantic-good: #2E7D32;
+  --color-semantic-bad: #C41E3A;
+  --color-semantic-neutral: #5A6D7F;
+  --color-semantic-warning: #D4A017;
+  --color-semantic-info: #1A3A5F;
+  --color-neutral-muted: #7A8692;
+  --color-neutral-disabled: #BCC2CB;
+  --color-neutral-gridline: #E4E7EC;
+  --color-neutral-divider: #CFD4DA;
+  --color-bg: #FDFDFB;
+  --color-fg: #1A1A2E;
+  --color-table-accent: #1A3A5F;
+  --color-diverging-1: #C41E3A;
+  --color-diverging-2: #E4AAB4;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #AFCBB1;
+  --color-diverging-5: #2E7D32;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

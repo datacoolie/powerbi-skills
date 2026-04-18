@@ -1,0 +1,73 @@
+{
+  "name": "Google Material 3",
+  "dataColors": [
+    "#1967D2",
+    "#137333",
+    "#EA8600",
+    "#C5221F",
+    "#9334E6",
+    "#12B5CB",
+    "#F9AB00",
+    "#80868B"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#202124",
+  "tableAccent": "#1967D2",
+  "good": "#137333",
+  "bad": "#C5221F",
+  "neutral": "#5F6368",
+  "warning": "#F9AB00",
+  "info": "#1967D2",
+  "minimum": "#8A1816",
+  "center": "#F5F5F5",
+  "maximum": "#0D5024",
+  "null": "#C7C8C8",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E4E4E5"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E4E4E5"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#9B9B9C"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#9B9B9C"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

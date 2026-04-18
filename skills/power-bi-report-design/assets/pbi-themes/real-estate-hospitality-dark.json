@@ -1,0 +1,73 @@
+{
+  "name": "Real Estate / Hospitality (Dark)",
+  "dataColors": [
+    "#BD8C5C",
+    "#76A383",
+    "#C9A96E",
+    "#AA926F",
+    "#BE855A",
+    "#6B8CAE",
+    "#D6B342",
+    "#A8C4A2"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#BD8C5C",
+  "good": "#76A383",
+  "bad": "#D4454B",
+  "neutral": "#9B8E7D",
+  "warning": "#D6B342",
+  "info": "#6F96A9",
+  "minimum": "#943034",
+  "center": "#4A4A52",
+  "maximum": "#53725C",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

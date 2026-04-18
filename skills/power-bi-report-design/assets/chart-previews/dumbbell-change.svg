@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="80" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="140" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.2"/>
+
+<line x1="60" y1="40" x2="60" y2="160" stroke-opacity="0.35"/>
+<line x1="60" y1="160" x2="300" y2="160" stroke-opacity="0.35"/>
+<g font-family="system-ui,Segoe UI,Arial" font-size="8" fill="currentColor" fill-opacity="0.65" stroke="none">
+  <text x="56" y="52"  text-anchor="end">A</text>
+  <text x="56" y="72"  text-anchor="end">B</text>
+  <text x="56" y="92"  text-anchor="end">C</text>
+  <text x="56" y="112" text-anchor="end">D</text>
+  <text x="56" y="132" text-anchor="end">E</text>
+  <text x="56" y="152" text-anchor="end">F</text>
+</g>
+<line x1="96" y1="52" x2="248" y2="52" stroke="currentColor" stroke-opacity="0.45" stroke-width="2"/>
+<circle cx="96" cy="52" r="4" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+<circle cx="248" cy="52" r="4" fill="currentColor" fill-opacity="0.9"  stroke="none"/>
+<line x1="130" y1="72" x2="218" y2="72" stroke="currentColor" stroke-opacity="0.45" stroke-width="2"/>
+<circle cx="130" cy="72" r="4" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+<circle cx="218" cy="72" r="4" fill="currentColor" fill-opacity="0.9"  stroke="none"/>
+<line x1="180" y1="92" x2="266" y2="92" stroke="currentColor" stroke-opacity="0.45" stroke-width="2"/>
+<circle cx="180" cy="92" r="4" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+<circle cx="266" cy="92" r="4" fill="currentColor" fill-opacity="0.9"  stroke="none"/>
+<line x1="108" y1="112" x2="178" y2="112" stroke="currentColor" stroke-opacity="0.45" stroke-width="2"/>
+<circle cx="108" cy="112" r="4" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+<circle cx="178" cy="112" r="4" fill="currentColor" fill-opacity="0.9"  stroke="none"/>
+<line x1="160" y1="132" x2="134" y2="132" stroke="currentColor" stroke-opacity="0.45" stroke-width="2"/>
+<circle cx="160" cy="132" r="4" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+<circle cx="134" cy="132" r="4" fill="currentColor" fill-opacity="0.9"  stroke="none"/>
+<line x1="88" y1="152" x2="208" y2="152" stroke="currentColor" stroke-opacity="0.45" stroke-width="2"/>
+<circle cx="88" cy="152" r="4" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+<circle cx="208" cy="152" r="4" fill="currentColor" fill-opacity="0.9"  stroke="none"/>
+<g font-family="system-ui,Segoe UI,Arial" font-size="7" fill="currentColor" fill-opacity="0.55" stroke="none">
+  <circle cx="18"  cy="170" r="3" fill="currentColor" fill-opacity="0.35" stroke="none"/>
+  <text x="26" y="173">before</text>
+  <circle cx="64"  cy="170" r="3" fill="currentColor" fill-opacity="0.9" stroke="none"/>
+  <text x="72" y="173">after</text>
+</g>
+</svg>

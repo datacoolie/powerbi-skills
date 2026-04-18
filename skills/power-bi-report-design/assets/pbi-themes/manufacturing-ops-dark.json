@@ -1,0 +1,73 @@
+{
+  "name": "Manufacturing / Operations (Dark)",
+  "dataColors": [
+    "#4C80CC",
+    "#8F8A89",
+    "#EEA72B",
+    "#E26037",
+    "#50C962",
+    "#D4454B",
+    "#8764B8",
+    "#2BEECD"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#4C80CC",
+  "good": "#50C962",
+  "bad": "#D4454B",
+  "neutral": "#8F8A89",
+  "warning": "#EEA72B",
+  "info": "#4C80CC",
+  "minimum": "#943034",
+  "center": "#4A4A52",
+  "maximum": "#388D45",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* Theme tokens: Microsoft Fluent 2 (Dark) (microsoft-fluent-dark) — auto-generated */
+:root[data-theme="microsoft-fluent-dark"] {
+  --color-data-1: #2B93EE;
+  --color-data-2: #32ED2C;
+  --color-data-3: #F0C24C;
+  --color-data-4: #EE2B3C;
+  --color-data-5: #8764B8;
+  --color-data-6: #2BE2EE;
+  --color-data-7: #EE732B;
+  --color-data-8: #95EE2B;
+  --color-semantic-good: #32ED2C;
+  --color-semantic-bad: #EE2B3C;
+  --color-semantic-neutral: #8C8C8C;
+  --color-semantic-warning: #F0C24C;
+  --color-semantic-info: #2B93EE;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #2B93EE;
+  --color-diverging-1: #A71E2A;
+  --color-diverging-2: #833F4A;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #428345;
+  --color-diverging-5: #23A61F;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,2076 @@
+{
+  "$schema": "./icons-index.schema.json",
+  "version": "0.2",
+  "description": "Manifest of SVG icons grouped by set. Strategist binds an icon set in Seven Confirmations item #6. Now includes 4 sets (outline, filled, lucide, duotone) covering 10 categories: kpi-delta, chart, finance, status, navigation, action, domain, geo, data, comms.",
+  "sets": [
+    {
+      "id": "tabler-outline",
+      "style": "outline",
+      "license": "MIT",
+      "source": "https://github.com/tabler/tabler-icons",
+      "icons": [
+        {
+          "id": "alert-circle",
+          "file": "tabler-outline/alert-circle.svg",
+          "keywords": [
+            "warning",
+            "info",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "alert-triangle",
+          "file": "tabler-outline/alert-triangle.svg",
+          "keywords": [
+            "warning",
+            "caution",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "arrow-down",
+          "file": "tabler-outline/arrow-down.svg",
+          "keywords": [
+            "arrow",
+            "decrease",
+            "down"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "arrow-left",
+          "file": "tabler-outline/arrow-left.svg",
+          "keywords": [
+            "arrow",
+            "back",
+            "left"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "arrow-right",
+          "file": "tabler-outline/arrow-right.svg",
+          "keywords": [
+            "arrow",
+            "forward",
+            "right"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "arrow-up-right",
+          "file": "tabler-outline/arrow-up-right.svg",
+          "keywords": [
+            "external",
+            "link",
+            "outbound"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "arrow-up",
+          "file": "tabler-outline/arrow-up.svg",
+          "keywords": [
+            "arrow",
+            "increase",
+            "up"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "bell",
+          "file": "tabler-outline/bell.svg",
+          "keywords": [
+            "notification",
+            "alert",
+            "bell"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "bookmark",
+          "file": "tabler-outline/bookmark.svg",
+          "keywords": [
+            "save",
+            "pinned",
+            "favorite"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "briefcase",
+          "file": "tabler-outline/briefcase.svg",
+          "keywords": [
+            "business",
+            "work",
+            "portfolio"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "building",
+          "file": "tabler-outline/building.svg",
+          "keywords": [
+            "office",
+            "company",
+            "org"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "calendar",
+          "file": "tabler-outline/calendar.svg",
+          "keywords": [
+            "date",
+            "period",
+            "schedule"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "chart-area",
+          "file": "tabler-outline/chart-area.svg",
+          "keywords": [
+            "area",
+            "time-series",
+            "cumulative"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-bar",
+          "file": "tabler-outline/chart-bar.svg",
+          "keywords": [
+            "bar",
+            "comparison",
+            "ranking"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-column",
+          "file": "tabler-outline/chart-column.svg",
+          "keywords": [
+            "column",
+            "vertical",
+            "comparison"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-donut",
+          "file": "tabler-outline/chart-donut.svg",
+          "keywords": [
+            "donut",
+            "share",
+            "composition"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-funnel",
+          "file": "tabler-outline/chart-funnel.svg",
+          "keywords": [
+            "funnel",
+            "stages",
+            "conversion"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-infographic",
+          "file": "tabler-outline/chart-infographic.svg",
+          "keywords": [
+            "mixed",
+            "summary"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-line",
+          "file": "tabler-outline/chart-line.svg",
+          "keywords": [
+            "line",
+            "time-series",
+            "trend"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-pie",
+          "file": "tabler-outline/chart-pie.svg",
+          "keywords": [
+            "pie",
+            "share",
+            "composition"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-scatter",
+          "file": "tabler-outline/chart-scatter.svg",
+          "keywords": [
+            "scatter",
+            "correlation"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "check",
+          "file": "tabler-outline/check.svg",
+          "keywords": [
+            "ok",
+            "done",
+            "confirmed"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-check",
+          "file": "tabler-outline/circle-check.svg",
+          "keywords": [
+            "ok",
+            "approved",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-x",
+          "file": "tabler-outline/circle-x.svg",
+          "keywords": [
+            "error",
+            "failed",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "clock",
+          "file": "tabler-outline/clock.svg",
+          "keywords": [
+            "time",
+            "schedule",
+            "duration"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "cloud",
+          "file": "tabler-outline/cloud.svg",
+          "keywords": [
+            "cloud",
+            "hosted",
+            "storage"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "coin",
+          "file": "tabler-outline/coin.svg",
+          "keywords": [
+            "currency",
+            "money",
+            "revenue"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "copy",
+          "file": "tabler-outline/copy.svg",
+          "keywords": [
+            "duplicate",
+            "clone"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "credit-card",
+          "file": "tabler-outline/credit-card.svg",
+          "keywords": [
+            "card",
+            "payment",
+            "finance"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "currency-dollar",
+          "file": "tabler-outline/currency-dollar.svg",
+          "keywords": [
+            "dollar",
+            "usd",
+            "currency"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "database",
+          "file": "tabler-outline/database.svg",
+          "keywords": [
+            "database",
+            "storage",
+            "data"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "download",
+          "file": "tabler-outline/download.svg",
+          "keywords": [
+            "export",
+            "save",
+            "download"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "edit",
+          "file": "tabler-outline/edit.svg",
+          "keywords": [
+            "pencil",
+            "modify",
+            "write"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "external-link",
+          "file": "tabler-outline/external-link.svg",
+          "keywords": [
+            "external",
+            "open",
+            "new-tab"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "eye",
+          "file": "tabler-outline/eye.svg",
+          "keywords": [
+            "view",
+            "visible",
+            "watch"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "filter",
+          "file": "tabler-outline/filter.svg",
+          "keywords": [
+            "sift",
+            "narrow",
+            "query"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "flag",
+          "file": "tabler-outline/flag.svg",
+          "keywords": [
+            "flag",
+            "issue",
+            "mark"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "folder",
+          "file": "tabler-outline/folder.svg",
+          "keywords": [
+            "folder",
+            "group",
+            "category"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "gauge",
+          "file": "tabler-outline/gauge.svg",
+          "keywords": [
+            "meter",
+            "progress",
+            "kpi"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "globe",
+          "file": "tabler-outline/globe.svg",
+          "keywords": [
+            "world",
+            "global",
+            "international"
+          ],
+          "category": "geo"
+        },
+        {
+          "id": "help-circle",
+          "file": "tabler-outline/help-circle.svg",
+          "keywords": [
+            "help",
+            "support",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "home",
+          "file": "tabler-outline/home.svg",
+          "keywords": [
+            "home",
+            "landing",
+            "dashboard"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "info-circle",
+          "file": "tabler-outline/info-circle.svg",
+          "keywords": [
+            "information",
+            "help",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "layers",
+          "file": "tabler-outline/layers.svg",
+          "keywords": [
+            "layers",
+            "stack",
+            "levels"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "list",
+          "file": "tabler-outline/list.svg",
+          "keywords": [
+            "list",
+            "items",
+            "bullet"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "lock",
+          "file": "tabler-outline/lock.svg",
+          "keywords": [
+            "secure",
+            "private",
+            "locked"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "mail",
+          "file": "tabler-outline/mail.svg",
+          "keywords": [
+            "email",
+            "inbox",
+            "message"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "menu",
+          "file": "tabler-outline/menu.svg",
+          "keywords": [
+            "hamburger",
+            "menu",
+            "more"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "message",
+          "file": "tabler-outline/message.svg",
+          "keywords": [
+            "chat",
+            "conversation",
+            "dm"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "minus",
+          "file": "tabler-outline/minus.svg",
+          "keywords": [
+            "remove",
+            "subtract"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "package",
+          "file": "tabler-outline/package.svg",
+          "keywords": [
+            "box",
+            "product",
+            "inventory"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "percentage",
+          "file": "tabler-outline/percentage.svg",
+          "keywords": [
+            "percent",
+            "ratio",
+            "share"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "phone",
+          "file": "tabler-outline/phone.svg",
+          "keywords": [
+            "call",
+            "contact",
+            "phone"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "plus",
+          "file": "tabler-outline/plus.svg",
+          "keywords": [
+            "add",
+            "new",
+            "create"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "receipt",
+          "file": "tabler-outline/receipt.svg",
+          "keywords": [
+            "invoice",
+            "receipt",
+            "billing"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "refresh",
+          "file": "tabler-outline/refresh.svg",
+          "keywords": [
+            "reload",
+            "refresh",
+            "sync"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "search",
+          "file": "tabler-outline/search.svg",
+          "keywords": [
+            "find",
+            "query",
+            "magnifier"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "settings",
+          "file": "tabler-outline/settings.svg",
+          "keywords": [
+            "cog",
+            "gear",
+            "preferences",
+            "options"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "share",
+          "file": "tabler-outline/share.svg",
+          "keywords": [
+            "share",
+            "send",
+            "network"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "shield-check",
+          "file": "tabler-outline/shield-check.svg",
+          "keywords": [
+            "security",
+            "verified",
+            "safe"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "shield",
+          "file": "tabler-outline/shield.svg",
+          "keywords": [
+            "security",
+            "protect"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "sparkline",
+          "file": "tabler-outline/sparkline.svg",
+          "keywords": [
+            "sparkline",
+            "mini-chart",
+            "trend"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "star",
+          "file": "tabler-outline/star.svg",
+          "keywords": [
+            "favorite",
+            "rating",
+            "top"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "tag",
+          "file": "tabler-outline/tag.svg",
+          "keywords": [
+            "label",
+            "category",
+            "tag"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "target",
+          "file": "tabler-outline/target.svg",
+          "keywords": [
+            "goal",
+            "target",
+            "objective"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trash",
+          "file": "tabler-outline/trash.svg",
+          "keywords": [
+            "delete",
+            "remove",
+            "bin"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "trending-down",
+          "file": "tabler-outline/trending-down.svg",
+          "keywords": [
+            "decline",
+            "decrease",
+            "negative",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trending-up",
+          "file": "tabler-outline/trending-up.svg",
+          "keywords": [
+            "growth",
+            "increase",
+            "positive",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "truck",
+          "file": "tabler-outline/truck.svg",
+          "keywords": [
+            "logistics",
+            "delivery",
+            "shipping"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "user-plus",
+          "file": "tabler-outline/user-plus.svg",
+          "keywords": [
+            "add-person",
+            "onboard"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "user",
+          "file": "tabler-outline/user.svg",
+          "keywords": [
+            "person",
+            "profile",
+            "identity"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "users",
+          "file": "tabler-outline/users.svg",
+          "keywords": [
+            "people",
+            "team",
+            "customers"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "x",
+          "file": "tabler-outline/x.svg",
+          "keywords": [
+            "cancel",
+            "close",
+            "error"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "zap",
+          "file": "tabler-outline/zap.svg",
+          "keywords": [
+            "energy",
+            "fast",
+            "power"
+          ],
+          "category": "status"
+        }
+      ]
+    },
+    {
+      "id": "tabler-filled",
+      "style": "filled",
+      "license": "MIT",
+      "source": "https://github.com/tabler/tabler-icons",
+      "icons": [
+        {
+          "id": "alert-circle",
+          "file": "tabler-filled/alert-circle.svg",
+          "keywords": [
+            "warning",
+            "info",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "alert-triangle",
+          "file": "tabler-filled/alert-triangle.svg",
+          "keywords": [
+            "warning",
+            "caution",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "arrow-down",
+          "file": "tabler-filled/arrow-down.svg",
+          "keywords": [
+            "arrow",
+            "decrease",
+            "down"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "arrow-up",
+          "file": "tabler-filled/arrow-up.svg",
+          "keywords": [
+            "arrow",
+            "increase",
+            "up"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "bookmark",
+          "file": "tabler-filled/bookmark.svg",
+          "keywords": [
+            "save",
+            "pinned",
+            "favorite"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "briefcase",
+          "file": "tabler-filled/briefcase.svg",
+          "keywords": [
+            "business",
+            "work",
+            "portfolio"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "calendar",
+          "file": "tabler-filled/calendar.svg",
+          "keywords": [
+            "date",
+            "period",
+            "schedule"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "chart-area",
+          "file": "tabler-filled/chart-area.svg",
+          "keywords": [
+            "area",
+            "time-series",
+            "cumulative"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-bar",
+          "file": "tabler-filled/chart-bar.svg",
+          "keywords": [
+            "bar",
+            "comparison",
+            "ranking"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-donut",
+          "file": "tabler-filled/chart-donut.svg",
+          "keywords": [
+            "donut",
+            "share",
+            "composition"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-line",
+          "file": "tabler-filled/chart-line.svg",
+          "keywords": [
+            "line",
+            "time-series",
+            "trend"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-pie",
+          "file": "tabler-filled/chart-pie.svg",
+          "keywords": [
+            "pie",
+            "share",
+            "composition"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "check",
+          "file": "tabler-filled/check.svg",
+          "keywords": [
+            "ok",
+            "done",
+            "confirmed"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-check",
+          "file": "tabler-filled/circle-check.svg",
+          "keywords": [
+            "ok",
+            "approved",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-x",
+          "file": "tabler-filled/circle-x.svg",
+          "keywords": [
+            "error",
+            "failed",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "clock",
+          "file": "tabler-filled/clock.svg",
+          "keywords": [
+            "time",
+            "schedule",
+            "duration"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "cloud",
+          "file": "tabler-filled/cloud.svg",
+          "keywords": [
+            "cloud",
+            "hosted",
+            "storage"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "coin",
+          "file": "tabler-filled/coin.svg",
+          "keywords": [
+            "currency",
+            "money",
+            "revenue"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "credit-card",
+          "file": "tabler-filled/credit-card.svg",
+          "keywords": [
+            "card",
+            "payment",
+            "finance"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "currency-dollar",
+          "file": "tabler-filled/currency-dollar.svg",
+          "keywords": [
+            "dollar",
+            "usd",
+            "currency"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "database",
+          "file": "tabler-filled/database.svg",
+          "keywords": [
+            "database",
+            "storage",
+            "data"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "download",
+          "file": "tabler-filled/download.svg",
+          "keywords": [
+            "export",
+            "save",
+            "download"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "eye",
+          "file": "tabler-filled/eye.svg",
+          "keywords": [
+            "view",
+            "visible",
+            "watch"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "filter",
+          "file": "tabler-filled/filter.svg",
+          "keywords": [
+            "sift",
+            "narrow",
+            "query"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "flag",
+          "file": "tabler-filled/flag.svg",
+          "keywords": [
+            "flag",
+            "issue",
+            "mark"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "folder",
+          "file": "tabler-filled/folder.svg",
+          "keywords": [
+            "folder",
+            "group",
+            "category"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "gauge",
+          "file": "tabler-filled/gauge.svg",
+          "keywords": [
+            "meter",
+            "progress",
+            "kpi"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "home",
+          "file": "tabler-filled/home.svg",
+          "keywords": [
+            "home",
+            "landing",
+            "dashboard"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "info-circle",
+          "file": "tabler-filled/info-circle.svg",
+          "keywords": [
+            "information",
+            "help",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "lock",
+          "file": "tabler-filled/lock.svg",
+          "keywords": [
+            "secure",
+            "private",
+            "locked"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "mail",
+          "file": "tabler-filled/mail.svg",
+          "keywords": [
+            "email",
+            "inbox",
+            "message"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "minus",
+          "file": "tabler-filled/minus.svg",
+          "keywords": [
+            "remove",
+            "subtract"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "percentage",
+          "file": "tabler-filled/percentage.svg",
+          "keywords": [
+            "percent",
+            "ratio",
+            "share"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "plus",
+          "file": "tabler-filled/plus.svg",
+          "keywords": [
+            "add",
+            "new",
+            "create"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "receipt",
+          "file": "tabler-filled/receipt.svg",
+          "keywords": [
+            "invoice",
+            "receipt",
+            "billing"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "search",
+          "file": "tabler-filled/search.svg",
+          "keywords": [
+            "find",
+            "query",
+            "magnifier"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "settings",
+          "file": "tabler-filled/settings.svg",
+          "keywords": [
+            "cog",
+            "gear",
+            "preferences",
+            "options"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "shield",
+          "file": "tabler-filled/shield.svg",
+          "keywords": [
+            "security",
+            "protect"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "star",
+          "file": "tabler-filled/star.svg",
+          "keywords": [
+            "favorite",
+            "rating",
+            "top"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "target",
+          "file": "tabler-filled/target.svg",
+          "keywords": [
+            "goal",
+            "target",
+            "objective"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trending-down",
+          "file": "tabler-filled/trending-down.svg",
+          "keywords": [
+            "decline",
+            "decrease",
+            "negative",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trending-up",
+          "file": "tabler-filled/trending-up.svg",
+          "keywords": [
+            "growth",
+            "increase",
+            "positive",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "truck",
+          "file": "tabler-filled/truck.svg",
+          "keywords": [
+            "logistics",
+            "delivery",
+            "shipping"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "user",
+          "file": "tabler-filled/user.svg",
+          "keywords": [
+            "person",
+            "profile",
+            "identity"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "users",
+          "file": "tabler-filled/users.svg",
+          "keywords": [
+            "people",
+            "team",
+            "customers"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "x",
+          "file": "tabler-filled/x.svg",
+          "keywords": [
+            "cancel",
+            "close",
+            "error"
+          ],
+          "category": "status"
+        }
+      ]
+    },
+    {
+      "id": "lucide",
+      "style": "outline",
+      "license": "ISC",
+      "source": "https://github.com/lucide-icons/lucide",
+      "icons": [
+        {
+          "id": "arrow-down",
+          "file": "lucide/arrow-down.svg",
+          "keywords": [
+            "arrow",
+            "decrease",
+            "down"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "arrow-left",
+          "file": "lucide/arrow-left.svg",
+          "keywords": [
+            "arrow",
+            "back",
+            "left"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "arrow-right",
+          "file": "lucide/arrow-right.svg",
+          "keywords": [
+            "arrow",
+            "forward",
+            "right"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "arrow-trend-down",
+          "file": "lucide/arrow-trend-down.svg",
+          "keywords": [
+            "decline",
+            "decrease",
+            "negative",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "arrow-trend-up",
+          "file": "lucide/arrow-trend-up.svg",
+          "keywords": [
+            "growth",
+            "increase",
+            "positive",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "arrow-up",
+          "file": "lucide/arrow-up.svg",
+          "keywords": [
+            "arrow",
+            "increase",
+            "up"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "bell",
+          "file": "lucide/bell.svg",
+          "keywords": [
+            "notification",
+            "alert",
+            "bell"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "bookmark",
+          "file": "lucide/bookmark.svg",
+          "keywords": [
+            "save",
+            "pinned",
+            "favorite"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "box",
+          "file": "lucide/box.svg",
+          "keywords": [
+            "box",
+            "product",
+            "inventory"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "briefcase",
+          "file": "lucide/briefcase.svg",
+          "keywords": [
+            "business",
+            "work",
+            "portfolio"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "building",
+          "file": "lucide/building.svg",
+          "keywords": [
+            "office",
+            "company",
+            "org"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "calendar",
+          "file": "lucide/calendar.svg",
+          "keywords": [
+            "date",
+            "period",
+            "schedule"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "chart-bar",
+          "file": "lucide/chart-bar.svg",
+          "keywords": [
+            "bar",
+            "comparison",
+            "ranking"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-line",
+          "file": "lucide/chart-line.svg",
+          "keywords": [
+            "line",
+            "time-series",
+            "trend"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-pie",
+          "file": "lucide/chart-pie.svg",
+          "keywords": [
+            "pie",
+            "share",
+            "composition"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "checkmark",
+          "file": "lucide/checkmark.svg",
+          "keywords": [
+            "ok",
+            "done",
+            "confirmed"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-checkmark",
+          "file": "lucide/circle-checkmark.svg",
+          "keywords": [
+            "ok",
+            "approved",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-info",
+          "file": "lucide/circle-info.svg",
+          "keywords": [
+            "information",
+            "help",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "circle-x",
+          "file": "lucide/circle-x.svg",
+          "keywords": [
+            "error",
+            "failed",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "clock",
+          "file": "lucide/clock.svg",
+          "keywords": [
+            "time",
+            "schedule",
+            "duration"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "cloud",
+          "file": "lucide/cloud.svg",
+          "keywords": [
+            "cloud",
+            "hosted",
+            "storage"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "coin",
+          "file": "lucide/coin.svg",
+          "keywords": [
+            "currency",
+            "money",
+            "revenue"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "copy",
+          "file": "lucide/copy.svg",
+          "keywords": [
+            "duplicate",
+            "clone"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "credit-card",
+          "file": "lucide/credit-card.svg",
+          "keywords": [
+            "card",
+            "payment",
+            "finance"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "database",
+          "file": "lucide/database.svg",
+          "keywords": [
+            "database",
+            "storage",
+            "data"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "dollar",
+          "file": "lucide/dollar.svg",
+          "keywords": [
+            "dollar",
+            "usd",
+            "currency"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "download",
+          "file": "lucide/download.svg",
+          "keywords": [
+            "export",
+            "save",
+            "download"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "edit",
+          "file": "lucide/edit.svg",
+          "keywords": [
+            "pencil",
+            "modify",
+            "write"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "euro",
+          "file": "lucide/euro.svg",
+          "keywords": [
+            "euro",
+            "eur",
+            "currency"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "external-link",
+          "file": "lucide/external-link.svg",
+          "keywords": [
+            "external",
+            "open",
+            "new-tab"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "eye",
+          "file": "lucide/eye.svg",
+          "keywords": [
+            "view",
+            "visible",
+            "watch"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "filter",
+          "file": "lucide/filter.svg",
+          "keywords": [
+            "sift",
+            "narrow",
+            "query"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "flag",
+          "file": "lucide/flag.svg",
+          "keywords": [
+            "flag",
+            "issue",
+            "mark"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "folder",
+          "file": "lucide/folder.svg",
+          "keywords": [
+            "folder",
+            "group",
+            "category"
+          ],
+          "category": "data"
+        },
+        {
+          "id": "funnel",
+          "file": "lucide/funnel.svg",
+          "keywords": [
+            "funnel",
+            "stages",
+            "conversion"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "gauge-high",
+          "file": "lucide/gauge-high.svg",
+          "keywords": [
+            "meter",
+            "progress",
+            "kpi"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "globe",
+          "file": "lucide/globe.svg",
+          "keywords": [
+            "world",
+            "global",
+            "international"
+          ],
+          "category": "geo"
+        },
+        {
+          "id": "home",
+          "file": "lucide/home.svg",
+          "keywords": [
+            "home",
+            "landing",
+            "dashboard"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "lock",
+          "file": "lucide/lock.svg",
+          "keywords": [
+            "secure",
+            "private",
+            "locked"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "magnifying-glass",
+          "file": "lucide/magnifying-glass.svg",
+          "keywords": [
+            "find",
+            "search"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "mail",
+          "file": "lucide/mail.svg",
+          "keywords": [
+            "email",
+            "inbox",
+            "message"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "map-pin",
+          "file": "lucide/map-pin.svg",
+          "keywords": [
+            "location",
+            "place",
+            "store"
+          ],
+          "category": "geo"
+        },
+        {
+          "id": "map",
+          "file": "lucide/map.svg",
+          "keywords": [
+            "region",
+            "territory",
+            "geography"
+          ],
+          "category": "geo"
+        },
+        {
+          "id": "menu",
+          "file": "lucide/menu.svg",
+          "keywords": [
+            "hamburger",
+            "menu",
+            "more"
+          ],
+          "category": "navigation"
+        },
+        {
+          "id": "message",
+          "file": "lucide/message.svg",
+          "keywords": [
+            "chat",
+            "conversation",
+            "dm"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "minus",
+          "file": "lucide/minus.svg",
+          "keywords": [
+            "remove",
+            "subtract"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "percent",
+          "file": "lucide/percent.svg",
+          "keywords": [
+            "percent",
+            "ratio",
+            "share"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "phone",
+          "file": "lucide/phone.svg",
+          "keywords": [
+            "call",
+            "contact",
+            "phone"
+          ],
+          "category": "comms"
+        },
+        {
+          "id": "plus",
+          "file": "lucide/plus.svg",
+          "keywords": [
+            "add",
+            "new",
+            "create"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "refresh",
+          "file": "lucide/refresh.svg",
+          "keywords": [
+            "reload",
+            "refresh",
+            "sync"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "settings-gear",
+          "file": "lucide/settings-gear.svg",
+          "keywords": [
+            "cog",
+            "gear",
+            "preferences"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "settings",
+          "file": "lucide/settings.svg",
+          "keywords": [
+            "cog",
+            "gear",
+            "preferences",
+            "options"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "share",
+          "file": "lucide/share.svg",
+          "keywords": [
+            "share",
+            "send",
+            "network"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "shield-check",
+          "file": "lucide/shield-check.svg",
+          "keywords": [
+            "security",
+            "verified",
+            "safe"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "shield",
+          "file": "lucide/shield.svg",
+          "keywords": [
+            "security",
+            "protect"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "star",
+          "file": "lucide/star.svg",
+          "keywords": [
+            "favorite",
+            "rating",
+            "top"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "tag",
+          "file": "lucide/tag.svg",
+          "keywords": [
+            "label",
+            "category",
+            "tag"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "target",
+          "file": "lucide/target.svg",
+          "keywords": [
+            "goal",
+            "target",
+            "objective"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trash",
+          "file": "lucide/trash.svg",
+          "keywords": [
+            "delete",
+            "remove",
+            "bin"
+          ],
+          "category": "action"
+        },
+        {
+          "id": "triangle-exclamation",
+          "file": "lucide/triangle-exclamation.svg",
+          "keywords": [
+            "warning",
+            "caution",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "truck",
+          "file": "lucide/truck.svg",
+          "keywords": [
+            "logistics",
+            "delivery",
+            "shipping"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "user",
+          "file": "lucide/user.svg",
+          "keywords": [
+            "person",
+            "profile",
+            "identity"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "users",
+          "file": "lucide/users.svg",
+          "keywords": [
+            "people",
+            "team",
+            "customers"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "zap",
+          "file": "lucide/zap.svg",
+          "keywords": [
+            "energy",
+            "fast",
+            "power"
+          ],
+          "category": "status"
+        }
+      ]
+    },
+    {
+      "id": "duotone",
+      "style": "mixed",
+      "license": "MIT",
+      "source": "Custom \u2014 backplate + glyph two-tone, brand-neutral",
+      "icons": [
+        {
+          "id": "alert-triangle",
+          "file": "duotone/alert-triangle.svg",
+          "keywords": [
+            "warning",
+            "caution",
+            "status"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "building",
+          "file": "duotone/building.svg",
+          "keywords": [
+            "office",
+            "company",
+            "org"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "chart-bar",
+          "file": "duotone/chart-bar.svg",
+          "keywords": [
+            "bar",
+            "comparison",
+            "ranking"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-line",
+          "file": "duotone/chart-line.svg",
+          "keywords": [
+            "line",
+            "time-series",
+            "trend"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "chart-pie",
+          "file": "duotone/chart-pie.svg",
+          "keywords": [
+            "pie",
+            "share",
+            "composition"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "check-circle",
+          "file": "duotone/check-circle.svg",
+          "keywords": [
+            "check circle"
+          ],
+          "category": "misc"
+        },
+        {
+          "id": "clock",
+          "file": "duotone/clock.svg",
+          "keywords": [
+            "time",
+            "schedule",
+            "duration"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "currency-dollar",
+          "file": "duotone/currency-dollar.svg",
+          "keywords": [
+            "dollar",
+            "usd",
+            "currency"
+          ],
+          "category": "finance"
+        },
+        {
+          "id": "funnel",
+          "file": "duotone/funnel.svg",
+          "keywords": [
+            "funnel",
+            "stages",
+            "conversion"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "gauge",
+          "file": "duotone/gauge.svg",
+          "keywords": [
+            "meter",
+            "progress",
+            "kpi"
+          ],
+          "category": "chart"
+        },
+        {
+          "id": "map-pin",
+          "file": "duotone/map-pin.svg",
+          "keywords": [
+            "location",
+            "place",
+            "store"
+          ],
+          "category": "geo"
+        },
+        {
+          "id": "package",
+          "file": "duotone/package.svg",
+          "keywords": [
+            "box",
+            "product",
+            "inventory"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "shield-check",
+          "file": "duotone/shield-check.svg",
+          "keywords": [
+            "security",
+            "verified",
+            "safe"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "star",
+          "file": "duotone/star.svg",
+          "keywords": [
+            "favorite",
+            "rating",
+            "top"
+          ],
+          "category": "status"
+        },
+        {
+          "id": "target",
+          "file": "duotone/target.svg",
+          "keywords": [
+            "goal",
+            "target",
+            "objective"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trending-down",
+          "file": "duotone/trending-down.svg",
+          "keywords": [
+            "decline",
+            "decrease",
+            "negative",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "trending-up",
+          "file": "duotone/trending-up.svg",
+          "keywords": [
+            "growth",
+            "increase",
+            "positive",
+            "delta"
+          ],
+          "category": "kpi-delta"
+        },
+        {
+          "id": "truck",
+          "file": "duotone/truck.svg",
+          "keywords": [
+            "logistics",
+            "delivery",
+            "shipping"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "users",
+          "file": "duotone/users.svg",
+          "keywords": [
+            "people",
+            "team",
+            "customers"
+          ],
+          "category": "domain"
+        },
+        {
+          "id": "zap",
+          "file": "duotone/zap.svg",
+          "keywords": [
+            "energy",
+            "fast",
+            "power"
+          ],
+          "category": "status"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Healthcare / Pharma",
+  "dataColors": [
+    "#0077B6",
+    "#48CAE4",
+    "#00B4D8",
+    "#90E0EF",
+    "#023E8A",
+    "#38B64B",
+    "#E63946",
+    "#457B9D"
+  ],
+  "background": "#F8FFFE",
+  "foreground": "#1D3557",
+  "tableAccent": "#0077B6",
+  "good": "#38B64B",
+  "bad": "#E63946",
+  "neutral": "#457B9D",
+  "warning": "#F5A623",
+  "info": "#0077B6",
+  "minimum": "#E63946",
+  "center": "#F2F2F2",
+  "maximum": "#38B64B",
+  "null": "#C8D2DB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E7EDF2"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#D1D9E1"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#7A90A3"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E7EDF2"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#7A90A3"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" font-family="Segoe UI, Inter, system-ui, sans-serif">
+  <title>logo-technology</title>
+  <desc>ACME Tech placeholder logo — integrated-circuit chip with pins. Badge uses currentColor; glyph is white.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="currentColor" fill-opacity="0.92" stroke="none"/>
+  <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="#fff" fill-opacity="0.08" stroke="none"/>
+  <g transform="translate(12,12)">
+    <g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="5" y="5" width="14" height="14" rx="2" fill="#fff" fill-opacity="0.2"/>
+  <rect x="8.5" y="8.5" width="7" height="7" rx="0.8" fill="#fff"/>
+  <g stroke-opacity="0.85">
+    <line x1="9" y1="2" x2="9" y2="5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/>
+    <line x1="9" y1="19" x2="9" y2="22"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/>
+    <line x1="2" y1="9" x2="5" y2="9"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="2" y1="15" x2="5" y2="15"/>
+    <line x1="19" y1="9" x2="22" y2="9"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="19" y1="15" x2="22" y2="15"/>
+  </g>
+</g>
+  </g>
+  <text x="56" y="22" fill="currentColor" stroke="none" font-size="14" font-weight="700" fill-opacity="0.96">ACME Tech</text>
+  <line x1="56" y1="27" x2="72" y2="27" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="56" y="38" fill="currentColor" stroke="none" font-size="7.5" letter-spacing="1.6" font-weight="600" fill-opacity="0.6">TECHNOLOGY · IT</text>
+</svg>

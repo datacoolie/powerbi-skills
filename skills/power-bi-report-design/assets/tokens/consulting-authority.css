@@ -1,0 +1,35 @@
+/* Theme tokens: Consulting / Authority (consulting-authority) — auto-generated */
+:root[data-theme="consulting-authority"] {
+  --color-data-1: #005587;
+  --color-data-2: #0076A8;
+  --color-data-3: #003F6C;
+  --color-data-4: #6B7A8D;
+  --color-data-5: #D4A846;
+  --color-data-6: #7A8A99;
+  --color-data-7: #2D6A4F;
+  --color-data-8: #A4262C;
+  --color-semantic-good: #2D6A4F;
+  --color-semantic-bad: #A4262C;
+  --color-semantic-neutral: #6B7A8D;
+  --color-semantic-warning: #D4A846;
+  --color-semantic-info: #0076A8;
+  --color-neutral-muted: #8A94A0;
+  --color-neutral-disabled: #C4CAD2;
+  --color-neutral-gridline: #E4E7EC;
+  --color-neutral-divider: #CFD4DA;
+  --color-bg: #FFFFFF;
+  --color-fg: #1A1A2E;
+  --color-table-accent: #005587;
+  --color-diverging-1: #A4262C;
+  --color-diverging-2: #D9ADAF;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #AFC4BB;
+  --color-diverging-5: #2D6A4F;
+  --font-title: 'Source Serif Pro', 'Georgia', 'Times New Roman', serif;
+  --font-body:  'Inter', 'Segoe UI', -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

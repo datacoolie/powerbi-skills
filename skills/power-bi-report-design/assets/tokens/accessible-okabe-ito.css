@@ -1,0 +1,35 @@
+/* Theme tokens: Accessible / Okabe-Ito (accessible-okabe-ito) — auto-generated */
+:root[data-theme="accessible-okabe-ito"] {
+  --color-data-1: #0072B2;
+  --color-data-2: #E69F00;
+  --color-data-3: #009E73;
+  --color-data-4: #56B4E9;
+  --color-data-5: #F0E442;
+  --color-data-6: #D55E00;
+  --color-data-7: #CC79A7;
+  --color-data-8: #000000;
+  --color-semantic-good: #009E73;
+  --color-semantic-bad: #D55E00;
+  --color-semantic-neutral: #5C5C5C;
+  --color-semantic-warning: #E69F00;
+  --color-semantic-info: #0072B2;
+  --color-neutral-muted: #7A7A7A;
+  --color-neutral-disabled: #BFBFBF;
+  --color-neutral-gridline: #E5E5E5;
+  --color-neutral-divider: #CCCCCC;
+  --color-bg: #FFFFFF;
+  --color-fg: #0A0A0A;
+  --color-table-accent: #0072B2;
+  --color-diverging-1: #D55E00;
+  --color-diverging-2: #EAC09F;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #9FD7C8;
+  --color-diverging-5: #009E73;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

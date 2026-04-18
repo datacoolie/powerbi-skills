@@ -1,0 +1,73 @@
+{
+  "name": "Marketing / Digital (Dark)",
+  "dataColors": [
+    "#EB2E6E",
+    "#C043D5",
+    "#2BD8EE",
+    "#EEBD2B",
+    "#5566C4",
+    "#EE6033",
+    "#5FBA63",
+    "#7794A1"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#EB2E6E",
+  "good": "#5FBA63",
+  "bad": "#EF473B",
+  "neutral": "#9E9E9E",
+  "warning": "#EEBD2B",
+  "info": "#2BD8EE",
+  "minimum": "#A73229",
+  "center": "#4A4A52",
+  "maximum": "#428245",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Sales / Revenue / Growth",
+  "dataColors": [
+    "#0078D4",
+    "#00B7C3",
+    "#E74856",
+    "#FF8C00",
+    "#107C10",
+    "#5C2D91",
+    "#FFB900",
+    "#767676"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#242424",
+  "tableAccent": "#0078D4",
+  "good": "#38B64B",
+  "bad": "#EE1C25",
+  "neutral": "#949599",
+  "warning": "#F5A623",
+  "info": "#0078D4",
+  "minimum": "#EE1C25",
+  "center": "#F2F2F2",
+  "maximum": "#38B64B",
+  "null": "#D2D2D2",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#EDEDED"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#D0D0D0"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#A8A8A8"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#EDEDED"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#A8A8A8"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

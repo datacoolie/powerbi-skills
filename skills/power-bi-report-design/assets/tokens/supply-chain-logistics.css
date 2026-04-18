@@ -1,0 +1,35 @@
+/* Theme tokens: Supply Chain / Logistics (supply-chain-logistics) — auto-generated */
+:root[data-theme="supply-chain-logistics"] {
+  --color-data-1: #012A4A;
+  --color-data-2: #01497C;
+  --color-data-3: #014F86;
+  --color-data-4: #2A6F97;
+  --color-data-5: #468FAF;
+  --color-data-6: #8AD4EB;
+  --color-data-7: #FE9666;
+  --color-data-8: #A66999;
+  --color-semantic-good: #38B64B;
+  --color-semantic-bad: #E63946;
+  --color-semantic-neutral: #7A8A99;
+  --color-semantic-warning: #FE9666;
+  --color-semantic-info: #2A6F97;
+  --color-neutral-muted: #7A8A99;
+  --color-neutral-disabled: #B9C3CC;
+  --color-neutral-gridline: #DEE3E8;
+  --color-neutral-divider: #C7CED6;
+  --color-bg: #E6ECF0;
+  --color-fg: #292E6B;
+  --color-table-accent: #012A4A;
+  --color-diverging-1: #E63946;
+  --color-diverging-2: #F0B3B8;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #B3DFBA;
+  --color-diverging-5: #38B64B;
+  --font-title: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body:  'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono:  'IBM Plex Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

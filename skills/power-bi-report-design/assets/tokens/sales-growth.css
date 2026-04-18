@@ -1,0 +1,35 @@
+/* Theme tokens: Sales / Revenue / Growth (sales-growth) — auto-generated */
+:root[data-theme="sales-growth"] {
+  --color-data-1: #0078D4;
+  --color-data-2: #00B7C3;
+  --color-data-3: #E74856;
+  --color-data-4: #FF8C00;
+  --color-data-5: #107C10;
+  --color-data-6: #5C2D91;
+  --color-data-7: #FFB900;
+  --color-data-8: #767676;
+  --color-semantic-good: #38B64B;
+  --color-semantic-bad: #EE1C25;
+  --color-semantic-neutral: #949599;
+  --color-semantic-warning: #F5A623;
+  --color-semantic-info: #0078D4;
+  --color-neutral-muted: #A8A8A8;
+  --color-neutral-disabled: #D2D2D2;
+  --color-neutral-gridline: #EDEDED;
+  --color-neutral-divider: #D0D0D0;
+  --color-bg: #FFFFFF;
+  --color-fg: #242424;
+  --color-table-accent: #0078D4;
+  --color-diverging-1: #EE1C25;
+  --color-diverging-2: #F3A9AC;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #B3DFBA;
+  --color-diverging-5: #38B64B;
+  --font-title: 'Segoe UI Semibold', 'Inter', 'Arial', sans-serif;
+  --font-body:  'Segoe UI', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'Cascadia Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 150ms;
+  --motion-drill-transition: 180ms;
+  --motion-fade-in: 120ms;
+  --motion-easing: cubic-bezier(0.2, 0, 0.2, 1);
+}

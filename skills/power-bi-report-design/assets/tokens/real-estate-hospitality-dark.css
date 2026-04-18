@@ -1,0 +1,35 @@
+/* Theme tokens: Real Estate / Hospitality (Dark) (real-estate-hospitality-dark) — auto-generated */
+:root[data-theme="real-estate-hospitality-dark"] {
+  --color-data-1: #BD8C5C;
+  --color-data-2: #76A383;
+  --color-data-3: #C9A96E;
+  --color-data-4: #AA926F;
+  --color-data-5: #BE855A;
+  --color-data-6: #6B8CAE;
+  --color-data-7: #D6B342;
+  --color-data-8: #A8C4A2;
+  --color-semantic-good: #76A383;
+  --color-semantic-bad: #D4454B;
+  --color-semantic-neutral: #9B8E7D;
+  --color-semantic-warning: #D6B342;
+  --color-semantic-info: #6F96A9;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #BD8C5C;
+  --color-diverging-1: #943034;
+  --color-diverging-2: #7A4850;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #596963;
+  --color-diverging-5: #53725C;
+  --font-title: 'Lora', 'Georgia', serif;
+  --font-body:  'Nunito', 'Segoe UI', sans-serif;
+  --font-mono:  'Fira Code', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

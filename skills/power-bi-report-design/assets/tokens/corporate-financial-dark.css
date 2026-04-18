@@ -1,0 +1,35 @@
+/* Theme tokens: Corporate / Financial (Dark) (corporate-financial-dark) — auto-generated */
+:root[data-theme="corporate-financial-dark"] {
+  --color-data-1: #2B9DEE;
+  --color-data-2: #2B99EE;
+  --color-data-3: #D4A846;
+  --color-data-4: #7D8A9C;
+  --color-data-5: #9F60B9;
+  --color-data-6: #44D581;
+  --color-data-7: #E88731;
+  --color-data-8: #95A5A6;
+  --color-semantic-good: #50C962;
+  --color-semantic-bad: #EE2B33;
+  --color-semantic-neutral: #949599;
+  --color-semantic-warning: #EEA42B;
+  --color-semantic-info: #2B99EE;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #2B9DEE;
+  --color-diverging-1: #A71E24;
+  --color-diverging-2: #833F47;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #4C7658;
+  --color-diverging-5: #388D45;
+  --font-title: 'Source Serif Pro', 'Georgia', 'Times New Roman', serif;
+  --font-body:  'Inter', 'Segoe UI', -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 519" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>chiclet-nav-strip-mobile</title>
+<rect x="0" y="0" width="240" height="519" fill="#FFFFFF"/>
+<rect x="0" y="0" width="240" height="3" fill="#2563EB"/>
+<rect x="7.38" y="9.84" width="225.23" height="28.29" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="7.38" y="9.84" width="4" height="28.29" rx="2" fill="#2563EB"/>
+<text x="21.38" y="27.3798" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Mobile Title</text>
+<rect x="142.60999999999999" y="17.761200000000002" width="70" height="12.7" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="177.60999999999999" y="28.511400000000002" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.7502" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="11.379999999999999" y="50.5" width="217.23" height="10.706666666666665" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="50.5" width="3" height="10.706666666666665" fill="#2563EB"/>
+<text x="19.38" y="53.94733333333333" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.7954666666666665" font-weight="500">Revenue</text>
+<text x="19.38" y="58.648799999999994" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.082666666666666" font-weight="700">$1.24M</text>
+<rect x="11.379999999999999" y="63.20666666666666" width="217.23" height="10.706666666666665" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="63.20666666666666" width="3" height="10.706666666666665" fill="#2563EB"/>
+<text x="19.38" y="66.654" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.7954666666666665" font-weight="500">Margin</text>
+<text x="19.38" y="71.35546666666666" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.082666666666666" font-weight="700">38.2%</text>
+<rect x="11.379999999999999" y="75.91333333333333" width="217.23" height="10.706666666666665" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="75.91333333333333" width="3" height="10.706666666666665" fill="#2563EB"/>
+<text x="19.38" y="79.36066666666666" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.7954666666666665" font-weight="500">CSAT</text>
+<text x="19.38" y="84.06213333333332" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.082666666666666" font-weight="700">4.7</text>
+<rect x="11.379999999999999" y="103.0" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="103.0" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="109.0" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="151.742375" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">394</text>
+<rect x="16.38" y="174.74969761703602" width="10.348666666666665" height="10.9" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="181.93842010550887" width="10.348666666666665" height="3.7" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="183.43200384350678" width="10.348666666666665" height="2.2" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="174.4130547538329" width="10.348666666666665" height="11.2" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="172.89310428050769" width="10.348666666666665" height="12.7" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="103.0" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="103.0" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="109.0" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="151.742375" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">180</text>
+<rect x="90.12333333333332" y="178.44156398794473" width="10.348666666666665" height="7.2" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="171.1839227635586" width="10.348666666666665" height="14.4" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="162.69579612029355" width="10.348666666666665" height="22.9" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="166.9555746872794" width="10.348666666666665" height="18.7" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="183.2578790545482" width="10.348666666666665" height="2.4" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="103.0" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="103.0" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="109.0" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="151.742375" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">285</text>
+<rect x="163.86666666666665" y="165.06556639138617" width="10.348666666666665" height="20.6" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="172.90153225674902" width="10.348666666666665" height="12.7" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="163.5558425876492" width="10.348666666666665" height="22.1" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="167.20013798176075" width="10.348666666666665" height="18.4" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="182.54650617140638" width="10.348666666666665" height="3.1" fill="#60A5FA"/>
+<rect x="11.379999999999999" y="195.6225" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="195.6225" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="201.6225" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="244.364875" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">448</text>
+<rect x="16.38" y="261.71699174846924" width="10.348666666666665" height="16.5" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="265.24726061467004" width="10.348666666666665" height="13.0" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="262.6766765503941" width="10.348666666666665" height="15.6" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="267.3354208270371" width="10.348666666666665" height="10.9" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="266.2249921400978" width="10.348666666666665" height="12.0" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="195.6225" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="195.6225" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="201.6225" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="244.364875" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">693</text>
+<rect x="90.12333333333332" y="263.9513592731348" width="10.348666666666665" height="14.3" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="259.8382893487086" width="10.348666666666665" height="18.4" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="264.35593077479314" width="10.348666666666665" height="13.9" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="260.9784327900958" width="10.348666666666665" height="17.3" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="262.0013247187911" width="10.348666666666665" height="16.2" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="195.6225" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="195.6225" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="201.6225" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="244.364875" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">494</text>
+<rect x="163.86666666666665" y="252.3718203204975" width="10.348666666666665" height="25.9" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="256.61912082792395" width="10.348666666666665" height="21.6" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="269.013247296147" width="10.348666666666665" height="9.2" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="263.1808938492859" width="10.348666666666665" height="15.1" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="260.4591752338119" width="10.348666666666665" height="17.8" fill="#60A5FA"/>
+<rect x="11.379999999999999" y="288.245" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="288.245" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="294.245" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="336.987375" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">545</text>
+<rect x="16.38" y="354.0657750661769" width="10.348666666666665" height="16.8" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="365.25722547265116" width="10.348666666666665" height="5.6" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="357.80274070473956" width="10.348666666666665" height="13.1" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="358.35234339583644" width="10.348666666666665" height="12.5" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="360.74618032889344" width="10.348666666666665" height="10.1" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="288.245" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="288.245" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="294.245" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="336.987375" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">301</text>
+<rect x="90.12333333333332" y="354.8133091894782" width="10.348666666666665" height="16.1" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="358.6600804798472" width="10.348666666666665" height="12.2" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="363.1015357865223" width="10.348666666666665" height="7.8" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="345.86527134971163" width="10.348666666666665" height="25.0" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="365.37693796502117" width="10.348666666666665" height="5.5" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="288.245" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="288.245" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="294.245" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="336.987375" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">831</text>
+<rect x="163.86666666666665" y="352.38999587991725" width="10.348666666666665" height="18.5" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="355.0051086774505" width="10.348666666666665" height="15.9" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="355.1300381026609" width="10.348666666666665" height="15.7" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="366.55317190422574" width="10.348666666666665" height="4.3" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="357.84849673927715" width="10.348666666666665" height="13.0" fill="#60A5FA"/>
+<rect x="11.379999999999999" y="380.8675" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="11.379999999999999" y="380.8675" width="69.74333333333333" height="2" fill="#2563EB"/>
+<rect x="15.379999999999999" y="386.8675" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="15.379999999999999" y="429.609875" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">160</text>
+<rect x="16.38" y="441.0596562670584" width="10.348666666666665" height="22.4" fill="#60A5FA"/>
+<rect x="28.728666666666662" y="459.0880162493555" width="10.348666666666665" height="4.4" fill="#60A5FA"/>
+<rect x="41.07733333333333" y="460.31138834602893" width="10.348666666666665" height="3.2" fill="#60A5FA"/>
+<rect x="53.42599999999999" y="453.94895951616735" width="10.348666666666665" height="9.5" fill="#60A5FA"/>
+<rect x="65.77466666666666" y="447.22617205305266" width="10.348666666666665" height="16.3" fill="#60A5FA"/>
+<rect x="85.12333333333332" y="380.8675" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="85.12333333333332" y="380.8675" width="69.74333333333333" height="2" fill="#F59E0B"/>
+<rect x="89.12333333333332" y="386.8675" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="89.12333333333332" y="429.609875" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">446</text>
+<rect x="90.12333333333332" y="458.70296975559137" width="10.348666666666665" height="4.8" fill="#60A5FA"/>
+<rect x="102.47199999999998" y="445.6291319263459" width="10.348666666666665" height="17.9" fill="#60A5FA"/>
+<rect x="114.82066666666665" y="448.1331098909232" width="10.348666666666665" height="15.4" fill="#60A5FA"/>
+<rect x="127.16933333333331" y="443.11751778906347" width="10.348666666666665" height="20.4" fill="#60A5FA"/>
+<rect x="139.51799999999997" y="454.73614372202906" width="10.348666666666665" height="8.8" fill="#60A5FA"/>
+<rect x="158.86666666666665" y="380.8675" width="69.74333333333333" height="88.6225" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="158.86666666666665" y="380.8675" width="69.74333333333333" height="2" fill="#10B981"/>
+<rect x="162.86666666666665" y="386.8675" width="38.35883333333333" height="3" fill="#6B7280" rx="1"/>
+<text x="162.86666666666665" y="429.609875" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="700">326</text>
+<rect x="163.86666666666665" y="454.5278050867003" width="10.348666666666665" height="9.0" fill="#60A5FA"/>
+<rect x="176.21533333333332" y="446.45849529383736" width="10.348666666666665" height="17.0" fill="#60A5FA"/>
+<rect x="188.56399999999996" y="443.51320999680195" width="10.348666666666665" height="20.0" fill="#60A5FA"/>
+<rect x="200.91266666666664" y="441.7609135667368" width="10.348666666666665" height="21.7" fill="#60A5FA"/>
+<rect x="213.2613333333333" y="438.99931590379884" width="10.348666666666665" height="24.5" fill="#60A5FA"/>
+<rect x="7.38" y="480.87" width="225.23" height="28.29" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="14.379999999999999" y="486.528" width="48.3075" height="16.974" rx="8.487" fill="#2563EB"/>
+<text x="38.53375" y="499.2585" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Overview</text>
+<text x="92.84125" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Sales</text>
+<text x="147.14874999999998" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Finance</text>
+<text x="201.45624999999998" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Ops</text>
+<line x1="7.38" y1="509.16" x2="232.60999999999999" y2="509.16" stroke="#E5E7EB" stroke-width="1"/>
+<circle cx="222.60999999999999" cy="19.84" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="222.60999999999999" y="22.84" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">1</text>
+<circle cx="222.60999999999999" cy="55.5" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="222.60999999999999" y="58.5" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">2</text>
+<circle cx="222.60999999999999" cy="109.0" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="222.60999999999999" y="112.0" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">3</text>
+<circle cx="222.60999999999999" cy="490.87" r="8" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="222.60999999999999" y="493.87" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">4</text>
+<text x="120.0" y="514" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">chiclet-nav-strip-mobile</text>
+</svg>

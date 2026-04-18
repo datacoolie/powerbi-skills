@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>aging-bucket-page</title>
+<rect x="0" y="0" width="480" height="270" fill="#0F172A"/>
+<rect x="0" y="0" width="480" height="3" fill="#38BDF8"/>
+<rect x="10.620000000000001" y="10.620000000000001" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="10.620000000000001" y="10.620000000000001" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="18.62" y="15.563600000000001" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="22.2466" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="126.8125" y="10.620000000000001" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="126.8125" y="10.620000000000001" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="134.8125" y="15.563600000000001" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="134.8125" y="22.2466" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="243.005" y="10.620000000000001" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="243.005" y="10.620000000000001" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="251.005" y="15.563600000000001" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="251.005" y="22.2466" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="359.1975" y="10.620000000000001" width="110.1925" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="359.1975" y="10.620000000000001" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="367.1975" y="15.563600000000001" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="367.1975" y="22.2466" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="4.62" y="33.46" width="470.77" height="126.06" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="12.620000000000001" y="45.46" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Bucket Bar Chart</text>
+<rect x="21.1" y="110.4" width="39.8" height="41.1" rx="1" fill="#38BDF8"/>
+<rect x="78.0" y="102.9" width="39.8" height="48.6" rx="1" fill="#60A5FA"/>
+<rect x="134.8" y="87.7" width="39.8" height="63.8" rx="1" fill="#38BDF8"/>
+<rect x="191.7" y="91.0" width="39.8" height="60.5" rx="1" fill="#60A5FA"/>
+<rect x="248.5" y="65.2" width="39.8" height="86.4" rx="1" fill="#38BDF8"/>
+<rect x="305.4" y="118.7" width="39.8" height="32.9" rx="1" fill="#60A5FA"/>
+<rect x="362.2" y="91.6" width="39.8" height="59.9" rx="1" fill="#38BDF8"/>
+<rect x="419.1" y="110.6" width="39.8" height="41.0" rx="1" fill="#60A5FA"/>
+<line x1="12.620000000000001" y1="151.52" x2="467.39" y2="151.52" stroke="#334155"/>
+<rect x="4.62" y="162.98" width="470.77" height="102.4" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="4.62" y="162.98" width="470.77" height="14" fill="#0C2A4A"/>
+<text x="12.620000000000001" y="172.98" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Item</text>
+<text x="103.574" y="172.98" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Value</text>
+<text x="194.528" y="172.98" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Δ%</text>
+<text x="285.48199999999997" y="172.98" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Status</text>
+<text x="376.436" y="172.98" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.5" font-weight="700">Trend</text>
+<line x1="4.62" y1="176.98" x2="475.39" y2="176.98" stroke="#334155"/>
+<rect x="12.620000000000001" y="179.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="179.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="179.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="181.98" r="2.5" fill="#34D399"/>
+<polyline points="378.4,182.1 380.4,182.0 382.4,183.3 384.4,183.5 386.4,181.5" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="4.62" y="186.98" width="470.77" height="10" fill="#1F2937"/>
+<rect x="12.620000000000001" y="189.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="189.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="189.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="191.98" r="2.5" fill="#FBBF24"/>
+<polyline points="378.4,192.0 380.4,190.1 382.4,191.0 384.4,191.7 386.4,190.4" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="12.620000000000001" y="199.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="199.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="199.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="201.98" r="2.5" fill="#F87171"/>
+<polyline points="378.4,201.1 380.4,203.1 382.4,201.2 384.4,201.7 386.4,201.7" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="4.62" y="206.98" width="470.77" height="10" fill="#1F2937"/>
+<rect x="12.620000000000001" y="209.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="209.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="209.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="211.98" r="2.5" fill="#34D399"/>
+<polyline points="378.4,211.2 380.4,212.8 382.4,212.3 384.4,213.6 386.4,210.1" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="12.620000000000001" y="219.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="219.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="219.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="221.98" r="2.5" fill="#FBBF24"/>
+<polyline points="378.4,221.0 380.4,223.1 382.4,221.4 384.4,223.0 386.4,221.7" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="4.62" y="226.98" width="470.77" height="10" fill="#1F2937"/>
+<rect x="12.620000000000001" y="229.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="229.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="229.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="231.98" r="2.5" fill="#F87171"/>
+<polyline points="378.4,233.7 380.4,233.7 382.4,231.7 384.4,232.9 386.4,231.4" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="12.620000000000001" y="239.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="239.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="239.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="241.98" r="2.5" fill="#34D399"/>
+<polyline points="378.4,241.7 380.4,243.3 382.4,241.5 384.4,240.6 386.4,240.1" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<rect x="4.62" y="246.98" width="470.77" height="10" fill="#1F2937"/>
+<rect x="12.620000000000001" y="249.98" width="63.7" height="4" fill="#94A3B8" rx="1" opacity="0.5"/>
+<rect x="103.574" y="249.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<rect x="194.528" y="249.98" width="45.5" height="4" fill="#F1F5F9" rx="1" opacity="0.7"/>
+<circle cx="291.48199999999997" cy="251.98" r="2.5" fill="#FBBF24"/>
+<polyline points="378.4,250.5 380.4,251.0 382.4,253.2 384.4,252.4 386.4,250.2" fill="none" stroke="#38BDF8" stroke-width="1"/>
+<text x="240.0" y="265" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">aging-bucket-page</text>
+</svg>

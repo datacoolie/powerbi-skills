@@ -1,0 +1,35 @@
+/* Theme tokens: IBM Carbon (brand-ibm-carbon) — auto-generated */
+:root[data-theme="brand-ibm-carbon"] {
+  --color-data-1: #0F62FE;
+  --color-data-2: #6929C4;
+  --color-data-3: #1192E8;
+  --color-data-4: #005D5D;
+  --color-data-5: #9F1853;
+  --color-data-6: #FA4D56;
+  --color-data-7: #570408;
+  --color-data-8: #198038;
+  --color-semantic-good: #198038;
+  --color-semantic-bad: #DA1E28;
+  --color-semantic-neutral: #525252;
+  --color-semantic-warning: #F1C21B;
+  --color-semantic-info: #0F62FE;
+  --color-neutral-muted: #969696;
+  --color-neutral-disabled: #C5C5C5;
+  --color-neutral-gridline: #E3E3E3;
+  --color-neutral-divider: #D0D0D0;
+  --color-bg: #FFFFFF;
+  --color-fg: #161616;
+  --color-table-accent: #0F62FE;
+  --color-diverging-1: #99151C;
+  --color-diverging-2: #ECAAAD;
+  --color-diverging-3: #F5F5F5;
+  --color-diverging-4: #A8CCB3;
+  --color-diverging-5: #125A27;
+  --font-title: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body:  'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono:  'IBM Plex Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

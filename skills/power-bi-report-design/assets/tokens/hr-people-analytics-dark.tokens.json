@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'HR / People Analytics (Dark)' (hr-people-analytics-dark).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#2BEED7"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#F17751"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#5C6BC0"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#44D4C7"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#EC407A"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#A08378"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#8EC157"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#B257C2"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#5DBB61"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#EF5350"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#90A4AE"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#EFA436"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#31B3EE"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#707377"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#45494E"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#292D32"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#3A3E43"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#0F1419"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#E6E8EB"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#2BEED7"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#506C56"
+        },
+        {
+          "$type": "color",
+          "$value": "#5DBB61"
+        },
+        {
+          "$type": "color",
+          "$value": "#2A542C"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#7C654A"
+        },
+        {
+          "$type": "color",
+          "$value": "#EFA436"
+        },
+        {
+          "$type": "color",
+          "$value": "#6C4A18"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#7C4D51"
+        },
+        {
+          "$type": "color",
+          "$value": "#EF5350"
+        },
+        {
+          "$type": "color",
+          "$value": "#6C2524"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#417B7A"
+        },
+        {
+          "$type": "color",
+          "$value": "#2BEED7"
+        },
+        {
+          "$type": "color",
+          "$value": "#136B61"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#A73A38"
+        },
+        {
+          "$type": "color",
+          "$value": "#844D51"
+        },
+        {
+          "$type": "color",
+          "$value": "#4A4A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#517257"
+        },
+        {
+          "$type": "color",
+          "$value": "#418344"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Lora', 'Georgia', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Nunito', 'Segoe UI', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'Fira Code', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.08
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "hr-people-analytics"
+    }
+  }
+}

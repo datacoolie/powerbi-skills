@@ -1,0 +1,35 @@
+/* Theme tokens: Sustainability / ESG (sustainability-esg) — auto-generated */
+:root[data-theme="sustainability-esg"] {
+  --color-data-1: #2D6A4F;
+  --color-data-2: #52B788;
+  --color-data-3: #95D5B2;
+  --color-data-4: #D8F3DC;
+  --color-data-5: #8B5E3C;
+  --color-data-6: #D4A846;
+  --color-data-7: #E76F51;
+  --color-data-8: #264653;
+  --color-semantic-good: #2D6A4F;
+  --color-semantic-bad: #E76F51;
+  --color-semantic-neutral: #8B5E3C;
+  --color-semantic-warning: #D4A846;
+  --color-semantic-info: #264653;
+  --color-neutral-muted: #8C9A88;
+  --color-neutral-disabled: #C2CABF;
+  --color-neutral-gridline: #E1E6DD;
+  --color-neutral-divider: #CBD3C7;
+  --color-bg: #F5F5F0;
+  --color-fg: #1B4332;
+  --color-table-accent: #2D6A4F;
+  --color-diverging-1: #E76F51;
+  --color-diverging-2: #F0C6BC;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #AFC4BB;
+  --color-diverging-5: #2D6A4F;
+  --font-title: 'Lora', 'Georgia', serif;
+  --font-body:  'Nunito', 'Segoe UI', sans-serif;
+  --font-mono:  'Fira Code', 'Consolas', monospace;
+  --motion-tooltip-delay: 400ms;
+  --motion-drill-transition: 350ms;
+  --motion-fade-in: 240ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.6, 1);
+}

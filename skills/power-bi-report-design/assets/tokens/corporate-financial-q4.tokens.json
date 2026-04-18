@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Corporate / Financial (Q4)' (corporate-financial-q4).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#062A52"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#1B6FB8"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#E8B653"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#6B7A8D"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#9B59B6"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#2ECC71"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#E67E22"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#95A5A6"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#38B64B"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#EE1C25"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#949599"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#F5A623"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#0078D4"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#B4B9C2"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#D1D5DB"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#E5E7EB"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#CBD2DB"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#F8F9FA"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#1A1A2E"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#003052"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#BCE2C2"
+        },
+        {
+          "$type": "color",
+          "$value": "#38B64B"
+        },
+        {
+          "$type": "color",
+          "$value": "#195222"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#F5DDB6"
+        },
+        {
+          "$type": "color",
+          "$value": "#F5A623"
+        },
+        {
+          "$type": "color",
+          "$value": "#6E4B10"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#F3B4B7"
+        },
+        {
+          "$type": "color",
+          "$value": "#EE1C25"
+        },
+        {
+          "$type": "color",
+          "$value": "#6B0D11"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#ADB8C4"
+        },
+        {
+          "$type": "color",
+          "$value": "#062A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#031325"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#A7141A"
+        },
+        {
+          "$type": "color",
+          "$value": "#F3A9AC"
+        },
+        {
+          "$type": "color",
+          "$value": "#F5F5F5"
+        },
+        {
+          "$type": "color",
+          "$value": "#B3DFBA"
+        },
+        {
+          "$type": "color",
+          "$value": "#277F34"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Source Serif Pro', 'Georgia', 'Times New Roman', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Inter', 'Segoe UI', -apple-system, sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'JetBrains Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "400ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "350ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "240ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.6, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 16.18
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "corporate-financial"
+    }
+  }
+}

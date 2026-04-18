@@ -1,0 +1,73 @@
+{
+  "name": "Tailwind Slate + Sky (Dark)",
+  "dataColors": [
+    "#2BB1EE",
+    "#8D60F2",
+    "#EEA52B",
+    "#2CEDAD",
+    "#EF4444",
+    "#EC4899",
+    "#30E9D4",
+    "#6366F1"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2BB1EE",
+  "good": "#2CEDAD",
+  "bad": "#EF4444",
+  "neutral": "#7A899F",
+  "warning": "#EEA52B",
+  "info": "#2BB1EE",
+  "minimum": "#A73030",
+  "center": "#4A4A52",
+  "maximum": "#1FA679",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

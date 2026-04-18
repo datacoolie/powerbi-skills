@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 519" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>tachometer-gauge-row-mobile</title>
+<rect x="0" y="0" width="240" height="519" fill="#0F172A"/>
+<rect x="0" y="0" width="240" height="3" fill="#38BDF8"/>
+<rect x="7.38" y="9.84" width="225.23" height="28.29" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="7.38" y="9.84" width="4" height="28.29" rx="2" fill="#38BDF8"/>
+<text x="21.38" y="27.3798" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Mobile Title</text>
+<rect x="142.60999999999999" y="17.761200000000002" width="70" height="12.7" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="177.60999999999999" y="28.511400000000002" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.7502" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="11.379999999999999" y="50.5" width="217.23" height="10.706666666666665" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="11.379999999999999" y="50.5" width="3" height="10.706666666666665" fill="#38BDF8"/>
+<text x="19.38" y="53.94733333333333" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.7954666666666665" font-weight="500">Revenue</text>
+<text x="19.38" y="58.648799999999994" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.082666666666666" font-weight="700">$1.24M</text>
+<rect x="11.379999999999999" y="63.20666666666666" width="217.23" height="10.706666666666665" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="11.379999999999999" y="63.20666666666666" width="3" height="10.706666666666665" fill="#38BDF8"/>
+<text x="19.38" y="66.654" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.7954666666666665" font-weight="500">Margin</text>
+<text x="19.38" y="71.35546666666666" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.082666666666666" font-weight="700">38.2%</text>
+<rect x="11.379999999999999" y="75.91333333333333" width="217.23" height="10.706666666666665" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="11.379999999999999" y="75.91333333333333" width="3" height="10.706666666666665" fill="#38BDF8"/>
+<text x="19.38" y="79.36066666666666" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.7954666666666665" font-weight="500">CSAT</text>
+<text x="19.38" y="84.06213333333332" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.082666666666666" font-weight="700">4.7</text>
+<rect x="13.379999999999999" y="107.0" width="213.23" height="116.83" rx="3" fill="#1E293B" stroke="#334155"/>
+<path d="M 38.7 179.9 A 41.1 41.1 0 0 1 120.9 179.9" fill="none" stroke="#1F2937" stroke-width="9.0"/>
+<path d="M 38.7 179.9 A 41.1 41.1 0 0 1 96.2 142.1" fill="none" stroke="#34D399" stroke-width="9.0"/>
+<line x1="79.8" y1="179.9" x2="96.2" y2="145.0" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round"/>
+<circle cx="79.8" cy="179.9" r="3" fill="#F1F5F9"/>
+<text x="134.92700000000002" y="155.7486" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="500">OEE</text>
+<text x="134.92700000000002" y="191.99759999999998" fill="#34D399" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="16" font-weight="700">82%</text>
+<rect x="13.379999999999999" y="227.82999999999998" width="213.23" height="116.83" rx="3" fill="#1E293B" stroke="#334155"/>
+<path d="M 38.7 300.7 A 41.1 41.1 0 0 1 120.9 300.7" fill="none" stroke="#1F2937" stroke-width="9.0"/>
+<path d="M 38.7 300.7 A 41.1 41.1 0 0 1 96.2 262.9" fill="none" stroke="#34D399" stroke-width="9.0"/>
+<line x1="79.8" y1="300.7" x2="96.2" y2="265.8" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round"/>
+<circle cx="79.8" cy="300.7" r="3" fill="#F1F5F9"/>
+<text x="134.92700000000002" y="276.5786" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="500">Avail.</text>
+<text x="134.92700000000002" y="312.82759999999996" fill="#34D399" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="16" font-weight="700">94%</text>
+<rect x="13.379999999999999" y="348.65999999999997" width="213.23" height="116.83" rx="3" fill="#1E293B" stroke="#334155"/>
+<path d="M 38.7 421.6 A 41.1 41.1 0 0 1 120.9 421.6" fill="none" stroke="#1F2937" stroke-width="9.0"/>
+<path d="M 38.7 421.6 A 41.1 41.1 0 0 1 96.2 383.7" fill="none" stroke="#34D399" stroke-width="9.0"/>
+<line x1="79.8" y1="421.6" x2="96.2" y2="386.6" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round"/>
+<circle cx="79.8" cy="421.6" r="3" fill="#F1F5F9"/>
+<text x="134.92700000000002" y="397.4086" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="500">Quality</text>
+<text x="134.92700000000002" y="433.65759999999995" fill="#34D399" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="16" font-weight="700">78%</text>
+<rect x="7.38" y="480.87" width="225.23" height="28.29" rx="3" fill="#111827" stroke="#334155"/>
+<rect x="14.379999999999999" y="486.528" width="48.3075" height="16.974" rx="8.487" fill="#38BDF8"/>
+<text x="38.53375" y="499.2585" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Overview</text>
+<text x="92.84125" y="499.2585" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Sales</text>
+<text x="147.14874999999998" y="499.2585" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Finance</text>
+<text x="201.45624999999998" y="499.2585" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Ops</text>
+<line x1="7.38" y1="509.16" x2="232.60999999999999" y2="509.16" stroke="#334155" stroke-width="1"/>
+<text x="120.0" y="514" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">tachometer-gauge-row-mobile</text>
+</svg>

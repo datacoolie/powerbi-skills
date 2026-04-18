@@ -1,0 +1,71 @@
+{
+  "name": "Public Sector / Government",
+  "dataColors": [
+    "#1A3A5F",
+    "#C41E3A",
+    "#5A6D7F",
+    "#D4A017",
+    "#2E5E4E",
+    "#8B5A3C",
+    "#6B7F2C",
+    "#A89384"
+  ],
+  "background": "#FDFDFB",
+  "foreground": "#1A1A2E",
+  "tableAccent": "#1A3A5F",
+  "good": "#2E7D32",
+  "bad": "#C41E3A",
+  "neutral": "#5A6D7F",
+  "warning": "#D4A017",
+  "info": "#1A3A5F",
+  "minimum": "#C41E3A",
+  "center": "#F2F2F2",
+  "maximum": "#2E7D32",
+  "null": "#BCC2CB",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": {
+              "show": true,
+              "color": {
+                "solid": {
+                  "color": "#E4E7EC"
+                }
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "lineColor": {
+              "solid": {
+                "color": "#CFD4DA"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#7A8692"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E4E7EC"
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": "#7A8692"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>full-page-map</title>
+<rect x="0" y="0" width="480" height="270" fill="#FFFFFF"/>
+<rect x="0" y="0" width="480" height="3" fill="#2563EB"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#2563EB"/>
+<text x="18.62" y="16.245" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Top Header Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="420.39" y="16.995" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="153.46" rx="3" fill="#EFF6FF" stroke="#E5E7EB"/>
+<text x="12.620000000000001" y="38.83" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Hero Map</text>
+<path d="M 51.7 111.2 Q 145.9 62.1 240.0 64.6 Q 409.5 91.6 428.3 126.0 Q 334.2 160.3 202.3 155.4 Q 70.5 135.8 51.7 111.2 Z" fill="#2563EB" opacity="0.25" stroke="#2563EB" stroke-opacity="0.5"/>
+<ellipse cx="315.3" cy="130.9" rx="41.4" ry="12.3" fill="#2563EB" opacity="0.2"/>
+<circle cx="192.9" cy="103.9" r="3.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="268.3" cy="116.1" r="3.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="296.5" cy="99.0" r="3.5" fill="#10B981" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="230.6" cy="123.5" r="3.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.2"/>
+<rect x="4.62" y="183.75" width="470.77" height="81.63" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="12.620000000000001" y="195.3" width="10" height="7.4" fill="#2563EB" rx="1"/>
+<text x="26.62" y="202.6" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Actual</text>
+<rect x="12.620000000000001" y="213.7" width="10" height="7.4" fill="#F59E0B" rx="1"/>
+<text x="26.62" y="221.0" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Plan</text>
+<rect x="12.620000000000001" y="232.1" width="10" height="7.4" fill="#10B981" rx="1"/>
+<text x="26.62" y="239.5" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Forecast</text>
+<rect x="12.620000000000001" y="250.5" width="10" height="7.4" fill="#93C5FD" rx="1"/>
+<text x="26.62" y="257.9" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">LY</text>
+<text x="240.0" y="265" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">full-page-map</text>
+</svg>

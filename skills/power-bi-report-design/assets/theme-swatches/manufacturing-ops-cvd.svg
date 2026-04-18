@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="sans-serif">
+  <title>cvd simulation: manufacturing-ops</title>
+  <style id="theme-swatch-frame">svg{color:#1f2937;background:#ffffff;}@media (prefers-color-scheme: dark){svg{color:#e5e7eb;background:#111827;}}text{fill:currentColor;}.row-label{font-size:10px;font-weight:bold;fill-opacity:0.8;}.hex{font-family:monospace;font-size:6px;fill-opacity:0.7;}.title{font-size:13px;font-weight:bold;}.sub{font-size:9px;fill-opacity:0.7;}.caption{font-size:8px;fill-opacity:0.8;}</style>
+  <rect x="0" y="0" width="560" height="28" fill="#2B5797"/>
+  <text x="12" y="18" class="title" fill="#ffffff">CVD Simulation · Manufacturing / Operations</text>
+  <text x="548" y="18" class="sub" fill="#ffffff" text-anchor="end" fill-opacity="0.85">Machado 2009 · severity 1.0</text>
+  <text x="12" y="68" class="row-label">Normal vision</text>
+  <rect x="110" y="48" width="48" height="34" fill="#2B5797" rx="2" ry="2"/>
+  <text x="134.0" y="91" class="hex" text-anchor="middle">#2B5797</text>
+  <rect x="161" y="48" width="48" height="34" fill="#7A7574" rx="2" ry="2"/>
+  <text x="185.0" y="91" class="hex" text-anchor="middle">#7A7574</text>
+  <rect x="212" y="48" width="48" height="34" fill="#E8980C" rx="2" ry="2"/>
+  <text x="236.0" y="91" class="hex" text-anchor="middle">#E8980C</text>
+  <rect x="263" y="48" width="48" height="34" fill="#DF5022" rx="2" ry="2"/>
+  <text x="287.0" y="91" class="hex" text-anchor="middle">#DF5022</text>
+  <rect x="314" y="48" width="48" height="34" fill="#38B64B" rx="2" ry="2"/>
+  <text x="338.0" y="91" class="hex" text-anchor="middle">#38B64B</text>
+  <rect x="365" y="48" width="48" height="34" fill="#A4262C" rx="2" ry="2"/>
+  <text x="389.0" y="91" class="hex" text-anchor="middle">#A4262C</text>
+  <rect x="416" y="48" width="48" height="34" fill="#8764B8" rx="2" ry="2"/>
+  <text x="440.0" y="91" class="hex" text-anchor="middle">#8764B8</text>
+  <rect x="467" y="48" width="48" height="34" fill="#00B294" rx="2" ry="2"/>
+  <text x="491.0" y="91" class="hex" text-anchor="middle">#00B294</text>
+  <text x="12" y="128" class="row-label">Deuteranopia</text>
+  <rect x="110" y="108" width="48" height="34" fill="#384E96" rx="2" ry="2"/>
+  <text x="134.0" y="151" class="hex" text-anchor="middle">#384E96</text>
+  <rect x="161" y="108" width="48" height="34" fill="#777674" rx="2" ry="2"/>
+  <text x="185.0" y="151" class="hex" text-anchor="middle">#777674</text>
+  <rect x="212" y="108" width="48" height="34" fill="#D5A80F" rx="2" ry="2"/>
+  <text x="236.0" y="151" class="hex" text-anchor="middle">#D5A80F</text>
+  <rect x="263" y="108" width="48" height="34" fill="#8F7622" rx="2" ry="2"/>
+  <text x="287.0" y="151" class="hex" text-anchor="middle">#8F7622</text>
+  <rect x="314" y="108" width="48" height="34" fill="#A08E50" rx="2" ry="2"/>
+  <text x="338.0" y="151" class="hex" text-anchor="middle">#A08E50</text>
+  <rect x="365" y="108" width="48" height="34" fill="#534A2A" rx="2" ry="2"/>
+  <text x="389.0" y="151" class="hex" text-anchor="middle">#534A2A</text>
+  <rect x="416" y="108" width="48" height="34" fill="#5E72B5" rx="2" ry="2"/>
+  <text x="440.0" y="151" class="hex" text-anchor="middle">#5E72B5</text>
+  <rect x="467" y="108" width="48" height="34" fill="#787F97" rx="2" ry="2"/>
+  <text x="491.0" y="151" class="hex" text-anchor="middle">#787F97</text>
+  <text x="12" y="188" class="row-label">Protanopia</text>
+  <rect x="110" y="168" width="48" height="34" fill="#43589B" rx="2" ry="2"/>
+  <text x="134.0" y="211" class="hex" text-anchor="middle">#43589B</text>
+  <rect x="161" y="168" width="48" height="34" fill="#767574" rx="2" ry="2"/>
+  <text x="185.0" y="211" class="hex" text-anchor="middle">#767574</text>
+  <rect x="212" y="168" width="48" height="34" fill="#C19304" rx="2" ry="2"/>
+  <text x="236.0" y="211" class="hex" text-anchor="middle">#C19304</text>
+  <rect x="263" y="168" width="48" height="34" fill="#6F5C1F" rx="2" ry="2"/>
+  <text x="287.0" y="211" class="hex" text-anchor="middle">#6F5C1F</text>
+  <rect x="314" y="168" width="48" height="34" fill="#B99D46" rx="2" ry="2"/>
+  <text x="338.0" y="211" class="hex" text-anchor="middle">#B99D46</text>
+  <rect x="365" y="168" width="48" height="34" fill="#38352C" rx="2" ry="2"/>
+  <text x="389.0" y="211" class="hex" text-anchor="middle">#38352C</text>
+  <rect x="416" y="168" width="48" height="34" fill="#5870BC" rx="2" ry="2"/>
+  <text x="440.0" y="211" class="hex" text-anchor="middle">#5870BC</text>
+  <rect x="467" y="168" width="48" height="34" fill="#9D9B93" rx="2" ry="2"/>
+  <text x="491.0" y="211" class="hex" text-anchor="middle">#9D9B93</text>
+  <text x="12" y="248" class="row-label">Tritanopia</text>
+  <rect x="110" y="228" width="48" height="34" fill="#14646A" rx="2" ry="2"/>
+  <text x="134.0" y="271" class="hex" text-anchor="middle">#14646A</text>
+  <rect x="161" y="228" width="48" height="34" fill="#7B7475" rx="2" ry="2"/>
+  <text x="185.0" y="271" class="hex" text-anchor="middle">#7B7475</text>
+  <rect x="212" y="228" width="48" height="34" fill="#FF7D6E" rx="2" ry="2"/>
+  <text x="236.0" y="271" class="hex" text-anchor="middle">#FF7D6E</text>
+  <rect x="263" y="228" width="48" height="34" fill="#FF3E43" rx="2" ry="2"/>
+  <text x="287.0" y="271" class="hex" text-anchor="middle">#FF3E43</text>
+  <rect x="314" y="228" width="48" height="34" fill="#2BB095" rx="2" ry="2"/>
+  <text x="338.0" y="271" class="hex" text-anchor="middle">#2BB095</text>
+  <rect x="365" y="228" width="48" height="34" fill="#C31D28" rx="2" ry="2"/>
+  <text x="389.0" y="271" class="hex" text-anchor="middle">#C31D28</text>
+  <rect x="416" y="228" width="48" height="34" fill="#816E7E" rx="2" ry="2"/>
+  <text x="440.0" y="271" class="hex" text-anchor="middle">#816E7E</text>
+  <rect x="467" y="228" width="48" height="34" fill="#00BBA8" rx="2" ry="2"/>
+  <text x="491.0" y="271" class="hex" text-anchor="middle">#00BBA8</text>
+  <text x="12" y="288" class="caption" fill-opacity="0.65">Rows 2-4 show how palette appears to viewers with the named color-vision deficiency.</text>
+</svg>

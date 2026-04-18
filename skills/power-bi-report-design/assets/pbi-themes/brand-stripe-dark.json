@@ -1,0 +1,73 @@
+{
+  "name": "Stripe Indigo (Dark)",
+  "dataColors": [
+    "#6E67F3",
+    "#2BEE4B",
+    "#F36599",
+    "#F2BD5B",
+    "#398CE0",
+    "#2BCDEE",
+    "#EF5A5A",
+    "#8792A2"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#6E67F3",
+  "good": "#2BEE4B",
+  "bad": "#EF5A5A",
+  "neutral": "#8792A2",
+  "warning": "#F2BD5B",
+  "info": "#6E67F3",
+  "minimum": "#A73F3F",
+  "center": "#4A4A52",
+  "maximum": "#1EA734",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* Theme tokens: Atlassian Blue (Dark) (brand-atlassian-dark) — auto-generated */
+:root[data-theme="brand-atlassian-dark"] {
+  --color-data-1: #2B79EE;
+  --color-data-2: #4FCA96;
+  --color-data-3: #EEAE2B;
+  --color-data-4: #EE522B;
+  --color-data-5: #6857C1;
+  --color-data-6: #2BD0EE;
+  --color-data-7: #EE952B;
+  --color-data-8: #7987A0;
+  --color-semantic-good: #4FCA96;
+  --color-semantic-bad: #EE522B;
+  --color-semantic-neutral: #7987A0;
+  --color-semantic-warning: #EEAE2B;
+  --color-semantic-info: #2B79EE;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #2B79EE;
+  --color-diverging-1: #A7391E;
+  --color-diverging-2: #834D44;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #4C776A;
+  --color-diverging-5: #378D69;
+  --font-title: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body:  'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-mono:  'IBM Plex Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

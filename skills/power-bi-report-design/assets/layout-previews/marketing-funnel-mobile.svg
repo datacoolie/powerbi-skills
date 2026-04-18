@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 519" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>marketing-funnel-mobile</title>
+<rect x="0" y="0" width="240" height="519" fill="#FFFFFF"/>
+<rect x="0" y="0" width="240" height="3" fill="#2563EB"/>
+<rect x="7.38" y="9.84" width="225.23" height="28.29" rx="4" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="7.38" y="9.84" width="4" height="28.29" rx="2" fill="#2563EB"/>
+<text x="21.38" y="27.3798" fill="#111827" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">Mobile Title</text>
+<rect x="142.60999999999999" y="17.761200000000002" width="70" height="12.7" rx="3" fill="#EFF6FF" stroke="#DBEAFE"/>
+<text x="177.60999999999999" y="28.511400000000002" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.7502" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="7.38" y="45.5" width="225.23" height="427.99" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
+<text x="15.379999999999999" y="57.5" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Marketing Funnel Mobile</text>
+<rect x="13.4" y="65.5" width="213.2" height="78.8" rx="2" fill="#2563EB" opacity="0.85"/>
+<text x="19.4" y="118.0" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="600">Visitors</text>
+<text x="220.6" y="118.0" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">100%</text>
+<rect x="29.1" y="146.3" width="181.7" height="78.8" rx="2" fill="#60A5FA" opacity="0.85"/>
+<text x="35.1" y="198.8" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="600">Leads</text>
+<text x="204.8" y="198.8" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">64%</text>
+<rect x="44.9" y="227.1" width="150.2" height="78.8" rx="2" fill="#93C5FD" opacity="0.85"/>
+<text x="50.9" y="279.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="600">MQL</text>
+<text x="189.1" y="279.6" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">38%</text>
+<rect x="60.7" y="307.9" width="118.6" height="78.8" rx="2" fill="#F59E0B" opacity="0.85"/>
+<text x="66.7" y="360.4" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="600">SQL</text>
+<text x="173.3" y="360.4" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">18%</text>
+<rect x="76.4" y="388.7" width="87.1" height="78.8" rx="2" fill="#10B981" opacity="0.85"/>
+<text x="82.4" y="441.2" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="600">Won</text>
+<text x="157.5" y="441.2" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="end">7%</text>
+<rect x="7.38" y="480.87" width="225.23" height="28.29" rx="3" fill="#F8FAFC" stroke="#E5E7EB"/>
+<rect x="14.379999999999999" y="486.528" width="48.3075" height="16.974" rx="8.487" fill="#2563EB"/>
+<text x="38.53375" y="499.2585" fill="#FFFFFF" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Overview</text>
+<text x="92.84125" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Sales</text>
+<text x="147.14874999999998" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Finance</text>
+<text x="201.45624999999998" y="499.2585" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Ops</text>
+<line x1="7.38" y1="509.16" x2="232.60999999999999" y2="509.16" stroke="#E5E7EB" stroke-width="1"/>
+<text x="120.0" y="514" fill="#6B7280" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">marketing-funnel-mobile</text>
+</svg>

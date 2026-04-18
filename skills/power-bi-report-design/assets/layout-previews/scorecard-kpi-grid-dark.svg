@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>scorecard-kpi-grid</title>
+<rect x="0" y="0" width="480" height="270" fill="#0F172A"/>
+<rect x="0" y="0" width="480" height="3" fill="#38BDF8"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#38BDF8"/>
+<text x="18.62" y="16.245" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title Bar</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="420.39" y="16.995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="183.46" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="12.620000000000001" y="38.83" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="600">Period Toggle</text>
+<polygon points="12.6,202.29000000000002 12.6,96.5 45.1,143.9 77.6,101.1 110.1,98.9 142.6,151.7 175.0,122.3 207.5,135.7 240.0,152.1 272.5,92.0 305.0,114.8 337.5,96.9 369.9,116.9 402.4,141.4 434.9,124.9 467.4,114.4 467.4,202.29000000000002" fill="#38BDF8" opacity="0.18"/>
+<polyline points="12.6,96.5 45.1,143.9 77.6,101.1 110.1,98.9 142.6,151.7 175.0,122.3 207.5,135.7 240.0,152.1 272.5,92.0 305.0,114.8 337.5,96.9 369.9,116.9 402.4,141.4 434.9,124.9 467.4,114.4" fill="none" stroke="#38BDF8" stroke-width="1.8"/>
+<polyline points="12.6,173.2 45.1,113.4 77.6,153.0 110.1,142.0 142.6,113.1 175.0,178.6 207.5,119.6 240.0,160.6 272.5,148.3 305.0,148.5 337.5,116.3 369.9,165.2 402.4,123.1 434.9,124.1 467.4,147.9" fill="none" stroke="#FBBF24" stroke-width="1.3" stroke-dasharray="3 2"/>
+<line x1="12.620000000000001" y1="202.29000000000002" x2="467.39" y2="202.29000000000002" stroke="#334155"/>
+<rect x="10.620000000000001" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="10.620000000000001" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="18.62" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Revenue</text>
+<text x="18.62" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$1.24M</text>
+<rect x="68.71625" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="68.71625" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="76.71625" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Orders</text>
+<text x="76.71625" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">48,912</text>
+<rect x="126.8125" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="126.8125" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="134.8125" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Margin</text>
+<text x="134.8125" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">38.2%</text>
+<rect x="184.90875" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="184.90875" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="192.90875" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">CSAT</text>
+<text x="192.90875" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">4.7 / 5</text>
+<rect x="243.005" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="243.005" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="251.005" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Conv %</text>
+<text x="251.005" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">12.8%</text>
+<rect x="301.10125" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="301.10125" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="309.10125" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">AOV</text>
+<text x="309.10125" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">$86</text>
+<rect x="359.1975" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="359.1975" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="367.1975" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Churn</text>
+<text x="367.1975" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">2.1%</text>
+<rect x="417.29375" y="219.75" width="52.09625" height="13.379999999999999" rx="4" fill="#1E293B" stroke="#334155"/>
+<rect x="417.29375" y="219.75" width="3" height="13.379999999999999" fill="#38BDF8"/>
+<text x="425.29375" y="224.6936" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.9436" font-weight="500">Active</text>
+<text x="425.29375" y="231.3766" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.682999999999999" font-weight="700">21,048</text>
+<rect x="4.62" y="242.6" width="470.77" height="22.79" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="12.620000000000001" y="249.7" width="10" height="3.0" fill="#38BDF8" rx="1"/>
+<text x="26.62" y="251.2" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.0336250000000002" font-weight="500">Actual</text>
+<rect x="12.620000000000001" y="253.4" width="10" height="3.0" fill="#FBBF24" rx="1"/>
+<text x="26.62" y="254.9" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.0336250000000002" font-weight="500">Plan</text>
+<rect x="12.620000000000001" y="257.1" width="10" height="3.0" fill="#34D399" rx="1"/>
+<text x="26.62" y="258.6" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.0336250000000002" font-weight="500">Forecast</text>
+<rect x="12.620000000000001" y="260.8" width="10" height="3.0" fill="#7DD3FC" rx="1"/>
+<text x="26.62" y="262.3" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="2.0336250000000002" font-weight="500">LY</text>
+<text x="240.0" y="265" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">scorecard-kpi-grid</text>
+</svg>

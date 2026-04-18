@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Sustainability ESG (Earth Day)' (sustainability-esg-earthday).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#1B7A3E"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#3BB371"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#E6B800"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#D8F3DC"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#8B5E3C"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#D4A846"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#E76F51"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#264653"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#2D6A4F"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#E76F51"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#8B5E3C"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#D4A846"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#264653"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#8C9A88"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#C2CABF"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#E1E6DD"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#CBD3C7"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#F5F5F0"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#1B4332"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#2D6A4F"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#B9CBC3"
+        },
+        {
+          "$type": "color",
+          "$value": "#2D6A4F"
+        },
+        {
+          "$type": "color",
+          "$value": "#143024"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#EBDEC0"
+        },
+        {
+          "$type": "color",
+          "$value": "#D4A846"
+        },
+        {
+          "$type": "color",
+          "$value": "#5F4C1F"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#F1CDC4"
+        },
+        {
+          "$type": "color",
+          "$value": "#E76F51"
+        },
+        {
+          "$type": "color",
+          "$value": "#683224"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#B4D0BE"
+        },
+        {
+          "$type": "color",
+          "$value": "#1B7A3E"
+        },
+        {
+          "$type": "color",
+          "$value": "#0C371C"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#A24E39"
+        },
+        {
+          "$type": "color",
+          "$value": "#F0C6BC"
+        },
+        {
+          "$type": "color",
+          "$value": "#F5F5F5"
+        },
+        {
+          "$type": "color",
+          "$value": "#AFC4BB"
+        },
+        {
+          "$type": "color",
+          "$value": "#1F4A37"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Lora', 'Georgia', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Nunito', 'Segoe UI', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'Fira Code', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "400ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "350ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "240ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.6, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 10.13
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "sustainability-esg"
+    }
+  }
+}

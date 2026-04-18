@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Salesforce Lightning' (brand-salesforce).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#0176D3"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#04844B"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#FE9339"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#BA0517"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#5867E8"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#14919B"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#AE7300"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#747474"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#2E844A"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#BA0517"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#706E6B"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#FE9339"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#0176D3"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#979797"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#C5C5C5"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#E3E3E3"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#D1D1D1"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#181818"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#0176D3"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#B9D3C2"
+        },
+        {
+          "$type": "color",
+          "$value": "#2E844A"
+        },
+        {
+          "$type": "color",
+          "$value": "#153B21"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#F8D8BD"
+        },
+        {
+          "$type": "color",
+          "$value": "#FE9339"
+        },
+        {
+          "$type": "color",
+          "$value": "#72421A"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#E3ADB2"
+        },
+        {
+          "$type": "color",
+          "$value": "#BA0517"
+        },
+        {
+          "$type": "color",
+          "$value": "#54020A"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#ACCFEB"
+        },
+        {
+          "$type": "color",
+          "$value": "#0176D3"
+        },
+        {
+          "$type": "color",
+          "$value": "#00355F"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#820410"
+        },
+        {
+          "$type": "color",
+          "$value": "#E0A1A7"
+        },
+        {
+          "$type": "color",
+          "$value": "#F5F5F5"
+        },
+        {
+          "$type": "color",
+          "$value": "#AFCDB9"
+        },
+        {
+          "$type": "color",
+          "$value": "#205C34"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Segoe UI Semibold', 'Inter', 'Arial', sans-serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Segoe UI', 'Inter', 'Arial', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'Cascadia Mono', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 17.76
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "sales-growth"
+    }
+  }
+}

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<title>pl-statement-grid</title>
+<rect x="0" y="0" width="480" height="270" fill="#0F172A"/>
+<rect x="0" y="0" width="480" height="3" fill="#38BDF8"/>
+<rect x="4.62" y="4.62" width="470.77" height="18.75" rx="4" fill="#111827" stroke="#334155"/>
+<rect x="4.62" y="4.62" width="4" height="18.75" rx="2" fill="#38BDF8"/>
+<text x="18.62" y="16.245" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="10.3125" font-weight="700">Title</text>
+<rect x="385.39" y="9.870000000000001" width="70" height="8.4" rx="3" fill="#0C2A4A" stroke="#1E40AF"/>
+<text x="420.39" y="16.995" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7.125" font-weight="500" text-anchor="middle">Q4 · FY26</text>
+<rect x="4.62" y="26.83" width="470.77" height="22.79" rx="3" fill="#1E293B" stroke="#334155"/>
+<circle cx="24.6" cy="38.224999999999994" r="5" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+<text x="24.6" y="45.62" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0138" font-weight="600" text-anchor="middle">Context</text>
+<line x1="29.6" y1="38.224999999999994" x2="163.2" y2="38.224999999999994" stroke="#334155" stroke-dasharray="3 2"/>
+<circle cx="168.2" cy="38.224999999999994" r="5" fill="#38BDF8" stroke="#38BDF8" stroke-width="1.5"/>
+<circle cx="168.2" cy="38.224999999999994" r="2" fill="#FFFFFF"/>
+<text x="168.2" y="45.62" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0138" font-weight="600" text-anchor="middle">Findings</text>
+<line x1="173.2" y1="38.224999999999994" x2="306.8" y2="38.224999999999994" stroke="#334155" stroke-dasharray="3 2"/>
+<circle cx="311.8" cy="38.224999999999994" r="5" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+<text x="311.8" y="45.62" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0138" font-weight="600" text-anchor="middle">Actions</text>
+<line x1="316.8" y1="38.224999999999994" x2="450.4" y2="38.224999999999994" stroke="#334155" stroke-dasharray="3 2"/>
+<circle cx="455.4" cy="38.224999999999994" r="5" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+<text x="455.4" y="45.62" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0138" font-weight="600" text-anchor="middle">Next</text>
+<rect x="4.62" y="53.08" width="470.77" height="118.56" rx="3" fill="#1E293B" stroke="#334155"/>
+<rect x="4.62" y="53.08" width="470.77" height="12" fill="#0C2A4A"/>
+<line x1="83.1" y1="53.08" x2="83.1" y2="171.64" stroke="#334155" stroke-opacity="0.6"/>
+<line x1="161.5" y1="53.08" x2="161.5" y2="171.64" stroke="#334155" stroke-opacity="0.6"/>
+<line x1="240.0" y1="53.08" x2="240.0" y2="171.64" stroke="#334155" stroke-opacity="0.6"/>
+<line x1="318.5" y1="53.08" x2="318.5" y2="171.64" stroke="#334155" stroke-opacity="0.6"/>
+<line x1="396.9" y1="53.08" x2="396.9" y2="171.64" stroke="#334155" stroke-opacity="0.6"/>
+<line x1="4.62" y1="65.1" x2="475.39" y2="65.1" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="75.7" x2="475.39" y2="75.7" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="86.4" x2="475.39" y2="86.4" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="97.0" x2="475.39" y2="97.0" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="107.7" x2="475.39" y2="107.7" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="118.4" x2="475.39" y2="118.4" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="129.0" x2="475.39" y2="129.0" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="139.7" x2="475.39" y2="139.7" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="150.3" x2="475.39" y2="150.3" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="161.0" x2="475.39" y2="161.0" stroke="#334155" stroke-opacity="0.5"/>
+<line x1="4.62" y1="171.6" x2="475.39" y2="171.6" stroke="#334155" stroke-opacity="0.5"/>
+<text x="43.9" y="62.08" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">Q1</text>
+<text x="122.3" y="62.08" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">Q2</text>
+<text x="200.8" y="62.08" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">Q3</text>
+<text x="279.2" y="62.08" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">Q4</text>
+<text x="357.7" y="62.08" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">YTD</text>
+<text x="436.2" y="62.08" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="700" text-anchor="middle">Δ</text>
+<rect x="7.62" y="67.08" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="66.1" width="76.5" height="8.7" fill="#FBBF24" opacity="0.30"/>
+<rect x="162.5" y="66.1" width="76.5" height="8.7" fill="#34D399" opacity="0.40"/>
+<rect x="241.0" y="66.1" width="76.5" height="8.7" fill="#34D399" opacity="0.39"/>
+<rect x="319.5" y="66.1" width="76.5" height="8.7" fill="#FBBF24" opacity="0.28"/>
+<rect x="397.9" y="66.1" width="76.5" height="8.7" fill="#F87171" opacity="0.17"/>
+<rect x="7.62" y="77.736" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="76.7" width="76.5" height="8.7" fill="#FBBF24" opacity="0.31"/>
+<rect x="162.5" y="76.7" width="76.5" height="8.7" fill="#34D399" opacity="0.34"/>
+<rect x="241.0" y="76.7" width="76.5" height="8.7" fill="#34D399" opacity="0.36"/>
+<rect x="319.5" y="76.7" width="76.5" height="8.7" fill="#34D399" opacity="0.37"/>
+<rect x="397.9" y="76.7" width="76.5" height="8.7" fill="#F87171" opacity="0.19"/>
+<rect x="7.62" y="88.392" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="87.4" width="76.5" height="8.7" fill="#FBBF24" opacity="0.28"/>
+<rect x="162.5" y="87.4" width="76.5" height="8.7" fill="#34D399" opacity="0.38"/>
+<rect x="241.0" y="87.4" width="76.5" height="8.7" fill="#FBBF24" opacity="0.31"/>
+<rect x="319.5" y="87.4" width="76.5" height="8.7" fill="#34D399" opacity="0.33"/>
+<rect x="397.9" y="87.4" width="76.5" height="8.7" fill="#FBBF24" opacity="0.30"/>
+<rect x="7.62" y="99.048" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="98.0" width="76.5" height="8.7" fill="#F87171" opacity="0.17"/>
+<rect x="162.5" y="98.0" width="76.5" height="8.7" fill="#34D399" opacity="0.34"/>
+<rect x="241.0" y="98.0" width="76.5" height="8.7" fill="#34D399" opacity="0.33"/>
+<rect x="319.5" y="98.0" width="76.5" height="8.7" fill="#FBBF24" opacity="0.25"/>
+<rect x="397.9" y="98.0" width="76.5" height="8.7" fill="#34D399" opacity="0.37"/>
+<rect x="7.62" y="109.70400000000001" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="108.7" width="76.5" height="8.7" fill="#FBBF24" opacity="0.26"/>
+<rect x="162.5" y="108.7" width="76.5" height="8.7" fill="#F87171" opacity="0.16"/>
+<rect x="241.0" y="108.7" width="76.5" height="8.7" fill="#34D399" opacity="0.39"/>
+<rect x="319.5" y="108.7" width="76.5" height="8.7" fill="#34D399" opacity="0.34"/>
+<rect x="397.9" y="108.7" width="76.5" height="8.7" fill="#FBBF24" opacity="0.28"/>
+<rect x="7.62" y="120.35999999999999" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="119.4" width="76.5" height="8.7" fill="#F87171" opacity="0.23"/>
+<rect x="162.5" y="119.4" width="76.5" height="8.7" fill="#FBBF24" opacity="0.32"/>
+<rect x="241.0" y="119.4" width="76.5" height="8.7" fill="#34D399" opacity="0.39"/>
+<rect x="319.5" y="119.4" width="76.5" height="8.7" fill="#F87171" opacity="0.16"/>
+<rect x="397.9" y="119.4" width="76.5" height="8.7" fill="#34D399" opacity="0.39"/>
+<rect x="7.62" y="131.016" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="130.0" width="76.5" height="8.7" fill="#34D399" opacity="0.36"/>
+<rect x="162.5" y="130.0" width="76.5" height="8.7" fill="#34D399" opacity="0.36"/>
+<rect x="241.0" y="130.0" width="76.5" height="8.7" fill="#FBBF24" opacity="0.25"/>
+<rect x="319.5" y="130.0" width="76.5" height="8.7" fill="#F87171" opacity="0.23"/>
+<rect x="397.9" y="130.0" width="76.5" height="8.7" fill="#F87171" opacity="0.24"/>
+<rect x="7.62" y="141.67200000000003" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="140.7" width="76.5" height="8.7" fill="#34D399" opacity="0.40"/>
+<rect x="162.5" y="140.7" width="76.5" height="8.7" fill="#F87171" opacity="0.17"/>
+<rect x="241.0" y="140.7" width="76.5" height="8.7" fill="#F87171" opacity="0.18"/>
+<rect x="319.5" y="140.7" width="76.5" height="8.7" fill="#FBBF24" opacity="0.25"/>
+<rect x="397.9" y="140.7" width="76.5" height="8.7" fill="#34D399" opacity="0.42"/>
+<rect x="7.62" y="152.328" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="151.3" width="76.5" height="8.7" fill="#F87171" opacity="0.20"/>
+<rect x="162.5" y="151.3" width="76.5" height="8.7" fill="#FBBF24" opacity="0.31"/>
+<rect x="241.0" y="151.3" width="76.5" height="8.7" fill="#FBBF24" opacity="0.28"/>
+<rect x="319.5" y="151.3" width="76.5" height="8.7" fill="#F87171" opacity="0.23"/>
+<rect x="397.9" y="151.3" width="76.5" height="8.7" fill="#34D399" opacity="0.41"/>
+<rect x="7.62" y="162.98399999999998" width="54.9" height="3" fill="#F1F5F9" opacity="0.5" rx="1"/>
+<rect x="84.1" y="162.0" width="76.5" height="8.7" fill="#F87171" opacity="0.16"/>
+<rect x="162.5" y="162.0" width="76.5" height="8.7" fill="#FBBF24" opacity="0.26"/>
+<rect x="241.0" y="162.0" width="76.5" height="8.7" fill="#F87171" opacity="0.16"/>
+<rect x="319.5" y="162.0" width="76.5" height="8.7" fill="#F87171" opacity="0.21"/>
+<rect x="397.9" y="162.0" width="76.5" height="8.7" fill="#FBBF24" opacity="0.27"/>
+<rect x="10.620000000000001" y="181.1" width="147.59" height="65.6" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="16.62" y="191.1" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Sessions</text>
+<text x="16.62" y="203.1" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">3,676</text>
+<polygon points="16.62,242.7 16.6,237.6 28.9,234.4 41.3,215.9 53.6,238.1 65.9,242.5 78.3,213.6 90.6,229.8 102.9,239.6 115.2,208.3 127.6,230.2 139.9,230.6 152.2,240.4 152.21,242.7" fill="#38BDF8" opacity="0.15"/>
+<polyline points="16.6,237.6 28.9,234.4 41.3,215.9 53.6,238.1 65.9,242.5 78.3,213.6 90.6,229.8 102.9,239.6 115.2,208.3 127.6,230.2 139.9,230.6 152.2,240.4" fill="none" stroke="#38BDF8" stroke-width="1.4"/>
+<rect x="166.21" y="181.1" width="147.59" height="65.6" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="172.21" y="191.1" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Revenue</text>
+<text x="172.21" y="203.1" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">4,283</text>
+<polygon points="172.21,242.7 172.2,210.8 184.5,216.2 196.9,240.5 209.2,241.1 221.5,216.0 233.8,213.8 246.2,214.5 258.5,237.9 270.8,216.5 283.1,227.0 295.5,221.3 307.8,210.9 307.8,242.7" fill="#38BDF8" opacity="0.15"/>
+<polyline points="172.2,210.8 184.5,216.2 196.9,240.5 209.2,241.1 221.5,216.0 233.8,213.8 246.2,214.5 258.5,237.9 270.8,216.5 283.1,227.0 295.5,221.3 307.8,210.9" fill="none" stroke="#38BDF8" stroke-width="1.4"/>
+<rect x="321.8" y="181.1" width="147.59" height="65.6" rx="3" fill="#1E293B" stroke="#334155"/>
+<text x="327.8" y="191.1" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="8" font-weight="500">Orders</text>
+<text x="327.8" y="203.1" fill="#F1F5F9" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="11" font-weight="700">4,825</text>
+<polygon points="327.8,242.7 327.8,209.7 340.1,239.0 352.5,220.9 364.8,220.5 377.1,216.2 389.4,229.8 401.8,212.7 414.1,219.6 426.4,238.9 438.7,222.7 451.1,220.7 463.4,233.0 463.39,242.7" fill="#38BDF8" opacity="0.15"/>
+<polyline points="327.8,209.7 340.1,239.0 352.5,220.9 364.8,220.5 377.1,216.2 389.4,229.8 401.8,212.7 414.1,219.6 426.4,238.9 438.7,222.7 451.1,220.7 463.4,233.0" fill="none" stroke="#38BDF8" stroke-width="1.4"/>
+<rect x="4.62" y="256.15" width="470.77" height="9.23" rx="2" fill="#111827" stroke="#334155"/>
+<text x="14.620000000000001" y="262.1495" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0765" font-weight="400">Source: Data warehouse · Last refresh 08:15</text>
+<text x="415.39" y="262.1495" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="5.0765" font-weight="500" text-anchor="start">Confidential</text>
+<rect x="455.39" y="258.4575" width="14" height="4.6" rx="2" fill="#38BDF8" opacity="0.15"/>
+<text x="462.39" y="262.611" fill="#38BDF8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="4.615" font-weight="700" text-anchor="middle">1</text>
+<text x="240.0" y="265" fill="#94A3B8" font-family="Segoe UI, Inter, system-ui, sans-serif" font-size="7" font-weight="600" text-anchor="middle">pl-statement-grid</text>
+</svg>

@@ -1,0 +1,224 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "W3C Design Tokens for theme 'Real Estate / Hospitality (Dark)' (real-estate-hospitality-dark).",
+  "color": {
+    "data": {
+      "c1": {
+        "$type": "color",
+        "$value": "#BD8C5C"
+      },
+      "c2": {
+        "$type": "color",
+        "$value": "#76A383"
+      },
+      "c3": {
+        "$type": "color",
+        "$value": "#C9A96E"
+      },
+      "c4": {
+        "$type": "color",
+        "$value": "#AA926F"
+      },
+      "c5": {
+        "$type": "color",
+        "$value": "#BE855A"
+      },
+      "c6": {
+        "$type": "color",
+        "$value": "#6B8CAE"
+      },
+      "c7": {
+        "$type": "color",
+        "$value": "#D6B342"
+      },
+      "c8": {
+        "$type": "color",
+        "$value": "#A8C4A2"
+      }
+    },
+    "semantic": {
+      "good": {
+        "$type": "color",
+        "$value": "#76A383"
+      },
+      "bad": {
+        "$type": "color",
+        "$value": "#D4454B"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "#9B8E7D"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#D6B342"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#6F96A9"
+      }
+    },
+    "neutral": {
+      "muted": {
+        "$type": "color",
+        "$value": "#707377"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "#45494E"
+      },
+      "gridline": {
+        "$type": "color",
+        "$value": "#292D32"
+      },
+      "divider": {
+        "$type": "color",
+        "$value": "#3A3E43"
+      }
+    },
+    "ui": {
+      "background": {
+        "$type": "color",
+        "$value": "#0F1419"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#E6E8EB"
+      },
+      "table-accent": {
+        "$type": "color",
+        "$value": "#BD8C5C"
+      }
+    },
+    "sequential": {
+      "positive": [
+        {
+          "$type": "color",
+          "$value": "#576561"
+        },
+        {
+          "$type": "color",
+          "$value": "#76A383"
+        },
+        {
+          "$type": "color",
+          "$value": "#35493B"
+        }
+      ],
+      "warning": [
+        {
+          "$type": "color",
+          "$value": "#746A4D"
+        },
+        {
+          "$type": "color",
+          "$value": "#D6B342"
+        },
+        {
+          "$type": "color",
+          "$value": "#60511E"
+        }
+      ],
+      "negative": [
+        {
+          "$type": "color",
+          "$value": "#734850"
+        },
+        {
+          "$type": "color",
+          "$value": "#D4454B"
+        },
+        {
+          "$type": "color",
+          "$value": "#5F1F22"
+        }
+      ],
+      "primary": [
+        {
+          "$type": "color",
+          "$value": "#6C5E55"
+        },
+        {
+          "$type": "color",
+          "$value": "#BD8C5C"
+        },
+        {
+          "$type": "color",
+          "$value": "#553F29"
+        }
+      ],
+      "diverging": [
+        {
+          "$type": "color",
+          "$value": "#943034"
+        },
+        {
+          "$type": "color",
+          "$value": "#7A4850"
+        },
+        {
+          "$type": "color",
+          "$value": "#4A4A52"
+        },
+        {
+          "$type": "color",
+          "$value": "#596963"
+        },
+        {
+          "$type": "color",
+          "$value": "#53725C"
+        }
+      ]
+    }
+  },
+  "font": {
+    "title": {
+      "$type": "fontFamily",
+      "$value": "'Lora', 'Georgia', serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "'Nunito', 'Segoe UI', sans-serif"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "'Fira Code', 'Consolas', monospace"
+    }
+  },
+  "motion": {
+    "tooltip-delay": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "drill-transition": {
+      "$type": "duration",
+      "$value": "250ms"
+    },
+    "fade-in": {
+      "$type": "duration",
+      "$value": "180ms"
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "meta": {
+    "contrast-ratio": {
+      "$type": "number",
+      "$value": 15.08
+    },
+    "cvd-rating": {
+      "$type": "string",
+      "$value": "unsafe"
+    },
+    "print-safe": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "parent-theme": {
+      "$type": "string",
+      "$value": "real-estate-hospitality"
+    }
+  }
+}

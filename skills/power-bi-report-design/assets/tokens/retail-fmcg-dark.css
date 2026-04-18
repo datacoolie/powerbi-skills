@@ -1,0 +1,35 @@
+/* Theme tokens: Retail / Consumer / FMCG (Dark) (retail-fmcg-dark) — auto-generated */
+:root[data-theme="retail-fmcg-dark"] {
+  --color-data-1: #54C55B;
+  --color-data-2: #98BF64;
+  --color-data-3: #8ED148;
+  --color-data-4: #5DBB63;
+  --color-data-5: #4DAECC;
+  --color-data-6: #F2D15C;
+  --color-data-7: #F47C7B;
+  --color-data-8: #849294;
+  --color-semantic-good: #54C55B;
+  --color-semantic-bad: #F47C7B;
+  --color-semantic-neutral: #849294;
+  --color-semantic-warning: #F2D15C;
+  --color-semantic-info: #4DAECC;
+  --color-neutral-muted: #707377;
+  --color-neutral-disabled: #45494E;
+  --color-neutral-gridline: #292D32;
+  --color-neutral-divider: #3A3E43;
+  --color-bg: #0F1419;
+  --color-fg: #E6E8EB;
+  --color-table-accent: #54C55B;
+  --color-diverging-1: #AB5756;
+  --color-diverging-2: #865C60;
+  --color-diverging-3: #4A4A52;
+  --color-diverging-4: #4E7555;
+  --color-diverging-5: #3B8A40;
+  --font-title: 'Lora', 'Georgia', serif;
+  --font-body:  'Nunito', 'Segoe UI', sans-serif;
+  --font-mono:  'Fira Code', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

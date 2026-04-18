@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" font-family="sans-serif">
+  <title>theme: education-edtech-dark</title>
+  <style id="theme-swatch-frame">svg{color:#1f2937;background:#ffffff;}@media (prefers-color-scheme: dark){svg{color:#e5e7eb;background:#111827;}}text{fill:currentColor;}.hex{font-family:monospace;font-size:6.5px;fill-opacity:0.7;}.label{font-size:8px;font-weight:bold;fill-opacity:0.75;}.caption{font-size:8px;fill-opacity:0.85;}.title{font-size:13px;font-weight:bold;}.sub{font-size:9px;fill-opacity:0.7;}.chip-label{font-size:8px;font-weight:bold;}.badge{font-size:9px;font-weight:bold;}</style>
+  <rect x="0" y="0" width="520" height="28" fill="#6F5EBB"/>
+  <text x="12" y="18" class="title" fill="#ffffff">Education / EdTech (Dark)</text>
+  <text x="508" y="18" class="sub" fill="#ffffff" text-anchor="end" fill-opacity="0.85">education-edtech-dark · dark</text>
+  <rect x="12" y="38" width="60" height="16" rx="3" ry="3" fill="#10893E"/>
+  <text x="42" y="50" class="badge" fill="#ffffff" text-anchor="middle">AAA 15.08:1</text>
+  <text x="78" y="50" class="caption">text contrast (fg on bg)</text>
+  <text x="12" y="68" class="label">DATA COLORS</text>
+  <rect x="12" y="74" width="56" height="38" fill="#6F5EBB" rx="2" ry="2"/>
+  <text x="40" y="121" class="hex" text-anchor="middle">#6F5EBB</text>
+  <rect x="72" y="74" width="56" height="38" fill="#2BEEDA" rx="2" ry="2"/>
+  <text x="100" y="121" class="hex" text-anchor="middle">#2BEEDA</text>
+  <rect x="132" y="74" width="56" height="38" fill="#EE8D2B" rx="2" ry="2"/>
+  <text x="160" y="121" class="hex" text-anchor="middle">#EE8D2B</text>
+  <rect x="192" y="74" width="56" height="38" fill="#774ECA" rx="2" ry="2"/>
+  <text x="220" y="121" class="hex" text-anchor="middle">#774ECA</text>
+  <rect x="252" y="74" width="56" height="38" fill="#5DBB61" rx="2" ry="2"/>
+  <text x="280" y="121" class="hex" text-anchor="middle">#5DBB61</text>
+  <rect x="312" y="74" width="56" height="38" fill="#E63374" rx="2" ry="2"/>
+  <text x="340" y="121" class="hex" text-anchor="middle">#E63374</text>
+  <rect x="372" y="74" width="56" height="38" fill="#2BD9EE" rx="2" ry="2"/>
+  <text x="400" y="121" class="hex" text-anchor="middle">#2BD9EE</text>
+  <rect x="432" y="74" width="56" height="38" fill="#A97E6F" rx="2" ry="2"/>
+  <text x="460" y="121" class="hex" text-anchor="middle">#A97E6F</text>
+  <text x="12" y="136" class="label">SEMANTIC</text>
+  <rect x="12" y="140" width="95" height="20" fill="#5DBB61" rx="3" ry="3"/>
+  <text x="18" y="153" class="chip-label" fill="#ffffff">GOOD</text>
+  <text x="103" y="153" class="hex" fill="#ffffff" text-anchor="end" fill-opacity="0.9">#5DBB61</text>
+  <rect x="111" y="140" width="95" height="20" fill="#E63374" rx="3" ry="3"/>
+  <text x="117" y="153" class="chip-label" fill="#ffffff">BAD</text>
+  <text x="202" y="153" class="hex" fill="#ffffff" text-anchor="end" fill-opacity="0.9">#E63374</text>
+  <rect x="210" y="140" width="95" height="20" fill="#7B929E" rx="3" ry="3"/>
+  <text x="216" y="153" class="chip-label" fill="#ffffff">NEUTRAL</text>
+  <text x="301" y="153" class="hex" fill="#ffffff" text-anchor="end" fill-opacity="0.9">#7B929E</text>
+  <rect x="309" y="140" width="95" height="20" fill="#EE8D2B" rx="3" ry="3"/>
+  <text x="315" y="153" class="chip-label" fill="#ffffff">WARNING</text>
+  <text x="400" y="153" class="hex" fill="#ffffff" text-anchor="end" fill-opacity="0.9">#EE8D2B</text>
+  <rect x="408" y="140" width="95" height="20" fill="#2BEEDA" rx="3" ry="3"/>
+  <text x="414" y="153" class="chip-label" fill="#000000">INFO</text>
+  <text x="499" y="153" class="hex" fill="#000000" text-anchor="end" fill-opacity="0.9">#2BEEDA</text>
+  <text x="12" y="176" class="label">SEQUENTIAL RAMPS (light · mid · dark)</text>
+  <text x="12" y="191" class="caption">positive</text>
+  <rect x="62" y="179" width="22" height="16" fill="#506C56" rx="1" ry="1"/>
+  <rect x="86" y="179" width="22" height="16" fill="#5DBB61" rx="1" ry="1"/>
+  <rect x="110" y="179" width="22" height="16" fill="#2A542C" rx="1" ry="1"/>
+  <text x="130" y="191" class="caption">warning</text>
+  <rect x="180" y="179" width="22" height="16" fill="#7B5E46" rx="1" ry="1"/>
+  <rect x="204" y="179" width="22" height="16" fill="#EE8D2B" rx="1" ry="1"/>
+  <rect x="228" y="179" width="22" height="16" fill="#6B3F13" rx="1" ry="1"/>
+  <text x="248" y="191" class="caption">negative</text>
+  <rect x="298" y="179" width="22" height="16" fill="#79435C" rx="1" ry="1"/>
+  <rect x="322" y="179" width="22" height="16" fill="#E63374" rx="1" ry="1"/>
+  <rect x="346" y="179" width="22" height="16" fill="#671734" rx="1" ry="1"/>
+  <text x="366" y="191" class="caption">primary</text>
+  <rect x="416" y="179" width="22" height="16" fill="#555072" rx="1" ry="1"/>
+  <rect x="440" y="179" width="22" height="16" fill="#6F5EBB" rx="1" ry="1"/>
+  <rect x="464" y="179" width="22" height="16" fill="#322A54" rx="1" ry="1"/>
+  <text x="12" y="210" class="label">NEUTRALS</text>
+  <rect x="12" y="214" width="104" height="20" fill="#707377" rx="3" ry="3" stroke="currentColor" stroke-opacity="0.15"/>
+  <text x="18" y="227" class="chip-label" fill-opacity="0.75">MUTED</text>
+  <text x="112" y="227" class="hex" text-anchor="end">#707377</text>
+  <rect x="120" y="214" width="104" height="20" fill="#45494E" rx="3" ry="3" stroke="currentColor" stroke-opacity="0.15"/>
+  <text x="126" y="227" class="chip-label" fill-opacity="0.75">DISABLED</text>
+  <text x="220" y="227" class="hex" text-anchor="end">#45494E</text>
+  <rect x="228" y="214" width="104" height="20" fill="#292D32" rx="3" ry="3" stroke="currentColor" stroke-opacity="0.15"/>
+  <text x="234" y="227" class="chip-label" fill-opacity="0.75">GRIDLINE</text>
+  <text x="328" y="227" class="hex" text-anchor="end">#292D32</text>
+  <rect x="336" y="214" width="104" height="20" fill="#3A3E43" rx="3" ry="3" stroke="currentColor" stroke-opacity="0.15"/>
+  <text x="342" y="227" class="chip-label" fill-opacity="0.75">DIVIDER</text>
+  <text x="436" y="227" class="hex" text-anchor="end">#3A3E43</text>
+  <text x="12" y="248" class="label">USAGE</text>
+  <text x="12" y="264" class="caption">55/30/15 (primary/secondary/accent) · max 5 colors / page</text>
+  <text x="12" y="282" class="label">UI</text>
+  <rect x="12" y="288" width="200" height="22" fill="#0F1419" stroke="#E6E8EB" stroke-opacity="0.3"/>
+  <text x="22" y="302" font-size="11" fill="#E6E8EB">Aa Sample 1,234</text>
+  <rect x="12" y="310" width="200" height="2" fill="#6F5EBB"/>
+  <text x="220" y="302" class="caption">bg #0F1419 · fg #E6E8EB · accent #6F5EBB</text>
+  <text x="508" y="332" class="caption" text-anchor="end" fill-opacity="0.7">Scholarly yet modern — warm purples, encouraging — dark canvas</text>
+</svg>

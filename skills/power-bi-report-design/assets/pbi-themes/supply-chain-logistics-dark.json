@@ -1,0 +1,73 @@
+{
+  "name": "Supply Chain / Logistics (Dark)",
+  "dataColors": [
+    "#2B98EE",
+    "#2B9DEE",
+    "#2B9DEE",
+    "#4B9DCD",
+    "#5B9FBD",
+    "#85D2EA",
+    "#F39A71",
+    "#AA6F9D"
+  ],
+  "background": "#0F1419",
+  "foreground": "#E6E8EB",
+  "tableAccent": "#2B98EE",
+  "good": "#50C962",
+  "bad": "#E63946",
+  "neutral": "#7D8D9B",
+  "warning": "#F39A71",
+  "info": "#4B9DCD",
+  "minimum": "#A12831",
+  "center": "#4A4A52",
+  "maximum": "#388D45",
+  "null": "#45494E",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#292D32"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#707377"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

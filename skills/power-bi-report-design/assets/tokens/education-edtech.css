@@ -1,0 +1,35 @@
+/* Theme tokens: Education / EdTech (education-edtech) — auto-generated */
+:root[data-theme="education-edtech"] {
+  --color-data-1: #4A3B8C;
+  --color-data-2: #00897B;
+  --color-data-3: #F57C00;
+  --color-data-4: #5E35B1;
+  --color-data-5: #43A047;
+  --color-data-6: #D81B60;
+  --color-data-7: #00ACC1;
+  --color-data-8: #6D4C41;
+  --color-semantic-good: #43A047;
+  --color-semantic-bad: #D81B60;
+  --color-semantic-neutral: #78909C;
+  --color-semantic-warning: #F57C00;
+  --color-semantic-info: #00897B;
+  --color-neutral-muted: #8F8CA3;
+  --color-neutral-disabled: #CAC6D9;
+  --color-neutral-gridline: #EAE6F2;
+  --color-neutral-divider: #D4CFE0;
+  --color-bg: #FAF7FF;
+  --color-fg: #1C1B2E;
+  --color-table-accent: #4A3B8C;
+  --color-diverging-1: #D81B60;
+  --color-diverging-2: #EBA9C1;
+  --color-diverging-3: #F2F2F2;
+  --color-diverging-4: #B7D7B8;
+  --color-diverging-5: #43A047;
+  --font-title: 'Playfair Display', 'Georgia', serif;
+  --font-body:  'Work Sans', 'Inter', 'Arial', sans-serif;
+  --font-mono:  'JetBrains Mono', 'Consolas', monospace;
+  --motion-tooltip-delay: 250ms;
+  --motion-drill-transition: 250ms;
+  --motion-fade-in: 180ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}

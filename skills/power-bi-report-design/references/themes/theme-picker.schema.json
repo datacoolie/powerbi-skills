@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "theme-picker.schema.json",
+  "title": "Theme Picker Decision Matrix",
+  "type": "object",
+  "required": ["version", "by_industry", "by_audience", "by_mode", "by_cvd_requirement", "by_formality"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+    "description": { "type": "string" },
+    "generated_from": { "type": "string" },
+    "by_industry": {
+      "type": "object",
+      "description": "industry slug -> ordered list of theme ids",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }
+      }
+    },
+    "by_audience": {
+      "type": "object",
+      "description": "audience slug -> ordered list of theme ids",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }
+      }
+    },
+    "by_mode": {
+      "type": "object",
+      "required": ["light", "dark", "dual"],
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }
+      }
+    },
+    "by_cvd_requirement": {
+      "type": "object",
+      "required": ["strict_safe_only", "caution_acceptable"],
+      "additionalProperties": true,
+      "properties": {
+        "strict_safe_only": { "type": "array", "items": { "type": "string" } },
+        "caution_acceptable": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "by_formality": {
+      "type": "object",
+      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "picking_algorithm": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "example_queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["query", "result"],
+        "additionalProperties": true,
+        "properties": {
+          "query": { "type": "object" },
+          "result": { "type": "array", "items": { "type": "string" } },
+          "rationale": { "type": "string" }
+        }
+      }
+    }
+  }
+}

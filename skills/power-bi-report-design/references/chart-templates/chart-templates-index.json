@@ -1,0 +1,381 @@
+{
+  "$schema": "./chart-templates-index.schema.json",
+  "version": "0.2",
+  "description": "Curated chart-composition recipes. Strategist binds every visual in Design Spec \u00a75 to one of these. v0.2 adds 8 community-inspired recipes (IBCS bullet, slope, dumbbell, Pareto, calendar heatmap, histogram, ribbon, 100% stacked) \u2014 total 21 recipes covering rank, share, distribution, geo, composition, and narrative stories.",
+  "recipes": [
+    {
+      "id": "kpi-banner",
+      "file": "kpi-banner.md",
+      "title": "KPI Banner Card",
+      "visual_type": "card",
+      "composition": "single metric + delta + spark/icon",
+      "use_when": [
+        "KPI row on page 1",
+        "Status snapshot",
+        "Scorecard summary"
+      ],
+      "anti_use": [
+        "When you need to show distribution",
+        "When comparison across categories matters more than headline number"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "bar-comparison",
+      "file": "bar-comparison.md",
+      "title": "Categorical Comparison (Bar)",
+      "visual_type": "clusteredBar OR clusteredColumn",
+      "composition": "one categorical axis + one value axis; optional secondary series (clustered)",
+      "use_when": [
+        "Ranking categories",
+        "Region / product / channel comparison",
+        "Top-N with remainder grouped"
+      ],
+      "anti_use": [
+        "> 20 categories on axis (use drillthrough)",
+        "Time series (use trend-line)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "trend-line",
+      "file": "trend-line.md",
+      "title": "Time-Series Trend (Line)",
+      "visual_type": "lineChart",
+      "composition": "continuous time axis + 1-3 value series + reference line",
+      "use_when": [
+        "Revenue / volume / ratio over time",
+        "Actuals vs plan / prior year",
+        "YTD momentum"
+      ],
+      "anti_use": [
+        "< 3 data points (use card)",
+        "> 4 series (use small multiples)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "yoy-variance",
+      "file": "yoy-variance.md",
+      "title": "Year-over-Year Variance",
+      "visual_type": "clusteredColumn OR lineClusteredColumnCombo",
+      "composition": "current-year series + prior-year series (clustered) + variance callout",
+      "use_when": [
+        "Monthly / quarterly YoY comparison",
+        "Actuals with explicit comparison period"
+      ],
+      "anti_use": [
+        "When prior-year data unreliable",
+        "Single data point (use card with delta)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "waterfall-bridge",
+      "file": "waterfall-bridge.md",
+      "title": "Waterfall Bridge",
+      "visual_type": "waterfallChart",
+      "composition": "start value \u2192 category increments/decrements \u2192 end value",
+      "use_when": [
+        "P&L walk (revenue \u2192 net income)",
+        "Variance bridge (plan \u2192 actual)",
+        "Stage-wise composition"
+      ],
+      "anti_use": [
+        "> 10 bridge categories (use table + small-multiple)",
+        "Hierarchical data (use decomposition tree)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "funnel-conversion",
+      "file": "funnel-conversion.md",
+      "title": "Funnel / Conversion",
+      "visual_type": "funnel",
+      "composition": "ordered stages + monotonic non-increasing values + conversion labels",
+      "use_when": [
+        "Sales pipeline stages",
+        "User onboarding conversion",
+        "Any strictly-ordered drop-off sequence"
+      ],
+      "anti_use": [
+        "Non-sequential categories",
+        "Stages not monotonic",
+        "> 7 stages",
+        "Single-point-in-time metric"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "matrix-scorecard",
+      "file": "matrix-scorecard.md",
+      "title": "Matrix Scorecard",
+      "visual_type": "pivotTable",
+      "composition": "entity rows \u00d7 (actual / plan / var% / status / trend) columns + grand total",
+      "use_when": [
+        "Executive scorecard",
+        "Regional / product performance grid",
+        "Multi-metric status by entity"
+      ],
+      "anti_use": [
+        "> 8 columns",
+        "Cross-filtering required",
+        "Single-metric comparison (use bar-comparison)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "small-multiples-trend",
+      "file": "small-multiples-trend.md",
+      "title": "Small Multiples Trend",
+      "visual_type": "lineChart (small multiples)",
+      "composition": "one panel per category; shared axes; single line color",
+      "use_when": [
+        "> 4 trend series would clutter",
+        "Comparing same metric across 5-12 entities",
+        "Cohort / segment trend grid"
+      ],
+      "anti_use": [
+        "\u2264 4 series (use trend-line)",
+        "> 12 categories (use matrix-scorecard + sparkline)",
+        "Independent Y scales needed"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "map-geo",
+      "file": "map-geo.md",
+      "title": "Map (Geographic)",
+      "visual_type": "filledMap OR azureMap OR shapeMap",
+      "composition": "region fill by magnitude OR point overlay with size / color",
+      "use_when": [
+        "Geographic pattern story",
+        "Site / store distribution",
+        "Regional sales intensity"
+      ],
+      "anti_use": [
+        "< 5 locations (use bar)",
+        "Ranking is the real story (use bar)",
+        "Rainbow color implied"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "decomposition-tree",
+      "file": "decomposition-tree.md",
+      "title": "Decomposition Tree",
+      "visual_type": "decompositionTreeVisual",
+      "composition": "root measure \u2192 user-chosen dimension drills \u2192 AI splits",
+      "use_when": [
+        "Interactive root-cause",
+        "Analytical exploration of additive metrics",
+        "What-drove-the-change pages"
+      ],
+      "anti_use": [
+        "Executive dashboards (hides the finding)",
+        "Non-additive measures (DISTINCTCOUNT)",
+        "Operational / read-only displays"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "scatter-quadrant",
+      "file": "scatter-quadrant.md",
+      "title": "Scatter Quadrant",
+      "visual_type": "scatterChart",
+      "composition": "X measure \u00d7 Y measure \u00d7 entity dim; median reference lines form quadrants",
+      "use_when": [
+        "Portfolio positioning",
+        "Product / customer segmentation",
+        "Margin-vs-volume analysis"
+      ],
+      "anti_use": [
+        "< 10 points",
+        "> 200 points without aggregation",
+        "Time series"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "gauge-target",
+      "file": "gauge-target.md",
+      "title": "Gauge vs Target",
+      "visual_type": "gauge",
+      "composition": "single value + target + min/max arc",
+      "use_when": [
+        "Operational KPI boards",
+        "Threshold semaphore"
+      ],
+      "anti_use": [
+        "Executive dashboards (use card)",
+        "Analytical pages (use trend + reference line)",
+        "Unbounded metrics"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "tornado-chart",
+      "file": "tornado-chart.md",
+      "title": "Tornado (Sensitivity / Diverging)",
+      "visual_type": "TornadoChart (custom) OR barChart diverging",
+      "composition": "two groups mirror-imaged around zero; sorted by absolute magnitude",
+      "use_when": [
+        "Sensitivity analysis",
+        "A/B group comparison across many factors",
+        "Driver ranking with direction"
+      ],
+      "anti_use": [
+        "Single-side data",
+        "> 15 factors",
+        "Time series"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "stacked-bar-100",
+      "file": "stacked-bar-100.md",
+      "title": "100% Stacked Bar (Share / Mix)",
+      "visual_type": "hundredPercentStackedBar OR hundredPercentStackedColumn",
+      "composition": "per-entity rows summing to 100% split across \u22645 part segments",
+      "use_when": [
+        "Mix / composition comparison across entities",
+        "Channel / segment share by region",
+        "Part-to-whole when absolute scale is secondary"
+      ],
+      "anti_use": [
+        "Comparing absolute totals (use bar-comparison)",
+        "> 5 stack segments",
+        "Non-additive measures (ratios, distinct counts)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "ribbon-chart",
+      "file": "ribbon-chart.md",
+      "title": "Ribbon Chart (Rank-over-Time)",
+      "visual_type": "ribbonChart",
+      "composition": "stacked columns per period with curved ribbons re-ordering by rank between periods",
+      "use_when": [
+        "Top-N ranking movement over time",
+        "Competitive share changing across quarters",
+        "Leader-board narrative"
+      ],
+      "anti_use": [
+        "> 6 categories in legend",
+        "Flat rank (no swaps) \u2192 use trend-line",
+        "Non-additive measures",
+        "Share % story \u2192 use stacked-bar-100"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "bullet-chart",
+      "file": "bullet-chart.md",
+      "title": "Bullet Chart (IBCS Actual vs Target)",
+      "visual_type": "BulletChart (custom) OR clusteredBar with reference lines",
+      "composition": "monochrome range bands + actual bar + target tick, 4-6 bullets stacked",
+      "use_when": [
+        "KPI tile replacement when target context matters",
+        "IBCS-style scorecards",
+        "Ops dashboards with bad/ok/good thresholds"
+      ],
+      "anti_use": [
+        "> 6 bullets in one visual",
+        "No target defined (use bar-comparison)",
+        "Range bands coloured as traffic lights"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "heatmap-calendar",
+      "file": "heatmap-calendar.md",
+      "title": "Calendar Heatmap (Daily Pattern)",
+      "visual_type": "matrix with conditional background OR Calendar custom visual",
+      "composition": "day-of-week rows \u00d7 week columns, tile coloured by metric intensity",
+      "use_when": [
+        "Daily traffic / transaction patterns",
+        "Weekend vs weekday seasonality",
+        "Promotion / campaign-week detection"
+      ],
+      "anti_use": [
+        "Rainbow / jet colour scale",
+        "> 6 months in one panel",
+        "Unsigned scale for signed metrics (use diverging)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "pareto-80-20",
+      "file": "pareto-80-20.md",
+      "title": "Pareto 80/20 (ABC Analysis)",
+      "visual_type": "lineClusteredColumnCombo",
+      "composition": "columns sorted DESC + cumulative % line on secondary axis + 80% reference line",
+      "use_when": [
+        "ABC analysis of SKUs / customers / accounts",
+        "Vital-few identification",
+        "Inventory or support-ticket concentration"
+      ],
+      "anti_use": [
+        "Including an 'Other' remainder bucket",
+        "Unsorted axis",
+        "> 25 categories without Top-N filter"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "dumbbell-change",
+      "file": "dumbbell-change.md",
+      "title": "Dumbbell (Before vs After)",
+      "visual_type": "Dumbbell Bar Chart (custom) OR scatter+line composition",
+      "composition": "two endpoints per row joined by a connector; rows sorted by absolute change",
+      "use_when": [
+        "Plan-vs-actual by entity",
+        "Region/store performance change between periods",
+        "Min-max spread per category"
+      ],
+      "anti_use": [
+        "Time-series story (use trend-line)",
+        "> 12 categories (use slope-chart or small multiples)",
+        "When before/after are indistinguishable visually"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "histogram-distribution",
+      "file": "histogram-distribution.md",
+      "title": "Histogram (Distribution Shape)",
+      "visual_type": "columnChart with pre-bucketed bins OR histogram custom visual",
+      "composition": "equal-width bins on X, count on Y, optional mean/median reference lines",
+      "use_when": [
+        "Order-value / cycle-time distribution",
+        "Bimodality or long-tail detection",
+        "Analyst-audience exploration"
+      ],
+      "anti_use": [
+        "< 8 bins (shape hidden)",
+        "Line-chart rendering of bins",
+        "Overlaying 2+ histograms (use small multiples)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "slope-chart",
+      "file": "slope-chart.md",
+      "title": "Slope Chart (Two-Point Rank Change)",
+      "visual_type": "lineChart with two category positions OR custom visual",
+      "composition": "two vertical tick columns, one dot per category per side, slope line between",
+      "use_when": [
+        "Two-snapshot comparison with a clear narrative",
+        "Winners/losers talking point",
+        "Executive 'X overtook Y' story"
+      ],
+      "anti_use": [
+        "> 10 categories (tangled)",
+        "> 2 time points (use trend-line)",
+        "All lines highlighted equally"
+      ],
+      "slots": 1
+    }
+  ],
+  "gaps": []
+}

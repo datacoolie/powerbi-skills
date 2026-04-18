@@ -1,0 +1,73 @@
+{
+  "name": "Retail FMCG (Holiday)",
+  "dataColors": [
+    "#C0392B",
+    "#27AE60",
+    "#F39C12",
+    "#5DBB63",
+    "#3599B8",
+    "#F4D25A",
+    "#FB8281",
+    "#5F6B6D"
+  ],
+  "background": "#EAF8EE",
+  "foreground": "#2D4A22",
+  "tableAccent": "#3CB043",
+  "good": "#3CB043",
+  "bad": "#FB8281",
+  "neutral": "#5F6B6D",
+  "warning": "#F4D25A",
+  "info": "#3599B8",
+  "minimum": "#B05B5A",
+  "center": "#F5F5F5",
+  "maximum": "#2A7B2F",
+  "null": "#C9CFD0",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E4E7E8"
+                  }
+                }
+              }
+            ],
+            "gridHorizontal": [
+              {
+                "show": true,
+                "color": {
+                  "solid": {
+                    "color": "#E4E7E8"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#9BA6A8"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#9BA6A8"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -38,7 +38,7 @@ For each page (Design Spec §4):
       - `queryState` binding to the measures/columns from §5
       - Formatting properties from the chart-template recipe
       - **Minimum viable properties only** — titles are placeholder, no annotations, no tooltips, no bookmark refs
-5. Run a quick render check (mental or with `validate_report.js`) — does the page structure make sense?
+5. Run a quick render check (mental or with `validate_report.py`) — does the page structure make sense?
 
 **Pass 1 ends when:** all pages and all visuals exist as JSON and pass schema validation. Narrative elements are deliberately absent.
 

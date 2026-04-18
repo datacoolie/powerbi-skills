@@ -32,32 +32,22 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable
 
-# Windows default console (cp1252) can't print U+2264/U+2014 etc.
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-        sys.stderr.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-    except (AttributeError, OSError):
-        pass
-
-GRID = 8
-
-# Canonical font scale from shared-standards.md §4
-FONT_FAMILY = "Segoe UI"
-FONT_SIZES = {
-    "page_title": 24,
-    "page_subtitle": 14,
-    "visual_title": 14,
-    "visual_subtitle": 11,
-    "axis_label": 10,
-    "data_label": 12,
-    "card_value": 32,
-    "card_label": 11,
-    "button": 12,
-    "tooltip": 11,
-}
-
-HEX_RE = re.compile(r"#[0-9A-Fa-f]{6}\b")
+from pbir_utils import (
+    FONT_FAMILY,
+    FONT_SIZES,
+    FONT_SIZE_TOLERANCE,
+    GRID,
+    HEX_RE,
+    get_alt_text,
+    get_position,
+    get_visual_title,
+    normalize_hex,
+    read_json_strict as _read_json,
+    set_alt_text as _set_alt_text,
+    setup_logging,
+    visual_type as _visual_type,
+    write_json as _write_json,
+)
 
 
 @dataclass
@@ -214,7 +204,11 @@ def align_kpi_row(report: Report, dry_run: bool = False) -> dict[str, int]:
 # ────────────────────────────────────────────────────────────────
 
 def apply_theme_tokens(report: Report, dry_run: bool = False) -> dict[str, int]:
-    """Replace hard-coded #RRGGBB hex values in visual.json with the nearest theme token."""
+    """Replace hard-coded #RRGGBB hex values in visual.json with the nearest theme token.
+
+    Operates on the parsed JSON tree (not raw text) to avoid corrupting
+    string values by inserting objects where strings are expected.
+    """
     if not report.theme:
         return {"visuals_changed": 0, "replacements": 0, "skipped_reason": "no theme found"}
 
@@ -223,24 +217,46 @@ def apply_theme_tokens(report: Report, dry_run: bool = False) -> dict[str, int]:
     visuals_changed = 0
 
     for _page, _vdir, visual_json in report.iter_visuals():
-        raw = visual_json.read_text(encoding="utf-8")
-
-        def replace(match: re.Match[str]) -> str:
-            norm = _normalize_hex(match.group(0))
-            token = reverse.get(norm)
-            if token:
-                # Surround with a marker so future runs don't re-process
-                return f'{{"solid":{{"color":{{"expr":{{"ThemeDataColor":{{"ColorId":"{token}"}}}}}}}}}}'
-            return match.group(0)
-
-        new_raw, n = HEX_RE.subn(replace, raw)
+        data = _read_json(visual_json)
+        n = _replace_hex_in_tree(data, reverse)
         if n:
             changes_total += n
             visuals_changed += 1
             if not dry_run:
-                visual_json.write_text(new_raw, encoding="utf-8")
+                _write_json(visual_json, data)
 
     return {"visuals_changed": visuals_changed, "replacements": changes_total}
+
+
+def _replace_hex_in_tree(node: Any, reverse: dict[str, str]) -> int:
+    """Walk a JSON tree and replace hex-color strings with theme-token objects."""
+    count = 0
+    if isinstance(node, dict):
+        for key in list(node.keys()):
+            val = node[key]
+            if isinstance(val, str) and HEX_RE.fullmatch(val):
+                norm = _normalize_hex(val)
+                token = reverse.get(norm)
+                if token:
+                    node[key] = {
+                        "solid": {"color": {"expr": {"ThemeDataColor": {"ColorId": token}}}}
+                    }
+                    count += 1
+            else:
+                count += _replace_hex_in_tree(val, reverse)
+    elif isinstance(node, list):
+        for i, item in enumerate(node):
+            if isinstance(item, str) and HEX_RE.fullmatch(item):
+                norm = _normalize_hex(item)
+                token = reverse.get(norm)
+                if token:
+                    node[i] = {
+                        "solid": {"color": {"expr": {"ThemeDataColor": {"ColorId": token}}}}
+                    }
+                    count += 1
+            else:
+                count += _replace_hex_in_tree(item, reverse)
+    return count
 
 
 # ────────────────────────────────────────────────────────────────
@@ -265,14 +281,14 @@ def normalize_fonts(report: Report, dry_run: bool = False) -> dict[str, int]:
 
 
 def _walk_and_fix_fonts(node: Any) -> int:
-    """Recursively find font-family properties and normalize to Segoe UI."""
+    """Recursively normalize font-family to Segoe UI and snap font sizes to the standard scale."""
     changes = 0
     if isinstance(node, dict):
-        # PBIR typically nests like: objects.labels[0].properties.fontFamily.expr.Literal.Value = "'Arial, Helvetica'"
         for key, value in list(node.items()):
-            if key.lower() in ("fontfamily", "fontfamilyname"):
+            lowkey = key.lower()
+            # ── Font family ──
+            if lowkey in ("fontfamily", "fontfamilyname"):
                 if isinstance(value, dict):
-                    # {"expr":{"Literal":{"Value":"'...'"}}} style
                     lit = value.get("expr", {}).get("Literal", {}).get("Value") if isinstance(value.get("expr"), dict) else None
                     if lit and FONT_FAMILY not in lit:
                         value["expr"]["Literal"]["Value"] = f"'{FONT_FAMILY}'"
@@ -280,12 +296,49 @@ def _walk_and_fix_fonts(node: Any) -> int:
                 elif isinstance(value, str) and FONT_FAMILY not in value:
                     node[key] = FONT_FAMILY
                     changes += 1
+            # ── Font size: snap if within tolerance of a canonical size ──
+            elif lowkey in ("fontsize", "fontsizelabel", "fontsizevalue"):
+                size = _extract_numeric(value)
+                if size is not None:
+                    snapped = _snap_font_size(size)
+                    if snapped != size:
+                        if isinstance(value, dict):
+                            value["expr"]["Literal"]["Value"] = f"'{snapped}'"
+                        else:
+                            node[key] = snapped
+                        changes += 1
             else:
                 changes += _walk_and_fix_fonts(value)
     elif isinstance(node, list):
         for item in node:
             changes += _walk_and_fix_fonts(item)
     return changes
+
+
+def _extract_numeric(value: Any) -> float | None:
+    """Pull a numeric size from either a raw int/float or a PBIR Literal expression."""
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, dict):
+        lit = value.get("expr", {}).get("Literal", {}).get("Value") if isinstance(value.get("expr"), dict) else None
+        if lit:
+            lit_s = str(lit).strip("'\"")
+            try:
+                return float(lit_s)
+            except (ValueError, TypeError):
+                return None
+    return None
+
+
+def _snap_font_size(size: float) -> float | int:
+    """If *size* is within ±FONT_SIZE_TOLERANCE of any canonical size, return the nearest canonical value."""
+    _standard = sorted(set(FONT_SIZES.values()))
+    best, best_dist = None, FONT_SIZE_TOLERANCE + 1
+    for std in _standard:
+        dist = abs(size - std)
+        if dist <= FONT_SIZE_TOLERANCE and dist < best_dist:
+            best, best_dist = std, dist
+    return best if best is not None else size
 
 
 # ────────────────────────────────────────────────────────────────
@@ -324,64 +377,11 @@ def _write_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def _get_pos(data: dict) -> dict | None:
-    if isinstance(data.get("position"), dict):
-        return data["position"]
-    vc = data.get("visualContainer")
-    if isinstance(vc, dict) and isinstance(vc.get("position"), dict):
-        return vc["position"]
-    return None
-
-
-def _visual_type(data: dict) -> str | None:
-    v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-    if isinstance(v, dict):
-        return v.get("visualType") or v.get("type")
-    return None
-
-
-def _get_visual_title(data: dict) -> str | None:
-    # Heuristic: look for objects.title[0].properties.text.expr.Literal.Value
-    try:
-        v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-        title = v.get("objects", {}).get("title", [{}])[0].get("properties", {}).get("text")
-        if isinstance(title, dict):
-            return title.get("expr", {}).get("Literal", {}).get("Value", "").strip("'")
-        if isinstance(title, str):
-            return title
-    except (AttributeError, IndexError, KeyError):
-        pass
-    return None
-
-
-def _get_alt_text(data: dict) -> str | None:
-    try:
-        v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-        alt = v.get("objects", {}).get("general", [{}])[0].get("properties", {}).get("altText")
-        if isinstance(alt, dict):
-            return alt.get("expr", {}).get("Literal", {}).get("Value", "").strip("'") or None
-        if isinstance(alt, str):
-            return alt
-    except (AttributeError, IndexError, KeyError):
-        pass
-    return None
-
-
-def _set_alt_text(data: dict, text: str) -> bool:
-    v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-    if not isinstance(v, dict):
-        return False
-    objs = v.setdefault("objects", {})
-    general = objs.setdefault("general", [{}])
-    if not general:
-        general.append({})
-    props = general[0].setdefault("properties", {})
-    props["altText"] = {"expr": {"Literal": {"Value": f"'{text}'"}}}
-    return True
-
-
-def _normalize_hex(h: str) -> str:
-    return h.upper().lstrip("#")
+# Aliases for imported helpers used in this module
+_get_pos = get_position
+_get_visual_title = get_visual_title
+_get_alt_text = get_alt_text
+_normalize_hex = normalize_hex
 
 
 # ────────────────────────────────────────────────────────────────
@@ -395,7 +395,6 @@ MODULES: dict[str, Callable[[Report, bool], dict]] = {
     "normalize_fonts": normalize_fonts,
     "ensure_alt_text": ensure_alt_text,
 }
-# Order matters: snap_grid before align_kpi_row; fonts before alt text (doesn't matter).
 MODULE_ORDER = ["snap_grid", "align_kpi_row", "apply_theme_tokens", "normalize_fonts", "ensure_alt_text"]
 
 
@@ -405,44 +404,46 @@ def main() -> int:
     parser.add_argument("--skip", default="", help="Comma-separated module names to skip")
     parser.add_argument("--only", default="", help="Comma-separated module names to run (overrides --skip)")
     parser.add_argument("--dry-run", action="store_true", help="Report what would change, don't write")
+    parser.add_argument("--verbose", action="store_true", help="Show debug details")
+    parser.add_argument("--quiet", action="store_true", help="Only show warnings and errors")
     args = parser.parse_args()
 
+    log = setup_logging("finalize_pbir", verbose=args.verbose, quiet=args.quiet)
+
     if not args.report.exists() or not args.report.is_dir():
-        print(f"ERROR: report path invalid: {args.report}", file=sys.stderr)
+        log.error("report path invalid: %s", args.report)
         return 1
 
     try:
         report = Report.load(args.report)
     except ValueError as e:
-        print(f"ERROR: {e}", file=sys.stderr)
+        log.error("%s", e)
         return 1
 
     skip = {s.strip() for s in args.skip.split(",") if s.strip()}
     only = {s.strip() for s in args.only.split(",") if s.strip()}
 
-    print(f"Report: {args.report}")
-    print(f"Pages: {len(report.pages)}")
-    print(f"Theme tokens: {len(report.theme) if report.theme else 0}")
-    print(f"Dry-run: {args.dry_run}")
-    print()
+    log.info("Report: %s", args.report)
+    log.info("Pages: %d", len(report.pages))
+    log.info("Theme tokens: %d", len(report.theme) if report.theme else 0)
+    log.debug("Dry-run: %s", args.dry_run)
 
     for module_name in MODULE_ORDER:
         if only and module_name not in only:
             continue
         if module_name in skip:
-            print(f"SKIP  {module_name}")
+            log.info("SKIP  %s", module_name)
             continue
         fn = MODULES[module_name]
         try:
             result = fn(report, args.dry_run)
         except Exception as e:  # noqa: BLE001
-            print(f"ERROR in {module_name}: {e}", file=sys.stderr)
+            log.error("ERROR in %s: %s", module_name, e)
             return 2
         summary = ", ".join(f"{k}={v}" for k, v in result.items())
-        print(f"OK    {module_name}: {summary}")
+        log.info("OK    %s: %s", module_name, summary)
 
-    print()
-    print("Done." if not args.dry_run else "Done (dry-run).")
+    log.info("Done.%s", " (dry-run)" if args.dry_run else "")
     return 0
 
 

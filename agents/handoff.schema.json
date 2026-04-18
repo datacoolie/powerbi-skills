@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "handoff.schema.json",
+  "title": "Phase Handoff Artifact",
+  "description": "Structured handoff contract between pipeline phases. The agent validates this JSON at each phase transition to confirm all required artifacts are present before the downstream phase begins.",
+  "type": "object",
+  "required": ["from_phase", "to_phase", "timestamp", "artifacts"],
+  "properties": {
+    "from_phase": {
+      "type": "string",
+      "enum": ["phase-1", "phase-2", "phase-3", "phase-4a", "phase-4b"],
+      "description": "The phase that produced the artifacts."
+    },
+    "to_phase": {
+      "type": "string",
+      "enum": ["phase-2", "phase-3", "phase-4a", "phase-4b", "phase-5"],
+      "description": "The phase that will consume the artifacts."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the handoff was created."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["complete", "partial"],
+      "default": "complete",
+      "description": "Whether all expected artifacts are present. 'partial' is allowed only when parallel execution is in use."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional free-text notes about gaps, assumptions, or partial handoff rationale."
+    },
+    "artifacts": {
+      "type": "object",
+      "description": "Phase-specific artifact payloads. Exactly one key matching the from_phase must be present.",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "phase-1": { "$ref": "#/$defs/phase1Artifacts" },
+        "phase-2": { "$ref": "#/$defs/phase2Artifacts" },
+        "phase-3": { "$ref": "#/$defs/phase3Artifacts" },
+        "phase-4a": { "$ref": "#/$defs/phase4aArtifacts" },
+        "phase-4b": { "$ref": "#/$defs/phase4bArtifacts" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "from_phase": { "const": "phase-1" } } },
+      "then": { "properties": { "artifacts": { "required": ["phase-1"] } } }
+    },
+    {
+      "if": { "properties": { "from_phase": { "const": "phase-2" } } },
+      "then": { "properties": { "artifacts": { "required": ["phase-2"] } } }
+    },
+    {
+      "if": { "properties": { "from_phase": { "const": "phase-3" } } },
+      "then": { "properties": { "artifacts": { "required": ["phase-3"] } } }
+    },
+    {
+      "if": { "properties": { "from_phase": { "const": "phase-4a" } } },
+      "then": { "properties": { "artifacts": { "required": ["phase-4a"] } } }
+    },
+    {
+      "if": { "properties": { "from_phase": { "const": "phase-4b" } } },
+      "then": { "properties": { "artifacts": { "required": ["phase-4b"] } } }
+    }
+  ],
+  "$defs": {
+    "phase1Artifacts": {
+      "type": "object",
+      "description": "Phase 1 → Phase 2 handoff: Requirements → Semantic Model.",
+      "required": ["domain", "audience", "kpis", "page_plan", "measure_inventory"],
+      "properties": {
+        "domain": {
+          "type": "string",
+          "description": "Business domain identifier.",
+          "enum": ["sales", "manufacturing", "financial", "supply-chain", "retail", "fmcg", "procurement", "healthcare", "technology", "other"]
+        },
+        "audience": {
+          "type": "object",
+          "required": ["role", "archetype"],
+          "properties": {
+            "role": { "type": "string", "description": "Primary stakeholder role (e.g. 'VP Sales')." },
+            "archetype": { "type": "string", "enum": ["executive", "analytical", "operational"] },
+            "data_literacy": { "type": "string", "enum": ["high", "medium", "low"] },
+            "consumption_mode": { "type": "string", "enum": ["desktop", "mobile", "embedded", "presentation"] },
+            "cadence": { "type": "string", "enum": ["real-time", "daily", "weekly", "monthly", "ad-hoc"] }
+          }
+        },
+        "big_idea": {
+          "type": "string",
+          "description": "One-sentence Big-Idea statement from the interview."
+        },
+        "kpis": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "priority"],
+            "properties": {
+              "name": { "type": "string" },
+              "definition": { "type": "string" },
+              "format": { "type": "string" },
+              "target_logic": { "type": "string" },
+              "priority": { "type": "string", "enum": ["must-have", "should-have", "nice-to-have"] }
+            }
+          }
+        },
+        "page_plan": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["slug", "purpose"],
+            "properties": {
+              "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+              "purpose": { "type": "string" },
+              "hero_visual": { "type": "string" },
+              "measures": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "measure_inventory": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "owner_table"],
+            "properties": {
+              "name": { "type": "string" },
+              "owner_table": { "type": "string" },
+              "pattern": { "type": "string" },
+              "column_dependencies": { "type": "array", "items": { "type": "string" } },
+              "priority": { "type": "string", "enum": ["must-have", "should-have", "nice-to-have"] }
+            }
+          }
+        },
+        "data_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["table", "type"],
+            "properties": {
+              "table": { "type": "string" },
+              "type": { "type": "string", "enum": ["fact", "dimension", "bridge"] },
+              "source_system": { "type": "string" },
+              "storage_mode": { "type": "string", "enum": ["import", "directquery", "directlake", "dual"] }
+            }
+          }
+        },
+        "rls_required": { "type": "boolean", "default": false },
+        "data_readiness_pct": {
+          "type": "number", "minimum": 0, "maximum": 100,
+          "description": "Percentage of KPIs with fully available data (from data-gap analysis)."
+        }
+      }
+    },
+    "phase2Artifacts": {
+      "type": "object",
+      "description": "Phase 2 → Phase 3 handoff: Semantic Model → DAX Development.",
+      "required": ["tables", "relationships", "date_table"],
+      "properties": {
+        "tables": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "type"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string", "enum": ["fact", "dimension", "bridge", "measure", "calculated"] },
+              "storage_mode": { "type": "string", "enum": ["import", "directquery", "directlake", "dual"] },
+              "columns": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "data_type"],
+                  "properties": {
+                    "name": { "type": "string" },
+                    "data_type": { "type": "string" },
+                    "is_hidden": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from_table", "from_column", "to_table", "to_column", "cardinality"],
+            "properties": {
+              "from_table": { "type": "string" },
+              "from_column": { "type": "string" },
+              "to_table": { "type": "string" },
+              "to_column": { "type": "string" },
+              "cardinality": { "type": "string", "enum": ["one-to-many", "many-to-one", "one-to-one", "many-to-many"] },
+              "cross_filter": { "type": "string", "enum": ["single", "both"], "default": "single" },
+              "is_active": { "type": "boolean", "default": true }
+            }
+          }
+        },
+        "date_table": {
+          "type": "object",
+          "required": ["name", "key_column", "marked"],
+          "properties": {
+            "name": { "type": "string" },
+            "key_column": { "type": "string" },
+            "marked": { "type": "boolean", "const": true }
+          }
+        },
+        "measure_inventory": {
+          "type": "array",
+          "description": "Carried forward from Phase 1, updated with confirmed table/column names.",
+          "items": {
+            "type": "object",
+            "required": ["name", "owner_table"],
+            "properties": {
+              "name": { "type": "string" },
+              "owner_table": { "type": "string" },
+              "pattern": { "type": "string" },
+              "column_dependencies": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "rls_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["role_name", "filter_expression"],
+            "properties": {
+              "role_name": { "type": "string" },
+              "table": { "type": "string" },
+              "filter_expression": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "phase3Artifacts": {
+      "type": "object",
+      "description": "Phase 3 → Phase 4a handoff: DAX Development → Report Design.",
+      "required": ["measures"],
+      "properties": {
+        "measures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "table", "expression"],
+            "properties": {
+              "name": { "type": "string" },
+              "table": { "type": "string" },
+              "expression": { "type": "string", "description": "Full DAX expression." },
+              "format_string": { "type": "string" },
+              "display_folder": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "calculation_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "items"],
+            "properties": {
+              "name": { "type": "string" },
+              "column_name": { "type": "string" },
+              "items": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "field_parameters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "members"],
+            "properties": {
+              "name": { "type": "string" },
+              "members": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "page_plan": {
+          "type": "array",
+          "description": "Carried forward from Phase 1, updated with confirmed measure/column names.",
+          "items": {
+            "type": "object",
+            "required": ["slug", "purpose"],
+            "properties": {
+              "slug": { "type": "string" },
+              "purpose": { "type": "string" },
+              "measures": { "type": "array", "items": { "type": "string" } },
+              "columns": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "phase4aArtifacts": {
+      "type": "object",
+      "description": "Phase 4a → Phase 4b handoff: Report Design → Report Generation.",
+      "required": ["design_spec_sections", "theme_file", "style_personality"],
+      "properties": {
+        "design_spec_sections": {
+          "type": "array",
+          "description": "List of Design Spec section numbers that are filled (expect 1-11 or explicit N/A).",
+          "items": { "type": "integer", "minimum": 1, "maximum": 11 },
+          "minItems": 11
+        },
+        "style_personality": {
+          "type": "string",
+          "enum": ["executive", "analytical", "operational"]
+        },
+        "canvas_size": {
+          "type": "object",
+          "required": ["width", "height"],
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" }
+          }
+        },
+        "theme_file": {
+          "type": "string",
+          "description": "Relative path to the theme JSON file."
+        },
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["slug", "layout_file"],
+            "properties": {
+              "slug": { "type": "string" },
+              "layout_file": { "type": "string", "description": "Layout recipe filename from layouts-index.json." },
+              "visuals": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "chart_recipe"],
+                  "properties": {
+                    "name": { "type": "string" },
+                    "chart_recipe": { "type": "string", "description": "Chart-template recipe id from chart-templates-index.json." },
+                    "measures": { "type": "array", "items": { "type": "string" } },
+                    "columns": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "navigation_pattern": { "type": "string" },
+        "icon_set": { "type": "string" },
+        "sign_off": {
+          "type": "object",
+          "description": "Phase 4a.5 sign-off record.",
+          "properties": {
+            "user_reply": { "type": "string" },
+            "timestamp": { "type": "string", "format": "date-time" },
+            "amended_items": {
+              "type": "array",
+              "items": { "type": "integer", "minimum": 1, "maximum": 7 },
+              "description": "Which of the 7 confirmation items the user changed (empty = accepted all defaults)."
+            }
+          }
+        }
+      }
+    },
+    "phase4bArtifacts": {
+      "type": "object",
+      "description": "Phase 4b → Phase 5 handoff: Report Generation → Feedback.",
+      "required": ["report_folder", "page_count", "visual_count", "validation_passed"],
+      "properties": {
+        "report_folder": {
+          "type": "string",
+          "description": "Relative path to the .Report/ folder."
+        },
+        "page_count": { "type": "integer", "minimum": 1 },
+        "visual_count": { "type": "integer", "minimum": 1 },
+        "navigation_type": { "type": "string" },
+        "has_mobile_layout": { "type": "boolean" },
+        "has_drillthrough": { "type": "boolean" },
+        "validation_passed": {
+          "type": "boolean",
+          "const": true,
+          "description": "Must be true — validate_report.py must pass before handoff."
+        },
+        "polish_report": {
+          "type": "object",
+          "description": "Phase 4c results.",
+          "properties": {
+            "finalize_pbir_ok": { "type": "boolean" },
+            "design_qa_errors": { "type": "integer", "minimum": 0 },
+            "design_qa_warnings": { "type": "integer", "minimum": 0 },
+            "acknowledged_warnings": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "known_limitations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Any deviations from the Design Spec, noted for Phase 5 review."
+        }
+      }
+    }
+  }
+}

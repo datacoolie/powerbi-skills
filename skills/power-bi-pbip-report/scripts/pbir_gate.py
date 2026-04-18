@@ -4,10 +4,11 @@ pbir_gate.py — single-command Phase 4c gate for PBIR reports.
 
 Runs the full polish + lint + schema chain and returns ONE pass/fail verdict:
 
-    1. finalize_pbir.py      (mechanical polish — grid, KPI row, theme tokens, fonts, alt text)
-    2. design_quality_check.py  (8 design lint rules, style-aware)
-    3. validate_report.js    (Microsoft JSON-schema validation)  — if Node.js present
-       OR validate_report.py                                     — fallback
+    1. finalize_pbir.py        (mechanical polish — grid, KPI row, theme tokens, fonts, alt text)
+    2. design_quality_check.py (design lint rules, style-aware)
+    3. validate_report.py      (Microsoft JSON-schema validation + structural cross-ref checks)
+
+All stages are imported and called directly (no subprocess overhead).
 
 Emits a JSON verdict object to stdout and (optionally) writes it to a file.
 
@@ -30,32 +31,29 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
-import subprocess
 import sys
+import time
 from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-# Windows default console (cp1252) can't print U+2264/U+2014 etc.
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-        sys.stderr.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-    except (AttributeError, OSError):
-        pass
-
-
+# Ensure the scripts directory is on sys.path for sibling imports
 SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+# pbir_utils handles the Windows UTF-8 console fix on import
+import pbir_utils  # noqa: F401 — side-effect: reconfigures console
 
 
 @dataclass
 class StageResult:
     name: str
     ok: bool
-    exit_code: int
     summary: str = ""
     skipped: bool = False
+    duration_s: float = 0.0
 
 
 @dataclass
@@ -63,72 +61,109 @@ class GateVerdict:
     report: str
     style: str
     passed: bool
+    timestamp: str = ""
+    duration_s: float = 0.0
     stages: list[StageResult] = field(default_factory=list)
     errors: int = 0
     warnings: int = 0
 
 
-def _run(cmd: list[str]) -> tuple[int, str, str]:
-    """Run a subprocess; return (exit_code, stdout, stderr)."""
-    try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
-        return proc.returncode, proc.stdout or "", proc.stderr or ""
-    except FileNotFoundError as exc:
-        return 127, "", f"command not found: {exc}"
-    except Exception as exc:  # noqa: BLE001
-        return 3, "", f"{type(exc).__name__}: {exc}"
-
-
-def _count_findings(stdout: str) -> tuple[int, int]:
-    """Parse 'Errors: N, Warnings: M' line from design_quality_check.py output."""
-    import re
-    m = re.search(r"Errors:\s*(\d+),\s*Warnings:\s*(\d+)", stdout)
-    if not m:
-        return 0, 0
-    return int(m.group(1)), int(m.group(2))
-
+# ── Stage runners (direct function calls) ─────────────────────
 
 def stage_finalize(report: Path, dry_run: bool, skip: bool) -> StageResult:
     if skip:
-        return StageResult(name="finalize_pbir", ok=True, exit_code=0, skipped=True, summary="skipped by flag")
-    cmd = [sys.executable, str(SCRIPTS_DIR / "finalize_pbir.py"), "--report", str(report)]
-    if dry_run:
-        cmd.append("--dry-run")
-    code, out, err = _run(cmd)
-    summary = (out.strip().splitlines() or [""])[-1] if code == 0 else (err.strip() or out.strip())[:400]
-    return StageResult(name="finalize_pbir", ok=(code == 0), exit_code=code, summary=summary)
+        return StageResult(name="finalize_pbir", ok=True, skipped=True, summary="skipped by flag")
+
+    t0 = time.monotonic()
+    try:
+        from finalize_pbir import Report, MODULES, MODULE_ORDER
+
+        rpt = Report.load(report)
+        summaries = []
+        for module_name in MODULE_ORDER:
+            fn = MODULES[module_name]
+            result = fn(rpt, dry_run)
+            summaries.append(f"{module_name}: {', '.join(f'{k}={v}' for k, v in result.items())}")
+        elapsed = time.monotonic() - t0
+        return StageResult(name="finalize_pbir", ok=True, summary="; ".join(summaries), duration_s=round(elapsed, 2))
+    except Exception as exc:
+        elapsed = time.monotonic() - t0
+        return StageResult(name="finalize_pbir", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2))
 
 
 def stage_lint(report: Path, style: str, skip: bool) -> tuple[StageResult, int, int]:
     if skip:
-        return StageResult(name="design_quality_check", ok=True, exit_code=0, skipped=True, summary="skipped by flag"), 0, 0
-    cmd = [sys.executable, str(SCRIPTS_DIR / "design_quality_check.py"),
-           "--report", str(report), "--style", style, "--write-report"]
-    code, out, err = _run(cmd)
-    errs, warns = _count_findings(out)
-    ok = code in (0, 2)  # 2 = errors found, but not a tool crash
-    summary = f"errors={errs}, warnings={warns}"
-    return StageResult(name="design_quality_check", ok=ok, exit_code=code, summary=summary), errs, warns
+        return StageResult(name="design_quality_check", ok=True, skipped=True, summary="skipped by flag"), 0, 0
+
+    t0 = time.monotonic()
+    try:
+        from design_quality_check import (
+            LintReport,
+            check_visual_counts,
+            check_drillthrough_back_button,
+            check_pie_slices,
+            check_alt_text,
+            check_default_page_names,
+            check_bad_titles,
+            check_hardcoded_hex,
+            check_bookmark_targets,
+            check_three_d_effects,
+            check_rainbow_palette,
+            check_report_visual_budget,
+            check_alt_text_quality,
+            check_orphan_pages,
+            check_contrast,
+            write_report,
+        )
+
+        lint = LintReport()
+        check_visual_counts(report, style, lint)
+        check_drillthrough_back_button(report, lint)
+        check_pie_slices(report, lint)
+        check_alt_text(report, lint)
+        check_default_page_names(report, lint)
+        check_bad_titles(report, lint)
+        check_hardcoded_hex(report, lint)
+        check_bookmark_targets(report, lint)
+        check_three_d_effects(report, lint)
+        check_rainbow_palette(report, lint)
+        check_report_visual_budget(report, lint)
+        check_alt_text_quality(report, lint)
+        check_orphan_pages(report, lint)
+        check_contrast(report, lint)
+
+        write_report(lint, report / "design_report.md", style)
+
+        errs = len(lint.errors())
+        warns = len(lint.warnings())
+        elapsed = time.monotonic() - t0
+        ok = errs == 0
+        summary = f"errors={errs}, warnings={warns}"
+        return StageResult(name="design_quality_check", ok=ok, summary=summary, duration_s=round(elapsed, 2)), errs, warns
+
+    except Exception as exc:
+        elapsed = time.monotonic() - t0
+        return StageResult(name="design_quality_check", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2)), 0, 0
 
 
 def stage_validate(report: Path, skip: bool) -> StageResult:
     if skip:
-        return StageResult(name="validate_report", ok=True, exit_code=0, skipped=True, summary="skipped by flag")
+        return StageResult(name="validate_report", ok=True, skipped=True, summary="skipped by flag")
 
-    node_script = SCRIPTS_DIR / "validate_report.js"
-    py_fallback = SCRIPTS_DIR / "validate_report.py"
+    t0 = time.monotonic()
+    try:
+        from validate_report import validate_report
 
-    if shutil.which("node") and node_script.exists():
-        code, out, err = _run(["node", str(node_script), str(report)])
-        tool = "validate_report.js (schema)"
-    elif py_fallback.exists():
-        code, out, err = _run([sys.executable, str(py_fallback), str(report)])
-        tool = "validate_report.py (syntax)"
-    else:
-        return StageResult(name="validate_report", ok=False, exit_code=3, summary="no validator available")
-
-    summary = f"{tool}; exit={code}"
-    return StageResult(name="validate_report", ok=(code == 0), exit_code=code, summary=summary)
+        result = validate_report(report)
+        elapsed = time.monotonic() - t0
+        n_err = len(result.errors)
+        n_warn = len(result.warnings)
+        ok = n_err == 0
+        summary = f"errors={n_err}, warnings={n_warn}"
+        return StageResult(name="validate_report", ok=ok, summary=summary, duration_s=round(elapsed, 2))
+    except Exception as exc:
+        elapsed = time.monotonic() - t0
+        return StageResult(name="validate_report", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2))
 
 
 def main() -> int:
@@ -150,16 +185,27 @@ def main() -> int:
     parser.add_argument("--skip-validate", action="store_true", help="Skip schema-validate stage")
     parser.add_argument("--allow-warnings", action="store_true", help="Gate passes even with lint warnings")
     parser.add_argument("--json", type=Path, default=None, help="Write JSON verdict to this path")
+    parser.add_argument("--verbose", action="store_true", help="Show debug details")
+    parser.add_argument("--quiet", action="store_true", help="Only show warnings and errors")
     args = parser.parse_args()
 
+    from pbir_utils import setup_logging
+    log = setup_logging("pbir_gate", verbose=args.verbose, quiet=args.quiet)
+
     if not args.report.exists() or not args.report.is_dir():
-        print(f"ERROR: report path invalid: {args.report}", file=sys.stderr)
+        log.error("report path invalid: %s", args.report)
         return 1
     if not (args.report / "definition").exists():
-        print(f"ERROR: {args.report} is not a PBIR report (missing 'definition/')", file=sys.stderr)
+        log.error("%s is not a PBIR report (missing 'definition/')", args.report)
         return 1
 
-    verdict = GateVerdict(report=str(args.report), style=args.style, passed=False)
+    gate_t0 = time.monotonic()
+    verdict = GateVerdict(
+        report=str(args.report),
+        style=args.style,
+        passed=False,
+        timestamp=datetime.now(timezone.utc).isoformat(),
+    )
 
     # ── Stage 1: finalize ──
     s1 = stage_finalize(args.report, args.dry_run, args.skip_finalize)
@@ -175,12 +221,14 @@ def main() -> int:
     s3 = stage_validate(args.report, args.skip_validate)
     verdict.stages.append(s3)
 
+    verdict.duration_s = round(time.monotonic() - gate_t0, 2)
+
     # ── Verdict ──
-    any_stage_crashed = any(not s.ok and not s.skipped for s in verdict.stages)
-    has_errors = errs > 0 or s3.exit_code not in (0,) and not s3.skipped
+    any_stage_failed = any(not s.ok and not s.skipped for s in verdict.stages)
+    has_errors = errs > 0 or (not s3.ok and not s3.skipped)
     has_warnings = warns > 0
 
-    if any_stage_crashed:
+    if any_stage_failed and not has_errors:
         verdict.passed = False
         exit_code = 3
     elif has_errors:
@@ -202,11 +250,11 @@ def main() -> int:
         args.json.write_text(out_text, encoding="utf-8")
 
     print("", file=sys.stderr)
-    print(f"PBIR gate: {'PASSED' if verdict.passed else 'FAILED'}", file=sys.stderr)
+    print(f"PBIR gate: {'PASSED' if verdict.passed else 'FAILED'} ({verdict.duration_s}s)", file=sys.stderr)
     print(f"  errors={errs} warnings={warns} allow_warnings={args.allow_warnings}", file=sys.stderr)
     for s in verdict.stages:
         tag = "skip" if s.skipped else ("ok  " if s.ok else "FAIL")
-        print(f"  [{tag}] {s.name}: {s.summary}", file=sys.stderr)
+        print(f"  [{tag}] {s.name} ({s.duration_s}s): {s.summary}", file=sys.stderr)
 
     return exit_code
 

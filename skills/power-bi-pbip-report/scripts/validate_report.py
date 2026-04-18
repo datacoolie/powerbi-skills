@@ -1,24 +1,59 @@
 """
-Validate a Power BI PBIR report folder for JSON syntax and structural errors.
+Validate a Power BI PBIR report folder against Microsoft's published JSON schemas.
 
 Usage:
     python validate_report.py <path-to-.Report-folder>
+    python validate_report.py <path-to-.Report-folder> --offline
 
 Checks:
     1. JSON syntax — every .json and .pbir file must parse cleanly
-    2. Schema property — every JSON file should have a $schema property
-    3. Required properties — each file type has mandatory fields
-    4. Cross-references — page folders match pages.json, visual names match, bookmarks exist
-    5. Naming conventions — kebab-case for folders, visual prefix matches type
+    2. JSON Schema validation — validates each file against its $schema URL
+       (fetches schemas + transitive $ref dependencies, caches in .schema-cache/)
+    3. Required properties — fallback structural checks per file type
+    4. Cross-references — page folders ↔ pages.json, bookmarks, custom visuals
+    5. Naming conventions — kebab-case for page/visual folders
+
+Options:
+    --offline   Use only cached schemas (no network). Falls back to structural
+                checks if schemas are not cached.
 
 Exit code 0 = all checks pass. Non-zero = errors found.
+
+Dependencies:
+    - jsonschema + referencing (pip install jsonschema)  — for full schema validation
+    - Without jsonschema, the script still runs all structural checks (with a warning).
 """
 
+from __future__ import annotations
+
+import argparse
 import json
-import os
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urljoin
+from urllib.request import Request, urlopen
+from urllib.error import URLError
+
+# Ensure the scripts directory is on sys.path for sibling imports
+_SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+
+from pbir_utils import setup_logging  # noqa: E402
+
+# --- Optional jsonschema import (graceful degradation) ---
+
+try:
+    import jsonschema
+    from jsonschema import Draft202012Validator, ValidationError  # noqa: F401
+    from referencing import Registry, Resource  # noqa: F401
+    HAS_JSONSCHEMA = True
+except ImportError:
+    HAS_JSONSCHEMA = False
+
+SCRIPTS_DIR = Path(__file__).resolve().parent
+CACHE_DIR = SCRIPTS_DIR / ".schema-cache"
 
 
 # --- Configuration ---
@@ -43,6 +78,121 @@ PAGE_TYPE_DRILLTHROUGH = 2 # drillthrough page
 VISUAL_POSITION_PROPS = ["x", "y", "height", "width"]
 
 VALID_DISPLAY_OPTIONS = {"FitToPage", "FitToWidth", "ActualSize"}
+
+
+# --- Schema fetching & caching ---
+
+def _cache_path(url: str) -> Path:
+    """Return the local cache file for a schema URL (same convention as the old JS validator)."""
+    safe = re.sub(r"[^a-zA-Z0-9.]", "_", url) + ".json"
+    return CACHE_DIR / safe
+
+
+def _fetch_schema(url: str, *, offline: bool = False) -> dict | None:
+    """Fetch a JSON schema by URL, with on-disk cache.
+
+    Only URLs matching the allowlist are fetched to prevent SSRF.
+    """
+    # SSRF hardening: only fetch from known Microsoft schema origins
+    _ALLOWED_PREFIXES = (
+        "https://developer.microsoft.com/json-schemas/",
+        "https://raw.githubusercontent.com/microsoft/",
+    )
+    if not any(url.startswith(prefix) for prefix in _ALLOWED_PREFIXES):
+        print(f"  [WARN] Blocked fetch of non-allowlisted URL: {url}", file=sys.stderr)
+        return None
+
+    cached = _cache_path(url)
+    if cached.is_file():
+        try:
+            return json.loads(cached.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass  # corrupt cache — refetch
+
+    if offline:
+        return None
+
+    try:
+        req = Request(url, headers={"User-Agent": "validate_report.py/1.0"})
+        with urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        cached.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        return data
+    except (URLError, OSError, json.JSONDecodeError, ValueError) as exc:
+        print(f"  [WARN] Cannot fetch {url}: {exc}", file=sys.stderr)
+        return None
+
+
+def _extract_external_refs(schema: dict) -> set[str]:
+    """Recursively extract all external $ref base-URIs from a schema object."""
+    refs: set[str] = set()
+
+    def walk(obj: object) -> None:
+        if not isinstance(obj, dict):
+            if isinstance(obj, list):
+                for item in obj:
+                    walk(item)
+            return
+        ref = obj.get("$ref")
+        if isinstance(ref, str) and not ref.startswith("#"):
+            refs.add(ref.split("#")[0])
+        for v in obj.values():
+            walk(v)
+
+    walk(schema)
+    return refs
+
+
+def fetch_all_schemas(start_urls: set[str], *, offline: bool = False) -> dict[str, dict]:
+    """Transitively fetch all schemas referenced by the starting set. Returns {url: schema}."""
+    loaded: dict[str, dict] = {}
+    pending = list(start_urls)
+    visited: set[str] = set()
+
+    while pending:
+        url = pending.pop()
+        if url in visited:
+            continue
+        visited.add(url)
+
+        schema = _fetch_schema(url, offline=offline)
+        if schema is None:
+            continue
+        loaded[url] = schema
+
+        base = schema.get("$id", url)
+        for ref in _extract_external_refs(schema):
+            resolved = urljoin(base, ref)
+            if resolved not in visited:
+                pending.append(resolved)
+
+    return loaded
+
+
+def build_schema_validators(schemas: dict[str, dict]) -> dict[str, object] | None:
+    """Compile jsonschema validators for each fetched schema. Returns {url: validator} or None."""
+    if not HAS_JSONSCHEMA or not schemas:
+        return None
+
+    # Build a referencing.Registry with all fetched schemas
+    registry = Registry()
+    for url, schema in schemas.items():
+        resource = Resource.from_contents(schema, default_specification=jsonschema.Draft202012Validator)
+        registry = registry.with_resource(url, resource)
+        # Also register by $id if present
+        schema_id = schema.get("$id")
+        if schema_id and schema_id != url:
+            registry = registry.with_resource(schema_id, resource)
+
+    validators: dict[str, object] = {}
+    for url, schema in schemas.items():
+        try:
+            validators[url] = Draft202012Validator(schema, registry=registry)
+        except Exception as exc:
+            short = "/".join(url.split("/")[-3:])
+            print(f"  [WARN] Cannot compile {short}: {str(exc)[:80]}", file=sys.stderr)
+    return validators
 
 
 # --- Helpers ---
@@ -389,7 +539,7 @@ def validate_naming(root: Path, result: ValidationResult):
 
 # --- Main ---
 
-def validate_report(report_path: Path) -> ValidationResult:
+def validate_report(report_path: Path, *, offline: bool = False) -> ValidationResult:
     """Run all validations on a .Report/ folder."""
     result = ValidationResult()
 
@@ -411,6 +561,7 @@ def validate_report(report_path: Path) -> ValidationResult:
         json_files.append(pbir_file)
 
     parsed_cache: dict[str, dict | None] = {}
+    schema_urls: set[str] = set()
     parsed_count = 0
     for jf in json_files:
         data = validate_json_syntax(jf, report_path, result)
@@ -420,25 +571,72 @@ def validate_report(report_path: Path) -> ValidationResult:
             validate_schema_property(data, jf, report_path, result)
             validate_required_properties(data, jf, report_path, result)
             validate_visual_query(data, jf, report_path, result)
+            # Collect $schema URLs for schema validation
+            s = data.get("$schema")
+            if isinstance(s, str) and s.startswith("http"):
+                schema_urls.add(s)
 
-    # 2. Cross-reference checks (uses cached parse results to avoid duplicate errors)
+    # 2. JSON Schema validation (if jsonschema is available)
+    schema_validated = 0
+    if schema_urls:
+        if not HAS_JSONSCHEMA:
+            print("  [INFO] jsonschema not installed — skipping full schema validation.", file=sys.stderr)
+            print("         Install with: pip install jsonschema", file=sys.stderr)
+        else:
+            print(f"Fetching schemas (including transitive deps, cached after first run)... ", end="", flush=True)
+            schemas = fetch_all_schemas(schema_urls, offline=offline)
+            print(f"done. ({len(schemas)} schemas loaded, {len(schema_urls)} direct)")
+
+            validators = build_schema_validators(schemas)
+            if validators:
+                for jf_str, data in parsed_cache.items():
+                    if data is None:
+                        continue
+                    s = data.get("$schema")
+                    if not s or s not in validators:
+                        continue
+                    v = validators[s]
+                    try:
+                        errors_list = list(v.iter_errors(data))
+                    except Exception:
+                        continue
+                    if errors_list:
+                        jf_path = Path(jf_str)
+                        for err in sorted(errors_list, key=lambda e: str(e.path)):
+                            loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+                            result.error(rel(jf_path, report_path), f"{loc} — {err.message}")
+                    schema_validated += 1
+
+    # 3. Cross-reference checks (uses cached parse results to avoid duplicate errors)
     validate_cross_references(report_path, parsed_cache, result)
 
-    # 3. Naming convention checks
+    # 4. Naming convention checks
     validate_naming(report_path, result)
 
     # Summary
-    print(f"\nValidated {parsed_count}/{len(json_files)} files in {report_path.name}")
+    schema_msg = f", {schema_validated} schema-validated" if schema_validated else ""
+    print(f"\nValidated {parsed_count}/{len(json_files)} files in {report_path.name}{schema_msg}")
     return result
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python validate_report.py <path-to-.Report-folder>")
-        print("       python validate_report.py path/to/MyReport.Report")
-        sys.exit(1)
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Validate a Power BI PBIR .Report folder against Microsoft's published JSON schemas.",
+        epilog="Examples:\n"
+               "  python validate_report.py ./MyReport.Report\n"
+               "  python validate_report.py ./MyReport.Report --offline\n",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("report", type=Path, help="Path to the .Report folder (or parent containing one)")
+    parser.add_argument("--offline", action="store_true",
+                        help="Use only cached schemas (no network). Falls back to structural checks.")
+    parser.add_argument("--verbose", action="store_true", help="Show debug details")
+    parser.add_argument("--quiet", action="store_true", help="Only show warnings and errors")
+    args = parser.parse_args()
 
-    report_path = Path(sys.argv[1]).resolve()
+    log = setup_logging("validate_report", verbose=args.verbose, quiet=args.quiet)
+
+    report_path = args.report.resolve()
 
     # If user pointed to the project root, find the .Report folder
     if not report_path.name.endswith(".Report"):
@@ -446,33 +644,35 @@ def main():
         if len(candidates) == 1:
             report_path = candidates[0]
         elif len(candidates) > 1:
-            print(f"Multiple .Report folders found. Specify one: {[c.name for c in candidates]}")
-            sys.exit(1)
+            log.error("Multiple .Report folders found. Specify one: %s", [c.name for c in candidates])
+            return 1
         else:
-            print(f"No .Report folder found in {report_path}")
-            sys.exit(1)
+            log.error("No .Report folder found in %s", report_path)
+            return 1
 
-    result = validate_report(report_path)
+    result = validate_report(report_path, offline=args.offline)
 
     if result.warnings:
-        print(f"\n{'='*60}")
-        print(f"WARNINGS ({len(result.warnings)}):")
-        print(f"{'='*60}")
+        log.info("")
+        log.info("=" * 60)
+        log.info("WARNINGS (%d):", len(result.warnings))
+        log.info("=" * 60)
         for w in result.warnings:
-            print(f"  {w}")
+            log.info("  %s", w)
 
     if result.errors:
-        print(f"\n{'='*60}")
-        print(f"ERRORS ({len(result.errors)}):")
-        print(f"{'='*60}")
+        log.info("")
+        log.info("=" * 60)
+        log.info("ERRORS (%d):", len(result.errors))
+        log.info("=" * 60)
         for e in result.errors:
-            print(f"  {e}")
-        print(f"\n❌ Validation FAILED — {len(result.errors)} error(s)")
-        sys.exit(1)
+            log.info("  %s", e)
+        log.error("Validation FAILED — %d error(s)", len(result.errors))
+        return 1
     else:
-        print(f"\n✅ Validation PASSED — no errors ({len(result.warnings)} warning(s))")
-        sys.exit(0)
+        log.info("Validation PASSED — no errors (%d warning(s))", len(result.warnings))
+        return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

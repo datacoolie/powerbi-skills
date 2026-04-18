@@ -1,0 +1,57 @@
+{
+  "from_phase": "phase-3",
+  "to_phase": "phase-4a",
+  "timestamp": "2025-03-15T12:00:00Z",
+  "status": "complete",
+  "artifacts": {
+    "phase-3": {
+      "measures": [
+        {
+          "name": "Revenue",
+          "table": "_Measures",
+          "expression": "SUM ( Sales[Amount] )",
+          "format_string": "$#,##0",
+          "display_folder": "Core KPIs",
+          "description": "Total sales revenue"
+        },
+        {
+          "name": "Gross Margin %",
+          "table": "_Measures",
+          "expression": "DIVIDE ( SUM ( Sales[Profit] ), SUM ( Sales[Amount] ) )",
+          "format_string": "0.0%",
+          "display_folder": "Core KPIs",
+          "description": "Profit as a percentage of revenue"
+        },
+        {
+          "name": "Deal Count",
+          "table": "_Measures",
+          "expression": "COUNTROWS ( Sales )",
+          "format_string": "#,##0",
+          "display_folder": "Core KPIs",
+          "description": "Number of transactions"
+        },
+        {
+          "name": "Avg Deal Size",
+          "table": "_Measures",
+          "expression": "AVERAGE ( Sales[Amount] )",
+          "format_string": "$#,##0",
+          "display_folder": "Core KPIs",
+          "description": "Average transaction amount"
+        },
+        {
+          "name": "Revenue YoY %",
+          "table": "_Measures",
+          "expression": "VAR _CY = [Revenue]\nVAR _PY = CALCULATE ( [Revenue], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )\nRETURN DIVIDE ( _CY - _PY, _PY )",
+          "format_string": "0.0%",
+          "display_folder": "Time Intelligence",
+          "description": "Revenue year-over-year growth rate"
+        }
+      ],
+      "page_plan": [
+        { "slug": "executive-summary", "purpose": "High-level KPI dashboard with trend lines", "measures": ["Revenue", "Gross Margin %", "Deal Count", "Revenue YoY %"], "columns": ["Date[Year]", "Date[Month]"] },
+        { "slug": "regional-analysis", "purpose": "Revenue and margin breakdown by region", "measures": ["Revenue", "Gross Margin %"], "columns": ["Region[RegionName]", "Region[Country]"] },
+        { "slug": "product-mix", "purpose": "Product category contribution analysis", "measures": ["Revenue", "Deal Count", "Avg Deal Size"], "columns": ["Product[Category]", "Product[SubCategory]"] }
+      ]
+    }
+  }
+}

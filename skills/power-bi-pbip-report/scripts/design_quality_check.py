@@ -5,7 +5,7 @@ design_quality_check.py — lint a PBIR report against shared-standards.md.
 Runs as Phase 4c Step 2 (Polisher role), AFTER finalize_pbir.py.
 
 Checks (error / warning / info):
-  1. E1: Contrast < 4.5:1 on any text vs background                     (ERROR — not yet implemented)
+  1. E1: Contrast < 4.5:1 on any text vs background                     (ERROR)
   2. E2: Drillthrough page without a back button                        (ERROR)
   3. E3: Bookmark button action points to missing page                  (ERROR)
   4. E4: Page folder vs pages.json pageOrder mismatch (orphan/missing)  (ERROR)
@@ -42,23 +42,55 @@ import json
 import re
 import sys
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal
 
-# Windows default console (cp1252) can't print U+2264/U+2014 etc.
-# Force UTF-8 on stdout/stderr so messages containing ≤, —, … render cleanly.
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-        sys.stderr.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-    except (AttributeError, OSError):
-        pass
+from pbir_utils import (
+    HEX_RE,
+    PRIMITIVE_VTYPES,
+    REPORT_VISUAL_BUDGET,
+    contrast_ratio,
+    get_alt_text as _get_alt_text,
+    get_visual_title as _get_visual_title,
+    is_back_button as _is_back_button,
+    is_drillthrough as _is_drillthrough,
+    read_json as _read_json,
+    setup_logging,
+    visual_type as _visual_type,
+)
 
-HEX_RE = re.compile(r"#[0-9A-Fa-f]{6}\b")
 DEFAULT_PAGE_NAMES = re.compile(r"^(Page \d+|Copy of .*|Untitled.*)$", re.IGNORECASE)
 BAD_TITLE_RE = re.compile(r"^(sum of|count of|average of|first|last|min of|max of)\s", re.IGNORECASE)
 
 Severity = Literal["error", "warning", "info"]
+
+
+# ── Read cache: avoids re-reading visual.json / page.json once per check ──
+_json_cache: dict[Path, dict] = {}
+_text_cache: dict[Path, str] = {}
+
+
+def _cached_json(path: Path) -> dict:
+    """Return parsed JSON for *path*, reading from disk only on first call."""
+    if path not in _json_cache:
+        _json_cache[path] = _read_json(path)
+    return _json_cache[path]
+
+
+def _cached_text(path: Path) -> str:
+    """Return raw text for *path*, reading from disk only on first call."""
+    if path not in _text_cache:
+        try:
+            _text_cache[path] = path.read_text(encoding="utf-8")
+        except (OSError, ValueError):
+            _text_cache[path] = ""
+    return _text_cache[path]
+
+
+def _clear_cache() -> None:
+    _json_cache.clear()
+    _text_cache.clear()
 
 
 @dataclass
@@ -111,9 +143,9 @@ def check_visual_counts(report_root: Path, style: str, lint: LintReport) -> None
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            data = _read_json(vjson)
-            vtype = _visual_type(data) or ""
-            if vtype.lower() in ("slicer", "button", "actionbutton", "image", "textbox", "shape"):
+            data = _cached_json(vjson)
+            vtype = (_visual_type(data) or "").lower()
+            if vtype in PRIMITIVE_VTYPES:
                 continue
             count += 1
 
@@ -138,7 +170,7 @@ def check_drillthrough_back_button(report_root: Path, lint: LintReport) -> None:
         page_json = page / "page.json"
         if not page_json.exists():
             continue
-        data = _read_json(page_json)
+        data = _cached_json(page_json)
         if not _is_drillthrough(data):
             continue
 
@@ -149,7 +181,7 @@ def check_drillthrough_back_button(report_root: Path, lint: LintReport) -> None:
                 vjson = vdir / "visual.json"
                 if not vjson.exists():
                     continue
-                vdata = _read_json(vjson)
+                vdata = _cached_json(vjson)
                 if _is_back_button(vdata):
                     has_back = True
                     break
@@ -177,7 +209,7 @@ def check_pie_slices(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            data = _read_json(vjson)
+            data = _cached_json(vjson)
             vtype = (_visual_type(data) or "").lower()
             if vtype in ("pie", "piechart", "donut", "donutchart"):
                 lint.add(
@@ -202,7 +234,7 @@ def check_alt_text(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            data = _read_json(vjson)
+            data = _cached_json(vjson)
             vtype = (_visual_type(data) or "").lower()
             if vtype in ("button", "image", "shape", "textbox"):
                 continue  # decorative; alt text optional
@@ -227,7 +259,7 @@ def check_default_page_names(report_root: Path, lint: LintReport) -> None:
         page_json = page / "page.json"
         if not page_json.exists():
             continue
-        data = _read_json(page_json)
+        data = _cached_json(page_json)
         name = data.get("displayName") or data.get("name") or ""
         if DEFAULT_PAGE_NAMES.match(name):
             lint.add(
@@ -252,7 +284,7 @@ def check_bad_titles(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            data = _read_json(vjson)
+            data = _cached_json(vjson)
             title = _get_visual_title(data)
             if title and BAD_TITLE_RE.match(title):
                 lint.add(
@@ -277,7 +309,7 @@ def check_hardcoded_hex(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            raw = vjson.read_text(encoding="utf-8")
+            raw = _cached_text(vjson)
             hexes = set(HEX_RE.findall(raw))
             if hexes:
                 lint.add(
@@ -304,7 +336,7 @@ def check_bookmark_targets(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            raw = vjson.read_text(encoding="utf-8")
+            raw = _cached_text(vjson)
             # Heuristic: "navigationSection" or "pageNavigation" references
             for match in re.finditer(r'"(?:pageName|sectionName)"\s*:\s*"([^"]+)"', raw):
                 target = match.group(1)
@@ -321,68 +353,10 @@ def check_bookmark_targets(report_root: Path, lint: LintReport) -> None:
 # Helpers
 # ────────────────────────────────────────────────────────────────
 
-def _read_json(path: Path) -> dict:
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-        return {}
-
-
-def _visual_type(data: dict) -> str | None:
-    v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-    if isinstance(v, dict):
-        return v.get("visualType") or v.get("type")
-    return None
-
-
-def _get_visual_title(data: dict) -> str | None:
-    try:
-        v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-        title = v.get("objects", {}).get("title", [{}])[0].get("properties", {}).get("text")
-        if isinstance(title, dict):
-            return title.get("expr", {}).get("Literal", {}).get("Value", "").strip("'")
-        if isinstance(title, str):
-            return title
-    except (AttributeError, IndexError, KeyError):
-        pass
-    return None
-
-
-def _get_alt_text(data: dict) -> str | None:
-    try:
-        v = data.get("visual") or data.get("visualContainer", {}).get("visual", {})
-        alt = v.get("objects", {}).get("general", [{}])[0].get("properties", {}).get("altText")
-        if isinstance(alt, dict):
-            return alt.get("expr", {}).get("Literal", {}).get("Value", "").strip("'") or None
-        if isinstance(alt, str):
-            return alt.strip() or None
-    except (AttributeError, IndexError, KeyError):
-        pass
-    return None
-
-
-def _is_drillthrough(page_data: dict) -> bool:
-    # PBIR page.json typically has "filterConfig" or "pageBinding" indicating drillthrough
-    raw = json.dumps(page_data).lower()
-    return "drillthrough" in raw or "pagebinding" in raw
-
-
-def _is_back_button(visual_data: dict) -> bool:
-    v = visual_data.get("visual") or visual_data.get("visualContainer", {}).get("visual", {})
-    vtype = (v.get("visualType") or v.get("type") or "").lower()
-    if vtype not in ("actionbutton", "button"):
-        return False
-    raw = json.dumps(visual_data).lower()
-    # action is "back" OR shapeType is "back"
-    return '"back"' in raw or "shapetype" in raw and "back" in raw
-
-
 # ────────────────────────────────────────────────────────────────
 # Additional checks (W7-W10, E4)
 # ────────────────────────────────────────────────────────────────
 
-REPORT_VISUAL_BUDGET = 60  # shared-standards.md §8
-PRIMITIVE_VTYPES = {"slicer", "button", "actionbutton", "image", "textbox", "shape", "basicshape"}
 THREE_D_HINTS = re.compile(r'"(is3D|enable3D|show3DEffect)"\s*:\s*true', re.IGNORECASE)
 
 
@@ -400,7 +374,7 @@ def check_three_d_effects(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            raw = vjson.read_text(encoding="utf-8")
+            raw = _cached_text(vjson)
             if THREE_D_HINTS.search(raw):
                 lint.add(
                     "warning",
@@ -429,7 +403,7 @@ def check_rainbow_palette(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            raw = vjson.read_text(encoding="utf-8")
+            raw = _cached_text(vjson)
             tokens = set(token_re.findall(raw))
             hexes = set(HEX_RE.findall(raw))
             distinct = len(tokens) + len(hexes)
@@ -457,7 +431,7 @@ def check_report_visual_budget(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            data = _read_json(vjson)
+            data = _cached_json(vjson)
             vtype = (_visual_type(data) or "").lower()
             if vtype in PRIMITIVE_VTYPES:
                 continue
@@ -491,7 +465,7 @@ def check_alt_text_quality(report_root: Path, lint: LintReport) -> None:
             vjson = vdir / "visual.json"
             if not vjson.exists():
                 continue
-            data = _read_json(vjson)
+            data = _cached_json(vjson)
             vtype = (_visual_type(data) or "").lower()
             if vtype in ("button", "image", "shape", "textbox", "basicshape"):
                 continue
@@ -520,7 +494,7 @@ def check_orphan_pages(report_root: Path, lint: LintReport) -> None:
     if not pages_dir.exists() or not pages_meta.exists():
         return
 
-    meta = _read_json(pages_meta)
+    meta = _cached_json(pages_meta)
     ordered = meta.get("pageOrder")
     if not isinstance(ordered, list) or not ordered:
         return  # pageOrder is optional per schema; skip silently
@@ -544,14 +518,104 @@ def check_orphan_pages(report_root: Path, lint: LintReport) -> None:
         )
 
 
+# ── E1: contrast check ────────────────────────────────────────
+
+# Regex patterns for extracting foreground/background color pairs from visual JSON
+_FG_KEYS = re.compile(r'"(?:fontColor|labelColor|color|foreground(?:Color)?)"', re.IGNORECASE)
+_BG_KEYS = re.compile(r'"(?:background(?:Color)?|fill)"', re.IGNORECASE)
+
+# WCAG AA thresholds
+_CONTRAST_NORMAL = 4.5  # normal text (< 18pt or < 14pt bold)
+_CONTRAST_LARGE = 3.0   # large text (≥ 18pt or ≥ 14pt bold)
+
+
+def _extract_color_props(data: dict) -> list[tuple[str, str]]:
+    """Extract (foreground_hex, background_hex) pairs from visual objects/properties.
+
+    Heuristic: walks `objects` → property groups looking for color-like keys
+    with adjacent foreground and background entries.
+    """
+    pairs: list[tuple[str, str]] = []
+    objects = data.get("visual", data).get("objects", data.get("visualContainer", {}).get("visual", {}).get("objects", {}))
+    if not isinstance(objects, dict):
+        return pairs
+
+    for _group_name, group_entries in objects.items():
+        if not isinstance(group_entries, list):
+            continue
+        for entry in group_entries:
+            props = entry.get("properties", {})
+            if not isinstance(props, dict):
+                continue
+            fg_hex = _extract_hex(props, ("fontColor", "labelColor", "color", "foregroundColor", "foreground"))
+            bg_hex = _extract_hex(props, ("backgroundColor", "background", "fill"))
+            if fg_hex and bg_hex:
+                pairs.append((fg_hex, bg_hex))
+    return pairs
+
+
+def _extract_hex(props: dict, keys: tuple[str, ...]) -> str | None:
+    """Try to extract a #RRGGBB value from one of the given property keys."""
+    for key in keys:
+        val = props.get(key)
+        if isinstance(val, str) and HEX_RE.match(val):
+            return val
+        if isinstance(val, dict):
+            # Solid expression: {"solid":{"color":"#RRGGBB"}} or {"expr":{"Literal":{"Value":"'#RRGGBB'"}}}
+            solid = val.get("solid", {})
+            if isinstance(solid, dict):
+                c = solid.get("color", "")
+                if isinstance(c, str) and HEX_RE.match(c):
+                    return c
+            lit = val.get("expr", {}).get("Literal", {}).get("Value", "") if isinstance(val.get("expr"), dict) else ""
+            if isinstance(lit, str):
+                lit = lit.strip("'\"")
+                if HEX_RE.match(lit):
+                    return lit
+    return None
+
+
+def check_contrast(report_root: Path, lint: LintReport) -> None:
+    """E1: check foreground/background contrast ratio against WCAG AA thresholds."""
+    pages_dir = report_root / "definition" / "pages"
+    if not pages_dir.exists():
+        return
+
+    for page in sorted(pages_dir.iterdir()):
+        visuals_dir = page / "visuals"
+        if not visuals_dir.exists():
+            continue
+        for vdir in visuals_dir.iterdir():
+            vjson = vdir / "visual.json"
+            if not vjson.exists():
+                continue
+            data = _cached_json(vjson)
+            pairs = _extract_color_props(data)
+            for fg, bg in pairs:
+                try:
+                    ratio = contrast_ratio(fg, bg)
+                except (ValueError, IndexError):
+                    continue
+                if ratio < _CONTRAST_LARGE:
+                    lint.add(
+                        "error",
+                        "E1",
+                        f"Contrast ratio {ratio:.1f}:1 between {fg} and {bg} — WCAG AA requires ≥ {_CONTRAST_NORMAL}:1",
+                        f"pages/{page.name}/visuals/{vdir.name}",
+                    )
+
+
 # ────────────────────────────────────────────────────────────────
 # Report writer
 # ────────────────────────────────────────────────────────────────
 
 def write_report(lint: LintReport, out_path: Path, style: str) -> None:
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     lines = [
         "# Design Quality Report",
         "",
+        f"- Generated: **{ts}**",
+        f"- Report: `{out_path.parent.name}`",
         f"- Style personality: **{style}**",
         f"- Errors: **{len(lint.errors())}**",
         f"- Warnings: **{len(lint.warnings())}**",
@@ -583,17 +647,22 @@ def main() -> int:
     parser.add_argument("--report", required=True, type=Path, help="Path to the .Report folder")
     parser.add_argument("--style", default="analytical", choices=["executive", "analytical", "operational"], help="Style personality (affects visual count cap)")
     parser.add_argument("--write-report", action="store_true", help="Write design_report.md to report root")
+    parser.add_argument("--verbose", action="store_true", help="Show debug details")
+    parser.add_argument("--quiet", action="store_true", help="Only show warnings and errors")
     args = parser.parse_args()
 
+    log = setup_logging("design_quality_check", verbose=args.verbose, quiet=args.quiet)
+
     if not args.report.exists() or not args.report.is_dir():
-        print(f"ERROR: report path invalid: {args.report}", file=sys.stderr)
+        log.error("report path invalid: %s", args.report)
         return 1
 
     if not (args.report / "definition").exists():
-        print(f"ERROR: {args.report} is not a PBIR report (missing 'definition/')", file=sys.stderr)
+        log.error("%s is not a PBIR report (missing 'definition/')", args.report)
         return 1
 
     lint = LintReport()
+    _clear_cache()  # ensure fresh reads
 
     check_visual_counts(args.report, args.style, lint)
     check_drillthrough_back_button(args.report, lint)
@@ -608,24 +677,26 @@ def main() -> int:
     check_report_visual_budget(args.report, lint)
     check_alt_text_quality(args.report, lint)
     check_orphan_pages(args.report, lint)
+    check_contrast(args.report, lint)
 
     # Print summary grouped by severity
     for severity, label in (("error", "ERRORS"), ("warning", "WARNINGS"), ("info", "INFO")):
         findings = [f for f in lint.findings if f.severity == severity]
         if not findings:
             continue
-        print(f"\n=== {label} ({len(findings)}) ===")
+        log.info("")
+        log.info("=== %s (%d) ===", label, len(findings))
         for f in findings:
             loc = f" [{f.location}]" if f.location else ""
-            print(f"  [{f.code}]{loc} {f.message}")
+            log.info("  [%s]%s %s", f.code, loc, f.message)
 
-    print()
-    print(f"Errors: {len(lint.errors())}, Warnings: {len(lint.warnings())}, Info: {len(lint.infos())}")
+    log.info("")
+    log.info("Errors: %d, Warnings: %d, Info: %d", len(lint.errors()), len(lint.warnings()), len(lint.infos()))
 
     if args.write_report:
         report_path = args.report / "design_report.md"
         write_report(lint, report_path, args.style)
-        print(f"Wrote: {report_path}")
+        log.info("Wrote: %s", report_path)
 
     return 2 if lint.errors() else 0
 

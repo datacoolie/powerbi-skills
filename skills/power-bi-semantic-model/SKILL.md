@@ -226,7 +226,7 @@ Model Optimization Checklist:
 □ Create aggregation tables for large fact tables (> 100M rows)
 □ Consider partitioning for incremental refresh
 □ Review model size: aim for < 1GB for Import mode
-□ See references/veritpaq-optimization.md for deep-dive cardinality guidance
+□ See references/vertipaq-optimization.md for deep-dive cardinality guidance
 ```
 
 ### Step 6: Implement Security
@@ -340,6 +340,15 @@ Required Columns:
 - IsCurrentMonth, IsCurrentYear (for dynamic filtering)
 - WeekNumber, DayOfWeek, IsWeekend (for operational reports)
 ```
+
+## Related Skills
+
+| Skill | Relationship | When |
+|---|---|---|
+| `power-bi-business-analysis` | Upstream (Phase 1) | Requirements doc defines tables, data sources, and RLS needs |
+| `power-bi-dax-development` | Downstream (Phase 3) | Model schema feeds into measure creation |
+| `power-bi-performance-troubleshooting` | Cross-cutting | VertiPaq optimization, storage mode tuning, cardinality reduction |
+| `power-bi-pbip-report` | Downstream (Phase 4b) | Model schema used during PBIR generation for queryState bindings |
 
 > **Why INT key?** Integer DateKey (e.g., 20241231) uses value encoding in
 > VertiPaq — much smaller and faster than a text or datetime relationship key.

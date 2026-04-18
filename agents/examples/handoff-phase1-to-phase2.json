@@ -1,0 +1,45 @@
+{
+  "from_phase": "phase-1",
+  "to_phase": "phase-2",
+  "timestamp": "2025-03-15T10:30:00Z",
+  "status": "complete",
+  "notes": "Sales analytics requirements gathered from VP Sales interview.",
+  "artifacts": {
+    "phase-1": {
+      "domain": "sales",
+      "audience": {
+        "role": "VP Sales",
+        "archetype": "executive",
+        "data_literacy": "medium",
+        "consumption_mode": "desktop",
+        "cadence": "weekly"
+      },
+      "big_idea": "Revenue growth is slowing in the North region despite higher deal volume, suggesting margin erosion.",
+      "kpis": [
+        { "name": "Revenue", "definition": "SUM(Sales[Amount])", "format": "$#,##0", "priority": "must-have" },
+        { "name": "Gross Margin %", "definition": "DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]))", "format": "0.0%", "target_logic": "≥ 35%", "priority": "must-have" },
+        { "name": "Deal Count", "definition": "COUNTROWS(Sales)", "format": "#,##0", "priority": "should-have" },
+        { "name": "Avg Deal Size", "definition": "AVERAGE(Sales[Amount])", "format": "$#,##0", "priority": "should-have" }
+      ],
+      "page_plan": [
+        { "slug": "executive-summary", "purpose": "High-level KPI dashboard with trend lines", "hero_visual": "KPI row + Revenue trend", "measures": ["Revenue", "Gross Margin %", "Deal Count"] },
+        { "slug": "regional-analysis", "purpose": "Revenue and margin breakdown by region", "hero_visual": "Clustered bar chart by region", "measures": ["Revenue", "Gross Margin %"] },
+        { "slug": "product-mix", "purpose": "Product category contribution analysis", "hero_visual": "Treemap by category", "measures": ["Revenue", "Deal Count", "Avg Deal Size"] }
+      ],
+      "measure_inventory": [
+        { "name": "Revenue", "owner_table": "_Measures", "pattern": "SUM", "column_dependencies": ["Sales[Amount]"], "priority": "must-have" },
+        { "name": "Gross Margin %", "owner_table": "_Measures", "pattern": "DIVIDE", "column_dependencies": ["Sales[Profit]", "Sales[Amount]"], "priority": "must-have" },
+        { "name": "Deal Count", "owner_table": "_Measures", "pattern": "COUNTROWS", "column_dependencies": [], "priority": "should-have" },
+        { "name": "Avg Deal Size", "owner_table": "_Measures", "pattern": "AVERAGE", "column_dependencies": ["Sales[Amount]"], "priority": "should-have" }
+      ],
+      "data_sources": [
+        { "table": "Sales", "type": "fact", "source_system": "CRM", "storage_mode": "import" },
+        { "table": "Product", "type": "dimension", "source_system": "ERP", "storage_mode": "import" },
+        { "table": "Region", "type": "dimension", "source_system": "Master Data", "storage_mode": "import" },
+        { "table": "Date", "type": "dimension", "source_system": "Generated", "storage_mode": "import" }
+      ],
+      "rls_required": false,
+      "data_readiness_pct": 95
+    }
+  }
+}

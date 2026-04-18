@@ -22,6 +22,16 @@ The output is a **structured requirements document** that feeds into downstream 
 **Always search Microsoft Learn** (`microsoft-learn-mcp/microsoft_docs_search`) for
 domain-specific Power BI guidance and best practices before making recommendations.
 
+## Reference Files
+
+| Reference | When to Read |
+|---|---|
+| `references/stakeholder-interview-template.md` | Starting a new project — structured 15-question interview guide (WHO / WHAT / HOW) with recording template |
+| `references/requirements-document-template.md` | After the interview — 10-section document template that becomes the handoff contract to Phase 2 |
+| `references/domain-kpi-templates.md` | During domain analysis — KPI definitions, DAX patterns, dimensions, and analyses per industry |
+| `references/information-architecture-patterns.md` | Designing the page plan — archetype-specific page flows (Executive / Analytical / Operational), navigation patterns, page sizing |
+| `references/data-gap-analysis-template.md` | Final Phase 1 step — requirements-vs-data matrix, gap classification, readiness score, resolution plan |
+
 ## Quick Reference
 
 | Task | Approach |
@@ -291,6 +301,15 @@ Every report should follow this progression:
    Show contextual detail without leaving the current page.
 
 ### Measure Planning
+
+## Related Skills
+
+| Skill | Relationship | When |
+|---|---|---|
+| `power-bi-semantic-model` | Downstream (Phase 2) | Requirements doc feeds into model design — tables, relationships, storage mode |
+| `power-bi-report-design` | Downstream (Phase 4a) | Page plan, audience archetype, and KPIs feed into Design Spec |
+| `power-bi-dax-development` | Downstream (Phase 3) | Measure inventory feeds into DAX development |
+| `power-bi-feedback-iteration` | Loop-back | New requirements discovered during feedback route back here |
 
 List all measures needed, grouped by purpose:
 

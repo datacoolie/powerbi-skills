@@ -6,6 +6,11 @@ The Polisher runs **after** the Executor finishes Pass 2 and **before** the repo
 1. **Mechanical polish** — run `finalize_pbir.py` (deterministic fixes)
 2. **Design QA** — run `design_quality_check.py` (lint) + human review against Design Spec
 
+> **Preferred:** Run `python scripts/pbir_gate.py --report <path> --style <style>` to execute
+> both phases plus schema validation in one pass/fail command. See the script's `--help` for
+> `--dry-run`, `--skip-finalize`, `--skip-lint`, `--allow-warnings`, and `--json` options.
+> The sections below document each stage individually for troubleshooting.
+
 ---
 
 ## Phase 1 — Mechanical polish

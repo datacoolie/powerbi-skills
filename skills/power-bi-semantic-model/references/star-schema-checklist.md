@@ -115,7 +115,7 @@ Priority 3 — Model-level checks:
 □ Aggregation tables present for very large models (>100M rows)
 □ Incremental refresh configured for growing fact tables
 □ Storage modes are appropriate per table (see storage-mode-decision.md)
-□ See references/veritpaq-optimization.md for deep-dive guidance
+□ See references/vertipaq-optimization.md for deep-dive guidance
 ```
 
 ## 7. Security Validation

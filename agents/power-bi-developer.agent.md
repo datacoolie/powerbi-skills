@@ -31,19 +31,19 @@ REQUIRE    MODEL      DAX        STRATEGIST  7-REVIEW      EXECUTOR    POLISH   
                                   spec)       Q&A, non-     layout     + lint)     back)      changelog,
                                               blocking)    +narr.)                            git diff)
 
-                                             feedback  ─── routes back to ─── Phase 2 / 3 / 4a / 4b
-                                             via Phase 5 routing table
+                                             feedback  ─── routes back to ─── Phase 1 / 2 / 3 / 4a / 4b
+                                             via Phase 5 routing table (+ perf skill)
 ```
 
 | Phase | Skill | Role file(s) |
 |---|---|---|
-| 1 Requirements | `power-bi-business-analysis` | — |
+| 1 Requirements | `power-bi-business-analysis` | `references/domain-kpi-templates.md` |
 | 2 Semantic Model | `power-bi-semantic-model` | — |
 | 3 DAX | `power-bi-dax-development` | — |
-| 4a Strategist | `power-bi-report-design` | `strategist.md`, `design-spec-reference.md` |
+| 4a Strategist | `power-bi-report-design` | `strategist.md` + `design-spec-reference.md` + `shared-standards.md` |
 | 4a.5 Seven Confirmations (Plan-mode review) | `power-bi-report-design` | enforced by agent |
 | 4b Executor | `power-bi-report-design` + `power-bi-pbip-report` | `executor-base.md` + 1 style personality |
-| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `polisher.md` + `finalize_pbir.py` + `design_quality_check.py` |
+| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `polisher.md` + `finalize_pbir.py` + `design_quality_check.py` + `validate_report.py` |
 | 5 Feedback | `power-bi-feedback-iteration` | routing table in Phase 5 section |
 | 6 Release *(optional)* | `power-bi-feedback-iteration` | `uat.md`, `git-pbip-diff-guide.md`, `changelog-template.md` |
 
@@ -214,6 +214,24 @@ vscode_askQuestions({
 - Full redesign requested (e.g. `"different page plan entirely"`) → back to Phase 4a, update Design Spec, re-present Phase 4a.5
 - User asks `"what would you recommend?"` on a specific item → Strategist answers with rationale and keeps the default; still non-blocking
 
+**Visual previews (enrich the Q&A with context):**
+
+Before or alongside the seven-question panel, show relevant preview assets to
+help the user (especially non-technical stakeholders) make informed decisions:
+
+1. **Layout preview** — for each page in the proposed page plan, read the matching
+   SVG from `power-bi-report-design/assets/layout-previews/<layout-slug>.svg`
+   and display it via `view_image` (or embed the path in the question description).
+   This shows the user the spatial arrangement of visuals on the page.
+2. **Chart preview** — for each hero visual or non-obvious chart type in §5, read
+   the matching SVG from `power-bi-report-design/assets/chart-previews/<recipe-id>.svg`
+   and show it. This helps the user confirm the chart style before generation.
+3. **Theme swatch** — if available, show the theme swatch from
+   `power-bi-report-design/assets/theme-swatches/<theme-slug>.svg`.
+
+When using the single-message fallback, include the preview file paths as
+markdown image links: `![layout](skills/power-bi-report-design/assets/layout-previews/<slug>.svg)`.
+
 **Style modes (pick the one that fits the channel):**
 - **Plan-mode Q&A** — preferred when `vscode_askQuestions` is available. Single tool call, seven structured questions.
 - **Single-message summary** — fallback when the Q&A tool is unavailable (plain chat, API clients). Post the seven lines as one bundled message with bold recommended defaults, and accept `"proceed"` as the single-reply shortcut.
@@ -247,7 +265,7 @@ the minimum viable properties. No narrative elements yet.
    `pages/<slug>/visuals/<name>/visual.json` with position, queryState binding,
    and recipe-mandated formatting
 3. Apply the theme file at report level (place under `StaticResources/`)
-4. Validate structure with `power-bi-pbip-report/scripts/validate_report.js`
+4. Validate structure with `power-bi-pbip-report/scripts/validate_report.py`
 
 #### Pass 2 — Narrative Construction
 
@@ -269,7 +287,7 @@ later; no model-modifying MCP calls in this phase.
 - [ ] Every visual has alt text
 - [ ] Navigation wired (buttons, drillthrough with back button, bookmarks)
 - [ ] Sync slicers configured
-- [ ] `validate_report.js` passes (zero errors)
+- [ ] `validate_report.py` passes (zero errors)
 
 **Do not run the Polisher or Design-QA linter here — those are Phase 4c.**
 
@@ -279,11 +297,20 @@ later; no model-modifying MCP calls in this phase.
 **Role file:** `power-bi-report-design/references/polisher.md`
 
 **What to do:**
-1. **Mechanical polish** — run `python scripts/finalize_pbir.py --report <path>`
-   (executes in order: `snap_grid`, `align_kpi_row`, `apply_theme_tokens`,
+
+Run the unified gate (chains all three steps into one pass/fail verdict):
+```powershell
+python skills/power-bi-pbip-report/scripts/pbir_gate.py --report <path> --style <style>
+```
+Add `--allow-warnings` to pass with warnings only. Add `--json verdict.json` to save the verdict.
+
+The gate runs these stages in order:
+1. **Mechanical polish** — `finalize_pbir.py` (`snap_grid`, `align_kpi_row`, `apply_theme_tokens`,
    `normalize_fonts`, `ensure_alt_text`)
-2. **Design-QA lint** — run `python scripts/design_quality_check.py --report <path> --style <style> --write-report`
-3. **Schema validation** — run `node scripts/validate_report.js` for PBIR schema correctness
+2. **Design-QA lint** — `design_quality_check.py` (8 style-aware checks)
+3. **Schema validation** — `validate_report.py` for PBIR schema correctness
+
+After the gate passes:
 4. **Reconcile** with Design Spec — every page, visual, binding, and theme token
    referenced in the spec exists in the JSON
 5. **Evidence package** — capture screenshots per page; attach `design_report.md`
@@ -393,6 +420,7 @@ Not every engagement starts at Phase 1. Determine the correct starting phase:
 | "Polish this report" / "Run design QA" | Phase 4c |
 | "Present report for UAT sign-off" | Phase 6 |
 | "Release this report to production" | Phase 6 |
+| "Quick report" / "Just build it" / simple brief with existing model | **Express Path** (discover → auto-design → confirm → generate → polish) |
 
 ## Referenced Skills & Roles
 
@@ -407,7 +435,7 @@ invokes at each phase.
 | 4a Strategist | `power-bi-report-design` | `references/strategist.md` + `references/design-spec-reference.md` + `references/shared-standards.md` |
 | 4a.5 Seven Confirmations (Plan-mode review) | `power-bi-report-design` | enforced by agent (see Phase 4a.5 above) |
 | 4b Executor | `power-bi-report-design` + `power-bi-pbip-report` | `references/executor-base.md` + one of `executor-{executive\|analytical\|operational}.md` |
-| 4c Polish & QA | `power-bi-report-design` + `power-bi-pbip-report` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.js` |
+| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.py` |
 | 5 Feedback | `power-bi-feedback-iteration` | `references/feedback-intake-template.md`, `references/classification.md`, `references/prioritization.md`, `references/change-impact-scoping.md`, `references/validation-checklist.md` |
 | 6 Release *(optional)* | `power-bi-feedback-iteration` | `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md` |
 | * (performance, any phase) | `power-bi-performance-troubleshooting` | — |
@@ -478,6 +506,58 @@ If a phase encounters a blocking issue:
 ---
 
 ## Phase Transitions & Handoffs
+
+Every phase transition produces a structured **handoff artifact** conforming to
+`agents/handoff.schema.json` (a polymorphic JSON Schema with a `from_phase`
+discriminator). The agent SHOULD generate and validate this JSON at each gate
+to confirm all required artifacts are present before the downstream phase begins.
+When time is short (Express Path or micro-tasks), the handoff can be implicit —
+but for full-pipeline engagements, emit the JSON and validate it.
+
+**Validation command:**
+```powershell
+python agents/validate_handoff.py <handoff-file>.json
+```
+Exit codes: `0` = valid, `1` = validation errors, `2` = file/parse error.
+Example handoff files for every transition live in `agents/examples/`.
+
+### Phase Progress Checkpoint
+
+At every phase transition, emit a **progress checkpoint** message so the user
+knows where they are in the pipeline. Use this template:
+
+```
+── Phase [N] complete ──────────────────────────────────────────────
+✓ [phase name]: [1-line summary of what was produced]
+  Artifacts: [comma-separated list of key outputs]
+  Duration:  [if measurable, e.g. "3 tool calls"]
+
+→ Next: Phase [N+1] — [phase name]
+  Goal: [1-line description of what the next phase will produce]
+  Skill: [skill name(s)]
+────────────────────────────────────────────────────────────────────
+```
+
+**Example:**
+```
+── Phase 2 complete ────────────────────────────────────────────────
+✓ Semantic Model: 4 tables, 6 relationships, Import mode, date table marked
+  Artifacts: model schema, relationship map, storage mode map
+  Duration:  5 tool calls
+
+→ Next: Phase 3 — DAX Development
+  Goal: Create 12 measures from the measure inventory
+  Skill: power-bi-dax-development
+────────────────────────────────────────────────────────────────────
+```
+
+**Rules:**
+- Always emit the checkpoint BEFORE starting the next phase
+- Keep it to 4-6 lines — enough for orientation, not a full report
+- Include artifact count (tables, measures, pages, visuals) when available
+- For Express Path, emit a single combined checkpoint after Step 1 (Discover)
+  that summarizes what was found and what will be auto-designed
+- For micro-tasks (single measure, single visual fix), skip the checkpoint
 
 ### Phase 1 → Phase 2: Requirements → Semantic Model
 
@@ -640,6 +720,50 @@ If performance problems surface during any phase:
 3. Diagnose and fix the issue
 4. Return to the original phase
 
+### Scenario: Express Path (small projects)
+
+For lightweight engagements — existing model, simple ask, ≤ 5 measures, ≤ 3
+pages — skip the full pipeline and use the **Express Path**. This collapses
+Phases 1-3 into discovery and runs a streamlined Phase 4.
+
+**Trigger conditions** (any of these):
+- User says `"quick report"`, `"simple dashboard"`, or `"just build it"`
+- Model already exists AND has ≤ 5 measures AND user describes ≤ 3 pages
+- User provides a complete brief in one message (domain + KPIs + page plan)
+- Agent detects the scope is small after running `model_operations` and
+  `measure_operations` (≤ 2 fact tables, ≤ 5 measures)
+
+**Express Path flow:**
+
+```
+DISCOVER ── AUTO-DESIGN ── AUTO-CONFIRM ── GENERATE ── POLISH
+  (5 min)     (auto)        (non-block)    (Phase 4b)  (Phase 4c)
+```
+
+| Step | What Happens | Phase Equivalent |
+|---|---|---|
+| 1. **Discover** | Read model schema via MCP (`model_operations`, `table_operations`, `measure_operations`). List existing tables, relationships, measures. Identify the domain from table/measure names. | Abbreviated Phase 1 + Phase 2 skip + Phase 3 skip |
+| 2. **Auto-Design** | Select the matching domain template. Auto-pick: layout (from `layouts-index.json`), chart recipes (from `chart-templates-index.json`), theme (first match in `pbi-themes/`), style personality (infer from audience hint or default to Analytical). Fill Design Spec §§1-11 with sensible defaults. | Abbreviated Phase 4a |
+| 3. **Auto-Confirm** | Present the Seven Confirmations via Plan-mode Q&A with all defaults pre-filled and a note: *"Express Path — defaults auto-selected from the [domain] template. Reply 'proceed' or edit any item."* Show layout and chart preview SVGs. If user replies `"proceed"` or does not push back → advance. | Phase 4a.5 (non-blocking, as usual) |
+| 4. **Generate** | Run Phase 4b two-pass (Layout → Narrative) as normal. | Phase 4b |
+| 5. **Polish** | Run Phase 4c via `pbir_gate.py --report <path> --style <style>`. | Phase 4c |
+
+**What Express Path skips:**
+- Full 15-question stakeholder interview (replaced by model discovery)
+- Requirements Document generation (inline notes suffice)
+- Phase 2 model building (model already exists)
+- Phase 3 DAX development (measures already exist, or auto-create basic ones)
+- Handoff JSON validation (implicit handoff is fine for small scope)
+
+**What Express Path does NOT skip:**
+- Phase 4a.5 Seven Confirmations (always presented, even if auto-accepted)
+- Phase 4c Polish & QA (every report gets linted)
+- Phase 5 Feedback (user can still iterate)
+
+**Guard rail:** If the agent discovers complexity during Step 1 (> 5 measures
+needed, > 3 pages, RLS required, multiple audiences with conflicting archetypes),
+**exit Express Path** and switch to the full pipeline starting at Phase 1.
+
 ---
 
 ## Domain Templates
@@ -660,4 +784,4 @@ Technology/IT Operations.
 3. **Adapt page structure** to available data (remove pages for missing data)
 4. **Use recommended visuals** as defaults but switch if data shape doesn't fit
 5. **Always validate** visual choices against the storytelling principles in the
-   `power-bi-pbip-report` skill
+   `power-bi-report-design` skill

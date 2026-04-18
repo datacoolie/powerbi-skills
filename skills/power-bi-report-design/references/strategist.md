@@ -121,6 +121,24 @@ Fallback mode (when `vscode_askQuestions` isn't available, e.g. plain chat /
 API clients): emit exactly ONE chat message bundling all seven items with
 recommended defaults in **bold**. Do NOT ask them one at a time.
 
+**Visual previews (show before or alongside the Q&A):**
+
+Enrich the confirmation with visual context so stakeholders can evaluate
+decisions without imagining the layout:
+
+1. **Layout preview** — for each page in the proposed plan, show the matching SVG
+   from `assets/layout-previews/<layout-slug>.svg` via `view_image`. This gives
+   the user a spatial preview of visual placement.
+2. **Chart preview** — for each hero or non-obvious visual, show the matching SVG
+   from `assets/chart-previews/<recipe-id>.svg`. This confirms the chart
+   silhouette before any JSON is generated.
+3. **Theme swatch** — if available, show
+   `assets/theme-swatches/<theme-slug>.svg` so the user sees the color
+   palette they're approving.
+
+In the fallback single-message mode, embed previews as markdown image links:
+`![layout](skills/power-bi-report-design/assets/layout-previews/<slug>.svg)`.
+
 Template for the fallback single-message form — fill the bracketed values
 from the Design Spec:
 

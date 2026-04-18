@@ -76,7 +76,7 @@ When reviewing a diff, map changed files to the type of change:
 □ Commit messages follow the convention
 □ No binary files committed (.pbix, large exports) — only PBIP JSON / TMDL
 □ cache.abf, .pbi, .localSettings.json NOT committed (add to .gitignore)
-□ Schema validation passes (scripts/validate_report.js)
+□ Schema validation passes (scripts/validate_report.py)
 □ Diff scope matches commit message scope
 □ Changelog updated if user-visible change
 □ Test evidence attached (for Critical/High fixes)
@@ -119,7 +119,7 @@ Resolve by understanding intent of both branches, then picking or combining manu
 
 ## Tools
 
-- **Validation:** `scripts/validate_report.js` or `.py` (schema check)
+- **Validation:** `scripts/validate_report.py` (schema + structural checks)
 - **Visual diff:** VS Code's built-in JSON diff works well for PBIR
 - **TMDL diff:** VS Code TMDL extension provides syntax highlighting
 - **Power BI Desktop:** always open the `.pbip` after a merge to verify render

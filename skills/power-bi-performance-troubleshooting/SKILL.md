@@ -35,7 +35,7 @@ the latest performance guidance before recommending optimizations.
 | `references/incremental-refresh.md` | Reducing refresh time for large Import models, real-time hybrid |
 | `../power-bi-dax-development/references/optimization-guide.md` | DAX engine internals: FE/SE, CALCULATE optimization, iterators, composite model patterns, calculated column trade-offs |
 | `../power-bi-dax-development/references/anti-patterns.md` | 18 common DAX anti-patterns with fixes and benchmarks |
-| `../power-bi-semantic-model/references/veritpaq-optimization.md` | VertiPaq encoding, cardinality reduction, column design, relationship keys |
+| `../power-bi-semantic-model/references/vertipaq-optimization.md` | VertiPaq encoding, cardinality reduction, column design, relationship keys |
 | `../power-bi-semantic-model/references/storage-mode-decision.md` | Import vs DirectQuery vs DirectLake vs Composite decision matrix |
 | `../power-bi-semantic-model/references/directlake-guide.md` | Direct Lake: framing, SKU guardrails, fallback, V-Order, composite patterns, monitoring |
 
@@ -118,7 +118,7 @@ Layer 3: Data Model (Medium — hours to days)
 ├── Wrong storage mode? → Import for dims, DQ for large facts
 ├── Missing referential integrity? → Enable on Import relationships
 └── Model too large? → Remove unused columns, optimize data types
-    → Read: ../power-bi-semantic-model/references/veritpaq-optimization.md
+    → Read: ../power-bi-semantic-model/references/vertipaq-optimization.md
 
 Layer 4: Architecture (Expensive — days)
 ├── DirectQuery too slow? → Add aggregation tables
@@ -231,7 +231,7 @@ SUMMARIZECOLUMNS(
    - Move to dimension if it's a text column on a fact table
    - Bin if it's a continuous numeric used for grouping
    - Split if it's a DateTime (separate Date + Time)
-4. Read: `../power-bi-semantic-model/references/veritpaq-optimization.md`
+4. Read: `../power-bi-semantic-model/references/vertipaq-optimization.md`
 
 ### Scenario: Refresh Taking Too Long
 
@@ -282,3 +282,12 @@ Run this mental checklist against the model's measures before deep analysis:
 ```
 
 → Full list with examples: `../power-bi-dax-development/references/anti-patterns.md`
+
+## Related Skills
+
+| Skill | Relationship | When |
+|---|---|---|
+| `power-bi-dax-development` | Cross-reference | DAX optimization guide, anti-patterns, query plan analysis |
+| `power-bi-semantic-model` | Cross-reference | VertiPaq optimization, storage mode decisions, Direct Lake tuning |
+| `power-bi-pbip-report` | Cross-reference | Report-level optimization (visual count, slicer design) |
+| `power-bi-feedback-iteration` | Upstream | Performance complaints route here from the feedback skill |

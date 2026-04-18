@@ -421,6 +421,15 @@ it's a measure-type or column-type field parameter.
 
 ---
 
+## Related Skills
+
+| Skill | Relationship | When |
+|---|---|---|
+| `power-bi-semantic-model` | Upstream (Phase 2) | Model schema defines available tables, columns, and relationships |
+| `power-bi-report-design` | Downstream (Phase 4a) | Measure catalog feeds into Design Spec visual bindings |
+| `power-bi-performance-troubleshooting` | Cross-cutting | DAX optimization, query plan analysis, anti-pattern detection |
+| `power-bi-business-analysis` | Upstream (Phase 1) | Measure inventory from requirements defines what to build |
+
 ## Performance Guidelines
 
 See `references/optimization-guide.md` for the full optimization reference

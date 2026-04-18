@@ -51,7 +51,7 @@ one matching the current phase.
 | `references/chart-templates/*.md` | Individual chart recipes (kpi-banner, bar-comparison, trend-line, yoy-variance, waterfall-bridge, …) |
 | `assets/icons/` | SVG icon library (Tabler / Lucide / custom sets). Strategist binds a **set** in Seven Confirmations item #6. |
 | `assets/images/` | Raster artwork — backgrounds, banners, dividers, demo logos. |
-| `assets/layout-previews/` | PNG thumbnails (1 per layout) used in Seven Confirmations item #2 |
+| `assets/layout-previews/` | SVG thumbnails (1 per layout) used in Seven Confirmations item #2 |
 | `assets/chart-previews/` | SVG/PNG thumbnails (1 per chart recipe) used in Design Spec §5 |
 
 ### Legacy / cross-skill references
@@ -221,6 +221,18 @@ REPORT DESIGN SPEC: [Report Name]
 - Big Idea: [one sentence]
 
 ## Theme
+...
+```
+
+## Related Skills
+
+| Skill | Relationship | When |
+|---|---|---|
+| `power-bi-pbip-report` | Downstream (Phase 4b) | Design Spec is consumed to generate PBIR JSON files |
+| `power-bi-dax-development` | Upstream (Phase 3) | Measure catalog provides data bindings for visuals |
+| `power-bi-business-analysis` | Upstream (Phase 1) | Page plan, audience, KPIs, and domain from requirements |
+| `power-bi-performance-troubleshooting` | Cross-cutting | Report-level optimization (visual count, slicer design, query reduction) |
+| `power-bi-feedback-iteration` | Loop-back | Chart/layout redesign feedback routes through this skill |
 - Theme file: [path or "custom"]
 - Brand colors: [hex codes if custom]
 
@@ -269,7 +281,7 @@ from the `power-bi-developer` agent, follow the role-based phase gates instead:
 | 4a Design Strategy | `references/strategist.md` + `shared-standards.md` + layouts/chart-templates indexes | Filled `design-spec-reference.md` |
 | 4a.5 Seven Confirmations (Plan-mode Q&A, non-blocking) | *(no role file — `vscode_askQuestions` panel with recommended defaults; single-message summary as fallback)* | Recorded user decision on Canvas / Pages / Audience / Style / Palette / Iconography / Navigation (accepted defaults or inline edits) |
 | 4b Generation | `references/executor-base.md` + one of `executor-executive.md` / `executor-analytical.md` / `executor-operational.md` | PBIR files (Pass 1 Layout → Pass 2 Narrative) |
-| 4c Polish & Design QA | `references/polisher.md` | `finalize_pbir.py` → `design_quality_check.py` → `validate_report.js` → evidence package |
+| 4c Polish & Design QA | `references/polisher.md` | `finalize_pbir.py` → `design_quality_check.py` → `validate_report.py` → evidence package |
 
 Phase 4a.5 is a **non-blocking Plan-mode review**: a single `vscode_askQuestions`
 call presents the seven decisions with the Strategist's recommended defaults,

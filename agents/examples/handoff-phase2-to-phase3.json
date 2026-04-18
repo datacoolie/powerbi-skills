@@ -1,0 +1,55 @@
+{
+  "from_phase": "phase-2",
+  "to_phase": "phase-3",
+  "timestamp": "2025-03-15T11:15:00Z",
+  "status": "complete",
+  "artifacts": {
+    "phase-2": {
+      "tables": [
+        { "name": "Sales", "type": "fact", "storage_mode": "import", "columns": [
+          { "name": "OrderID", "data_type": "Int64", "is_hidden": true },
+          { "name": "OrderDate", "data_type": "DateTime", "is_hidden": false },
+          { "name": "ProductKey", "data_type": "Int64", "is_hidden": true },
+          { "name": "RegionKey", "data_type": "Int64", "is_hidden": true },
+          { "name": "Amount", "data_type": "Decimal", "is_hidden": false },
+          { "name": "Profit", "data_type": "Decimal", "is_hidden": false },
+          { "name": "Quantity", "data_type": "Int64", "is_hidden": false }
+        ]},
+        { "name": "Product", "type": "dimension", "storage_mode": "import", "columns": [
+          { "name": "ProductKey", "data_type": "Int64", "is_hidden": true },
+          { "name": "ProductName", "data_type": "String", "is_hidden": false },
+          { "name": "Category", "data_type": "String", "is_hidden": false },
+          { "name": "SubCategory", "data_type": "String", "is_hidden": false }
+        ]},
+        { "name": "Region", "type": "dimension", "storage_mode": "import", "columns": [
+          { "name": "RegionKey", "data_type": "Int64", "is_hidden": true },
+          { "name": "RegionName", "data_type": "String", "is_hidden": false },
+          { "name": "Country", "data_type": "String", "is_hidden": false }
+        ]},
+        { "name": "Date", "type": "dimension", "storage_mode": "import", "columns": [
+          { "name": "Date", "data_type": "DateTime", "is_hidden": false },
+          { "name": "Year", "data_type": "Int64", "is_hidden": false },
+          { "name": "Quarter", "data_type": "String", "is_hidden": false },
+          { "name": "Month", "data_type": "String", "is_hidden": false },
+          { "name": "MonthNumber", "data_type": "Int64", "is_hidden": true }
+        ]}
+      ],
+      "relationships": [
+        { "from_table": "Sales", "from_column": "OrderDate", "to_table": "Date", "to_column": "Date", "cardinality": "many-to-one", "cross_filter": "single", "is_active": true },
+        { "from_table": "Sales", "from_column": "ProductKey", "to_table": "Product", "to_column": "ProductKey", "cardinality": "many-to-one", "cross_filter": "single", "is_active": true },
+        { "from_table": "Sales", "from_column": "RegionKey", "to_table": "Region", "to_column": "RegionKey", "cardinality": "many-to-one", "cross_filter": "single", "is_active": true }
+      ],
+      "date_table": {
+        "name": "Date",
+        "key_column": "Date",
+        "marked": true
+      },
+      "measure_inventory": [
+        { "name": "Revenue", "owner_table": "_Measures", "pattern": "SUM", "column_dependencies": ["Sales[Amount]"] },
+        { "name": "Gross Margin %", "owner_table": "_Measures", "pattern": "DIVIDE", "column_dependencies": ["Sales[Profit]", "Sales[Amount]"] },
+        { "name": "Deal Count", "owner_table": "_Measures", "pattern": "COUNTROWS", "column_dependencies": [] },
+        { "name": "Avg Deal Size", "owner_table": "_Measures", "pattern": "AVERAGE", "column_dependencies": ["Sales[Amount]"] }
+      ]
+    }
+  }
+}

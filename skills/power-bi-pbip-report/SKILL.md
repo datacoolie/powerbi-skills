@@ -39,10 +39,10 @@ Canvas size: **1664 × 936** (standard Power BI canvas). Tooltip pages: **320 ×
 | `references/version-template.json` | JSON template for `version.json` |
 | `references/definition-pbir-template.json` | JSON template for `definition.pbir` |
 | `references/themes/*.json` | Ready-to-use custom theme files (8 industries) — copy to `StaticResources/RegisteredResources/` |
-| `scripts/validate_report.js` | **Run after generation** — validates against official Microsoft JSON schemas (preferred) |
-| `scripts/validate_report.py` | **Fallback** — validates JSON syntax, required properties, cross-references, naming |
+| `scripts/validate_report.py` | **Run after generation** — validates against official Microsoft JSON schemas, required properties, cross-references, bookmarks, naming conventions. Supports `--offline` for cached-only mode. |
 | `scripts/finalize_pbir.py` | **Phase 4c polish** — snap_grid, align_kpi_row, apply_theme_tokens, normalize_fonts, ensure_alt_text. Supports `--dry-run`, `--skip`, `--only`. |
 | `scripts/design_quality_check.py` | **Phase 4c lint** — 8 checks (visual counts, drillthrough back button, pie slices, alt text, default page names, bad titles, hardcoded hex, bookmark targets). Use `--style executive\|analytical\|operational` and `--write-report` to emit `design_report.md`. |
+| `scripts/pbir_gate.py` | **Unified Phase 4c gate** — chains finalize → lint → validate into one pass/fail command. Supports `--dry-run`, `--skip-finalize`, `--skip-lint`, `--allow-warnings`, `--json`. Exit codes: `0` pass, `1` input error, `2` fail, `3` tool error. |
 
 ## Quick Reference: Folder Structure
 
@@ -146,7 +146,21 @@ As needed:
 Power BI Desktop rejects files with JSON syntax errors silently or with cryptic messages.
 **Always validate before telling the user the report is ready.**
 
-**If invoked from the `power-bi-developer` agent (Phase 4c), run the full polish chain first:**
+**If invoked from the `power-bi-developer` agent (Phase 4c), use the unified gate:**
+
+```powershell
+# Recommended — single command, one pass/fail verdict
+python skills/power-bi-pbip-report/scripts/pbir_gate.py `
+    --report <path-to-.Report-folder> `
+    --style <style-from-design-spec>
+```
+
+The gate chains `finalize_pbir.py` → `design_quality_check.py` → `validate_report.py` automatically.
+Exit codes: `0` = pass, `1` = input error, `2` = fail, `3` = tool error.
+Add `--allow-warnings` to pass with warnings, `--json verdict.json` to save the result.
+See `../power-bi-report-design/references/polisher.md` for the full Phase 4c routing table.
+
+<details><summary>Manual alternative (run each stage separately)</summary>
 
 ```powershell
 # 1. Mechanical polish (snap grid, align KPIs, tokenize theme colors, unify fonts, alt text)
@@ -159,25 +173,22 @@ python skills/power-bi-pbip-report/scripts/design_quality_check.py `
     --write-report
 
 # 3. Schema validation (always last)
-node skills/power-bi-pbip-report/scripts/validate_report.js <path-to-.Report-folder>
-```
-
-Exit codes: `0` = pass, `1` = warnings only, `2` = errors present (must fix). See
-`../power-bi-report-design/references/polisher.md` for the full Phase 4c routing table.
-
-**Preferred** (schema-driven, validates against official Microsoft JSON schemas):
-```
-node skills/power-bi-pbip-report/scripts/validate_report.js <path-to-.Report-folder>
-```
-
-**Fallback** (no Node.js):
-```
 python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder>
 ```
 
-Both check:
+Per-script exit codes: `0` = pass, `1` = warnings only, `2` = errors present (must fix).
+
+</details>
+
+**Standalone usage:**
+```
+python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder>
+python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder> --offline
+```
+
+Checks:
 1. **JSON syntax** — every `.json` and `.pbir` file parses cleanly
-2. **Schema validation** — structure matches Microsoft's published JSON schemas (Node.js only)
+2. **Schema validation** — structure matches Microsoft's published JSON schemas (requires `jsonschema`)
 3. **Required properties** — `$schema`, `name`, `position`, `themeCollection`, etc.
 4. **Cross-references** — page folders match `pages.json`, custom visuals registered in `report.json`
 5. **Naming conventions** — kebab-case for page and visual folders
@@ -395,3 +406,13 @@ Captures: page, filters, slicers, visibility, sort, drill state. Scopes: **Data*
 **Current page**, **All vs Selected visuals**. Use for tab navigation, toggle views, reset filters.
 See `references/bookmark-patterns.md` for complete bookmark JSON patterns
 and `../power-bi-report-design/references/navigation-patterns.md` for navigation design patterns.
+
+## Related Skills
+
+| Skill | Relationship | When |
+|---|---|---|
+| `power-bi-report-design` | Upstream (Phase 4a) | Design Spec drives all JSON generation decisions |
+| `power-bi-semantic-model` | Upstream (Phase 2) | Model schema needed for queryState column/measure bindings |
+| `power-bi-dax-development` | Upstream (Phase 3) | Measure names and tables needed for visual data bindings |
+| `power-bi-performance-troubleshooting` | Cross-cutting | Report-level perf (visual count, slicer cardinality, query reduction) |
+| `power-bi-feedback-iteration` | Downstream (Phase 5) | Visual formatting fixes and JSON corrections route here |

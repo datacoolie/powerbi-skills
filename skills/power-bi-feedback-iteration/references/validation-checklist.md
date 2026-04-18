@@ -19,7 +19,7 @@ Cross-filtering
 
 Structure
 □ PBIP file integrity (all cross-references valid)
-□ Schema validation passes (scripts/validate_report.js or .py)
+□ Schema validation passes (scripts/validate_report.py)
 □ No orphaned references (deleted measure not still referenced by a visual)
 □ Page order and navigation intact
 

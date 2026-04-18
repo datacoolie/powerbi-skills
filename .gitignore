@@ -18,8 +18,8 @@ _*.txt
 _*.py
 
 # Ignore generated artifacts (npm, Python cache, schema cache)
-node_modules/
 __pycache__/
+.pytest_cache/
 *.pyc
 .schema-cache/
 package-lock.json

@@ -108,27 +108,36 @@ Record in Design Spec §8.
 
 Use the template in `design-spec-reference.md`. All 11 sections must be filled or explicitly marked "N/A".
 
-### Step 9 — Hand off to Phase 4a.5 (Seven Confirmations)
+### Step 9 — Hand off to Phase 4a.5 (Seven Confirmations, Plan-mode Q&A)
 
-**This is a BLOCKING gate.** Emit exactly ONE chat message to the user containing all
-seven items bundled together. Do NOT ask them one at a time. Do NOT proceed to Phase 4b
-until the user approves (or specifies edits).
+**This is a non-blocking Plan-mode review.** Preferred mode: issue a single
+`vscode_askQuestions` call with seven questions (one per decision), each
+carrying the Strategist's recommended default as `recommended: true` and
+`allowFreeformInput: true`. The user can accept all defaults with a single
+panel submit or a chat reply of `"proceed"` / `"go"` / `"lgtm"`, edit any
+items inline, or ask "what would you recommend?" on a specific item.
 
-Use this template verbatim, filling the bracketed values from the Design Spec:
+Fallback mode (when `vscode_askQuestions` isn't available, e.g. plain chat /
+API clients): emit exactly ONE chat message bundling all seven items with
+recommended defaults in **bold**. Do NOT ask them one at a time.
+
+Template for the fallback single-message form — fill the bracketed values
+from the Design Spec:
 
 ```markdown
-### Design Spec ready — please confirm before I generate the report
+### Design Spec ready — confirm or edit the seven decisions below
 
-I've drafted the following seven decisions. Reply **"approved"** to proceed to generation,
-or list any items you want changed (e.g. *"change #3 to operational, tighten #6"*).
+Reply **"proceed"** to accept all recommended defaults, or list the items you
+want changed (e.g. *"4 → operational, 6 → nav icons only"*). You can also
+answer item-by-item if you prefer.
 
-1. **Canvas** — [width × height, e.g. 1664×936 desktop + 320×568 phone]
-2. **Pages** — [N pages]: [page-1-slug (purpose)], [page-2-slug (purpose)], …
-3. **Audience** — [primary role] · decision supported: *"[one sentence]"*
-4. **Style personality** — [Executive | Analytical | Operational] · density cap [4 | 8 | 12] visuals/page
-5. **Palette** — theme `[theme file name]` · accent colors: [hex or "data0 only"]
-6. **Iconography** — [icon library / set] · used on [KPI cards | status cells | nav buttons]
-7. **Navigation** — [tab strip | page navigator | bookmarks] · drillthrough: [source → target pages or "none"]
+1. **Canvas** — **[width × height, e.g. 1664×936 desktop + 320×568 phone]**
+2. **Pages** — **[N pages]**: [page-1-slug (purpose)], [page-2-slug (purpose)], …
+3. **Audience** — **[primary role]** · decision: *"[one sentence]"*
+4. **Style personality** — **[Executive | Analytical | Operational]** · density cap [4 | 8 | 12] visuals/page
+5. **Palette** — theme **`[theme file name]`** · accent colors: [hex or "data0 only"]
+6. **Iconography** — **[icon library / set]** · used on [KPI cards | status cells | nav buttons]
+7. **Navigation** — **[tab strip | page navigator | bookmarks]** · drillthrough: [source → target pages or "none"]
 
 — Design Spec full draft is in [link or §reference]. Backlog items (§11): [count] open.
 ```
@@ -137,13 +146,15 @@ or list any items you want changed (e.g. *"change #3 to operational, tighten #6"
 
 | User response | Next action |
 |---|---|
-| "approved" / "go" / "lgtm" | Advance to Phase 4b with the signed-off spec |
-| Changes to items 1-4 | Return to Strategist Step 2-4, re-emit the confirmation |
-| Changes to items 5-7 | Update Strategist Step 5-7 in-place; re-emit only the changed rows |
-| Silence / ambiguous | Re-ask with the same template, **do not assume approval** |
+| Panel submitted untouched, or `"proceed"` / `"go"` / `"lgtm"` | Accept all recommended defaults; advance to Phase 4b |
+| Inline edits to items 5-7 (palette / icons / navigation) | Update Strategist Step 5-7 in place; restate the affected lines once; advance to Phase 4b |
+| Inline edits to items 1-4 (canvas / pages / audience / style) | Return to Strategist Step 2-4 as needed, update Design Spec, re-present Phase 4a.5 once |
+| "What would you recommend?" on a specific item | Answer with rationale; keep the default; still non-blocking |
+| Silence / no reply | Treat as acceptance of all defaults on the next turn; advance to Phase 4b |
 
-Record the approval (user handle + timestamp + verbatim reply) in Design Spec §11
-sign-off table before invoking the Executor.
+Record the decision (user handle + timestamp + verbatim reply or panel-submit
+event + the seven final values as accepted-or-amended) in Design Spec §11
+sign-off table before invoking the Executor. No per-row ☑ checkbox is required.
 
 ---
 

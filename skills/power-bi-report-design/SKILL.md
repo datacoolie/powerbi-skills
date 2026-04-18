@@ -267,9 +267,13 @@ from the `power-bi-developer` agent, follow the role-based phase gates instead:
 | Agent Phase | Role to load | Output |
 |---|---|---|
 | 4a Design Strategy | `references/strategist.md` + `shared-standards.md` + layouts/chart-templates indexes | Filled `design-spec-reference.md` |
-| 4a.5 Seven Confirmations | *(no role file — bundled confirmation message)* | User sign-off on Canvas / Pages / Audience / Style / Palette / Iconography / Navigation |
+| 4a.5 Seven Confirmations (Plan-mode Q&A, non-blocking) | *(no role file — `vscode_askQuestions` panel with recommended defaults; single-message summary as fallback)* | Recorded user decision on Canvas / Pages / Audience / Style / Palette / Iconography / Navigation (accepted defaults or inline edits) |
 | 4b Generation | `references/executor-base.md` + one of `executor-executive.md` / `executor-analytical.md` / `executor-operational.md` | PBIR files (Pass 1 Layout → Pass 2 Narrative) |
 | 4c Polish & Design QA | `references/polisher.md` | `finalize_pbir.py` → `design_quality_check.py` → `validate_report.js` → evidence package |
 
-Do NOT skip 4a.5 — the Seven Confirmations gate is blocking. Do NOT run 4b
-without a signed-off Design Spec. Every 4b regeneration MUST be followed by 4c.
+Phase 4a.5 is a **non-blocking Plan-mode review**: a single `vscode_askQuestions`
+call presents the seven decisions with the Strategist's recommended defaults,
+and the user can accept the whole panel in one click or via a chat reply of
+`"proceed"` / `"go"` / `"looks good"`. Inline edits update only the changed
+items; a full redesign loops back to 4a. Do NOT run 4b without a Design Spec,
+and every 4b regeneration MUST be followed by 4c.

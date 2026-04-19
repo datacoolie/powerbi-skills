@@ -15,366 +15,272 @@ description: >-
 
 # Power BI Business Analysis
 
-Analyze business user requests to define a clear BI strategy before any model or report is built.
-The output is a **structured requirements document** that feeds into downstream skills
-(semantic model → DAX → report).
+This is **Phase 1** of the agent pipeline. Analyze the business request and
+produce a **Requirements Document** that becomes the handoff contract to
+Phase 2 (Semantic Model).
+
+The skill itself runs as four internal **Steps** (to avoid colliding with the
+agent's own Phase numbering):
+
+```
+Step 1 ── Step 2 ── Step 3 ── Step 4
+CONTEXT   DOMAIN    INFO-ARCH OUTPUT
+(WHO/     (KPIs by  (page     (Requirements
+ WHAT/    industry)  plan)     Document +
+ HOW)                          handoff JSON)
+```
 
 **Always search Microsoft Learn** (`microsoft-learn-mcp/microsoft_docs_search`) for
 domain-specific Power BI guidance and best practices before making recommendations.
 
-## Reference Files
+### Useful research queries
 
-| Reference | When to Read |
+Run these at the start of each step, replacing `<domain>` with the business domain:
+
+| Step | Sample query |
 |---|---|
-| `references/stakeholder-interview-template.md` | Starting a new project — structured 15-question interview guide (WHO / WHAT / HOW) with recording template |
-| `references/requirements-document-template.md` | After the interview — 10-section document template that becomes the handoff contract to Phase 2 |
-| `references/domain-kpi-templates.md` | During domain analysis — KPI definitions, DAX patterns, dimensions, and analyses per industry |
-| `references/information-architecture-patterns.md` | Designing the page plan — archetype-specific page flows (Executive / Analytical / Operational), navigation patterns, page sizing |
-| `references/data-gap-analysis-template.md` | Final Phase 1 step — requirements-vs-data matrix, gap classification, readiness score, resolution plan |
+| Step 1 | `Power BI report archetype executive analytical operational` |
+| Step 2 | `Power BI <domain> KPI best practices dashboard examples` |
+| Step 2 | `DAX time intelligence year-over-year pattern` |
+| Step 3 | `Power BI drillthrough tooltip page design guidelines` |
+| Step 3 | `Power BI semantic model data source <source-type> limitations` |
+| Step 4 | `Power BI row-level security RLS static dynamic patterns` |
 
-## Quick Reference
+Use `microsoft_docs_fetch` to read full articles when excerpts are insufficient.
 
-| Task | Approach |
+## Reference Files (read in this order)
+
+| Reference | Used in | Purpose |
+|---|---|---|
+| [stakeholder-interview-template.md](references/stakeholder-interview-template.md) | Step 1 | 15-question interview guide (WHO / WHAT / HOW) with recording template |
+| [domain-kpi-templates.md](references/domain-kpi-templates.md) | Step 2 | KPI definitions, DAX patterns, dimensions, and analyses per industry |
+| [information-architecture-patterns.md](references/information-architecture-patterns.md) | Step 3 | Archetype-specific page flows, navigation patterns, canvas sizing |
+| [data-gap-analysis-template.md](references/data-gap-analysis-template.md) | Step 3/4 | Requirements-vs-data matrix, gap classification, resolution plan |
+| [requirements-document-template.md](references/requirements-document-template.md) | Step 4 | 10-section document template — the Phase 1 → 2 handoff contract |
+
+## When to Use This Skill vs. Others
+
+| Say this → | Use this skill |
 |---|---|
-| New project intake | Run full Context Assessment (WHO/WHAT/HOW) |
-| Domain-specific KPIs | Use Domain Templates below + detailed reference (references/domain-kpi-templates.md) |
-| Page/report structure | Propose pages using Information Architecture framework |
-| Data gap analysis | Compare required metrics vs. available data sources |
-| Stakeholder alignment | Generate Requirements Document for sign-off |
+| "what should we measure", "define KPIs", "gather requirements" | power-bi-business-analysis (this skill) |
+| "design the layout", "choose chart types", "pick a theme" | power-bi-report-design |
+| "build the model", "create tables", "set up relationships" | power-bi-semantic-model |
 
-## Phase 1: Context Assessment (WHO / WHAT / HOW)
+Both this skill and `power-bi-report-design` handle "dashboard planning" — but
+**this skill stops at the page plan**; `power-bi-report-design` turns that plan
+into a Design Spec with specific layouts, recipes, and themes.
 
-Before touching any data, answer three questions (from *Storytelling with Data* principles):
+---
+
+## Step 1 — Context Assessment (WHO / WHAT / HOW)
+
+Before touching any data, run the stakeholder interview.
+
+→ **Read [stakeholder-interview-template.md](references/stakeholder-interview-template.md)**
+and record answers verbatim in the table at the bottom of that file.
+
+The three question groups map to:
 
 ### WHO is the audience?
 
-```
-Audience Profiling:
-□ Role and seniority (C-suite, manager, analyst, operator)
-□ Data literacy level (high, medium, low)
-□ Decision-making authority (strategic, tactical, operational)
-□ How they consume reports (desktop, mobile, presentation, embedded)
-□ Frequency of use (daily, weekly, monthly, ad-hoc)
-```
+Map the interview answers (questions 1–5) to a report archetype:
 
-Map the audience to a report archetype:
-
-| Audience | Report Type | Characteristics |
+| Audience | Report Archetype | Characteristics |
 |---|---|---|
-| C-suite / executives | Executive dashboard | 3-5 KPI cards, trend lines, exception alerts, minimal detail |
-| Department managers | Analytical report | Drill-down, period comparisons, target vs actual, filters |
-| Analysts | Exploration workbook | Many slicers, detail tables, export capability, multiple views |
-| Operators / field staff | Operational report | Real-time status, action items, mobile-optimized, alerts |
+| C-suite / executives | **Executive** | 3-5 KPI cards, trend lines, exception alerts, minimal detail |
+| Department managers | **Analytical** | Drill-down, period comparisons, target vs actual, filters |
+| Analysts | **Exploration** | Many slicers, detail tables, export capability, multiple views |
+| Operators / field staff | **Operational** | Real-time status, action items, mobile-optimized, alerts |
+
+**Using the data-literacy score (interview Q5):**
+- **1–2 (prefer summary)** → fewer slicers, larger fonts, more narrative titles, Big-Idea phrasing over raw numbers
+- **3 (neutral)** → default Analytical archetype
+- **4–5 (writes SQL)** → add detail tables, export buttons, richer slicer panel, expose grain
 
 ### WHAT decisions will this support?
 
-```
-Decision Mapping:
-□ What specific decisions does the audience make with this data?
-□ What action should they take after viewing the report?
-□ What question should each page answer in one sentence?
-□ What would "success" look like for this report?
-```
+Use interview answers 6–10 to capture:
+- The **one question** the report must answer (→ Big-Idea title in §1 of the Requirements Document)
+- The action the user takes after viewing (→ validates the report drives action, not just awareness)
+- Comparisons that matter (→ time-intelligence measures in Step 2)
+- Success criteria (→ UAT acceptance criteria in Phase 6)
 
 ### HOW does data support the story?
 
-```
-Data-to-Insight Mapping:
-□ What data sources are available? (gold layer, existing models, external)
-□ What is the data granularity? (transaction-level, daily, monthly)
-□ What time periods are needed? (real-time, historical, forecast)
-□ What comparisons matter? (YoY, budget vs actual, target vs actual, benchmark)
-□ Are there hierarchies to support drill-down? (geography, product, time, org)
-```
+Use interview answers 11–15 to capture:
+- Data sources, lowest grain, history depth, access restrictions, constraints
+- These feed directly into Step 3's Data Gap Analysis and the Phase 2 storage-mode decision
 
-## Phase 2: Domain Analysis
+### Skip Step 1 when…
 
-Based on the business domain, identify standard KPIs, common analyses, and typical report structures.
+- User provides a complete brief in one message (domain + KPIs + page plan) → go to Step 2 with their brief as input
+- Model already exists AND has ≤ 5 measures AND user describes ≤ 3 pages → **Express Path**: condense Steps 1–3 into a single model-discovery pass (see agent.md §Express Path)
 
-### Domain Templates
+---
 
-Storytelling principles (pre-attentive attributes, narrative structure, audience design)
-are in the `power-bi-report-design` skill at
-`../power-bi-report-design/references/visual-design-principles.md`.
+## Step 2 — Domain Analysis
 
-For detailed KPI definitions with DAX patterns, format strings, and target logic,
-see `references/domain-kpi-templates.md`.
+Identify standard KPIs and analyses for the domain.
 
-#### Sales & Revenue
-```
-Key KPIs:
-- Revenue (total, by product/region/channel)
-- Growth rate (YoY, MoM, QoQ)
-- Average order value (AOV)
-- Customer acquisition cost (CAC)
-- Customer lifetime value (CLV)
-- Sales pipeline / conversion rate
-- Revenue per employee / per unit
+→ **Read [domain-kpi-templates.md](references/domain-kpi-templates.md)** — find the
+matching section for your domain and lift the KPI table, dimensions, and analyses.
 
-Common Analyses:
-- Sales trend over time (line chart)
-- Revenue by product category (bar chart)
-- Geographic distribution (map)
-- Top N customers / products (ranked bar)
-- Sales vs. target (bullet chart / gauge)
-- Cohort analysis (retention heatmap)
+**Domain index** (pick one; see reference file for full KPI tables with DAX patterns):
 
-Typical Pages: Overview → Sales Trend → Product Analysis → Regional Breakdown →
-               Customer Analysis → Target Tracking → Detail / Drillthrough
-```
+| Domain | Typical audience | Hero metrics |
+|---|---|---|
+| Sales & Revenue | Sales ops, execs | Revenue, Growth YoY, AOV, Win Rate |
+| FMCG | Brand/category mgrs | Net Revenue, Market Share, Trade ROI, OOS Rate |
+| Manufacturing | Plant managers | OEE, Defect Rate, Downtime, Throughput |
+| Supply Chain | Logistics / S&OP | OTIF, Inventory Turnover, Fill Rate, Supplier Score |
+| Financial / P&L | CFO, controllers | Revenue, Gross Margin, EBITDA, Budget Variance |
+| Retail | Store ops, merch | Sales/sqft, Basket Size, Same-Store Growth, Conversion |
+| Procurement | Sourcing, category mgrs | Spend by category, Savings, PO Cycle Time, Maverick % |
+| Healthcare / Pharma | Ops, clinical | Patient volume, Readmission, Avg LOS, Drug utilization |
+| Technology / IT | IT ops, SRE | Uptime, MTTR, Ticket volume, Cost per user |
 
-#### FMCG (Fast-Moving Consumer Goods)
-```
-Key KPIs:
-- Net revenue, gross margin
-- Volume (units sold, cases, weight)
-- Distribution (numeric, weighted)
-- Market share
-- Trade spend effectiveness (ROI)
-- Promotion uplift
-- Out-of-stock rate
-- Days of inventory
+Storytelling principles (pre-attentive attributes, narrative structure) live in
+the `power-bi-report-design` skill at
+[visual-design-principles.md](../power-bi-report-design/references/visual-design-principles.md)
+— do not duplicate them here.
 
-Common Analyses:
-- Brand/SKU performance comparison
-- Promotion effectiveness (pre/during/post)
-- Channel mix (modern trade, general trade, e-commerce)
-- Price point analysis
-- Seasonal demand patterns
-- Distributor/retailer performance
+---
 
-Typical Pages: Overview → Brand Performance → Channel Analysis → Promotion ROI →
-               Distribution Coverage → Inventory Status → Detail
-```
+## Step 3 — Information Architecture & Data Gaps
 
-#### Manufacturing & Operations
-```
-Key KPIs:
-- OEE (Overall Equipment Effectiveness)
-- Production volume / yield rate
-- Defect rate / quality index
-- Downtime (planned vs. unplanned)
-- Cycle time / throughput
-- Scrap rate / waste percentage
-- Energy consumption per unit
-- Safety incidents
+Design the report structure and verify the data exists to support it.
 
-Common Analyses:
-- Production trend by plant/line (line chart)
-- OEE breakdown: availability × performance × quality
-- Defect Pareto analysis (top causes)
-- Downtime analysis by category
-- Capacity utilization heatmap
-- Material consumption vs. plan
+→ **Read [information-architecture-patterns.md](references/information-architecture-patterns.md)**
+for archetype-specific page flows, canvas sizing, and navigation patterns.
 
-Typical Pages: Overview → Production KPIs → Quality Analysis → Downtime Analysis →
-               Plant Comparison → Material Usage → Detail
-```
+### Page plan
 
-#### Supply Chain & Logistics
-```
-Key KPIs:
-- On-time delivery (OTD) / OTIF
-- Lead time (average, variability)
-- Inventory turnover / days on hand
-- Fill rate / order accuracy
-- Freight cost per unit
-- Warehouse utilization
-- Supplier performance score
-- Demand forecast accuracy
+Every report follows this universal layered progression:
 
-Common Analyses:
-- Delivery performance trend
-- Inventory aging analysis
-- Supplier scorecard comparison
-- Route/lane cost analysis
-- Demand vs. supply gap
-- Warehouse capacity utilization
+1. **Overview** (Layer 1) — "How are we doing?" 3–5 KPI cards, hero trend visual
+2. **Analysis** (Layer 2, 1–3 pages) — "Why is it happening?" broken down by key dimensions
+3. **Detail / Drillthrough** (Layer 3, hidden) — "Show me the rows"
+4. **Tooltip pages** (Layer 4, optional) — "More info on hover"
 
-Typical Pages: Overview → Delivery Performance → Inventory Health → Supplier Scorecard →
-               Logistics Cost → Demand Planning → Detail
+Minimum viable report = Layers 1 + 3. Full analytical report = all four layers.
+For archetype-specific page counts and flows, use the reference file's diagrams.
+
+### Data gap analysis
+
+Before finalizing the page plan, verify every KPI has a data source.
+
+→ **Read [data-gap-analysis-template.md](references/data-gap-analysis-template.md)**
+and fill its requirements-vs-data matrix.
+
+Each KPI ends up in one of three states:
+- ✅ **Available** — data exists at the right grain → proceed
+- ⚠️ **Partial** — needs transformation, different grain, or incomplete history → document ETL work in §4 of the Requirements Document
+- ❌ **Missing** — no source → escalate, defer to backlog, or drop from v1
+
+Gaps marked ❌ that block must-have KPIs are **blockers** for Phase 2 — do not
+produce a handoff until they have a resolution plan.
+
+---
+
+## Step 4 — Output: Requirements Document + Handoff
+
+Produce the formal deliverable.
+
+→ **Use [requirements-document-template.md](references/requirements-document-template.md)**
+as the structure. Fill all 10 sections (mark N/A where appropriate for Express Path).
+
+The template's §5 Measure Inventory is the direct input to the
+`power-bi-dax-development` skill — name each measure, its pattern, dependencies,
+and priority.
+
+### Handoff to Phase 2
+
+The Phase 1 → Phase 2 transition emits a handoff JSON conforming to
+[handoff.schema.json](../../agents/handoff.schema.json) with `from_phase: "phase-1"`.
+
+See [handoff-phase1-to-phase2.json](../../agents/examples/handoff-phase1-to-phase2.json)
+for the exact shape. The `artifacts["phase-1"]` payload must include:
+
+| Key | Source |
+|---|---|
+| `requirements_document` | Requirements Document §1–§8 |
+| `measures_inventory` | Requirements Document §5 |
+| `page_plan` | Requirements Document §3 |
+| `data_source_list` | Requirements Document §4 + gap analysis results |
+
+Validate before handing off:
+```powershell
+python agents/validate_handoff.py <handoff-file>.json
 ```
 
-#### Financial / P&L
-```
-Key KPIs:
-- Revenue, COGS, gross profit, gross margin
-- Operating expenses (OPEX) by category
-- EBITDA, net income, net margin
-- Budget vs. actual variance
-- Cash flow (operating, investing, financing)
-- Working capital ratios
-- Cost per unit / cost allocation
+---
 
-Common Analyses:
-- P&L waterfall (revenue → costs → profit)
-- Budget vs. actual variance (bar + variance %)
-- Expense trend by category
-- Department/entity comparison
-- Month-over-month / YoY P&L comparison
-- Rolling forecast vs. actual
+## Exit Criteria — done when…
 
-Typical Pages: Overview → P&L Statement → Revenue Analysis → Cost Breakdown →
-               Budget Variance → Cash Flow → Department Detail
-```
+Phase 1 is complete when **every** item below is true:
 
-#### Retail
-```
-Key KPIs:
-- Sales per square foot / per store
-- Basket size / items per transaction
-- Conversion rate (foot traffic → purchase)
-- Same-store sales growth
-- Shrinkage / loss prevention
-- Customer satisfaction (NPS)
-- Loyalty program metrics
+- [ ] Requirements Document exists with all 10 sections filled (or marked N/A)
+- [ ] Audience archetype selected (Executive / Analytical / Operational / Exploration)
+- [ ] KPI list is complete, with business definitions and priority (Must / Should / Nice)
+- [ ] Page plan has Overview + at least one Analysis page + Detail page
+- [ ] Measures Inventory lists every measure with owner table and DAX pattern
+- [ ] Data Gap Analysis complete — no unresolved ❌ blockers on must-have KPIs
+- [ ] Handoff JSON validates against the schema
+- [ ] User has approved the Requirements Document
 
-Common Analyses:
-- Store performance ranking
-- Category contribution analysis
-- Hourly/daily sales patterns (heatmap)
-- Promotion effectiveness
-- Customer segmentation
-- Product affinity / market basket
+**Do not proceed to Phase 2 until the user approves.** If they request changes,
+iterate within Step 4.
 
-Typical Pages: Overview → Store Performance → Category Analysis → Customer Insights →
-               Promotion Tracking → Inventory → Detail
-```
+---
 
-#### Procurement
-```
-Key KPIs:
-- Total spend / spend by category
-- Savings achieved vs. target
-- Supplier count / consolidation ratio
-- PO cycle time
-- Contract compliance rate
-- Cost avoidance
-- Maverick spend percentage
+## Worked Example — FMCG Trade Analytics (Executive)
 
-Common Analyses:
-- Spend analysis by category/supplier/region
-- Supplier performance comparison
-- Price trend analysis
-- Contract utilization rate
-- Savings waterfall
-- Procurement process efficiency
+A one-page trace of the four Steps for a realistic brief:
 
-Typical Pages: Overview → Spend Analysis → Supplier Performance → Contract Management →
-               Savings Tracking → Process Metrics → Detail
-```
+> *"Our brand managers need to see how our trade-promotion spend is paying off
+> across modern trade vs. general trade, by brand and by month."*
 
-## Phase 3: Information Architecture
+**Step 1 — Context**
+- WHO: 8 brand managers + 2 commercial directors; data literacy 3; weekly cadence; desktop primary, mobile secondary
+- WHAT: decide where to reallocate trade budget next quarter; Big-Idea = *"Trade ROI is highest in MT-Premium; shift 15% spend from GT-Mass by Q3"*; success = ≤ 2 hrs to assemble monthly review
+- HOW: data in gold lakehouse (`gold.FactTradeSpend`, `gold.FactSales`, `gold.DimBrand`); daily grain; 36 months history; RLS by region
+- **Archetype:** Analytical (managers + drill-down), leaning Executive at overview page
 
-Design the report structure before any visual is created.
+**Step 2 — Domain** (FMCG row from the index → [domain-kpi-templates.md §FMCG](references/domain-kpi-templates.md))
+- Must-have KPIs: Net Revenue, Gross Margin %, Trade Spend ROI, Promotion Uplift, Market Share
+- Nice-to-have: OOS Rate, Distribution Coverage
+- Dimensions: Date, Brand, Channel (MT/GT/e-com), Promotion, Geography
 
-### Page Planning Framework
+**Step 3 — IA + Gaps**
+- Page plan: Overview → Trade ROI by Channel → Brand Deep-dive → Promotion Post-mortem → Detail drillthrough (5 pages)
+- Gap analysis: Market Share is ❌ (no Nielsen feed) → demote to backlog, keep 4 must-haves. Uplift is ⚠️ (baseline calculation needs 12-week pre-period assumption — document in §4)
 
-For each proposed page, define:
+**Step 4 — Output**
+- Requirements Document filled; §5 Measure Inventory has 14 measures (4 base + 6 time-intel + 4 ratios)
+- Handoff JSON emitted with `from_phase: "phase-1"`; validator passes
+- User approves after one round of feedback (requested merging "Brand Deep-dive" + "Promotion Post-mortem" into a single page → updated §3)
+- **Exit criteria: all 8 checkboxes satisfied → proceed to Phase 2**
 
-```
-Page Definition Template:
-┌────────────────────────────────────────────┐
-│ Page Name: [name]                          │
-│ Purpose: [one-sentence question it answers]│
-│ Audience: [who primarily uses this page]   │
-│ Key Metrics: [3-5 measures displayed]      │
-│ Main Visual: [the "hero" chart type]       │
-│ Supporting Visuals: [2-3 context charts]   │
-│ Filters/Slicers: [what the user controls]  │
-│ Drill Actions: [drillthrough targets]      │
-│ Data Source: [tables/entities needed]       │
-└────────────────────────────────────────────┘
-```
-
-### Standard Page Patterns
-
-Every report should follow this progression:
-
-1. **Overview page** — The executive summary. 3-5 KPI cards at top, one hero visual
-   (usually a trend line), 1-2 supporting visuals. Answers: "How are we doing overall?"
-2. **Analysis pages** (1-3) — Break down the overview by key dimensions (product, region,
-   time, category). Each page answers one specific analytical question.
-3. **Detail / Drillthrough page** — Transaction-level or item-level data. Hidden from
-   navigation; accessed via drillthrough from analysis pages.
-4. **Tooltip pages** (optional) — Small 320×240 pages that appear on hover.
-   Show contextual detail without leaving the current page.
-
-### Measure Planning
+---
 
 ## Related Skills
 
-| Skill | Relationship | When |
+| Skill | Relationship | When it receives output from this skill |
 |---|---|---|
-| `power-bi-semantic-model` | Downstream (Phase 2) | Requirements doc feeds into model design — tables, relationships, storage mode |
-| `power-bi-report-design` | Downstream (Phase 4a) | Page plan, audience archetype, and KPIs feed into Design Spec |
-| `power-bi-dax-development` | Downstream (Phase 3) | Measure inventory feeds into DAX development |
-| `power-bi-feedback-iteration` | Loop-back | New requirements discovered during feedback route back here |
-
-List all measures needed, grouped by purpose:
-
-```
-Measure Inventory Template:
-| Measure Name | Formula Type | Tables Needed | Page(s) Used |
-|---|---|---|---|
-| Total Revenue | SUM aggregation | Sales[Amount] | Overview, Sales Trend |
-| Revenue YoY % | Time intelligence | Sales, Date | Overview, Trend |
-| Gross Margin % | Ratio (DIVIDE) | Sales, Costs | P&L, Overview |
-| Running Total | Window function | Sales, Date | Trend |
-```
-
-This inventory feeds directly into the `power-bi-dax-development` skill.
-
-## Phase 4: Output — Requirements Document
-
-Generate a structured document with these sections:
-
-```
-# BI Requirements: [Project Name]
-
-## 1. Business Context
-- Domain: [industry/function]
-- Audience: [roles and data literacy]
-- Key decisions supported: [list]
-- Success criteria: [measurable outcomes]
-
-## 2. KPIs and Metrics
-| KPI | Definition | Target | Data Source |
-|---|---|---|---|
-
-## 3. Report Structure
-| Page | Purpose | Key Visuals | Measures |
-|---|---|---|---|
-
-## 4. Data Requirements
-| Table/Entity | Type (Fact/Dim) | Key Columns | Source |
-|---|---|---|---|
-
-## 5. Measure Inventory
-| Measure | Pattern | Dependencies | Priority |
-|---|---|---|---|
-
-## 6. Filters and Interactions
-- Global filters: [date range, entity]
-- Page-level slicers: [per page]
-- Cross-filter behavior: [highlight vs filter]
-
-## 7. Access and Security
-- RLS requirements: [roles and rules]
-- Data sensitivity: [classification]
-- Distribution: [workspace, app, embedded]
-
-## 8. Next Steps
-- [ ] Build/extend semantic model (power-bi-semantic-model skill)
-- [ ] Create DAX measures (power-bi-dax-development skill)
-- [ ] Generate PBIP report (power-bi-pbip-report skill)
-```
+| `power-bi-semantic-model` | Downstream (Phase 2) | §3 page plan + §4 data requirements drive table + relationship design |
+| `power-bi-dax-development` | Downstream (Phase 3) | §5 Measure Inventory is the measure build list |
+| `power-bi-report-design` | Downstream (Phase 4a) | Archetype + page plan + audience feed the Design Spec |
+| `power-bi-feedback-iteration` | Loop-back | "Missing insight" / "new requirement" feedback routes back to Step 1 or 2 |
 
 ## Anti-Patterns to Avoid
 
-- **Starting with visuals** before understanding the business question
-- **Measuring everything** instead of focusing on actionable KPIs
-- **Vanity metrics** that look impressive but don't drive decisions
-- **One-size-fits-all** reports that serve no audience well
-- **Missing the "so what"** — data without insight or recommended action
-- **Scope creep** — trying to answer every question in one report
+| ❌ Don't | ✅ Do instead |
+|---|---|
+| Start with visuals before understanding the business question | Complete Step 1 (WHO/WHAT/HOW) first |
+| Measure everything the data allows | Filter to KPIs the user confirmed in interview Q10 |
+| Build "vanity metrics" that look impressive | Tie each KPI to a decision (interview Q7) |
+| Create one report for all audiences | One archetype per report; split if stakeholders disagree |
+| Present numbers without a "so what" | Every page has a Big-Idea title (interview Q6) |
+| Cram every question into one report | Defer to backlog; one report = one focused narrative |
+| Skip the data gap analysis | Run it before promising KPIs to the user |
+

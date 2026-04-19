@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="110" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="170" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.25"/>
+
+<!-- shaded band between UCL and LCL -->
+<rect x="36" y="60" width="260" height="84" fill="currentColor" stroke="none" fill-opacity="0.06"/>
+
+<!-- axes -->
+<g stroke="currentColor" stroke-opacity="0.3">
+  <line x1="36" y1="46" x2="36" y2="156"/>
+  <line x1="36" y1="156" x2="304" y2="156"/>
+</g>
+
+<!-- UCL, Mean, LCL -->
+<g stroke="currentColor" stroke-dasharray="4 3">
+  <line x1="36" y1="60" x2="296" y2="60" stroke-opacity="0.7"/>
+  <line x1="36" y1="102" x2="296" y2="102" stroke-opacity="0.9" stroke-width="1.6"/>
+  <line x1="36" y1="144" x2="296" y2="144" stroke-opacity="0.7"/>
+</g>
+
+<!-- labels for lines -->
+<g fill="currentColor" stroke="none" fill-opacity="0.75" font-family="system-ui" font-size="7">
+  <rect x="300" y="57" width="16" height="3" rx="1"/>
+  <rect x="300" y="99" width="20" height="3" rx="1"/>
+  <rect x="300" y="141" width="16" height="3" rx="1"/>
+</g>
+
+<!-- series line -->
+<polyline points="48,108 68,94 88,112 108,88 128,100 148,74 168,96 188,104 208,86 228,52 248,98 268,110 288,92"
+          fill="none" stroke="currentColor" stroke-width="1.8" stroke-opacity="0.85"/>
+
+<!-- in-control markers -->
+<g fill="currentColor" stroke="none" fill-opacity="0.85">
+  <circle cx="48" cy="108" r="2.2"/>
+  <circle cx="68" cy="94" r="2.2"/>
+  <circle cx="88" cy="112" r="2.2"/>
+  <circle cx="108" cy="88" r="2.2"/>
+  <circle cx="128" cy="100" r="2.2"/>
+  <circle cx="148" cy="74" r="2.2"/>
+  <circle cx="168" cy="96" r="2.2"/>
+  <circle cx="188" cy="104" r="2.2"/>
+  <circle cx="208" cy="86" r="2.2"/>
+  <circle cx="248" cy="98" r="2.2"/>
+  <circle cx="268" cy="110" r="2.2"/>
+  <circle cx="288" cy="92" r="2.2"/>
+</g>
+
+<!-- out-of-control: point 228,52 (above UCL) -->
+<g>
+  <circle cx="228" cy="52" r="4" fill="currentColor" stroke="none" fill-opacity="0.95"/>
+  <circle cx="228" cy="52" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.7"/>
+</g>
+
+<!-- x axis ticks -->
+<g fill="currentColor" stroke="none" fill-opacity="0.4">
+  <rect x="44" y="162" width="8" height="3" rx="1"/>
+  <rect x="104" y="162" width="8" height="3" rx="1"/>
+  <rect x="164" y="162" width="8" height="3" rx="1"/>
+  <rect x="224" y="162" width="8" height="3" rx="1"/>
+  <rect x="284" y="162" width="8" height="3" rx="1"/>
+</g>
+</svg>

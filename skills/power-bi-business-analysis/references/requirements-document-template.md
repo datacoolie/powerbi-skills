@@ -65,14 +65,27 @@ the stakeholder confirmed in the interview (question 10).*
 
 *This inventory feeds directly into the power-bi-dax-development skill (Phase 3).*
 
-## §6 Filters and Interactions
+## §6 Filter Requirements
 
-| Scope | Filter / Slicer | Type | Default |
+List the **dimensions** the audience must be able to filter by. **Do not**
+decide control type, placement, or sync here — those are Phase 4a design
+decisions and belong in the Design Spec, not the Requirements Document.
+
+| Dimension | Required on | Priority | Notes |
 |---|---|---|---|
-| Global | Date range | Between slicer | Last 12 months |
-| Global | Region | Dropdown | All |
-| Page: Product Analysis | Product category | Dropdown | All |
-| Cross-filter | All visuals | Highlight (not filter) | — |
+| Date | All pages | Must-have | Rolling last-12-months default preferred |
+| Region | All pages | Must-have | See §7 for RLS scoping |
+| Product category | Product Analysis page | Must-have | |
+| Promotion type | Promotion Post-mortem page | Should-have | |
+| Customer segment | Customer page | Nice-to-have | Depends on data availability, see §4 |
+
+**Cross-filter expectations** (business-level only):
+- "Clicking a region in the overview should narrow the trend line" — yes
+- "Detail page inherits all upstream filters" — yes
+
+*Design of slicer types, placement, sync groups, default state, and cross-filter
+vs. highlight behavior is documented in the Design Spec (Phase 4a) using
+[power-bi-report-design/references/slicer-filter-patterns.md](../../power-bi-report-design/references/slicer-filter-patterns.md).*
 
 ## §7 Access and Security
 

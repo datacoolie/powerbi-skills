@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- label -->
+  <rect x="24" y="42" width="40" height="4" rx="2" fill-opacity="0.45"/>
+
+  <!-- chiclet row -->
+  <rect x="24" y="54" width="60" height="22" rx="3" fill-opacity="0.9"/>
+  <rect x="38" y="63" width="32" height="4" rx="2" fill="#fff" fill-opacity="0.95"/>
+
+  <rect x="90" y="54" width="60" height="22" rx="3" fill-opacity="0.1"/>
+  <rect x="90.5" y="54.5" width="59" height="21" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
+  <rect x="104" y="63" width="32" height="4" rx="2" fill-opacity="0.55"/>
+
+  <rect x="156" y="54" width="72" height="22" rx="3" fill-opacity="0.1"/>
+  <rect x="156.5" y="54.5" width="71" height="21" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
+  <rect x="172" y="63" width="40" height="4" rx="2" fill-opacity="0.55"/>
+
+  <!-- dashed binding arrow -->
+  <g stroke-opacity="0.7" stroke-dasharray="3 3" stroke-width="1.3" fill="none">
+    <path d="M54 80 V92"/>
+    <polyline points="50,90 54,94 58,90" fill="currentColor" stroke="none" fill-opacity="0.7"/>
+  </g>
+
+  <!-- chart bound to parameter -->
+  <rect x="24" y="98" width="272" height="66" rx="3" fill-opacity="0.06"/>
+  <rect x="24.5" y="98.5" width="271" height="65" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.4"/>
+
+  <!-- y-axis ticks -->
+  <g stroke-opacity="0.25">
+    <line x1="48" y1="110" x2="288" y2="110"/>
+    <line x1="48" y1="128" x2="288" y2="128"/>
+    <line x1="48" y1="146" x2="288" y2="146"/>
+  </g>
+
+  <!-- bars (switchable measure) -->
+  <g fill-opacity="0.75">
+    <rect x="64" y="118" width="20" height="38" rx="1"/>
+    <rect x="96" y="108" width="20" height="48" rx="1"/>
+    <rect x="128" y="126" width="20" height="30" rx="1"/>
+    <rect x="160" y="114" width="20" height="42" rx="1"/>
+    <rect x="192" y="132" width="20" height="24" rx="1"/>
+    <rect x="224" y="120" width="20" height="36" rx="1"/>
+    <rect x="256" y="138" width="20" height="18" rx="1"/>
+  </g>
+
+  <!-- baseline -->
+  <line x1="48" y1="156" x2="288" y2="156" stroke="currentColor" stroke-opacity="0.45"/>
+</g>
+</svg>

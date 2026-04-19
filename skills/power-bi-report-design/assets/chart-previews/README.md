@@ -29,7 +29,7 @@ Example:
 
 ## Provenance
 
-All 21 previews are hand-authored 320×180 monochrome schematics that use
+All 27 previews are hand-authored 320×180 monochrome schematics that use
 `currentColor` (with opacity variants for layering). They inherit the active
 theme accent from whatever surface they're embedded on — light UI, dark UI,
 Design Spec §5 rendered to PDF — without re-export. No hard-coded fills, no
@@ -70,8 +70,23 @@ all silhouettes are original schematic geometry.
 | `histogram-distribution` | 11-bin distribution with normal overlay + mean line | Distribution shape |
 | `slope-chart` | Two vertical ticks, 8 slope lines, one accent line | Two-point change |
 
+### Analytical additions (v0.3)
+
+Six recipes covering tabular detail, statistical distribution, flow,
+hierarchical share, dual-axis storytelling, and process control — drawn from
+IBCS, SPC (Shewhart / Western Electric), and everyday finance/ops dashboards.
+
+| Recipe | Silhouette | Story |
+|---|---|---|
+| `sparkline-table` | 4-row table + per-row line sparkline + end-of-line dot | Scorecard with shape |
+| `box-plot-distribution` | 5 whisker/IQR boxes with median lines + outlier dots | Spread & outliers |
+| `sankey-flow` | 4→3→3 columns of nodes with thickness-weighted ribbons | Stage attribution |
+| `treemap-hierarchy` | 9 nested rectangles, area = share, opacity = saturation | Hierarchical share |
+| `combo-dual-axis` | 8 columns on left axis + line + markers on right axis | Volume + rate |
+| `control-chart-spc` | Line with UCL/Mean/LCL dashed refs + circled breach | Process control |
+
 ## Known gaps
 
-None — all 21 recipes in [`chart-templates-index.json`](../../references/chart-templates/chart-templates-index.json)
+None — all 27 recipes in [`chart-templates-index.json`](../../references/chart-templates/chart-templates-index.json)
 have previews. Schematics are content-free and license-free to re-use anywhere
 under this skill.

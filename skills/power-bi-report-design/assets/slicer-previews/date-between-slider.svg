@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- label -->
+  <rect x="24" y="64" width="64" height="4" rx="2" fill-opacity="0.45"/>
+
+  <!-- start date tile -->
+  <rect x="24" y="80" width="72" height="20" rx="3" fill-opacity="0.08"/>
+  <rect x="24.5" y="80.5" width="71" height="19" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <rect x="32" y="87" width="56" height="5" rx="2" fill-opacity="0.75"/>
+
+  <!-- end date tile -->
+  <rect x="224" y="80" width="72" height="20" rx="3" fill-opacity="0.08"/>
+  <rect x="224.5" y="80.5" width="71" height="19" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <rect x="232" y="87" width="56" height="5" rx="2" fill-opacity="0.75"/>
+
+  <!-- track -->
+  <line x1="40" y1="128" x2="280" y2="128" stroke="currentColor" stroke-opacity="0.3" stroke-width="2"/>
+  <line x1="104" y1="128" x2="216" y2="128" stroke="currentColor" stroke-opacity="0.85" stroke-width="3"/>
+
+  <!-- ticks -->
+  <g stroke-opacity="0.3">
+    <line x1="40" y1="134" x2="40" y2="140"/>
+    <line x1="80" y1="134" x2="80" y2="138"/>
+    <line x1="120" y1="134" x2="120" y2="138"/>
+    <line x1="160" y1="134" x2="160" y2="140"/>
+    <line x1="200" y1="134" x2="200" y2="138"/>
+    <line x1="240" y1="134" x2="240" y2="138"/>
+    <line x1="280" y1="134" x2="280" y2="140"/>
+  </g>
+
+  <!-- thumbs -->
+  <circle cx="104" cy="128" r="8" fill-opacity="0.95"/>
+  <circle cx="104" cy="128" r="7.5" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+  <circle cx="216" cy="128" r="8" fill-opacity="0.95"/>
+  <circle cx="216" cy="128" r="7.5" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+
+  <!-- axis labels -->
+  <g fill-opacity="0.35">
+    <rect x="32" y="150" width="24" height="3" rx="1"/>
+    <rect x="150" y="150" width="28" height="3" rx="1"/>
+    <rect x="268" y="150" width="24" height="3" rx="1"/>
+  </g>
+</g>
+</svg>

@@ -15,8 +15,9 @@ Read, in order:
 2. `design-spec-reference.md` — the exact structure your output must follow
 3. `layouts/layouts-index.json` — pick 1-3 named layouts per page
 4. `chart-templates/chart-templates-index.json` — for every visual type used, there must be a corresponding recipe
+5. `slicer-patterns/slicer-patterns-index.json` — for every filter row, pick a recipe (see Step 7b)
 
-**Do not invent layouts or chart compositions from scratch.** If nothing in the libraries fits, document the gap as a backlog item and pick the closest match.
+**Do not invent layouts, chart compositions, or slicer controls from scratch.** If nothing in the libraries fits, document the gap as a backlog item and pick the closest match.
 
 ---
 
@@ -103,6 +104,27 @@ Record in Design Spec §7.
 | Page navigator (built-in) | 5+ pages, hierarchical |
 
 Record in Design Spec §8.
+
+### Step 7b — Select Slicer & Filter Recipes
+
+For every filter row in Design Spec §10 (Filters & Interactions):
+
+1. Use the decision tables in [`slicer-filter-patterns.md`](slicer-filter-patterns.md)
+   to pick **scope** (§1), **control type** by cardinality (§2), **default state**
+   (§5), and **pane visibility** (§7).
+2. Open [`slicer-patterns/slicer-patterns-index.json`](slicer-patterns/slicer-patterns-index.json)
+   and find a recipe whose `family`, `cardinality`, `scope`, and `archetypes`
+   match the decision in step 1.
+3. Record `filter → recipe file` in Design Spec §10 next to each filter row.
+
+**Architecture recipes first.** Before picking individual slicers, decide on the
+container: [left-rail-global-panel](slicer-patterns/left-rail-global-panel.md),
+[top-header-filter-bar](slicer-patterns/top-header-filter-bar.md), or
+[sync-slicer-group](slicer-patterns/sync-slicer-group.md). The container
+recipe constrains which individual slicer recipes fit.
+
+**No filter without a recipe** (same rule as charts). If nothing fits, add a
+gap to §11 Backlog and pick the closest match.
 
 ### Step 8 — Write the Design Spec
 

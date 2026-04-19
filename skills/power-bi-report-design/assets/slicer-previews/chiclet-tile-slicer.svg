@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- label -->
+  <rect x="20" y="62" width="48" height="4" rx="2" fill-opacity="0.45"/>
+
+  <!-- tile 1 (selected) -->
+  <rect x="20" y="80" width="56" height="36" rx="4" fill-opacity="0.85"/>
+  <rect x="32" y="95" width="32" height="6" rx="2" fill="#fff" fill-opacity="0.9"/>
+
+  <!-- tile 2 -->
+  <rect x="84" y="80" width="56" height="36" rx="4" fill-opacity="0.08"/>
+  <rect x="84.5" y="80.5" width="55" height="35" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
+  <rect x="96" y="95" width="32" height="6" rx="2" fill-opacity="0.55"/>
+
+  <!-- tile 3 -->
+  <rect x="148" y="80" width="56" height="36" rx="4" fill-opacity="0.08"/>
+  <rect x="148.5" y="80.5" width="55" height="35" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
+  <rect x="160" y="95" width="32" height="6" rx="2" fill-opacity="0.55"/>
+
+  <!-- tile 4 (All) -->
+  <rect x="212" y="80" width="56" height="36" rx="4" fill-opacity="0.08"/>
+  <rect x="212.5" y="80.5" width="55" height="35" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
+  <rect x="224" y="95" width="32" height="6" rx="2" fill-opacity="0.55"/>
+
+  <!-- footnote -->
+  <rect x="20" y="146" width="200" height="3" rx="1.5" fill-opacity="0.2"/>
+</g>
+</svg>

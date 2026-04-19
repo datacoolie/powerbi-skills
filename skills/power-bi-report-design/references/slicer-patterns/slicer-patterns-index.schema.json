@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://powerbi-skills.local/slicer-patterns-index.schema.json",
+  "title": "Slicer & Filter Patterns Index",
+  "description": "Catalog of slicer/filter recipe compositions. Strategist binds every filter entry in Design Spec §10 (Filters & Interactions) to one of these.",
+  "type": "object",
+  "required": ["version", "recipes"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+    "description": { "type": "string" },
+    "recipes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/recipeEntry" }
+    },
+    "gaps": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "recipeEntry": {
+      "type": "object",
+      "required": ["id", "file", "title", "family", "control_type", "cardinality", "use_when", "anti_use", "archetypes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "file": { "type": "string", "pattern": "^[a-z0-9\\-]+\\.md$" },
+        "title": { "type": "string", "minLength": 1 },
+        "family": {
+          "type": "string",
+          "enum": ["date", "category", "numeric", "search", "architecture", "governance", "parameter"],
+          "description": "Groups recipes for browsing."
+        },
+        "control_type": {
+          "type": "string",
+          "description": "Power BI visual/control type or composition (e.g. 'slicer (tile)', 'slicer (dropdown)', 'bookmark group', 'field parameter')."
+        },
+        "cardinality": {
+          "type": "string",
+          "enum": ["n/a", "very-low (2)", "low (3-7)", "medium (8-25)", "high (26-10k)", "very-high (>10k)", "continuous"],
+          "description": "Data cardinality the recipe is designed for."
+        },
+        "use_when": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "anti_use": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "archetypes": {
+          "type": "array",
+          "description": "Report archetypes where this recipe fits well.",
+          "items": {
+            "type": "string",
+            "enum": ["executive", "analytical", "operational", "exploration", "mobile", "paginated", "tv-wallboard"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "scope": {
+          "type": "string",
+          "enum": ["report", "sync-group", "page", "visual", "n/a"],
+          "description": "Typical filter scope for this recipe."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- rail bg -->
+  <rect x="20" y="40" width="86" height="128" rx="3" fill-opacity="0.08"/>
+  <rect x="20.5" y="40.5" width="85" height="127" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <!-- rail separator -->
+  <line x1="106" y1="40" x2="106" y2="168" stroke="currentColor" stroke-opacity="0.35"/>
+
+  <!-- rail header -->
+  <rect x="28" y="48" width="48" height="5" rx="2" fill-opacity="0.8"/>
+  <line x1="28" y1="60" x2="98" y2="60" stroke="currentColor" stroke-opacity="0.25"/>
+
+  <!-- slicer 1: date -->
+  <rect x="28" y="66" width="26" height="3" rx="1" fill-opacity="0.5"/>
+  <rect x="28" y="74" width="70" height="14" rx="2" fill-opacity="0.06"/>
+  <rect x="28.5" y="74.5" width="69" height="13" rx="2" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
+  <rect x="34" y="79" width="44" height="4" rx="2" fill-opacity="0.7"/>
+
+  <!-- slicer 2: tile row -->
+  <rect x="28" y="94" width="30" height="3" rx="1" fill-opacity="0.5"/>
+  <rect x="28" y="102" width="20" height="12" rx="2" fill-opacity="0.85"/>
+  <rect x="52" y="102" width="20" height="12" rx="2" fill-opacity="0.2"/>
+  <rect x="52.5" y="102.5" width="19" height="11" rx="2" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <rect x="76" y="102" width="20" height="12" rx="2" fill-opacity="0.2"/>
+  <rect x="76.5" y="102.5" width="19" height="11" rx="2" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+
+  <!-- slicer 3: dropdown -->
+  <rect x="28" y="120" width="30" height="3" rx="1" fill-opacity="0.5"/>
+  <rect x="28" y="128" width="70" height="14" rx="2" fill-opacity="0.06"/>
+  <rect x="28.5" y="128.5" width="69" height="13" rx="2" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
+  <rect x="34" y="133" width="36" height="4" rx="2" fill-opacity="0.7"/>
+  <polyline points="86,133 90,137 94,133" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <!-- reset button -->
+  <rect x="28" y="148" width="70" height="14" rx="7" fill-opacity="0.15"/>
+  <rect x="28.5" y="148.5" width="69" height="13" rx="7" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+  <rect x="50" y="153" width="26" height="4" rx="2" fill-opacity="0.8"/>
+
+  <!-- canvas area -->
+  <rect x="120" y="52" width="180" height="28" rx="3" fill-opacity="0.06"/>
+  <rect x="120" y="92" width="56" height="72" rx="3" fill-opacity="0.06"/>
+  <rect x="184" y="92" width="56" height="72" rx="3" fill-opacity="0.06"/>
+  <rect x="248" y="92" width="52" height="72" rx="3" fill-opacity="0.06"/>
+
+  <!-- fake content lines -->
+  <g fill-opacity="0.3">
+    <rect x="128" y="60" width="80" height="4" rx="2"/>
+    <rect x="128" y="68" width="120" height="3" rx="1"/>
+
+    <rect x="128" y="100" width="40" height="4" rx="2"/>
+    <rect x="128" y="130" width="40" height="20" rx="2" fill-opacity="0.45"/>
+
+    <rect x="192" y="100" width="40" height="4" rx="2"/>
+    <polyline points="192,150 200,140 208,144 216,134 224,138 232,128" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+
+    <rect x="256" y="100" width="40" height="4" rx="2"/>
+    <rect x="256" y="114" width="36" height="6" rx="2" fill-opacity="0.6"/>
+    <rect x="256" y="124" width="30" height="6" rx="2" fill-opacity="0.45"/>
+    <rect x="256" y="134" width="24" height="6" rx="2" fill-opacity="0.3"/>
+  </g>
+</g>
+</svg>

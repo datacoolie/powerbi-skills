@@ -66,6 +66,8 @@ one matching the current phase.
 | `references/theme-colors.md` | Theme architecture, semantic colors, industry palettes, custom theme JSON patterns, colorblind-safe alternatives |
 | `../power-bi-pbip-report/references/common-patterns.md` | Reusable components: KPI rows, slicer panels, background shapes, page navigator, visual interactions, TOP N chart (shared with pbip-report) |
 | `references/navigation-patterns.md` | Navigation buttons, bookmark tabs, back button, reset filters, hub-and-spoke, breadcrumbs, page navigator |
+| `references/slicer-filter-patterns.md` | **Decision guide** for filter scope, slicer type selection, sync groups, cross-filter vs. highlight, default state, filter-vs-drillthrough, pane visibility, RLS interaction |
+| `references/slicer-patterns/` | **Recipe cookbook** — 14 slicer/filter composition recipes (ASCII mockup + slots + property snippet + defaults + anti-patterns) in 7 families: date, category, numeric, search, architecture, governance, parameter. Index: `slicer-patterns/slicer-patterns-index.json` |
 | `../power-bi-pbip-report/references/mobile-layout.md` | Mobile design rules, auto-create, minimum visual sizes, formatting, slicer behavior, limitations |
 | `../power-bi-pbip-report/references/themes/*.json` | Ready-to-use custom theme files (8 industries) — canonical source |
 
@@ -203,6 +205,7 @@ Also decide:
 - Which visuals need **report page tooltips** (hover cards for extra context)
 - Whether **reset filters** button is needed (recommended for 3+ slicers)
 - Whether **back button** is needed on drillthrough pages (always yes)
+- **Slicer & filter design** — scope, type, sync groups, cross-filter vs. highlight, defaults, pane visibility, RLS interaction → decision guide `references/slicer-filter-patterns.md`; composition recipes `references/slicer-patterns/` (14 recipes, see `slicer-patterns/README.md`)
 
 ### Step 7: Produce the Design Spec
 

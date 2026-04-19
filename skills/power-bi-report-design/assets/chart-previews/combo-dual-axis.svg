@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="12" y="12" width="110" height="6" rx="3" fill="currentColor" stroke="none" fill-opacity="0.55"/>
+<rect x="12" y="22" width="170" height="4" rx="2" fill="currentColor" stroke="none" fill-opacity="0.25"/>
+
+<!-- axes -->
+<g stroke="currentColor" stroke-opacity="0.3">
+  <line x1="36" y1="50" x2="36" y2="150"/>
+  <line x1="284" y1="50" x2="284" y2="150"/>
+  <line x1="36" y1="150" x2="284" y2="150"/>
+  <line x1="36" y1="80" x2="284" y2="80" stroke-dasharray="2 3" stroke-opacity="0.18"/>
+  <line x1="36" y1="110" x2="284" y2="110" stroke-dasharray="2 3" stroke-opacity="0.18"/>
+</g>
+
+<!-- axis tick labels -->
+<g fill="currentColor" stroke="none" fill-opacity="0.5">
+  <rect x="16" y="78" width="14" height="3" rx="1"/>
+  <rect x="16" y="108" width="14" height="3" rx="1"/>
+  <rect x="16" y="138" width="14" height="3" rx="1"/>
+  <rect x="290" y="78" width="14" height="3" rx="1"/>
+  <rect x="290" y="108" width="14" height="3" rx="1"/>
+  <rect x="290" y="138" width="14" height="3" rx="1"/>
+</g>
+
+<!-- column bars (8) -->
+<g fill="currentColor" stroke="none" fill-opacity="0.7">
+  <rect x="44" y="126" width="20" height="24" rx="1"/>
+  <rect x="74" y="118" width="20" height="32" rx="1"/>
+  <rect x="104" y="112" width="20" height="38" rx="1"/>
+  <rect x="134" y="122" width="20" height="28" rx="1"/>
+  <rect x="164" y="108" width="20" height="42" rx="1"/>
+  <rect x="194" y="114" width="20" height="36" rx="1"/>
+  <rect x="224" y="102" width="20" height="48" rx="1"/>
+  <rect x="254" y="116" width="20" height="34" rx="1"/>
+</g>
+
+<!-- line (right-axis series) with markers -->
+<g stroke-opacity="0.9">
+  <polyline points="54,100 84,92 114,76 144,82 174,70 204,64 234,58 264,66"
+            fill="none" stroke="currentColor" stroke-width="2"/>
+</g>
+<g fill="currentColor" stroke="none" fill-opacity="0.95">
+  <circle cx="54" cy="100" r="2.5"/>
+  <circle cx="114" cy="76" r="2.5"/>
+  <circle cx="234" cy="58" r="2.5"/>
+  <circle cx="264" cy="66" r="2.5"/>
+</g>
+
+<!-- legend -->
+<g fill="currentColor" stroke="none" fill-opacity="0.7">
+  <rect x="40" y="158" width="10" height="6" rx="1"/>
+  <rect x="54" y="160" width="44" height="4" rx="2" fill-opacity="0.55"/>
+  <circle cx="116" cy="163" r="3"/>
+  <rect x="124" y="160" width="44" height="4" rx="2" fill-opacity="0.55"/>
+</g>
+</svg>

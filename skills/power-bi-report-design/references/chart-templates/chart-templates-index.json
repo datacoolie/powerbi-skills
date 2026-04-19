@@ -1,7 +1,7 @@
 {
   "$schema": "./chart-templates-index.schema.json",
-  "version": "0.2",
-  "description": "Curated chart-composition recipes. Strategist binds every visual in Design Spec \u00a75 to one of these. v0.2 adds 8 community-inspired recipes (IBCS bullet, slope, dumbbell, Pareto, calendar heatmap, histogram, ribbon, 100% stacked) \u2014 total 21 recipes covering rank, share, distribution, geo, composition, and narrative stories.",
+  "version": "0.3",
+  "description": "Curated chart-composition recipes. Strategist binds every visual in Design Spec §5 to one of these. v0.3 adds 6 analytical recipes (sparkline table, box plot, sankey flow, treemap, combo dual-axis, SPC control chart) for a total of 27 recipes covering rank, share, distribution, flow, geo, composition, process, and narrative stories.",
   "recipes": [
     {
       "id": "kpi-banner",
@@ -373,6 +373,114 @@
         "> 10 categories (tangled)",
         "> 2 time points (use trend-line)",
         "All lines highlighted equally"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "sparkline-table",
+      "file": "sparkline-table.md",
+      "title": "Sparkline Table (Row-wise Micro-trends)",
+      "visual_type": "tableEx / matrix with inline sparkline column OR table + custom Sparkline visual",
+      "composition": "rows × (category + value + delta + per-row sparkline); per-row min/max scaling",
+      "use_when": [
+        "Dense exec scorecard (8-12 rows)",
+        "Tabular view that still needs shape-over-time",
+        "Watchlist where shape matters more than absolute level"
+      ],
+      "anti_use": [
+        "< 5 rows (use KPI cards)",
+        "Shared global Y scale across sparklines",
+        "Colouring every delta (defeats the attention filter)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "box-plot-distribution",
+      "file": "box-plot-distribution.md",
+      "title": "Box Plot (Quartile Distribution)",
+      "visual_type": "custom Box and Whisker visual OR composed stacked-bar with whiskers",
+      "composition": "whiskers + IQR box + median line + outlier dots, one glyph per category",
+      "use_when": [
+        "Spread / skew / outlier story matters as much as central tendency",
+        "Analyst-audience distribution comparison across 4-10 categories",
+        "Cycle-time / order-value / latency variability"
+      ],
+      "anti_use": [
+        "< 20 observations per category",
+        "Hiding outliers for 'cleanliness'",
+        "Colouring boxes by category (kills comparability)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "sankey-flow",
+      "file": "sankey-flow.md",
+      "title": "Sankey Flow (Stage-to-Stage Attribution)",
+      "visual_type": "custom Sankey visual (Microsoft / xViz)",
+      "composition": "left→right node columns connected by thickness-weighted ribbons",
+      "use_when": [
+        "Marketing attribution Source → Stage → Outcome",
+        "Budget / cost flow across cost centres",
+        "Supply-chain origin → hub → destination"
+      ],
+      "anti_use": [
+        "Primary magnitude comparison (bars are clearer)",
+        "Loops / back-flows (Sankey is strict DAG)",
+        "> 4 stages (column soup)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "treemap-hierarchy",
+      "file": "treemap-hierarchy.md",
+      "title": "Treemap (Hierarchical Share)",
+      "visual_type": "treemap",
+      "composition": "nested rectangles, area = primary measure, colour saturation = secondary measure",
+      "use_when": [
+        "Top-N dominance plus long-tail visible in one glance",
+        "Two-level category → subcategory share",
+        "Portfolio / catalogue composition"
+      ],
+      "anti_use": [
+        "Flat share with no dominant tile (bar chart reads better)",
+        "> 2 hierarchy levels (use decomposition tree)",
+        "Binding colour to category (destroys magnitude encoding)"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "combo-dual-axis",
+      "file": "combo-dual-axis.md",
+      "title": "Combo Chart (Bar + Line, Dual Axis)",
+      "visual_type": "lineStackedColumnComboChart OR lineClusteredColumnComboChart",
+      "composition": "columns on left axis (volume) + line on right axis (rate / ratio) sharing the X dimension",
+      "use_when": [
+        "Revenue + Margin % in one visual",
+        "Volume + conversion rate over time",
+        "Spend + efficiency ratio for finance reviews"
+      ],
+      "anti_use": [
+        "Two volume measures (use stacked column instead)",
+        "More than one series on the right axis",
+        "Omitting the left/right axis annotations in the legend"
+      ],
+      "slots": 1
+    },
+    {
+      "id": "control-chart-spc",
+      "file": "control-chart-spc.md",
+      "title": "Control Chart (SPC — UCL / LCL / Mean)",
+      "visual_type": "lineChart with reference lines OR custom Control Chart / xViz SPC",
+      "composition": "time-ordered series + mean line + UCL/LCL (±3σ) reference lines + flagged out-of-control markers",
+      "use_when": [
+        "Process / quality monitoring with a stable sampling cadence",
+        "Detecting special-cause variation (Western Electric rules)",
+        "Ops dashboards for defect rate / latency / throughput"
+      ],
+      "anti_use": [
+        "Unstable / irregular sampling cadence",
+        "Hiding the limits to 'clean up' the chart",
+        "Recomputing limits on every filter change (they must be a frozen baseline)"
       ],
       "slots": 1
     }

@@ -165,6 +165,19 @@ Every report follows this universal layered progression:
 Minimum viable report = Layers 1 + 3. Full analytical report = all four layers.
 For archetype-specific page counts and flows, use the reference file's diagrams.
 
+### Filter requirements (not design)
+
+At Phase 1, capture **which dimensions need to be filterable** and **who can
+see what** (RLS). Do **not** decide slicer types, placement, sync groups, or
+cross-filter behavior — those are Phase 4a design decisions owned by the
+`power-bi-report-design` skill.
+
+In [Requirements Document §6](references/requirements-document-template.md), list:
+- Dimensions the audience must be able to filter by (Date, Region, Product, etc.)
+- Whether each filter is **required** (must-have) or **nice-to-have**
+- Expected scope hints (e.g. "Date is global", "Promotion only on the Promotion page")
+- RLS requirements go in §7 (role, scoped column, rule expression)
+
 ### Data gap analysis
 
 Before finalizing the page plan, verify every KPI has a data source.
@@ -224,6 +237,7 @@ Phase 1 is complete when **every** item below is true:
 - [ ] KPI list is complete, with business definitions and priority (Must / Should / Nice)
 - [ ] Page plan has Overview + at least one Analysis page + Detail page
 - [ ] Measures Inventory lists every measure with owner table and DAX pattern
+- [ ] Required filter dimensions listed in §6 (design handled later in Phase 4a)
 - [ ] Data Gap Analysis complete — no unresolved ❌ blockers on must-have KPIs
 - [ ] Handoff JSON validates against the schema
 - [ ] User has approved the Requirements Document

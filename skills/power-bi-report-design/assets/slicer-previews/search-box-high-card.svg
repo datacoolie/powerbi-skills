@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- label -->
+  <rect x="24" y="46" width="84" height="4" rx="2" fill-opacity="0.45"/>
+
+  <!-- search box -->
+  <rect x="24" y="58" width="272" height="30" rx="4" fill-opacity="0.08"/>
+  <rect x="24.5" y="58.5" width="271" height="29" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
+  <circle cx="40" cy="73" r="5" fill="none" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.4"/>
+  <line x1="43.5" y1="76.5" x2="48" y2="81" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.4"/>
+  <rect x="56" y="70" width="40" height="6" rx="2" fill-opacity="0.9"/>
+  <rect x="100" y="71" width="4" height="4" fill-opacity="0.55"/>
+
+  <!-- results list -->
+  <rect x="24" y="96" width="272" height="68" rx="4" fill-opacity="0.04"/>
+  <rect x="24.5" y="96.5" width="271" height="67" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3"/>
+
+  <g>
+    <!-- hit 1 (selected) -->
+    <rect x="28" y="102" width="264" height="18" rx="3" fill-opacity="0.14"/>
+    <rect x="36" y="108" width="6" height="6" rx="1" fill-opacity="0.9"/>
+    <rect x="48" y="108" width="104" height="4" rx="2" fill-opacity="0.9"/>
+    <rect x="160" y="109" width="60" height="4" rx="2" fill-opacity="0.4"/>
+
+    <!-- hit 2 -->
+    <rect x="36" y="126" width="6" height="6" rx="1" fill-opacity="0.55"/>
+    <rect x="48" y="126" width="96" height="4" rx="2" fill-opacity="0.55"/>
+    <rect x="152" y="127" width="64" height="4" rx="2" fill-opacity="0.3"/>
+
+    <!-- hit 3 -->
+    <rect x="36" y="142" width="6" height="6" rx="1" fill-opacity="0.55"/>
+    <rect x="48" y="142" width="88" height="4" rx="2" fill-opacity="0.55"/>
+    <rect x="144" y="143" width="60" height="4" rx="2" fill-opacity="0.3"/>
+  </g>
+</g>
+</svg>

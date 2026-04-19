@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- 3 synced pages -->
+  <g>
+    <rect x="16" y="46" width="88" height="68" rx="3" fill-opacity="0.08"/>
+    <rect x="16.5" y="46.5" width="87" height="67" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <!-- slicer row -->
+    <rect x="22" y="52" width="30" height="10" rx="2" fill-opacity="0.85"/>
+    <rect x="56" y="52" width="30" height="10" rx="2" fill-opacity="0.85"/>
+    <!-- content -->
+    <rect x="22" y="68" width="40" height="4" rx="2" fill-opacity="0.4"/>
+    <rect x="22" y="78" width="76" height="30" rx="2" fill-opacity="0.12"/>
+  </g>
+  <g>
+    <rect x="116" y="46" width="88" height="68" rx="3" fill-opacity="0.08"/>
+    <rect x="116.5" y="46.5" width="87" height="67" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <rect x="122" y="52" width="30" height="10" rx="2" fill-opacity="0.85"/>
+    <rect x="156" y="52" width="30" height="10" rx="2" fill-opacity="0.85"/>
+    <rect x="122" y="68" width="40" height="4" rx="2" fill-opacity="0.4"/>
+    <!-- ranked bars -->
+    <g fill-opacity="0.55">
+      <rect x="122" y="80" width="64" height="5" rx="1"/>
+      <rect x="122" y="88" width="52" height="5" rx="1"/>
+      <rect x="122" y="96" width="38" height="5" rx="1"/>
+      <rect x="122" y="104" width="26" height="5" rx="1"/>
+    </g>
+  </g>
+  <g>
+    <rect x="216" y="46" width="88" height="68" rx="3" fill-opacity="0.08"/>
+    <rect x="216.5" y="46.5" width="87" height="67" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.6"/>
+    <rect x="222" y="52" width="30" height="10" rx="2" fill-opacity="0.85"/>
+    <rect x="256" y="52" width="30" height="10" rx="2" fill-opacity="0.85"/>
+    <rect x="222" y="68" width="40" height="4" rx="2" fill-opacity="0.4"/>
+    <!-- trend -->
+    <polyline points="224,106 236,98 248,102 260,88 272,94 284,82 296,88"
+              fill="none" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.4"/>
+  </g>
+
+  <!-- sync arrows -->
+  <g stroke-opacity="0.7" stroke-width="1.6" fill="none">
+    <line x1="104" y1="58" x2="116" y2="58"/>
+    <polyline points="110,54 116,58 110,62"/>
+    <polyline points="110,62 104,58 110,54" fill="currentColor" stroke="none" fill-opacity="0.7"/>
+
+    <line x1="204" y1="58" x2="216" y2="58"/>
+    <polyline points="210,54 216,58 210,62"/>
+    <polyline points="210,62 204,58 210,54" fill="currentColor" stroke="none" fill-opacity="0.7"/>
+  </g>
+
+  <!-- label: sync group -->
+  <rect x="16" y="128" width="288" height="34" rx="3" fill-opacity="0.04"/>
+  <rect x="16.5" y="128.5" width="287" height="33" rx="3" stroke-dasharray="4 3" fill="none" stroke="currentColor" stroke-opacity="0.4"/>
+  <rect x="24" y="138" width="110" height="5" rx="2" fill-opacity="0.8"/>
+  <rect x="24" y="148" width="200" height="4" rx="2" fill-opacity="0.4"/>
+
+  <!-- excluded page (small, dashed) -->
+  <g stroke-opacity="0.45" stroke-dasharray="3 3" fill-opacity="0.04">
+    <rect x="248" y="132" width="50" height="26" rx="3" stroke="currentColor"/>
+  </g>
+  <rect x="256" y="140" width="34" height="4" rx="2" fill-opacity="0.5" fill="currentColor" stroke="none"/>
+  <rect x="256" y="148" width="22" height="3" rx="1" fill-opacity="0.3" fill="currentColor" stroke="none"/>
+</g>
+</svg>

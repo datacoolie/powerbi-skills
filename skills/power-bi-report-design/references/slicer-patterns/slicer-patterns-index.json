@@ -1,0 +1,275 @@
+{
+  "$schema": "./slicer-patterns-index.schema.json",
+  "version": "0.1",
+  "description": "Curated slicer & filter recipes. Strategist binds every row of Design Spec §10 (Filters & Interactions) to one of these. Use slicer-filter-patterns.md for decision logic; use these recipe files for composition, ASCII mockups, and property snippets.",
+  "recipes": [
+    {
+      "id": "chiclet-tile-slicer",
+      "file": "chiclet-tile-slicer.md",
+      "title": "Chiclet / Tile Slicer (Low-Cardinality Buttons)",
+      "family": "category",
+      "control_type": "slicer (tile)",
+      "cardinality": "low (3-7)",
+      "scope": "report",
+      "use_when": [
+        "2\u20137 values always visible upfront (Channel, Segment, Region group)",
+        "Touch-first or TV-wallboard surfaces",
+        "Primary navigation-like filter on executive pages"
+      ],
+      "anti_use": [
+        "More than 7 values \u2014 tiles wrap and lose scanability",
+        "Long labels (> 12 chars) on narrow canvas"
+      ],
+      "archetypes": ["executive", "analytical", "operational", "tv-wallboard", "mobile"]
+    },
+    {
+      "id": "dropdown-search-slicer",
+      "file": "dropdown-search-slicer.md",
+      "title": "Dropdown Slicer with Search",
+      "family": "category",
+      "control_type": "slicer (dropdown)",
+      "cardinality": "medium (8-25)",
+      "scope": "report",
+      "use_when": [
+        "8\u201325 values; user knows the name they want",
+        "Secondary filters that shouldn't dominate canvas",
+        "Left-rail global filter panel"
+      ],
+      "anti_use": [
+        "\u2264 7 values (use chiclet tiles \u2014 always-visible is better)",
+        "> 10 000 values (use search-box pattern or drillthrough)"
+      ],
+      "archetypes": ["analytical", "exploration", "executive"]
+    },
+    {
+      "id": "hierarchy-slicer",
+      "file": "hierarchy-slicer.md",
+      "title": "Hierarchy Slicer (Expand / Collapse)",
+      "family": "category",
+      "control_type": "slicer (hierarchy)",
+      "cardinality": "medium (8-25)",
+      "scope": "sync-group",
+      "use_when": [
+        "Nested dimension (Year \u2192 Quarter \u2192 Month; Region \u2192 Country \u2192 City; Product Category \u2192 Subcategory \u2192 SKU)",
+        "Users drill at their own pace",
+        "Single slicer replaces 3 cascading slicers"
+      ],
+      "anti_use": [
+        "Flat dimensions (use dropdown)",
+        "Users always pick at the leaf \u2014 go straight to SKU search"
+      ],
+      "archetypes": ["analytical", "exploration"]
+    },
+    {
+      "id": "date-between-slider",
+      "file": "date-between-slider.md",
+      "title": "Date Between Slider (Absolute Range)",
+      "family": "date",
+      "control_type": "slicer (between)",
+      "cardinality": "continuous",
+      "scope": "report",
+      "use_when": [
+        "User needs to pick an arbitrary start and end date",
+        "Retrospective / investigation reports",
+        "Ad-hoc analytical exploration"
+      ],
+      "anti_use": [
+        "Report reviewed on a regular cadence (use relative date \u2014 auto-advances)",
+        "Mobile \u2014 slider thumbs are hard to hit on touch"
+      ],
+      "archetypes": ["analytical", "exploration"]
+    },
+    {
+      "id": "date-relative-rolling",
+      "file": "date-relative-rolling.md",
+      "title": "Relative-Date Rolling (Last N / Current)",
+      "family": "date",
+      "control_type": "slicer (relative)",
+      "cardinality": "continuous",
+      "scope": "report",
+      "use_when": [
+        "Report reviewed daily, weekly, or monthly \u2014 needs to auto-advance",
+        "Operational ops pages (Last 7 days)",
+        "Executive monthly reviews (Last complete month / Current quarter)"
+      ],
+      "anti_use": [
+        "Retrospective pages locked to a fixed period (use locked absolute filter)",
+        "Year-over-year comparison where both periods must stay visible"
+      ],
+      "archetypes": ["executive", "operational", "analytical", "tv-wallboard"]
+    },
+    {
+      "id": "numeric-range-slicer",
+      "file": "numeric-range-slicer.md",
+      "title": "Numeric Range Slider",
+      "family": "numeric",
+      "control_type": "slicer (between)",
+      "cardinality": "continuous",
+      "scope": "page",
+      "use_when": [
+        "Bounding a numeric measure (Order value, Age, Tenure)",
+        "Histogram or distribution analysis pages",
+        "Outlier / anomaly exploration"
+      ],
+      "anti_use": [
+        "Discrete numeric codes that are really categorical (use dropdown)",
+        "When exact value matters (use input box / parameter)"
+      ],
+      "archetypes": ["analytical", "exploration"]
+    },
+    {
+      "id": "search-box-high-card",
+      "file": "search-box-high-card.md",
+      "title": "Search-Box Lookup (Very High Cardinality)",
+      "family": "search",
+      "control_type": "slicer (dropdown, search-only) OR text search visual",
+      "cardinality": "very-high (>10k)",
+      "scope": "page",
+      "use_when": [
+        "Customer ID, SKU, Invoice ID \u2014 user types what they know",
+        "Detail/lookup pages",
+        "Replacing a slicer that would render > 10 000 items"
+      ],
+      "anti_use": [
+        "User doesn't know the exact value (use drillthrough from a summary visual)",
+        "\u2264 25 values (use dropdown)"
+      ],
+      "archetypes": ["analytical", "operational", "exploration"]
+    },
+    {
+      "id": "left-rail-global-panel",
+      "file": "left-rail-global-panel.md",
+      "title": "Left-Rail Global Slicer Panel",
+      "family": "architecture",
+      "control_type": "slicer group + container",
+      "cardinality": "n/a",
+      "scope": "sync-group",
+      "use_when": [
+        "3\u20135 global filters shared across an Analysis page group",
+        "Wide desktop canvas (16:9, 1280\u00d7720)",
+        "Analyst audience comfortable with a fixed sidebar"
+      ],
+      "anti_use": [
+        "Executive single-page dashboards (use top header bar)",
+        "Mobile portrait (rail eats too much width \u2014 use collapsed filter pane)",
+        "Only 1 filter (slicer doesn't justify a rail)"
+      ],
+      "archetypes": ["analytical", "exploration"]
+    },
+    {
+      "id": "top-header-filter-bar",
+      "file": "top-header-filter-bar.md",
+      "title": "Top-Header Compact Filter Bar",
+      "family": "architecture",
+      "control_type": "slicer group (horizontal)",
+      "cardinality": "n/a",
+      "scope": "page",
+      "use_when": [
+        "2\u20134 primary filters on an executive or operational page",
+        "TV wallboards (filters visible on display, rarely changed)",
+        "Mobile landscape"
+      ],
+      "anti_use": [
+        "\u2265 5 filters (rail is better)",
+        "When filters need long category labels"
+      ],
+      "archetypes": ["executive", "operational", "tv-wallboard", "mobile"]
+    },
+    {
+      "id": "sync-slicer-group",
+      "file": "sync-slicer-group.md",
+      "title": "Sync-Slicer Group (Narrative Continuity)",
+      "family": "architecture",
+      "control_type": "sync group",
+      "cardinality": "n/a",
+      "scope": "sync-group",
+      "use_when": [
+        "Overview + 2\u20133 Analysis pages tell one narrative",
+        "User expects filter state to persist when navigating",
+        "Mobile parity with desktop"
+      ],
+      "anti_use": [
+        "Drillthrough target pages (they receive their own context)",
+        "Tooltip pages",
+        "Pages serving different audiences / mental models"
+      ],
+      "archetypes": ["analytical", "exploration", "executive"]
+    },
+    {
+      "id": "hidden-applied-filter",
+      "file": "hidden-applied-filter.md",
+      "title": "Hidden & Applied Filter (Governance)",
+      "family": "governance",
+      "control_type": "filter pane (hidden + locked)",
+      "cardinality": "n/a",
+      "scope": "report",
+      "use_when": [
+        "Data-quality hygiene filters (`[IsActive] = TRUE`, `[IsTestRecord] = FALSE`)",
+        "Tenant / region pre-scoping that shouldn't appear as a slicer",
+        "Page pinned to a fixed period (e.g. 'Q1 Retrospective')"
+      ],
+      "anti_use": [
+        "Filters users should be able to change (use slicer)",
+        "Hiding filters to disguise incomplete data \u2014 always visible in audit"
+      ],
+      "archetypes": ["executive", "analytical", "operational", "paginated"]
+    },
+    {
+      "id": "role-based-bookmark",
+      "file": "role-based-bookmark.md",
+      "title": "Role-Based Bookmark Filter Toggle",
+      "family": "governance",
+      "control_type": "bookmark group + buttons",
+      "cardinality": "n/a",
+      "scope": "page",
+      "use_when": [
+        "All-access users (controllers, directors) need to switch between 'My scope' and 'All scope'",
+        "RLS removes a dimension but 1\u20132 roles still need it",
+        "Executive audience wants pre-canned view switches without touching filters"
+      ],
+      "anti_use": [
+        "Every user sees the same scope (use a plain slicer)",
+        "\u2265 5 view variants (use a slicer or field parameter instead \u2014 bookmarks become unmaintainable)"
+      ],
+      "archetypes": ["executive", "analytical"]
+    },
+    {
+      "id": "field-parameter-switch",
+      "file": "field-parameter-switch.md",
+      "title": "Field Parameter Measure/Dimension Switch",
+      "family": "parameter",
+      "control_type": "field parameter + slicer",
+      "cardinality": "low (3-7)",
+      "scope": "page",
+      "use_when": [
+        "User wants to switch the measure shown on a chart (Revenue / Units / Margin)",
+        "User wants to switch the dimension on an axis (By Region / By Channel / By Brand)",
+        "Reducing visual count by letting one chart serve 3\u20135 views"
+      ],
+      "anti_use": [
+        "Audiences that won't notice / use the toggle (adds complexity)",
+        "Measures with incompatible formats on the same axis (mix $ and %)"
+      ],
+      "archetypes": ["analytical", "exploration"]
+    },
+    {
+      "id": "what-if-parameter",
+      "file": "what-if-parameter.md",
+      "title": "What-If Parameter Slicer",
+      "family": "parameter",
+      "control_type": "what-if parameter (numeric)",
+      "cardinality": "continuous",
+      "scope": "page",
+      "use_when": [
+        "Scenario pages (Price elasticity, FX sensitivity, Discount %)",
+        "Goal seek / target-setting workflows",
+        "Letting users drive a calculation input without editing the model"
+      ],
+      "anti_use": [
+        "Filtering existing rows (use a normal slicer)",
+        "When the parameter must persist across sessions (use an Excel-connected parameter table instead)"
+      ],
+      "archetypes": ["analytical", "exploration"]
+    }
+  ]
+}

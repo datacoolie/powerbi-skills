@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- header strip -->
+  <rect x="12" y="40" width="296" height="36" rx="3" fill-opacity="0.1"/>
+  <rect x="12.5" y="40.5" width="295" height="35" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <line x1="12" y1="76" x2="308" y2="76" stroke="currentColor" stroke-opacity="0.35"/>
+
+  <!-- title -->
+  <rect x="20" y="52" width="72" height="6" rx="3" fill-opacity="0.85"/>
+  <rect x="20" y="62" width="40" height="3" rx="1" fill-opacity="0.4"/>
+
+  <!-- slicer 1 (dropdown) -->
+  <rect x="120" y="50" width="58" height="18" rx="3" fill-opacity="0.18"/>
+  <rect x="120.5" y="50.5" width="57" height="17" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <rect x="126" y="56" width="32" height="5" rx="2" fill-opacity="0.7"/>
+  <polyline points="164,56 168,60 172,56" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <!-- slicer 2 (tiles) -->
+  <rect x="184" y="50" width="58" height="18" rx="3" fill-opacity="0.85"/>
+  <rect x="192" y="57" width="16" height="5" rx="2" fill="#fff" fill-opacity="0.9"/>
+  <rect x="214" y="57" width="16" height="5" rx="2" fill="#fff" fill-opacity="0.35"/>
+
+  <!-- slicer 3 (date) -->
+  <rect x="248" y="50" width="58" height="18" rx="3" fill-opacity="0.18"/>
+  <rect x="248.5" y="50.5" width="57" height="17" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+  <rect x="254" y="56" width="38" height="5" rx="2" fill-opacity="0.7"/>
+  <polyline points="296,56 300,60 304,56" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <!-- canvas area -->
+  <g fill-opacity="0.06">
+    <rect x="20" y="92" width="82" height="72" rx="3"/>
+    <rect x="110" y="92" width="82" height="72" rx="3"/>
+    <rect x="200" y="92" width="100" height="72" rx="3"/>
+  </g>
+
+  <!-- fake chart bits -->
+  <g fill-opacity="0.35">
+    <rect x="28" y="100" width="56" height="4" rx="2"/>
+    <rect x="28" y="112" width="40" height="6" rx="2" fill-opacity="0.85"/>
+    <rect x="28" y="124" width="56" height="30" rx="2" fill-opacity="0.55"/>
+
+    <rect x="118" y="100" width="56" height="4" rx="2"/>
+    <polyline points="120,150 130,142 140,146 150,136 160,140 170,130 180,136" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+
+    <rect x="208" y="100" width="56" height="4" rx="2"/>
+    <rect x="208" y="116" width="12" height="40" rx="1" fill-opacity="0.55"/>
+    <rect x="226" y="108" width="12" height="48" rx="1" fill-opacity="0.7"/>
+    <rect x="244" y="124" width="12" height="32" rx="1" fill-opacity="0.4"/>
+    <rect x="262" y="118" width="12" height="38" rx="1" fill-opacity="0.5"/>
+    <rect x="280" y="130" width="12" height="26" rx="1" fill-opacity="0.3"/>
+  </g>
+</g>
+</svg>

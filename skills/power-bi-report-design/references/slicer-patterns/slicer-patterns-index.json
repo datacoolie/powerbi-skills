@@ -270,6 +270,28 @@
         "When the parameter must persist across sessions (use an Excel-connected parameter table instead)"
       ],
       "archetypes": ["analytical", "exploration"]
+    },
+    {
+      "id": "chart-type-toggle",
+      "file": "chart-type-toggle.md",
+      "title": "Chart-Type Toggle (Selected-Visuals Bookmark)",
+      "family": "parameter",
+      "control_type": "bookmark buttons + stacked visuals",
+      "cardinality": "low (3-7)",
+      "scope": "visual",
+      "use_when": [
+        "Tabbed swap of ONE chart's visualization while all other visuals on the page stay unchanged",
+        "Let the reader pick Bar vs Line vs Table for the same data",
+        "Summary / Detail / Raw toggle inside one frame",
+        "Daily / Weekly / Monthly time-grain swap in a single tile"
+      ],
+      "anti_use": [
+        "Swapping measures/dimensions on the same chart type (use field-parameter-switch \u2014 no bookmark maintenance)",
+        "> 4 variants (stacked visuals bloat rendering cost)",
+        "Bookmark Data capture left on (resets all slicers on click)",
+        "Bookmark scope left as 'All visuals' (hides unrelated visuals)"
+      ],
+      "archetypes": ["analytical", "exploration"]
     }
   ]
 }

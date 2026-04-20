@@ -53,6 +53,7 @@ property snippet, sensible defaults, and anti-patterns.
 |---|---|
 | [field-parameter-switch](field-parameter-switch.md) | Swap measure or dimension on one chart |
 | [what-if-parameter](what-if-parameter.md) | Scenario input (discount %, FX, volume lift) |
+| [chart-type-toggle](chart-type-toggle.md) | Swap the visualization type on one visual (Bar/Line/Table) — other visuals unchanged |
 
 ---
 
@@ -76,6 +77,7 @@ Pick recipes that match your report archetype(s):
 | role-based-bookmark           | ● | ● |   |   |   |   |
 | field-parameter-switch        |   | ● |   | ● |   |   |
 | what-if-parameter             |   | ● |   | ● |   |   |
+| chart-type-toggle             |   | ● |   | ● |   |   |
 
 ● = strong fit   ○ = acceptable   blank = avoid
 

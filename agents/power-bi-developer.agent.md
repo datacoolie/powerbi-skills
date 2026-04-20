@@ -161,13 +161,13 @@ Before running Phase 4b, hand off through Phase 4a.5 for a lightweight review.
 **Skill:** `power-bi-report-design` (enforced by agent)
 
 After the Design Spec is ready, present the seven key decisions to the user.
-Use the **VS Code Plan-mode Q&A UI** (`vscode_askQuestions` tool) so each
+Use the **VS Code Plan-mode Q&A UI** (`vscode/askQuestions` tool) so each
 decision is shown as a structured question with:
 
 - a **`recommended: true`** option that reflects the Strategist's default, and
 - a short list of alternative options (the user can also type freeform text).
 
-All seven questions are sent in **a single `vscode_askQuestions` call** so the
+All seven questions are sent in **a single `vscode/askQuestions` call** so the
 user sees them as one Plan-mode panel, not seven round-trips. Every question
 sets `allowFreeformInput: true` so the user can type an inline override.
 
@@ -191,7 +191,7 @@ _( \* = marked `recommended: true` in the question payload. )_
 **Tool-call shape** (illustrative):
 
 ```jsonc
-vscode_askQuestions({
+vscode/askQuestions({
   questions: [
     { header: "canvas", question: "Canvas size per page?",
       options: [
@@ -233,7 +233,7 @@ When using the single-message fallback, include the preview file paths as
 markdown image links: `![layout](skills/power-bi-report-design/assets/layout-previews/<slug>.svg)`.
 
 **Style modes (pick the one that fits the channel):**
-- **Plan-mode Q&A** — preferred when `vscode_askQuestions` is available. Single tool call, seven structured questions.
+- **Plan-mode Q&A** — preferred when `vscode/askQuestions` is available. Single tool call, seven structured questions.
 - **Single-message summary** — fallback when the Q&A tool is unavailable (plain chat, API clients). Post the seven lines as one bundled message with bold recommended defaults, and accept `"proceed"` as the single-reply shortcut.
 
 Do not split the seven questions into seven separate chat turns. Do not interleave with any other tool calls inside the same question batch.

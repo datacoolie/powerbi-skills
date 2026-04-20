@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+
+<g fill="currentColor" stroke="none" fill-opacity="0.55">
+  <rect x="12" y="12" width="110" height="6" rx="3"/>
+  <rect x="12" y="22" width="170" height="4" rx="2" fill-opacity="0.25"/>
+</g>
+
+<g font-family="system-ui,Segoe UI,Arial" fill="currentColor" stroke="none">
+  <!-- frame for the "one visual that changes" -->
+  <rect x="16" y="44" width="200" height="120" rx="3" fill-opacity="0.06"/>
+  <rect x="16.5" y="44.5" width="199" height="119" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.5"/>
+
+  <!-- toggle button row (inside the frame, top-right) -->
+  <rect x="118" y="52" width="28" height="16" rx="3" fill-opacity="0.9"/>
+  <rect x="126" y="58" width="12" height="4" rx="2" fill="#fff" fill-opacity="0.95"/>
+
+  <rect x="150" y="52" width="28" height="16" rx="3" fill-opacity="0.1"/>
+  <rect x="150.5" y="52.5" width="27" height="15" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
+  <rect x="158" y="58" width="12" height="4" rx="2" fill-opacity="0.6"/>
+
+  <rect x="182" y="52" width="28" height="16" rx="3" fill-opacity="0.1"/>
+  <rect x="182.5" y="52.5" width="27" height="15" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
+  <rect x="190" y="58" width="12" height="4" rx="2" fill-opacity="0.6"/>
+
+  <!-- frame title -->
+  <rect x="24" y="54" width="64" height="5" rx="2" fill-opacity="0.75"/>
+  <rect x="24" y="63" width="40" height="3" rx="1" fill-opacity="0.4"/>
+
+  <!-- primary (visible) visual: bar chart -->
+  <g>
+    <line x1="30" y1="150" x2="204" y2="150" stroke="currentColor" stroke-opacity="0.3"/>
+    <g fill-opacity="0.75">
+      <rect x="36" y="122" width="14" height="28" rx="1"/>
+      <rect x="56" y="114" width="14" height="36" rx="1"/>
+      <rect x="76" y="108" width="14" height="42" rx="1"/>
+      <rect x="96" y="118" width="14" height="32" rx="1"/>
+      <rect x="116" y="104" width="14" height="46" rx="1"/>
+      <rect x="136" y="110" width="14" height="40" rx="1"/>
+      <rect x="156" y="124" width="14" height="26" rx="1"/>
+      <rect x="176" y="116" width="14" height="34" rx="1"/>
+    </g>
+  </g>
+
+  <!-- ghost of stacked alternatives (small, dashed hint) -->
+  <g stroke-opacity="0.3" stroke-dasharray="2 3">
+    <polyline points="40,96 60,90 80,94 100,84 120,90 140,82 160,88 180,80"
+              fill="none" stroke="currentColor" stroke-width="1"/>
+  </g>
+
+  <!-- right sidebar: other visuals unchanged -->
+  <g fill-opacity="0.06">
+    <rect x="224" y="44" width="80" height="56" rx="3"/>
+    <rect x="224" y="108" width="80" height="56" rx="3"/>
+  </g>
+  <g>
+    <rect x="224.5" y="44.5" width="79" height="55" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.35"/>
+    <rect x="224.5" y="108.5" width="79" height="55" rx="3" fill="none" stroke="currentColor" stroke-opacity="0.35"/>
+  </g>
+
+  <!-- sidebar content (unchanged trend + KPI) -->
+  <polyline points="230,88 240,80 250,84 260,74 270,78 280,70 292,74"
+            fill="none" stroke="currentColor" stroke-opacity="0.6" stroke-width="1.3"/>
+  <rect x="232" y="54" width="40" height="4" rx="2" fill-opacity="0.55"/>
+
+  <rect x="232" y="118" width="40" height="4" rx="2" fill-opacity="0.55"/>
+  <rect x="232" y="128" width="56" height="10" rx="2" fill-opacity="0.85"/>
+  <rect x="232" y="144" width="32" height="3" rx="1" fill-opacity="0.35"/>
+  <polyline points="270,148 276,144 282,146 290,140 296,142"
+            fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <!-- "unchanged" padlock over sidebar visuals -->
+  <g stroke="currentColor" stroke-opacity="0.7" fill="none" stroke-width="1.3">
+    <rect x="288" y="50" width="9" height="7" rx="1.5"/>
+    <path d="M289.5 50 V47 Q289.5 44.5 292.5 44.5 Q295.5 44.5 295.5 47 V50"/>
+    <rect x="288" y="114" width="9" height="7" rx="1.5"/>
+    <path d="M289.5 114 V111 Q289.5 108.5 292.5 108.5 Q295.5 108.5 295.5 111 V114"/>
+  </g>
+</g>
+</svg>

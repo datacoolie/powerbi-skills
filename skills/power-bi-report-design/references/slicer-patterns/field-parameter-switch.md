@@ -1,5 +1,7 @@
 # Recipe: Field Parameter Measure/Dimension Switch
 
+> **Preview:** [![field-parameter-switch preview](../../assets/slicer-previews/field-parameter-switch.svg)](../../assets/slicer-previews/field-parameter-switch.svg)
+
 - **id:** `field-parameter-switch`
 - **Family:** parameter
 - **Control type:** field parameter + slicer

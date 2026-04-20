@@ -1,5 +1,7 @@
 # Executive Overview (16:9) (Mobile)
 
+> **Preview:** [![exec-overview-16x9-mobile preview](../../assets/layout-previews/exec-overview-16x9-mobile.svg)](../../assets/layout-previews/exec-overview-16x9-mobile.svg) · variants: [annotated](../../assets/layout-previews/exec-overview-16x9-mobile-annotated.svg) · [dark](../../assets/layout-previews/exec-overview-16x9-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`exec-overview-16x9`](./exec-overview-16x9.md).
 
 - Canvas: `390×844` (mobile-portrait)

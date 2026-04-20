@@ -1,5 +1,7 @@
 # Marketing Funnel & Attribution (Mobile)
 
+> **Preview:** [![marketing-funnel-mobile preview](../../assets/layout-previews/marketing-funnel-mobile.svg)](../../assets/layout-previews/marketing-funnel-mobile.svg) · variants: [annotated](../../assets/layout-previews/marketing-funnel-mobile-annotated.svg) · [dark](../../assets/layout-previews/marketing-funnel-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`marketing-funnel`](./marketing-funnel.md).
 
 - Canvas: `390×844` (mobile-portrait)

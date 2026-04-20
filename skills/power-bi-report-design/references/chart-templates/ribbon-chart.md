@@ -1,5 +1,7 @@
 # Recipe: Ribbon Chart (Rank-over-Time)
 
+> **Preview:** [![ribbon-chart preview](../../assets/chart-previews/ribbon-chart.svg)](../../assets/chart-previews/ribbon-chart.svg)
+
 - **id:** `ribbon-chart`
 - **Visual type:** `ribbonChart` (Power BI built-in)
 - **Typical size:** 640 × 400

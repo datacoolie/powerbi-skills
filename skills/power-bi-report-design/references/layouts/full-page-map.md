@@ -1,5 +1,7 @@
 # Layout: Full-Page Map
 
+> **Preview:** [![full-page-map preview](../../assets/layout-previews/full-page-map.svg)](../../assets/layout-previews/full-page-map.svg) · variants: [annotated](../../assets/layout-previews/full-page-map-annotated.svg) · [dark](../../assets/layout-previews/full-page-map-dark.svg)
+
 - **id:** `full-page-map`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — One dominant ArcGIS / Esri map occupying ~80% of the canvas + thin slicer strip

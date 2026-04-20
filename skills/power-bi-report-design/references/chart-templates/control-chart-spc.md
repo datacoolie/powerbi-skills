@@ -1,5 +1,7 @@
 # Recipe: Control Chart (SPC — UCL / LCL / Mean)
 
+> **Preview:** [![control-chart-spc preview](../../assets/chart-previews/control-chart-spc.svg)](../../assets/chart-previews/control-chart-spc.svg)
+
 - **id:** `control-chart-spc`
 - **Visual type:** `lineChart` with reference lines OR custom `Control Chart`
   / `xViz SPC`

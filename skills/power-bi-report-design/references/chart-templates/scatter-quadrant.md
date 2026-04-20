@@ -1,5 +1,7 @@
 # Recipe: Scatter Quadrant
 
+> **Preview:** [![scatter-quadrant preview](../../assets/chart-previews/scatter-quadrant.svg)](../../assets/chart-previews/scatter-quadrant.svg)
+
 - **id:** `scatter-quadrant`
 - **Visual type:** `scatterChart`
 - **Typical size:** 560 × 440

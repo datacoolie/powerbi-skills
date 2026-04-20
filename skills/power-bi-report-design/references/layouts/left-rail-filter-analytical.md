@@ -1,5 +1,7 @@
 # Layout: Left-Rail Filter Analytical
 
+> **Preview:** [![left-rail-filter-analytical preview](../../assets/layout-previews/left-rail-filter-analytical.svg)](../../assets/layout-previews/left-rail-filter-analytical.svg) · variants: [annotated](../../assets/layout-previews/left-rail-filter-analytical-annotated.svg) · [dark](../../assets/layout-previews/left-rail-filter-analytical-dark.svg)
+
 - **id:** `left-rail-filter-analytical`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g fill="currentColor" stroke="none">
+  <g transform="translate(80 20)">
+    <rect x="0" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="14" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="28" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="42" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="56" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="70" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="84" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="98" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="112" y="0" width="10" height="10" fill-opacity="0.85"/>
+    <rect x="126" y="0" width="10" height="10" fill-opacity="0.85"/>
+  </g>
+</g>
+<g fill="currentColor" stroke="none">
+  <g id="row0" transform="translate(80 20)"/>
+</g>
+<g fill="currentColor" stroke="none" fill-opacity="0.3">
+  <rect x="80" y="34" width="136" height="10"/>
+  <rect x="80" y="48" width="136" height="10"/>
+  <rect x="80" y="62" width="136" height="10"/>
+  <rect x="80" y="76" width="136" height="10"/>
+</g>
+<g fill="currentColor" stroke="none" fill-opacity="0.85">
+  <rect x="80" y="34" width="122" height="10"/>
+  <rect x="80" y="48" width="108" height="10"/>
+  <rect x="80" y="62" width="80" height="10"/>
+  <rect x="80" y="76" width="52" height="10"/>
+  <rect x="80" y="90" width="38" height="10"/>
+  <rect x="80" y="104" width="24" height="10"/>
+</g>
+<g fill="currentColor" stroke="none" fill-opacity="0.3">
+  <rect x="80" y="90" width="136" height="10"/>
+  <rect x="80" y="104" width="136" height="10"/>
+  <rect x="80" y="118" width="136" height="10"/>
+  <rect x="80" y="132" width="136" height="10"/>
+</g>
+<g fill="currentColor" stroke="none" fill-opacity="0.4">
+  <text x="16" y="80" font-family="system-ui" font-size="9">37% / 100%</text>
+</g>
+</svg>

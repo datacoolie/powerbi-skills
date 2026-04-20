@@ -1,5 +1,7 @@
 # Balanced Scorecard / KPI Grid (Mobile)
 
+> **Preview:** [![scorecard-kpi-grid-mobile preview](../../assets/layout-previews/scorecard-kpi-grid-mobile.svg)](../../assets/layout-previews/scorecard-kpi-grid-mobile.svg) · variants: [annotated](../../assets/layout-previews/scorecard-kpi-grid-mobile-annotated.svg) · [dark](../../assets/layout-previews/scorecard-kpi-grid-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`scorecard-kpi-grid`](./scorecard-kpi-grid.md).
 
 - Canvas: `390×844` (mobile-portrait)

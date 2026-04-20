@@ -1,5 +1,7 @@
 # Recipe: Tornado (Sensitivity / Diverging)
 
+> **Preview:** [![tornado-chart preview](../../assets/chart-previews/tornado-chart.svg)](../../assets/chart-previews/tornado-chart.svg)
+
 - **id:** `tornado-chart`
 - **Visual type:** Custom visual `TornadoChart` OR built-in `barChart` with positive/negative series
 - **Typical size:** 560 × 440

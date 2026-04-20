@@ -1,5 +1,7 @@
 # Recipe: Hierarchy Slicer (Expand / Collapse)
 
+> **Preview:** [![hierarchy-slicer preview](../../assets/slicer-previews/hierarchy-slicer.svg)](../../assets/slicer-previews/hierarchy-slicer.svg)
+
 - **id:** `hierarchy-slicer`
 - **Family:** category
 - **Control type:** slicer (hierarchy)

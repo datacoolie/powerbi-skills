@@ -1,5 +1,7 @@
 # Readmission Analysis
 
+> **Preview:** [![hc-readmission-analysis preview](../../assets/layout-previews/hc-readmission-analysis.svg)](../../assets/layout-previews/hc-readmission-analysis.svg) · variants: [annotated](../../assets/layout-previews/hc-readmission-analysis-annotated.svg) · [dark](../../assets/layout-previews/hc-readmission-analysis-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `healthcare`
 - Visuals: 7

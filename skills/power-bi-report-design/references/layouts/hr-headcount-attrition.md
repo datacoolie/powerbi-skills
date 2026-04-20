@@ -1,5 +1,7 @@
 # HR Headcount & Attrition
 
+> **Preview:** [![hr-headcount-attrition preview](../../assets/layout-previews/hr-headcount-attrition.svg)](../../assets/layout-previews/hr-headcount-attrition.svg) · variants: [annotated](../../assets/layout-previews/hr-headcount-attrition-annotated.svg) · [dark](../../assets/layout-previews/hr-headcount-attrition-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `hr`
 - Visuals: 8

@@ -1,5 +1,7 @@
 # Layout: Tachometer Gauge Row
 
+> **Preview:** [![tachometer-gauge-row preview](../../assets/layout-previews/tachometer-gauge-row.svg)](../../assets/layout-previews/tachometer-gauge-row.svg) · variants: [annotated](../../assets/layout-previews/tachometer-gauge-row-annotated.svg) · [dark](../../assets/layout-previews/tachometer-gauge-row-dark.svg)
+
 - **id:** `tachometer-gauge-row`
 - **Canvas:** 1664 × 936
 - **Style personality:** Operational — Top band of 3–4 tachometer gauges (target arc + needle) + KPI cards + map below

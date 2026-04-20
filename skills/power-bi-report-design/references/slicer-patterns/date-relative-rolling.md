@@ -1,5 +1,7 @@
 # Recipe: Relative-Date Rolling (Last N / Current)
 
+> **Preview:** [![date-relative-rolling preview](../../assets/slicer-previews/date-relative-rolling.svg)](../../assets/slicer-previews/date-relative-rolling.svg)
+
 - **id:** `date-relative-rolling`
 - **Family:** date
 - **Control type:** slicer (relative)

@@ -1,5 +1,7 @@
 # Layout: Chiclet Nav Strip
 
+> **Preview:** [![chiclet-nav-strip preview](../../assets/layout-previews/chiclet-nav-strip.svg)](../../assets/layout-previews/chiclet-nav-strip.svg) · variants: [annotated](../../assets/layout-previews/chiclet-nav-strip-annotated.svg) · [dark](../../assets/layout-previews/chiclet-nav-strip-dark.svg)
+
 - **id:** `chiclet-nav-strip`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical / operational hybrid — button-driven navigation

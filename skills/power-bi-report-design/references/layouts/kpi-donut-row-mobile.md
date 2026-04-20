@@ -1,5 +1,7 @@
 # KPI Donut Row (Mobile)
 
+> **Preview:** [![kpi-donut-row-mobile preview](../../assets/layout-previews/kpi-donut-row-mobile.svg)](../../assets/layout-previews/kpi-donut-row-mobile.svg) · variants: [annotated](../../assets/layout-previews/kpi-donut-row-mobile-annotated.svg) · [dark](../../assets/layout-previews/kpi-donut-row-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`kpi-donut-row`](./kpi-donut-row.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -59,6 +59,29 @@
           "minimum": 1,
           "maximum": 10,
           "description": "Canvas slot count the recipe occupies (1 = single-visual, 2+ = multi-visual composition)."
+        },
+        "tier": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "Priority tier. high = built-in / heavily-used; medium = FT vocabulary gap with custom visual; low = specialist / Deneb-hosted."
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "deviation",
+            "correlation",
+            "ranking",
+            "distribution",
+            "change-over-time",
+            "magnitude",
+            "part-to-whole",
+            "spatial",
+            "flow",
+            "narrative",
+            "self-service",
+            "kpi"
+          ],
+          "description": "FT Visual Vocabulary data-relationship category (plus kpi / narrative / self-service for non-chart recipes)."
         }
       }
     }

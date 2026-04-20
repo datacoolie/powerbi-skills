@@ -1,5 +1,7 @@
 # Layout: Dimension Nav Hub
 
+> **Preview:** [![dimension-nav-hub preview](../../assets/layout-previews/dimension-nav-hub.svg)](../../assets/layout-previews/dimension-nav-hub.svg) · variants: [annotated](../../assets/layout-previews/dimension-nav-hub-annotated.svg) · [dark](../../assets/layout-previews/dimension-nav-hub-dark.svg)
+
 - **id:** `dimension-nav-hub`
 - **Canvas:** 1664 × 936
 - **Style personality:** Executive — Full-page button grid jumping to every dimension / sub-report

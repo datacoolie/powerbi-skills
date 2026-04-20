@@ -1,5 +1,7 @@
 # ESG Carbon Scorecard (A4 Print)
 
+> **Preview:** [![esg-carbon-scorecard-a4 preview](../../assets/layout-previews/esg-carbon-scorecard-a4.svg)](../../assets/layout-previews/esg-carbon-scorecard-a4.svg) · variants: [annotated](../../assets/layout-previews/esg-carbon-scorecard-a4-annotated.svg) · [dark](../../assets/layout-previews/esg-carbon-scorecard-a4-dark.svg)
+
 > **Derived layout** — Print / A4 variant of [`esg-carbon-scorecard`](./esg-carbon-scorecard.md).
 
 - Canvas: `1169×826` (print-a4-landscape)

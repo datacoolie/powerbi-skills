@@ -1,5 +1,7 @@
 # DE&I Scorecard (A4 Print)
 
+> **Preview:** [![hr-dei-scorecard-a4 preview](../../assets/layout-previews/hr-dei-scorecard-a4.svg)](../../assets/layout-previews/hr-dei-scorecard-a4.svg) · variants: [annotated](../../assets/layout-previews/hr-dei-scorecard-a4-annotated.svg) · [dark](../../assets/layout-previews/hr-dei-scorecard-a4-dark.svg)
+
 > **Derived layout** — Print / A4 variant of [`hr-dei-scorecard`](./hr-dei-scorecard.md).
 
 - Canvas: `1169×826` (print-a4-landscape)

@@ -1,5 +1,7 @@
 # Layout: Mobile Portrait (Power BI mobile layout)
 
+> **Preview:** [![mobile-portrait-9x16 preview](../../assets/layout-previews/mobile-portrait-9x16.svg)](../../assets/layout-previews/mobile-portrait-9x16.svg) · variants: [annotated](../../assets/layout-previews/mobile-portrait-9x16-annotated.svg) · [dark](../../assets/layout-previews/mobile-portrait-9x16-dark.svg)
+
 - **id:** `mobile-portrait-9x16`
 - **Canvas:** 390 × 844 (Power BI phone-optimized canvas; iPhone-scale reference)
 - **Style personality:** Operational — thumb-accessible, glanceable

@@ -1,5 +1,7 @@
 # Recipe: Role-Based Bookmark Filter Toggle
 
+> **Preview:** [![role-based-bookmark preview](../../assets/slicer-previews/role-based-bookmark.svg)](../../assets/slicer-previews/role-based-bookmark.svg)
+
 - **id:** `role-based-bookmark`
 - **Family:** governance
 - **Control type:** bookmark group + buttons

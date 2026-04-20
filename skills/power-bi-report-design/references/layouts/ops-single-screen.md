@@ -1,5 +1,7 @@
 # Layout: Operational Single-Screen Status Board
 
+> **Preview:** [![ops-single-screen preview](../../assets/layout-previews/ops-single-screen.svg)](../../assets/layout-previews/ops-single-screen.svg) · variants: [annotated](../../assets/layout-previews/ops-single-screen-annotated.svg) · [dark](../../assets/layout-previews/ops-single-screen-dark.svg)
+
 - **id:** `ops-single-screen`
 - **Canvas:** 1920 × 1080 (wall-mount TV) OR 1664 × 936 (desktop)
 - **Style personality:** Operational (see `../executor-operational.md`)

@@ -1,5 +1,7 @@
 # Recipe: Calendar Heatmap (Daily Pattern)
 
+> **Preview:** [![heatmap-calendar preview](../../assets/chart-previews/heatmap-calendar.svg)](../../assets/chart-previews/heatmap-calendar.svg)
+
 - **id:** `heatmap-calendar`
 - **Visual type:** `matrix` with conditional background colour OR custom
   visual (Calendar by MAQ / OKVIZ)

@@ -1,5 +1,7 @@
 # Layout: KPI Donut Row
 
+> **Preview:** [![kpi-donut-row preview](../../assets/layout-previews/kpi-donut-row.svg)](../../assets/layout-previews/kpi-donut-row.svg) · variants: [annotated](../../assets/layout-previews/kpi-donut-row-annotated.svg) · [dark](../../assets/layout-previews/kpi-donut-row-dark.svg)
+
 - **id:** `kpi-donut-row`
 - **Canvas:** 1664 × 936
 - **Style personality:** Executive — financial "at-a-glance"

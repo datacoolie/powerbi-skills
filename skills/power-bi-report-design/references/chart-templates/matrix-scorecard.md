@@ -1,5 +1,7 @@
 # Recipe: Matrix Scorecard
 
+> **Preview:** [![matrix-scorecard preview](../../assets/chart-previews/matrix-scorecard.svg)](../../assets/chart-previews/matrix-scorecard.svg)
+
 - **id:** `matrix-scorecard`
 - **Visual type:** `pivotTable`
 - **Typical size:** 960 × 420 (full-width) or 640 × 360 (half-width)

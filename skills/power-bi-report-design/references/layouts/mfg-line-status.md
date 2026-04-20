@@ -1,5 +1,7 @@
 # Layout: Manufacturing Line Status (OEE)
 
+> **Preview:** [![mfg-line-status preview](../../assets/layout-previews/mfg-line-status.svg)](../../assets/layout-previews/mfg-line-status.svg) · variants: [annotated](../../assets/layout-previews/mfg-line-status-annotated.svg) · [dark](../../assets/layout-previews/mfg-line-status-dark.svg)
+
 - **id:** `mfg-line-status`
 - **Canvas:** 1920 × 1080 (shop-floor display) OR 1664 × 936 (desktop)
 - **Style personality:** Operational (see `../executor-operational.md`)

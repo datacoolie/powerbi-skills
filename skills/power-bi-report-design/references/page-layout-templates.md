@@ -3,6 +3,12 @@
 Starting-point templates for common page types. Canvas size: 1664×936.
 Adjust dimensions and visuals to match specific requirements.
 
+> **Visual preview catalog:** rendered SVGs for every layout (base + annotated + dark variants) live in
+> [`../assets/layout-previews/`](../assets/layout-previews/). For a one-page overview of the whole catalog see
+> [`../assets/layouts-contact-sheet.svg`](../assets/layouts-contact-sheet.svg);
+> for the theme × layout compatibility grid see
+> [`../assets/theme-layout-matrix.svg`](../assets/theme-layout-matrix.svg).
+
 ---
 
 ## Overview Page Template
@@ -225,7 +231,7 @@ conditional formatting colors (green/red) on variance KPIs.
 ## Tab-Navigation Layout (Multi-View Single Page)
 
 Uses bookmark-driven tabs to show different visual groups on the same page.
-Common in reports with 10+ related views. See `navigation-patterns.md`
+Common in reports with 10+ related views. See [`navigation-patterns.md`](navigation-patterns.md)
 for the bookmark navigation pattern.
 
 ```

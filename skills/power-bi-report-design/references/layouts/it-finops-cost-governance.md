@@ -1,5 +1,7 @@
 # FinOps Cloud Cost Governance
 
+> **Preview:** [![it-finops-cost-governance preview](../../assets/layout-previews/it-finops-cost-governance.svg)](../../assets/layout-previews/it-finops-cost-governance.svg) · variants: [annotated](../../assets/layout-previews/it-finops-cost-governance-annotated.svg) · [dark](../../assets/layout-previews/it-finops-cost-governance-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `technology`
 - Visuals: 9

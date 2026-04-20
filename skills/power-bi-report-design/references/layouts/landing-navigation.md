@@ -1,5 +1,7 @@
 # Layout: Landing / Navigation Hub
 
+> **Preview:** [![landing-navigation preview](../../assets/layout-previews/landing-navigation.svg)](../../assets/layout-previews/landing-navigation.svg) · variants: [annotated](../../assets/layout-previews/landing-navigation-annotated.svg) · [dark](../../assets/layout-previews/landing-navigation-dark.svg)
+
 - **id:** `landing-navigation`
 - **Canvas:** 1664 × 936
 - **Style personality:** Executive — clean, confident, few words

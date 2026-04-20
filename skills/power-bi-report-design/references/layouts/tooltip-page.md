@@ -1,5 +1,7 @@
 # Layout: Tooltip Page (hover detail)
 
+> **Preview:** [![tooltip-page preview](../../assets/layout-previews/tooltip-page.svg)](../../assets/layout-previews/tooltip-page.svg) · variants: [annotated](../../assets/layout-previews/tooltip-page-annotated.svg) · [dark](../../assets/layout-previews/tooltip-page-dark.svg)
+
 - **id:** `tooltip-page`
 - **Canvas:** 320 × 240 (Power BI default tooltip-page canvas)
 - **Style personality:** Analytical — ultra-compact, single-context detail

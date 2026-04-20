@@ -12,7 +12,7 @@ time.
 | `tabler-filled/` | 24×24, solid fills | MIT | [tabler/tabler-icons](https://github.com/tabler/tabler-icons) |
 | `lucide/` | 24×24, 2 px stroke, square caps | ISC | [lucide-icons/lucide](https://github.com/lucide-icons/lucide) |
 | `duotone/` | 24×24, filled backplate + outline glyph | MIT | Custom — two-tone for KPI tile leading marks |
-| `custom/` | Project-specific marks | See per-file header | — |
+| `custom/` _(reserved)_ | Project-specific marks | See per-file header | — (folder created on first custom icon) |
 
 **Theme color:** every SVG must use `stroke="currentColor"` / `fill="currentColor"`.
 Power BI injects the theme accent via the format pane, so the same SVG works on

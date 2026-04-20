@@ -1,5 +1,7 @@
 # Recipe: KPI Banner Card
 
+> **Preview:** [![kpi-banner preview](../../assets/chart-previews/kpi-banner.svg)](../../assets/chart-previews/kpi-banner.svg)
+
 - **id:** `kpi-banner`
 - **Visual type:** `card` (single value)
 - **Typical size:** 320 × 120 (adjust width proportionally for 3-6 cards in a row)
@@ -83,3 +85,26 @@ Key visual.json fragments:
 - [ ] Trend arrow direction matches sign of delta
 - [ ] Status icon threshold documented in Design Spec
 - [ ] Card height matches siblings in the row
+
+---
+
+## Card-family decision matrix
+
+Five recipes compete for the "show a KPI" slot. Pick deliberately.
+
+| Recipe | visualType | Best for | Avoid when |
+|---|---|---|---|
+| [`kpi-banner`](kpi-banner.md) | `card` | Single hero metric; 1 number + 1 delta + icon | Need trend axis / goal line / 3+ facets |
+| [`multi-row-card`](multi-row-card.md) | `multiRowCard` | 4–8 related metrics at equal weight | Single hero; trend-per-row matters (→ `sparkline-table`) |
+| [`kpi-indicator`](kpi-indicator.md) | `kpi` | Status vs target with trend context on one glyph | Multiple metrics; arbitrary comparison (not a target) |
+| [`gauge-target`](gauge-target.md) | `gauge` | Operational board — one bounded metric vs target | Executive dashboards (wastes space); unbounded measures |
+| [`bullet-chart`](bullet-chart.md) | `BulletChart...` ★ | IBCS-style dense actual vs target with range bands | No defined target; > 6 bullets in one visual |
+| [`advance-card`](advance-card.md) | `advanceCard...` ★ | Rich KPI with conditional colors + icons + multiple rows | Simple single-metric case (`kpi-banner` is lighter) |
+
+**Quick picker:**
+- One number? → `kpi-banner`
+- 4-8 numbers? → `multi-row-card`
+- Status vs target? → `kpi-indicator` (static) or `gauge-target` (operational)
+- Dense target + ranges? → `bullet-chart`
+- Rich formatting needs? → `advance-card`
+

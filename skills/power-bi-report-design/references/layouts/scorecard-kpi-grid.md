@@ -1,5 +1,7 @@
 # Layout: Balanced Scorecard / KPI Grid
 
+> **Preview:** [![scorecard-kpi-grid preview](../../assets/layout-previews/scorecard-kpi-grid.svg)](../../assets/layout-previews/scorecard-kpi-grid.svg) · variants: [annotated](../../assets/layout-previews/scorecard-kpi-grid-annotated.svg) · [dark](../../assets/layout-previews/scorecard-kpi-grid-dark.svg)
+
 - **id:** `scorecard-kpi-grid`
 - **Canvas:** 1664 × 936
 - **Style personality:** Executive — signal-dense, low-noise

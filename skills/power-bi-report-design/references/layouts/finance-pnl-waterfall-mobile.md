@@ -1,5 +1,7 @@
 # Finance P&L Waterfall (Mobile)
 
+> **Preview:** [![finance-pnl-waterfall-mobile preview](../../assets/layout-previews/finance-pnl-waterfall-mobile.svg)](../../assets/layout-previews/finance-pnl-waterfall-mobile.svg) · variants: [annotated](../../assets/layout-previews/finance-pnl-waterfall-mobile-annotated.svg) · [dark](../../assets/layout-previews/finance-pnl-waterfall-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`finance-pnl-waterfall`](./finance-pnl-waterfall.md).
 
 - Canvas: `390×844` (mobile-portrait)

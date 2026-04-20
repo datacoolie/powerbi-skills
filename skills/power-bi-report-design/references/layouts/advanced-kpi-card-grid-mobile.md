@@ -1,5 +1,7 @@
 # Advanced KPI Card Grid (Mobile)
 
+> **Preview:** [![advanced-kpi-card-grid-mobile preview](../../assets/layout-previews/advanced-kpi-card-grid-mobile.svg)](../../assets/layout-previews/advanced-kpi-card-grid-mobile.svg) · variants: [annotated](../../assets/layout-previews/advanced-kpi-card-grid-mobile-annotated.svg) · [dark](../../assets/layout-previews/advanced-kpi-card-grid-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`advanced-kpi-card-grid`](./advanced-kpi-card-grid.md).
 
 - Canvas: `390×844` (mobile-portrait)

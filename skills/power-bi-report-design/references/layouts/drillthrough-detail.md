@@ -1,5 +1,7 @@
 # Layout: Drillthrough Detail
 
+> **Preview:** [![drillthrough-detail preview](../../assets/layout-previews/drillthrough-detail.svg)](../../assets/layout-previews/drillthrough-detail.svg) · variants: [annotated](../../assets/layout-previews/drillthrough-detail-annotated.svg) · [dark](../../assets/layout-previews/drillthrough-detail-dark.svg)
+
 - **id:** `drillthrough-detail`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical

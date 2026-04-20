@@ -1,5 +1,7 @@
 # Readmission Analysis (Mobile)
 
+> **Preview:** [![hc-readmission-analysis-mobile preview](../../assets/layout-previews/hc-readmission-analysis-mobile.svg)](../../assets/layout-previews/hc-readmission-analysis-mobile.svg) · variants: [annotated](../../assets/layout-previews/hc-readmission-analysis-mobile-annotated.svg) · [dark](../../assets/layout-previews/hc-readmission-analysis-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`hc-readmission-analysis`](./hc-readmission-analysis.md).
 
 - Canvas: `390×844` (mobile-portrait)

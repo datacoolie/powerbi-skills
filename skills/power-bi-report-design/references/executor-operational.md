@@ -1,6 +1,6 @@
 # Role: Executor — Operational Style Personality
 
-> **Inherits from `executor-base.md`.** Read that first; this file overrides density, font sizes, and status encoding only.
+> **Inherits from [`executor-base.md`](executor-base.md).** Read that first; this file overrides density, font sizes, and status encoding only.
 
 ---
 

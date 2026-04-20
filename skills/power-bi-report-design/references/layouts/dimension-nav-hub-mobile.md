@@ -1,5 +1,7 @@
 # Dimension Nav Hub (Mobile)
 
+> **Preview:** [![dimension-nav-hub-mobile preview](../../assets/layout-previews/dimension-nav-hub-mobile.svg)](../../assets/layout-previews/dimension-nav-hub-mobile.svg) · variants: [annotated](../../assets/layout-previews/dimension-nav-hub-mobile-annotated.svg) · [dark](../../assets/layout-previews/dimension-nav-hub-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`dimension-nav-hub`](./dimension-nav-hub.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -1,5 +1,7 @@
 # Layout: Ops Activity Log
 
+> **Preview:** [![ops-activity-log preview](../../assets/layout-previews/ops-activity-log.svg)](../../assets/layout-previews/ops-activity-log.svg) · variants: [annotated](../../assets/layout-previews/ops-activity-log-annotated.svg) · [dark](../../assets/layout-previews/ops-activity-log-dark.svg)
+
 - **id:** `ops-activity-log`
 - **Canvas:** 1664 × 936
 - **Style personality:** Operational — audit / troubleshooting

@@ -1,5 +1,7 @@
 # Layout: Budget vs Actual Grid
 
+> **Preview:** [![budget-actual-grid preview](../../assets/layout-previews/budget-actual-grid.svg)](../../assets/layout-previews/budget-actual-grid.svg) · variants: [annotated](../../assets/layout-previews/budget-actual-grid-annotated.svg) · [dark](../../assets/layout-previews/budget-actual-grid-dark.svg)
+
 - **id:** `budget-actual-grid`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — budget workbench

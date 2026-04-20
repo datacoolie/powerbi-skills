@@ -1,5 +1,7 @@
 # Release Train (DORA)
 
+> **Preview:** [![it-release-train preview](../../assets/layout-previews/it-release-train.svg)](../../assets/layout-previews/it-release-train.svg) · variants: [annotated](../../assets/layout-previews/it-release-train-annotated.svg) · [dark](../../assets/layout-previews/it-release-train-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `technology`
 - Visuals: 8

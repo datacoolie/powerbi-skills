@@ -1,5 +1,7 @@
 # Org Chart with Span-of-Control
 
+> **Preview:** [![hr-org-chart-drill preview](../../assets/layout-previews/hr-org-chart-drill.svg)](../../assets/layout-previews/hr-org-chart-drill.svg) · variants: [annotated](../../assets/layout-previews/hr-org-chart-drill-annotated.svg) · [dark](../../assets/layout-previews/hr-org-chart-drill-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `hr`
 - Visuals: 5

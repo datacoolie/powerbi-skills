@@ -1,5 +1,7 @@
 # Recipe: Histogram (Distribution Shape)
 
+> **Preview:** [![histogram-distribution preview](../../assets/chart-previews/histogram-distribution.svg)](../../assets/chart-previews/histogram-distribution.svg)
+
 - **id:** `histogram-distribution`
 - **Visual type:** `columnChart` with pre-bucketed bins OR native `histogram`
   custom visual

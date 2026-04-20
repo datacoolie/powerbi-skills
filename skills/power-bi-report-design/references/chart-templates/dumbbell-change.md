@@ -1,5 +1,7 @@
 # Recipe: Dumbbell (Before vs After)
 
+> **Preview:** [![dumbbell-change preview](../../assets/chart-previews/dumbbell-change.svg)](../../assets/chart-previews/dumbbell-change.svg)
+
 - **id:** `dumbbell-change`
 - **Visual type:** Custom visual (`Dumbbell Bar Chart` / `xViz`) OR composed
   `scatterChart` + error-bar shapes

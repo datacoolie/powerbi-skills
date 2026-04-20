@@ -1,5 +1,7 @@
 # Side-by-Side Comparison
 
+> **Preview:** [![comparison-side-by-side preview](../../assets/layout-previews/comparison-side-by-side.svg)](../../assets/layout-previews/comparison-side-by-side.svg) · variants: [annotated](../../assets/layout-previews/comparison-side-by-side-annotated.svg) · [dark](../../assets/layout-previews/comparison-side-by-side-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `cross-domain`
 - Visuals: 6

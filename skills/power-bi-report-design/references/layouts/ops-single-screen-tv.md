@@ -1,5 +1,7 @@
 # Operational Single-Screen Status Board (TV Wall 1080p)
 
+> **Preview:** [![ops-single-screen-tv preview](../../assets/layout-previews/ops-single-screen-tv.svg)](../../assets/layout-previews/ops-single-screen-tv.svg) · variants: [annotated](../../assets/layout-previews/ops-single-screen-tv-annotated.svg) · [dark](../../assets/layout-previews/ops-single-screen-tv-dark.svg)
+
 > **Derived layout** — TV-wall variant of [`ops-single-screen`](./ops-single-screen.md).
 
 - Canvas: `1920×1080` (tv-wall-1080p)

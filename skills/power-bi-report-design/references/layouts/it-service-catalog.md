@@ -1,5 +1,7 @@
 # Service Catalog Health
 
+> **Preview:** [![it-service-catalog preview](../../assets/layout-previews/it-service-catalog.svg)](../../assets/layout-previews/it-service-catalog.svg) · variants: [annotated](../../assets/layout-previews/it-service-catalog-annotated.svg) · [dark](../../assets/layout-previews/it-service-catalog-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `executive` · Domain: `technology`
 - Visuals: 6

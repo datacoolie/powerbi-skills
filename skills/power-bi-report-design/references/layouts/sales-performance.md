@@ -1,5 +1,7 @@
 # Layout: Sales Performance
 
+> **Preview:** [![sales-performance preview](../../assets/layout-previews/sales-performance.svg)](../../assets/layout-previews/sales-performance.svg) · variants: [annotated](../../assets/layout-previews/sales-performance-annotated.svg) · [dark](../../assets/layout-previews/sales-performance-dark.svg)
+
 - **id:** `sales-performance`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical (see `../executor-analytical.md`)

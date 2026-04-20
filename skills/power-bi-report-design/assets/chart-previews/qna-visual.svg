@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g fill="currentColor" stroke="none">
+  <rect x="16" y="24" width="288" height="28" rx="14" fill-opacity="0.08"/>
+  <circle cx="34" cy="38" r="6" fill="none" stroke="currentColor" stroke-opacity="0.6" stroke-width="1.5"/>
+  <line x1="38" y1="42" x2="44" y2="48" stroke="currentColor" stroke-opacity="0.6" stroke-width="1.5"/>
+  <rect x="56" y="35" width="180" height="6" rx="3" fill-opacity="0.5"/>
+  <text x="16" y="72" font-family="system-ui,Segoe UI" font-size="9" fill-opacity="0.55">Try asking:</text>
+  <rect x="16" y="82" width="88" height="18" rx="9" fill-opacity="0.12"/>
+  <rect x="24" y="88" width="72" height="4" rx="2" fill-opacity="0.55"/>
+  <rect x="112" y="82" width="92" height="18" rx="9" fill-opacity="0.12"/>
+  <rect x="120" y="88" width="76" height="4" rx="2" fill-opacity="0.55"/>
+  <rect x="212" y="82" width="92" height="18" rx="9" fill-opacity="0.12"/>
+  <rect x="220" y="88" width="76" height="4" rx="2" fill-opacity="0.55"/>
+  <rect x="16" y="112" width="288" height="52" rx="4" fill-opacity="0.04"/>
+  <rect x="28" y="140" width="24" height="18" fill-opacity="0.85"/>
+  <rect x="58" y="128" width="24" height="30" fill-opacity="0.85"/>
+  <rect x="88" y="118" width="24" height="40" fill-opacity="0.85"/>
+  <rect x="118" y="134" width="24" height="24" fill-opacity="0.85"/>
+</g>
+</svg>

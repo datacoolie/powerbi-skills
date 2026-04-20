@@ -1,5 +1,7 @@
 # Recipe: Funnel / Conversion
 
+> **Preview:** [![funnel-conversion preview](../../assets/chart-previews/funnel-conversion.svg)](../../assets/chart-previews/funnel-conversion.svg)
+
 - **id:** `funnel-conversion`
 - **Visual type:** `funnel`
 - **Typical size:** 480 × 360

@@ -1,5 +1,7 @@
 # Cohort / Retention Grid (Mobile)
 
+> **Preview:** [![cohort-retention-grid-mobile preview](../../assets/layout-previews/cohort-retention-grid-mobile.svg)](../../assets/layout-previews/cohort-retention-grid-mobile.svg) · variants: [annotated](../../assets/layout-previews/cohort-retention-grid-mobile-annotated.svg) · [dark](../../assets/layout-previews/cohort-retention-grid-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`cohort-retention-grid`](./cohort-retention-grid.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -1,5 +1,7 @@
 # Recipe: Top-Header Compact Filter Bar
 
+> **Preview:** [![top-header-filter-bar preview](../../assets/slicer-previews/top-header-filter-bar.svg)](../../assets/slicer-previews/top-header-filter-bar.svg)
+
 - **id:** `top-header-filter-bar`
 - **Family:** architecture
 - **Control type:** slicer group (horizontal)

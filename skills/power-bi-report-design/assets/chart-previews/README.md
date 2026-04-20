@@ -29,13 +29,15 @@ Example:
 
 ## Provenance
 
-All 27 previews are hand-authored 320×180 monochrome schematics that use
+All 62 previews are hand-authored 320×180 monochrome schematics that use
 `currentColor` (with opacity variants for layering). They inherit the active
 theme accent from whatever surface they're embedded on — light UI, dark UI,
 Design Spec §5 rendered to PDF — without re-export. No hard-coded fills, no
-gradients, no filters.
+gradients, no filters. Every preview also carries an embedded
+`<style id="preview-theme">` block with `@media (prefers-color-scheme: dark)`
+so editors / viewers in dark mode render legibly.
 
-### Core 13 recipes
+### Core 13 recipes (v0.1)
 
 | Recipe | Silhouette |
 |---|---|
@@ -85,8 +87,31 @@ IBCS, SPC (Shewhart / Western Electric), and everyday finance/ops dashboards.
 | `combo-dual-axis` | 8 columns on left axis + line + markers on right axis | Volume + rate |
 | `control-chart-spc` | Line with UCL/Mean/LCL dashed refs + circled breach | Process control |
 
+### Expanded catalog (v0.4)
+
+Additional 35 recipes covering native Power BI visuals (`advance-card`,
+`multi-row-card`, `kpi-indicator`, `table-detail`, `key-influencers`,
+`smart-narrative`, `qna-visual`, `deneb-custom`) plus editorial chart types
+drawn from the Financial Times Visual Vocabulary (adapted to Power BI).
+
+| Family | Recipes |
+|---|---|
+| Native PBI | `advance-card`, `multi-row-card`, `kpi-indicator`, `table-detail`, `key-influencers`, `smart-narrative`, `qna-visual`, `deneb-custom` |
+| Change / trend | `area-chart`, `connected-scatter`, `bump-chart`, `streamgraph`, `fan-chart-projection` |
+| Magnitude / ranking | `lollipop`, `dot-plot`, `dot-strip-plot`, `barcode-plot`, `stacked-bar-absolute`, `zebra-bi-variance` |
+| Distribution | `violin-plot`, `population-pyramid` |
+| Correlation | `xy-heatmap`, `parallel-coordinates`, `network-graph` |
+| Part-to-whole | `sunburst`, `waffle-chart`, `mekko-chart`, `voronoi-share` |
+| Deviation / variance | `diverging-likert`, `surplus-deficit-area` |
+| Spatial / scheduling | `gantt-timeline` |
+| Specialist | `radar-chart`, `chord-diagram`, `candlestick-ohlc`, `word-cloud` |
+
 ## Known gaps
 
-None — all 27 recipes in [`chart-templates-index.json`](../../references/chart-templates/chart-templates-index.json)
-have previews. Schematics are content-free and license-free to re-use anywhere
-under this skill.
+Ten recipes are still uncharted and tracked in
+[`chart-templates-index.json`](../../references/chart-templates/chart-templates-index.json)
+under `gaps[]`: `cartogram-equalised`, `cartogram-scaled`, `azure-map-flow`,
+`azure-map-dot-density`, `azure-map-heatmap`, `arc-diagram`,
+`isotype-pictogram`, `venn-diagram`, `slopegraph-multi`,
+`clustered-stacked-combo`. Schematics are content-free and license-free to
+re-use anywhere under this skill.

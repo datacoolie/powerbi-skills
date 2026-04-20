@@ -1,5 +1,7 @@
 # Layout: Cohort / Retention Grid
 
+> **Preview:** [![cohort-retention-grid preview](../../assets/layout-previews/cohort-retention-grid.svg)](../../assets/layout-previews/cohort-retention-grid.svg) · variants: [annotated](../../assets/layout-previews/cohort-retention-grid-annotated.svg) · [dark](../../assets/layout-previews/cohort-retention-grid-dark.svg)
+
 - **id:** `cohort-retention-grid`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — Period-indexed cohort matrix (cohort vs. age-in-months) + supporting ranking / trend

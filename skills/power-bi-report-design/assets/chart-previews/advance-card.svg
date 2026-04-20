@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<rect x="20" y="30" width="280" height="120" rx="8" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-opacity="0.3"/>
+<rect x="20" y="30" width="4" height="120" rx="2" fill="currentColor" fill-opacity="0.85" stroke="none"/>
+<g fill="currentColor" stroke="none">
+  <polygon points="40,54 48,46 56,54" fill-opacity="0.85"/>
+  <rect x="64" y="48" width="80" height="6" rx="3" fill-opacity="0.6"/>
+  <text x="38" y="96" font-family="system-ui,Segoe UI" font-size="28" font-weight="700" fill-opacity="0.92">$4.2M</text>
+  <polygon points="195,88 205,80 215,88" fill-opacity="0.85"/>
+  <text x="220" y="92" font-family="system-ui,Segoe UI" font-size="14" font-weight="600" fill-opacity="0.85">+12.4%</text>
+  <rect x="40" y="122" width="10" height="10" rx="2" fill-opacity="0.85"/>
+  <rect x="56" y="125" width="70" height="4" rx="2" fill-opacity="0.55"/>
+  <circle cx="148" cy="128" r="2" fill-opacity="0.55"/>
+  <rect x="158" y="125" width="80" height="4" rx="2" fill-opacity="0.4"/>
+</g>
+</svg>

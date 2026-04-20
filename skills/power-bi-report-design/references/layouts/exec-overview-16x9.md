@@ -1,5 +1,7 @@
 # Layout: Executive Overview (16:9)
 
+> **Preview:** [![exec-overview-16x9 preview](../../assets/layout-previews/exec-overview-16x9.svg)](../../assets/layout-previews/exec-overview-16x9.svg) · variants: [annotated](../../assets/layout-previews/exec-overview-16x9-annotated.svg) · [dark](../../assets/layout-previews/exec-overview-16x9-dark.svg)
+
 - **id:** `exec-overview-16x9`
 - **Canvas:** 1664 × 936
 - **Style personality:** Executive (see `../executor-executive.md`)

@@ -1,5 +1,7 @@
 # FinOps Cloud Cost Governance (Mobile)
 
+> **Preview:** [![it-finops-cost-governance-mobile preview](../../assets/layout-previews/it-finops-cost-governance-mobile.svg)](../../assets/layout-previews/it-finops-cost-governance-mobile.svg) · variants: [annotated](../../assets/layout-previews/it-finops-cost-governance-mobile-annotated.svg) · [dark](../../assets/layout-previews/it-finops-cost-governance-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`it-finops-cost-governance`](./it-finops-cost-governance.md).
 
 - Canvas: `390×844` (mobile-portrait)

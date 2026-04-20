@@ -1,5 +1,7 @@
 # Pipeline Forecast (Mobile)
 
+> **Preview:** [![sales-pipeline-forecast-mobile preview](../../assets/layout-previews/sales-pipeline-forecast-mobile.svg)](../../assets/layout-previews/sales-pipeline-forecast-mobile.svg) · variants: [annotated](../../assets/layout-previews/sales-pipeline-forecast-mobile-annotated.svg) · [dark](../../assets/layout-previews/sales-pipeline-forecast-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`sales-pipeline-forecast`](./sales-pipeline-forecast.md).
 
 - Canvas: `390×844` (mobile-portrait)

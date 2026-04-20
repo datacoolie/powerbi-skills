@@ -1,5 +1,7 @@
 # Recipe: Chart-Type Toggle (Selected-Visuals Bookmark)
 
+> **Preview:** [![chart-type-toggle preview](../../assets/slicer-previews/chart-type-toggle.svg)](../../assets/slicer-previews/chart-type-toggle.svg)
+
 - **id:** `chart-type-toggle`
 - **Family:** parameter
 - **Control type:** bookmark buttons + stacked visuals (Selection pane)

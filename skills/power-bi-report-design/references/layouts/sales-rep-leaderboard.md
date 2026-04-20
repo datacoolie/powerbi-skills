@@ -1,5 +1,7 @@
 # Rep Leaderboard
 
+> **Preview:** [![sales-rep-leaderboard preview](../../assets/layout-previews/sales-rep-leaderboard.svg)](../../assets/layout-previews/sales-rep-leaderboard.svg) · variants: [annotated](../../assets/layout-previews/sales-rep-leaderboard-annotated.svg) · [dark](../../assets/layout-previews/sales-rep-leaderboard-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `sales`
 - Visuals: 6

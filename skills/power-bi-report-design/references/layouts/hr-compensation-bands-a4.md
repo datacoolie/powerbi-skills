@@ -1,5 +1,7 @@
 # Compensation Bands & Comparatio (A4 Print)
 
+> **Preview:** [![hr-compensation-bands-a4 preview](../../assets/layout-previews/hr-compensation-bands-a4.svg)](../../assets/layout-previews/hr-compensation-bands-a4.svg) · variants: [annotated](../../assets/layout-previews/hr-compensation-bands-a4-annotated.svg) · [dark](../../assets/layout-previews/hr-compensation-bands-a4-dark.svg)
+
 > **Derived layout** — Print / A4 variant of [`hr-compensation-bands`](./hr-compensation-bands.md).
 
 - Canvas: `1169×826` (print-a4-landscape)

@@ -1,5 +1,7 @@
 # Layout: Customer 360
 
+> **Preview:** [![customer-360 preview](../../assets/layout-previews/customer-360.svg)](../../assets/layout-previews/customer-360.svg) · variants: [annotated](../../assets/layout-previews/customer-360-annotated.svg) · [dark](../../assets/layout-previews/customer-360-dark.svg)
+
 - **id:** `customer-360`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — dense, diagnostic, comparison-ready

@@ -11,8 +11,8 @@ The Strategist turns a business brief into a complete **Design Spec** — the co
 ## Before you start
 
 Read, in order:
-1. `shared-standards.md` — the non-negotiable PBIR design rules
-2. `design-spec-reference.md` — the exact structure your output must follow
+1. [`shared-standards.md`](shared-standards.md) — the non-negotiable PBIR design rules
+2. [`design-spec-reference.md`](design-spec-reference.md) — the exact structure your output must follow
 3. `layouts/layouts-index.json` — pick 1-3 named layouts per page
 4. `chart-templates/chart-templates-index.json` — for every visual type used, there must be a corresponding recipe
 5. `slicer-patterns/slicer-patterns-index.json` — for every filter row, pick a recipe (see Step 7b)
@@ -43,17 +43,17 @@ Based on WHO + STYLE answers, choose exactly one:
 
 | Personality | Fit when | Reference |
 |---|---|---|
-| **Executive** | C-suite, board, monthly exec review; ≤ 4 visuals/page; Big-Idea titles; heavy annotation | `executor-executive.md` |
-| **Analytical** | BI analysts, managers; 5-8 visuals/page; KPI banner + hero + grid; data-rich | `executor-analytical.md` |
-| **Operational** | Shop-floor, ops center, monitoring; 8-12 visuals (density allowed); traffic-light status; larger fonts | `executor-operational.md` |
+| **Executive** | C-suite, board, monthly exec review; ≤ 4 visuals/page; Big-Idea titles; heavy annotation | [`executor-executive.md`](executor-executive.md) |
+| **Analytical** | BI analysts, managers; 5-8 visuals/page; KPI banner + hero + grid; data-rich | [`executor-analytical.md`](executor-analytical.md) |
+| **Operational** | Shop-floor, ops center, monitoring; 8-12 visuals (density allowed); traffic-light status; larger fonts | [`executor-operational.md`](executor-operational.md) |
 
 **Rule:** one personality per report. Do not mix within a single report.
 
 ### Step 3 — Select Layouts
 
 For each page:
-1. Open `layouts/layouts-index.json`
-2. Filter by domain (sales, manufacturing, finance, etc.) and style personality
+1. Open `layouts/layouts-index.json` (and skim [`page-layout-templates.md`](page-layout-templates.md) for ASCII sketches of common page types)
+2. Filter by domain (sales, manufacturing, finance, etc.) and style personality — cross-reference [`domain-report-structures.md`](domain-report-structures.md) for the canonical page set / KPI definitions for that domain
 3. Pick the closest match — record the layout file path in Design Spec §4
 4. Note any deviation from the layout (e.g., "drop the geographic-bar slot — not in scope")
 
@@ -74,12 +74,12 @@ For every unique visual type the report will use:
 **No visual without a recipe.** If a visual type has no recipe, you are responsible for either:
 - Picking a substitute visual that does have a recipe, **or**
 - Adding a gap entry to §11 Backlog **and** to the backlog section of
-  `visual-vocabulary.md`, then using the closest-match recipe as a starting point.
+  [`visual-vocabulary.md`](visual-vocabulary.md), then using the closest-match recipe as a starting point.
 
 ### Step 5 — Select Theme
 
-1. Check `themes/` index in `power-bi-pbip-report/references/themes/` for a matching industry theme
-2. If user provided brand colors, plan a custom theme file (record HEX values in §6)
+1. Read [`theme-colors.md`](theme-colors.md) for the palette-selection principles and the 21-theme catalog, then open `themes/themes-index.json` for a matching industry theme
+2. If user provided brand colors, plan a custom theme file (record HEX values in §6) — follow the color-usage principles in [`visual-design-principles.md`](visual-design-principles.md) and [`theme-colors.md`](theme-colors.md)
 3. **Theme is a hard output** — Executor must embed it; no hard-coded colors in visuals
 
 ### Step 6 — Select Iconography
@@ -90,6 +90,8 @@ For every unique visual type the report will use:
 | KPI set | Any report with KPI cards (trend arrows, target, warning, success) |
 | Domain set | Sales / manufacturing / finance / etc. when icons aid recognition |
 | Custom | Only if brand supplies them |
+
+> Icon inventory lives in [`../assets/icons/`](../assets/icons/) — browse subfolders (`kpi/`, `status/`, domain sets) and record the chosen set in Design Spec §7.
 
 Record in Design Spec §7.
 
@@ -128,7 +130,7 @@ gap to §11 Backlog and pick the closest match.
 
 ### Step 8 — Write the Design Spec
 
-Use the template in `design-spec-reference.md`. All 11 sections must be filled or explicitly marked "N/A".
+Use the template in [`design-spec-reference.md`](design-spec-reference.md). All 11 sections must be filled or explicitly marked "N/A".
 
 ### Step 9 — Hand off to Phase 4a.5 (Seven Confirmations, Plan-mode Q&A)
 

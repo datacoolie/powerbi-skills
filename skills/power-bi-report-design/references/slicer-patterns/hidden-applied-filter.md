@@ -1,5 +1,7 @@
 # Recipe: Hidden & Applied Filter (Governance)
 
+> **Preview:** [![hidden-applied-filter preview](../../assets/slicer-previews/hidden-applied-filter.svg)](../../assets/slicer-previews/hidden-applied-filter.svg)
+
 - **id:** `hidden-applied-filter`
 - **Family:** governance
 - **Control type:** filter pane (hidden + locked)

@@ -1,5 +1,7 @@
 # SLA Heatmap
 
+> **Preview:** [![it-sla-heatmap preview](../../assets/layout-previews/it-sla-heatmap.svg)](../../assets/layout-previews/it-sla-heatmap.svg) · variants: [annotated](../../assets/layout-previews/it-sla-heatmap-annotated.svg) · [dark](../../assets/layout-previews/it-sla-heatmap-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `operational` · Domain: `technology`
 - Visuals: 7

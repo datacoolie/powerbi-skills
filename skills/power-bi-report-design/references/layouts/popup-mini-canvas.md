@@ -1,5 +1,7 @@
 # Layout: Popup Mini-Canvas
 
+> **Preview:** [![popup-mini-canvas preview](../../assets/layout-previews/popup-mini-canvas.svg)](../../assets/layout-previews/popup-mini-canvas.svg) · variants: [annotated](../../assets/layout-previews/popup-mini-canvas-annotated.svg) · [dark](../../assets/layout-previews/popup-mini-canvas-dark.svg)
+
 - **id:** `popup-mini-canvas`
 - **Canvas:** 600 × 550
 - **Style personality:** Executive — Compact 600×550 canvas with mini KPI strip + one primary chart — embeddable in Teams / intranet

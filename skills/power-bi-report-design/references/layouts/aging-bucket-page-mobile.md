@@ -1,5 +1,7 @@
 # Aging Bucket Page (Mobile)
 
+> **Preview:** [![aging-bucket-page-mobile preview](../../assets/layout-previews/aging-bucket-page-mobile.svg)](../../assets/layout-previews/aging-bucket-page-mobile.svg) · variants: [annotated](../../assets/layout-previews/aging-bucket-page-mobile-annotated.svg) · [dark](../../assets/layout-previews/aging-bucket-page-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`aging-bucket-page`](./aging-bucket-page.md).
 
 - Canvas: `390×844` (mobile-portrait)

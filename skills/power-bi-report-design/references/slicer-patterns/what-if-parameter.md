@@ -1,5 +1,7 @@
 # Recipe: What-If Parameter Slicer
 
+> **Preview:** [![what-if-parameter preview](../../assets/slicer-previews/what-if-parameter.svg)](../../assets/slicer-previews/what-if-parameter.svg)
+
 - **id:** `what-if-parameter`
 - **Family:** parameter
 - **Control type:** what-if parameter (numeric)

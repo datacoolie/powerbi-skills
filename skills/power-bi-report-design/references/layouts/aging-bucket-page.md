@@ -1,5 +1,7 @@
 # Layout: Aging Bucket Page
 
+> **Preview:** [![aging-bucket-page preview](../../assets/layout-previews/aging-bucket-page.svg)](../../assets/layout-previews/aging-bucket-page.svg) · variants: [annotated](../../assets/layout-previews/aging-bucket-page-annotated.svg) · [dark](../../assets/layout-previews/aging-bucket-page-dark.svg)
+
 - **id:** `aging-bucket-page`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — Stacked bars segmented by aging buckets (0–30 / 31–60 / 61–90 / 90+) + overdue KPI + detail table

@@ -1,5 +1,7 @@
 # Recipe: Map (Geographic)
 
+> **Preview:** [![map-geo preview](../../assets/chart-previews/map-geo.svg)](../../assets/chart-previews/map-geo.svg)
+
 - **id:** `map-geo`
 - **Visual type:** `filledMap` (choropleth) OR `azureMap` (point overlay) OR `shapeMap`
 - **Typical size:** 800 × 480

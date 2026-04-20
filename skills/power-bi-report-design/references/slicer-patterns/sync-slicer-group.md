@@ -1,5 +1,7 @@
 # Recipe: Sync-Slicer Group (Narrative Continuity)
 
+> **Preview:** [![sync-slicer-group preview](../../assets/slicer-previews/sync-slicer-group.svg)](../../assets/slicer-previews/sync-slicer-group.svg)
+
 - **id:** `sync-slicer-group`
 - **Family:** architecture
 - **Control type:** sync group (cross-page state)

@@ -1,5 +1,7 @@
 # Layout: Marketing Funnel & Attribution
 
+> **Preview:** [![marketing-funnel preview](../../assets/layout-previews/marketing-funnel.svg)](../../assets/layout-previews/marketing-funnel.svg) · variants: [annotated](../../assets/layout-previews/marketing-funnel-annotated.svg) · [dark](../../assets/layout-previews/marketing-funnel-dark.svg)
+
 - **id:** `marketing-funnel`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical

@@ -1,5 +1,7 @@
 # Finance P&L Waterfall (A4 Print)
 
+> **Preview:** [![finance-pnl-waterfall-a4 preview](../../assets/layout-previews/finance-pnl-waterfall-a4.svg)](../../assets/layout-previews/finance-pnl-waterfall-a4.svg) · variants: [annotated](../../assets/layout-previews/finance-pnl-waterfall-a4-annotated.svg) · [dark](../../assets/layout-previews/finance-pnl-waterfall-a4-dark.svg)
+
 > **Derived layout** — Print / A4 variant of [`finance-pnl-waterfall`](./finance-pnl-waterfall.md).
 
 - Canvas: `1169×826` (print-a4-landscape)

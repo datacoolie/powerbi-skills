@@ -1,5 +1,7 @@
 # Recipe: Date Between Slider (Absolute Range)
 
+> **Preview:** [![date-between-slider preview](../../assets/slicer-previews/date-between-slider.svg)](../../assets/slicer-previews/date-between-slider.svg)
+
 - **id:** `date-between-slider`
 - **Family:** date
 - **Control type:** slicer (between)

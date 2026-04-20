@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g fill="currentColor" stroke="none">
+  <path d="M 16,150 L 16,120 L 48,100 L 80,110 L 112,80 L 144,70 L 176,90 L 208,60 L 240,50 L 272,70 L 304,40 L 304,150 Z" fill-opacity="0.35"/>
+  <polyline points="16,120 48,100 80,110 112,80 144,70 176,90 208,60 240,50 272,70 304,40" fill="none" stroke="currentColor" stroke-width="2" stroke-opacity="0.85"/>
+  <line x1="16" y1="150" x2="304" y2="150" stroke="currentColor" stroke-opacity="0.4"/>
+</g>
+</svg>

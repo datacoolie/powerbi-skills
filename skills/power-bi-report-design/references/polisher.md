@@ -22,7 +22,7 @@ Run `python scripts/finalize_pbir.py --report <path-to-.Report>` with these sub-
 | `snap_grid` | Rounds every x/y/width/height to the 8px grid |
 | `align_kpi_row` | Detects card visuals in a horizontal band, equalizes top + height, snaps gutters |
 | `apply_theme_tokens` | Replaces any literal `#RRGGBB` hex in visual.json with the matching theme token |
-| `normalize_fonts` | Enforces the Segoe UI family + size scale from `shared-standards.md` §4 |
+| `normalize_fonts` | Enforces the Segoe UI family + size scale from [`shared-standards.md`](shared-standards.md) §4 |
 | `ensure_alt_text` | Where alt text is missing, derives it from visual title + role |
 
 **Run order matters** — `snap_grid` must precede `align_kpi_row`. The script enforces this.

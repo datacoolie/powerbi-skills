@@ -1,5 +1,7 @@
 # DE&I Scorecard
 
+> **Preview:** [![hr-dei-scorecard preview](../../assets/layout-previews/hr-dei-scorecard.svg)](../../assets/layout-previews/hr-dei-scorecard.svg) · variants: [annotated](../../assets/layout-previews/hr-dei-scorecard-annotated.svg) · [dark](../../assets/layout-previews/hr-dei-scorecard-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `executive` · Domain: `hr`
 - Visuals: 7

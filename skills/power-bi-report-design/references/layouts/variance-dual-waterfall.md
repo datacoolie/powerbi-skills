@@ -1,5 +1,7 @@
 # Layout: Variance Dual Waterfall
 
+> **Preview:** [![variance-dual-waterfall preview](../../assets/layout-previews/variance-dual-waterfall.svg)](../../assets/layout-previews/variance-dual-waterfall.svg) · variants: [annotated](../../assets/layout-previews/variance-dual-waterfall-annotated.svg) · [dark](../../assets/layout-previews/variance-dual-waterfall-dark.svg)
+
 - **id:** `variance-dual-waterfall`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — side-by-side decomposition

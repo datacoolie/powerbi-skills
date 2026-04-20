@@ -1,5 +1,7 @@
 # Recipe: Categorical Comparison (Bar)
 
+> **Preview:** [![bar-comparison preview](../../assets/chart-previews/bar-comparison.svg)](../../assets/chart-previews/bar-comparison.svg)
+
 - **id:** `bar-comparison`
 - **Visual type:** `clusteredBar` (horizontal) OR `clusteredColumn` (vertical)
 - **Typical size:** 536 × 384 (supporting slot in analytical layouts)

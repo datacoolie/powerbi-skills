@@ -12,6 +12,11 @@ and modern data visualization best practices.
 > [`themes/README.md`](themes/README.md) for the full catalog map
 > (16 domain themes + 4 design-system themes + 1 dark-mode).
 
+> **Ready-to-use assets:**
+> - Power BI theme JSON files: [`../assets/pbi-themes/`](../assets/pbi-themes/) (drop into Power BI Desktop → View → Themes → Browse)
+> - W3C design-token pairs (.tokens.json + .css): [`../assets/tokens/`](../assets/tokens/) (52 theme pairs = 104 files)
+> - Theme × layout compatibility matrix: [`../assets/theme-layout-matrix.svg`](../assets/theme-layout-matrix.svg)
+
 ---
 
 ## Color Usage Principles (v0.2)

@@ -1,5 +1,7 @@
 # HR Headcount & Attrition (Mobile)
 
+> **Preview:** [![hr-headcount-attrition-mobile preview](../../assets/layout-previews/hr-headcount-attrition-mobile.svg)](../../assets/layout-previews/hr-headcount-attrition-mobile.svg) · variants: [annotated](../../assets/layout-previews/hr-headcount-attrition-mobile-annotated.svg) · [dark](../../assets/layout-previews/hr-headcount-attrition-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`hr-headcount-attrition`](./hr-headcount-attrition.md).
 
 - Canvas: `390×844` (mobile-portrait)

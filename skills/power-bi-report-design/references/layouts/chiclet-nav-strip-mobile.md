@@ -1,5 +1,7 @@
 # Chiclet Nav Strip (Mobile)
 
+> **Preview:** [![chiclet-nav-strip-mobile preview](../../assets/layout-previews/chiclet-nav-strip-mobile.svg)](../../assets/layout-previews/chiclet-nav-strip-mobile.svg) · variants: [annotated](../../assets/layout-previews/chiclet-nav-strip-mobile-annotated.svg) · [dark](../../assets/layout-previews/chiclet-nav-strip-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`chiclet-nav-strip`](./chiclet-nav-strip.md).
 
 - Canvas: `390×844` (mobile-portrait)

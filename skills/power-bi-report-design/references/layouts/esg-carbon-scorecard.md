@@ -1,5 +1,7 @@
 # ESG Carbon Scorecard
 
+> **Preview:** [![esg-carbon-scorecard preview](../../assets/layout-previews/esg-carbon-scorecard.svg)](../../assets/layout-previews/esg-carbon-scorecard.svg) · variants: [annotated](../../assets/layout-previews/esg-carbon-scorecard-annotated.svg) · [dark](../../assets/layout-previews/esg-carbon-scorecard-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `executive` · Domain: `esg`
 - Visuals: 6

@@ -1,5 +1,7 @@
 # Layout: Q&A Explore Page
 
+> **Preview:** [![qna-explore-page preview](../../assets/layout-previews/qna-explore-page.svg)](../../assets/layout-previews/qna-explore-page.svg) · variants: [annotated](../../assets/layout-previews/qna-explore-page-annotated.svg) · [dark](../../assets/layout-previews/qna-explore-page-dark.svg)
+
 - **id:** `qna-explore-page`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — self-service exploration surface

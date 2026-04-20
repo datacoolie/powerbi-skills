@@ -1,5 +1,7 @@
 # Compensation Bands & Comparatio
 
+> **Preview:** [![hr-compensation-bands preview](../../assets/layout-previews/hr-compensation-bands.svg)](../../assets/layout-previews/hr-compensation-bands.svg) · variants: [annotated](../../assets/layout-previews/hr-compensation-bands-annotated.svg) · [dark](../../assets/layout-previews/hr-compensation-bands-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `hr`
 - Visuals: 6

@@ -1,5 +1,7 @@
 # Narrative Story Page
 
+> **Preview:** [![narrative-story-page preview](../../assets/layout-previews/narrative-story-page.svg)](../../assets/layout-previews/narrative-story-page.svg) · variants: [annotated](../../assets/layout-previews/narrative-story-page-annotated.svg) · [dark](../../assets/layout-previews/narrative-story-page-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `executive` · Domain: `cross-domain`
 - Visuals: 5

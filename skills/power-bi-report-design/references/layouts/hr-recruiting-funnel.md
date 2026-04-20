@@ -1,5 +1,7 @@
 # Recruiting Funnel
 
+> **Preview:** [![hr-recruiting-funnel preview](../../assets/layout-previews/hr-recruiting-funnel.svg)](../../assets/layout-previews/hr-recruiting-funnel.svg) · variants: [annotated](../../assets/layout-previews/hr-recruiting-funnel-annotated.svg) · [dark](../../assets/layout-previews/hr-recruiting-funnel-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `hr`
 - Visuals: 7

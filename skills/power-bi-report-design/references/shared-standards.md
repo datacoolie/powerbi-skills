@@ -15,7 +15,7 @@
 - ❌ **Combo chart with > 2 series types** — one bar + one line only
 
 ### Data density
-- ❌ **> 8 visuals per page** (Operational style allowed 8-12 — see `executor-operational.md`)
+- ❌ **> 8 visuals per page** (Operational style allowed 8-12 — see [`executor-operational.md`](executor-operational.md))
 - ❌ **> 6 slicers per page**
 - ❌ **Line chart with < 3 data points** — use a card instead
 - ❌ **Table / matrix with > 20 rows visible at once** — add filter or drillthrough
@@ -86,6 +86,10 @@
 ---
 
 ## 3. Color Rules
+
+> Theoretical foundation: [`visual-design-principles.md`](visual-design-principles.md) (pre-attentive attributes, gestalt, storytelling).
+> Palette catalog and per-theme rules: [`theme-colors.md`](theme-colors.md).
+> Ready-to-use W3C design-token pairs for every theme: [`../assets/tokens/`](../assets/tokens/) (52 `.tokens.json` + `.css` files).
 
 ### 60 / 30 / 10 rule
 - **60%** neutral (backgrounds, most text) — whites, light grays, deep navy for dark theme
@@ -170,9 +174,9 @@ PBIR (the new JSON report format) supports features PBIX does not, and vice vers
 ## 8. Referenced By
 
 This file is read at the start of:
-- `strategist.md` (Phase 4a)
-- `executor-base.md` (Phase 4b)
-- `polisher.md` (Phase 4c)
+- [`strategist.md`](strategist.md) (Phase 4a)
+- [`executor-base.md`](executor-base.md) (Phase 4b)
+- [`polisher.md`](polisher.md) (Phase 4c)
 - `design_quality_check.py` (Phase 4c automated linter)
 
 If you edit this file, re-run the design-QA script across all reports to flag newly-introduced violations.

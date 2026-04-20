@@ -1,5 +1,7 @@
 # Recipe: Dropdown Slicer with Search
 
+> **Preview:** [![dropdown-search-slicer preview](../../assets/slicer-previews/dropdown-search-slicer.svg)](../../assets/slicer-previews/dropdown-search-slicer.svg)
+
 - **id:** `dropdown-search-slicer`
 - **Family:** category
 - **Control type:** slicer (dropdown)

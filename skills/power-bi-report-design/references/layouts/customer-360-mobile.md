@@ -1,5 +1,7 @@
 # Customer 360 (Mobile)
 
+> **Preview:** [![customer-360-mobile preview](../../assets/layout-previews/customer-360-mobile.svg)](../../assets/layout-previews/customer-360-mobile.svg) · variants: [annotated](../../assets/layout-previews/customer-360-mobile-annotated.svg) · [dark](../../assets/layout-previews/customer-360-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`customer-360`](./customer-360.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -1,5 +1,7 @@
 # Layout: Geographic / Territory Map
 
+> **Preview:** [![geo-territory-map preview](../../assets/layout-previews/geo-territory-map.svg)](../../assets/layout-previews/geo-territory-map.svg) · variants: [annotated](../../assets/layout-previews/geo-territory-map-annotated.svg) · [dark](../../assets/layout-previews/geo-territory-map-dark.svg)
+
 - **id:** `geo-territory-map`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical

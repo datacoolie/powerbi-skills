@@ -1,5 +1,7 @@
 # Recipe: Slope Chart (Two-Point Rank Change)
 
+> **Preview:** [![slope-chart preview](../../assets/chart-previews/slope-chart.svg)](../../assets/chart-previews/slope-chart.svg)
+
 - **id:** `slope-chart`
 - **Visual type:** `lineChart` with two category positions OR custom visual
 - **Typical size:** 480 × 360

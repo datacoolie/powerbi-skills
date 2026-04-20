@@ -1,5 +1,7 @@
 # Incident Postmortem
 
+> **Preview:** [![it-incident-postmortem preview](../../assets/layout-previews/it-incident-postmortem.svg)](../../assets/layout-previews/it-incident-postmortem.svg) · variants: [annotated](../../assets/layout-previews/it-incident-postmortem-annotated.svg) · [dark](../../assets/layout-previews/it-incident-postmortem-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `technology`
 - Visuals: 8

@@ -1,5 +1,7 @@
 # Service Catalog Health (TV Wall 1080p)
 
+> **Preview:** [![it-service-catalog-tv preview](../../assets/layout-previews/it-service-catalog-tv.svg)](../../assets/layout-previews/it-service-catalog-tv.svg) · variants: [annotated](../../assets/layout-previews/it-service-catalog-tv-annotated.svg) · [dark](../../assets/layout-previews/it-service-catalog-tv-dark.svg)
+
 > **Derived layout** — TV-wall variant of [`it-service-catalog`](./it-service-catalog.md).
 
 - Canvas: `1920×1080` (tv-wall-1080p)

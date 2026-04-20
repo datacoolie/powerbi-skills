@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g fill="currentColor" stroke="none">
+  <rect x="16" y="16" width="288" height="32" rx="4" fill-opacity="0.06"/>
+  <rect x="24" y="24" width="60" height="4" rx="2" fill-opacity="0.45"/>
+  <rect x="24" y="34" width="80" height="8" rx="2" fill-opacity="0.9"/>
+  <rect x="16" y="54" width="288" height="32" rx="4" fill-opacity="0.06"/>
+  <rect x="24" y="62" width="60" height="4" rx="2" fill-opacity="0.45"/>
+  <rect x="24" y="72" width="120" height="8" rx="2" fill-opacity="0.9"/>
+  <rect x="16" y="92" width="288" height="32" rx="4" fill-opacity="0.06"/>
+  <rect x="24" y="100" width="60" height="4" rx="2" fill-opacity="0.45"/>
+  <rect x="24" y="110" width="96" height="8" rx="2" fill-opacity="0.9"/>
+  <rect x="16" y="130" width="288" height="32" rx="4" fill-opacity="0.06"/>
+  <rect x="24" y="138" width="60" height="4" rx="2" fill-opacity="0.45"/>
+  <rect x="24" y="148" width="150" height="8" rx="2" fill-opacity="0.9"/>
+</g>
+</svg>

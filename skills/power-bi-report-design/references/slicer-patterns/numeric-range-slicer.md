@@ -1,5 +1,7 @@
 # Recipe: Numeric Range Slider
 
+> **Preview:** [![numeric-range-slicer preview](../../assets/slicer-previews/numeric-range-slicer.svg)](../../assets/slicer-previews/numeric-range-slicer.svg)
+
 - **id:** `numeric-range-slicer`
 - **Family:** numeric
 - **Control type:** slicer (between)

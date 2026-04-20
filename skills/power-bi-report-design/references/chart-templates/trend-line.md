@@ -1,5 +1,7 @@
 # Recipe: Time-Series Trend (Line)
 
+> **Preview:** [![trend-line preview](../../assets/chart-previews/trend-line.svg)](../../assets/chart-previews/trend-line.svg)
+
 - **id:** `trend-line`
 - **Visual type:** `lineChart` (occasionally `lineClusteredColumnCombo` for combo with bars)
 - **Typical size:** 1632 × 320 (hero) OR 792 × 280 (supporting)

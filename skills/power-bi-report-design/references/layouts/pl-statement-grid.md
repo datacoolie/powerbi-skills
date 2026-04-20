@@ -1,5 +1,7 @@
 # Layout: P&L Statement Grid
 
+> **Preview:** [![pl-statement-grid preview](../../assets/layout-previews/pl-statement-grid.svg)](../../assets/layout-previews/pl-statement-grid.svg) · variants: [annotated](../../assets/layout-previews/pl-statement-grid-annotated.svg) · [dark](../../assets/layout-previews/pl-statement-grid-dark.svg)
+
 - **id:** `pl-statement-grid`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — dense, table-of-numbers feel without being a plain matrix

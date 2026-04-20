@@ -1,5 +1,7 @@
 # Engagement Survey (eNPS)
 
+> **Preview:** [![hr-engagement-survey preview](../../assets/layout-previews/hr-engagement-survey.svg)](../../assets/layout-previews/hr-engagement-survey.svg) · variants: [annotated](../../assets/layout-previews/hr-engagement-survey-annotated.svg) · [dark](../../assets/layout-previews/hr-engagement-survey-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `hr`
 - Visuals: 6

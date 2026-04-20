@@ -1,5 +1,7 @@
 # Recipe: Treemap (Hierarchical Share)
 
+> **Preview:** [![treemap-hierarchy preview](../../assets/chart-previews/treemap-hierarchy.svg)](../../assets/chart-previews/treemap-hierarchy.svg)
+
 - **id:** `treemap-hierarchy`
 - **Visual type:** `treemap` (core visual)
 - **Typical size:** 560 × 360 (near-square reads best)

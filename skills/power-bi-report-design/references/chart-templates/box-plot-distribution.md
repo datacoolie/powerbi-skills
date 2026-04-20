@@ -1,5 +1,7 @@
 # Recipe: Box Plot (Quartile Distribution)
 
+> **Preview:** [![box-plot-distribution preview](../../assets/chart-previews/box-plot-distribution.svg)](../../assets/chart-previews/box-plot-distribution.svg)
+
 - **id:** `box-plot-distribution`
 - **Visual type:** Custom visual (`Box and Whisker`, `xViz Box Plot`) OR
   composed stacked-bar with whiskers

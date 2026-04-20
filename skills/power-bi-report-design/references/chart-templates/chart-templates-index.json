@@ -1,7 +1,7 @@
 {
   "$schema": "./chart-templates-index.schema.json",
-  "version": "0.3",
-  "description": "Curated chart-composition recipes. Strategist binds every visual in Design Spec §5 to one of these. v0.3 adds 6 analytical recipes (sparkline table, box plot, sankey flow, treemap, combo dual-axis, SPC control chart) for a total of 27 recipes covering rank, share, distribution, flow, geo, composition, process, and narrative stories.",
+  "version": "0.4",
+  "description": "Curated chart-composition recipes. Strategist binds every visual in Design Spec §5 to one of these. v0.4 adds 35 new recipes (2 structural + 8 high + 11 medium + 14 low) for a total of 62 recipes, plus tier and category fields mapped to the 9 FT Visual Vocabulary relationships.",
   "recipes": [
     {
       "id": "kpi-banner",
@@ -483,7 +483,738 @@
         "Recomputing limits on every filter change (they must be a frozen baseline)"
       ],
       "slots": 1
+    },
+    {
+      "id": "deneb-custom",
+      "file": "deneb-custom.md",
+      "title": "Deneb Custom Chart (Vega-Lite base)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "Vega-Lite spec embedded in Deneb custom visual; shared scaffold for all Deneb sibling recipes",
+      "use_when": [
+        "No built-in or registered custom visual matches",
+        "Interactive behavior beyond built-in capability is needed",
+        "Team already pays the Deneb registration cost"
+      ],
+      "anti_use": [
+        "Built-in or registered custom visual would do",
+        "Hard-coded hex colors instead of theme tokens",
+        "Embedded data literals (breaks refresh)"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "magnitude"
+    },
+    {
+      "id": "stacked-bar-absolute",
+      "file": "stacked-bar-absolute.md",
+      "title": "Stacked Bar (Absolute Values)",
+      "visual_type": "barChart OR columnChart (stacked)",
+      "composition": "per-entity stacked bars with absolute segment values and total labels",
+      "use_when": [
+        "Total magnitude AND mix both matter",
+        "Revenue by segment over time",
+        "Headcount by department across regions"
+      ],
+      "anti_use": [
+        "Only share matters (use stacked-bar-100)",
+        "> 5 segments",
+        "Non-additive measures",
+        "Negative values in any segment"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "magnitude"
+    },
+    {
+      "id": "multi-row-card",
+      "file": "multi-row-card.md",
+      "title": "Multi-Row Card",
+      "visual_type": "multiRowCard",
+      "composition": "4-8 metrics stacked vertically at equal weight with label + value",
+      "use_when": [
+        "4-8 related metrics at equal weight",
+        "Exec summary of related KPIs",
+        "Tile panel for category-grouped metrics"
+      ],
+      "anti_use": [
+        "Single hero metric (use kpi-banner)",
+        "Trend per row needed (use sparkline-table)",
+        "> 8 metrics",
+        "Uneven row heights"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "kpi"
+    },
+    {
+      "id": "kpi-indicator",
+      "file": "kpi-indicator.md",
+      "title": "KPI Indicator (Built-in KPI Visual)",
+      "visual_type": "kpi",
+      "composition": "single value + goal + trend axis + status indicator (good/bad color)",
+      "use_when": [
+        "Status vs target with trend context",
+        "Single metric with defined target",
+        "SLA / OKR scorecards"
+      ],
+      "anti_use": [
+        "No target defined (use kpi-banner)",
+        "Multiple metrics (use multi-row-card)",
+        "Trend axis < 6 points"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "deviation"
+    },
+    {
+      "id": "table-detail",
+      "file": "table-detail.md",
+      "title": "Detail Table",
+      "visual_type": "tableEx",
+      "composition": "flat table with 5-10 columns, right-aligned numbers, conditional formatting, totals row",
+      "use_when": [
+        "Row-level detail with multiple measures",
+        "Analytical drill-down tables",
+        "Operational watchlists with status per row"
+      ],
+      "anti_use": [
+        "> 10 columns",
+        "Executive dashboard (density mismatch)",
+        "Single-metric comparison across entities (use bar-comparison)"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "magnitude"
+    },
+    {
+      "id": "key-influencers",
+      "file": "key-influencers.md",
+      "title": "Key Influencers (AI)",
+      "visual_type": "keyDriversVisual",
+      "composition": "target measure + ranked driver bars with relative strength + optional segments pane",
+      "use_when": [
+        "Interactive root-cause exploration",
+        "'What drives X' analytical pages",
+        "Churn / conversion / satisfaction driver analysis"
+      ],
+      "anti_use": [
+        "< 100 rows in fact table",
+        "Executive / operational pages (requires interaction)",
+        "Highly-correlated explainer fields",
+        "Sensitive PII fields as explainers"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "correlation"
+    },
+    {
+      "id": "smart-narrative",
+      "file": "smart-narrative.md",
+      "title": "Smart Narrative",
+      "visual_type": "narrativeVisual OR textbox with dynamic values",
+      "composition": "auto-generated or authored narrative paragraph with inline dynamic measure tokens",
+      "use_when": [
+        "Executive landing-page summary",
+        "Paired context for a headline chart",
+        "Short auto-authored status sentences"
+      ],
+      "anti_use": [
+        "Sole visual on a page (needs chart anchor)",
+        "Unreviewed auto-narrative on critical pages",
+        "> 5 sentences",
+        "> 6 dynamic value tokens"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "narrative"
+    },
+    {
+      "id": "qna-visual",
+      "file": "qna-visual.md",
+      "title": "Q&A Visual",
+      "visual_type": "qnaVisual",
+      "composition": "natural-language query box + 3-5 suggested prompts + auto-rendered result visual",
+      "use_when": [
+        "Self-service exploration surfaces",
+        "Landing page with curated starter prompts",
+        "Model with tuned linguistic schema"
+      ],
+      "anti_use": [
+        "No curated suggestions (blank box intimidates)",
+        "Sole critical-decision answer source",
+        "Untuned linguistic schema",
+        "Operational monitoring pages"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "self-service"
+    },
+    {
+      "id": "area-chart",
+      "file": "area-chart.md",
+      "title": "Area Chart (Single Series)",
+      "visual_type": "areaChart",
+      "composition": "single-series filled line over continuous time axis with zero baseline",
+      "use_when": [
+        "Volume under the curve is meaningful",
+        "Cumulative active users / subscribers",
+        "Volumetric trend emphasis"
+      ],
+      "anti_use": [
+        "Stacked area (banned)",
+        "Multi-series overlay",
+        "Truncated y-axis",
+        "Change / slope is the story (use trend-line)"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "change-over-time"
+    },
+    {
+      "id": "lollipop",
+      "file": "lollipop.md",
+      "title": "Lollipop Chart",
+      "visual_type": "clusteredBarChart with narrow bars + markers OR Deneb lollipop",
+      "composition": "thin bar per category + emphasized endpoint marker optionally sized by secondary measure",
+      "use_when": [
+        "Endpoint value emphasis",
+        "Dual encoding (bar length + marker size)",
+        "Ranking with visual focus on the tip"
+      ],
+      "anti_use": [
+        "Time-series (use trend-line)",
+        "> 15 categories",
+        "Marker sized by diameter (use area)"
+      ],
+      "slots": 1,
+      "tier": "high",
+      "category": "ranking"
+    },
+    {
+      "id": "diverging-likert",
+      "file": "diverging-likert.md",
+      "title": "Diverging Likert Scale",
+      "visual_type": "barChart 100% stacked split at neutral",
+      "composition": "per-question horizontal bars centered at neutral; positive extends right, negative left",
+      "use_when": [
+        "Survey / NPS / Likert results",
+        "Customer sentiment by question",
+        "Employee engagement responses"
+      ],
+      "anti_use": [
+        "> 5 Likert levels",
+        "Neutral included in stack (destroys center anchor)",
+        "Raw counts when response rates vary"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "deviation"
+    },
+    {
+      "id": "surplus-deficit-area",
+      "file": "surplus-deficit-area.md",
+      "title": "Surplus / Deficit Area",
+      "visual_type": "areaChart with positive/negative conditional fill",
+      "composition": "single signed measure over time with positive region in good color and negative region in bad color",
+      "use_when": [
+        "Budget variance over time",
+        "Trade / current account balance",
+        "Any signed metric anchored at zero"
+      ],
+      "anti_use": [
+        "Unsigned measures (use area-chart)",
+        "Asymmetric y-axis",
+        "Missing zero line",
+        "Multiple stacked signed series"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "deviation"
+    },
+    {
+      "id": "connected-scatter",
+      "file": "connected-scatter.md",
+      "title": "Connected Scatter (Play Axis)",
+      "visual_type": "scatterChart with playAxis or Play Axis custom visual",
+      "composition": "X/Y scatter with path connecting an entity's positions over time; optional play animation",
+      "use_when": [
+        "X/Y relationship evolving over time",
+        "Portfolio trajectory over years",
+        "Economic indicator paths"
+      ],
+      "anti_use": [
+        "Only 2 time periods (use slope-chart)",
+        "> 10 entities",
+        "Non-square aspect ratio",
+        "Operational monitoring pages"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "correlation"
+    },
+    {
+      "id": "xy-heatmap",
+      "file": "xy-heatmap.md",
+      "title": "XY Heatmap",
+      "visual_type": "matrix with conditional background color",
+      "composition": "two discrete dimensions cross-tabulated with color intensity encoding a measure",
+      "use_when": [
+        "Hour × day-of-week patterns",
+        "Product × channel intensity",
+        "Density detection across a cross-tab"
+      ],
+      "anti_use": [
+        "Rainbow / jet palette",
+        "> 225 cells",
+        "Diverging palette for unsigned measure",
+        "Null vs zero confusion"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "correlation"
+    },
+    {
+      "id": "sunburst",
+      "file": "sunburst.md",
+      "title": "Sunburst (Hierarchical Rings)",
+      "visual_type": "Sunburst1445472000808",
+      "composition": "concentric rings, one per hierarchy level, arc length proportional to measure",
+      "use_when": [
+        "3+ hierarchy levels",
+        "Radial part-of-whole at each level",
+        "Region → country → city share"
+      ],
+      "anti_use": [
+        "> 4 hierarchy levels",
+        "> 8 root categories",
+        "Flat share (use stacked-bar-100 or treemap)",
+        "Rainbow sibling coloring"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "part-to-whole"
+    },
+    {
+      "id": "waffle-chart",
+      "file": "waffle-chart.md",
+      "title": "Waffle Chart",
+      "visual_type": "WaffleChart1453776852267",
+      "composition": "10×10 grid of 100 squares colored by category share (1 square = 1%)",
+      "use_when": [
+        "Intuitive % explanation for non-technical audience",
+        "1-3 segment part-of-whole",
+        "Market share / capacity utilization"
+      ],
+      "anti_use": [
+        "> 5 categories",
+        "Precise delta comparison (use bar-comparison)",
+        "Totals not summing to 100",
+        "Fractional shares < 1%"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "part-to-whole"
+    },
+    {
+      "id": "mekko-chart",
+      "file": "mekko-chart.md",
+      "title": "Mekko / Marimekko Chart",
+      "visual_type": "MekkoChart1513095496262",
+      "composition": "stacked columns where width = second measure (market size) and height = composition share",
+      "use_when": [
+        "Market size × mix analysis",
+        "Volume × product category simultaneously",
+        "Portfolio positioning with two measures"
+      ],
+      "anti_use": [
+        "> 6 columns",
+        "> 5 stack segments",
+        "Width bound to non-additive measure",
+        "Executive dashboards (complexity)"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "magnitude"
+    },
+    {
+      "id": "radar-chart",
+      "file": "radar-chart.md",
+      "title": "Radar / Spider Chart",
+      "visual_type": "RadarChart1423470498847",
+      "composition": "5-10 radial axes with polygon per entity; multiple entities overlaid for comparison",
+      "use_when": [
+        "Multi-attribute scoring",
+        "Product / competitor comparison on 5-10 criteria",
+        "Employee skill assessments"
+      ],
+      "anti_use": [
+        "> 3 entities overlaid",
+        "> 10 axes",
+        "< 5 axes (use bar-comparison)",
+        "Mixed scales per axis"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "magnitude"
+    },
+    {
+      "id": "chord-diagram",
+      "file": "chord-diagram.md",
+      "title": "Chord Diagram",
+      "visual_type": "ChordChart1443052498688",
+      "composition": "circular node arcs with curved ribbons for bidirectional flows between pairs",
+      "use_when": [
+        "Bidirectional transfers between entities",
+        "Migration flows between regions",
+        "Trade between countries"
+      ],
+      "anti_use": [
+        "> 15 nodes",
+        "Unidirectional flows (use sankey-flow)",
+        "Rainbow per-ribbon colors"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "flow"
+    },
+    {
+      "id": "gantt-timeline",
+      "file": "gantt-timeline.md",
+      "title": "Gantt Timeline",
+      "visual_type": "Gantt1467746032498",
+      "composition": "horizontal task bars along a date axis with milestones, progress, and today line",
+      "use_when": [
+        "Project schedules",
+        "Multi-phase initiatives",
+        "Release / campaign roadmaps"
+      ],
+      "anti_use": [
+        "Non-temporal ordered activities (use funnel-conversion)",
+        "> 30 tasks visible at once",
+        "Missing end dates",
+        "Color-coding by both phase AND resource simultaneously"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "change-over-time"
+    },
+    {
+      "id": "population-pyramid",
+      "file": "population-pyramid.md",
+      "title": "Population Pyramid",
+      "visual_type": "clusteredBarChart split by sign OR TornadoChart1452517688218",
+      "composition": "back-to-back horizontal bars with ordinal Y axis (age bands); one group per side",
+      "use_when": [
+        "Demographic age × sex breakdowns",
+        "Cohort comparisons across two groups",
+        "HR headcount by age band × gender"
+      ],
+      "anti_use": [
+        "More than 2 groups",
+        "Unordered age bands",
+        "Asymmetric X-axis scale",
+        "Non-demographic symmetric comparison (use tornado-chart)"
+      ],
+      "slots": 1,
+      "tier": "medium",
+      "category": "distribution"
+    },
+    {
+      "id": "dot-plot",
+      "file": "dot-plot.md",
+      "title": "Dot Plot (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "single dot per category on a shared numeric axis",
+      "use_when": [
+        "Ink-efficient alternative to bars",
+        "Min / max endpoints across categories",
+        "Precise magnitude read without bar weight"
+      ],
+      "anti_use": [
+        "Multiple overlapping series",
+        "> 20 categories (use dot-strip-plot)",
+        "Dot size encoded by diameter"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "magnitude"
+    },
+    {
+      "id": "dot-strip-plot",
+      "file": "dot-strip-plot.md",
+      "title": "Dot Strip Plot (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "one dot per observation along a numeric strip grouped by category",
+      "use_when": [
+        "Individual value display across categories",
+        "Distribution preview without full density estimate",
+        "≤ 500 observations per strip"
+      ],
+      "anti_use": [
+        "Opaque dots at high density",
+        "Summary stats are the story (use box-plot-distribution)",
+        "> 500 observations per strip without alpha"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "distribution"
+    },
+    {
+      "id": "barcode-plot",
+      "file": "barcode-plot.md",
+      "title": "Barcode Plot (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "all observations as thin vertical ticks on a numeric axis; optional highlight",
+      "use_when": [
+        "Highlight a single value vs the population",
+        "Dense all-data display",
+        "Latency / price distribution preview"
+      ],
+      "anti_use": [
+        "Heavy opacity (visual block)",
+        "Adding data labels (defeats density)",
+        "Summary comparison (use bar-comparison)"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "distribution"
+    },
+    {
+      "id": "bump-chart",
+      "file": "bump-chart.md",
+      "title": "Bump Chart (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "rank position on Y, time on X, one line per entity crossing when ranks swap",
+      "use_when": [
+        "Rank movement across many periods",
+        "Leaderboard evolution",
+        "League standings"
+      ],
+      "anti_use": [
+        "> 10 entities (tangles)",
+        "2 time periods (use slope-chart)",
+        "Absolute value matters (use ribbon-chart)"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "ranking"
+    },
+    {
+      "id": "streamgraph",
+      "file": "streamgraph.md",
+      "title": "Streamgraph (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "stacked area centered on a symmetrical axis showing proportional change over time",
+      "use_when": [
+        "Proportional composition change over time",
+        "Music / content category trends",
+        "Artistic emphasis on flow"
+      ],
+      "anti_use": [
+        "Precise value comparison (no shared baseline)",
+        "> 7 categories",
+        "Positive + negative values mixed"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "change-over-time"
+    },
+    {
+      "id": "candlestick-ohlc",
+      "file": "candlestick-ohlc.md",
+      "title": "Candlestick (OHLC) (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "per-period OHLC glyph with body (open→close) and wick (high-low); polarity colored",
+      "use_when": [
+        "Financial trading / price reviews",
+        "Process capability with variation bounds",
+        "Any OHLC-native data"
+      ],
+      "anti_use": [
+        "Non-OHLC data (needs all 4 values)",
+        "Inverted green/red convention",
+        "> 90 periods visible"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "change-over-time"
+    },
+    {
+      "id": "fan-chart-projection",
+      "file": "fan-chart-projection.md",
+      "title": "Fan Chart / Projection (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "central trend line flanked by widening CI bands showing growing uncertainty",
+      "use_when": [
+        "Forecast communication with uncertainty",
+        "Economic / demographic projections",
+        "Scenario ranges over time"
+      ],
+      "anti_use": [
+        "Missing actual-vs-projection split",
+        "Symmetric CI when measure has natural floor",
+        "> 3 confidence bands"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "change-over-time"
+    },
+    {
+      "id": "voronoi-share",
+      "file": "voronoi-share.md",
+      "title": "Voronoi Share (Deneb sibling)",
+      "visual_type": "Deneb6E97C82C58E5467CA7C3188B3E36ADE7",
+      "composition": "space-filling tessellation where each cell area ∝ category measure",
+      "use_when": [
+        "Non-rectangular packing for part-of-whole",
+        "Editorial / design-led infographics",
+        "Alternative to treemap for varied aesthetics"
+      ],
+      "anti_use": [
+        "Rectangular packing works (use treemap-hierarchy)",
+        "> 30 cells",
+        "Random seed assignment"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "part-to-whole"
+    },
+    {
+      "id": "violin-plot",
+      "file": "violin-plot.md",
+      "title": "Violin Plot",
+      "visual_type": "ViolinPlot1445472000811",
+      "composition": "kernel density curve mirrored around the median line per category",
+      "use_when": [
+        "Multi-modal distribution detection",
+        "Rich distribution shape comparison",
+        "Analyst-audience distribution story"
+      ],
+      "anti_use": [
+        "< 30 observations per category",
+        "> 8 categories side-by-side",
+        "Box plot suffices (use box-plot-distribution)"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "distribution"
+    },
+    {
+      "id": "network-graph",
+      "file": "network-graph.md",
+      "title": "Network Graph",
+      "visual_type": "ForceGraph1438016029256",
+      "composition": "nodes + edges with force-directed layout for relational exploration",
+      "use_when": [
+        "Complex interconnected relationships",
+        "Community / cluster detection",
+        "Interactive exploration of entity ties"
+      ],
+      "anti_use": [
+        "> 100 nodes (hairball)",
+        "Hierarchical data (use sunburst)",
+        "Precise edge-weight comparison",
+        "Executive / operational pages"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "flow"
+    },
+    {
+      "id": "parallel-coordinates",
+      "file": "parallel-coordinates.md",
+      "title": "Parallel Coordinates",
+      "visual_type": "PBI_CV_9D24DAC5_8DAD_4E53_971F_5112EB5A3C35 OR Deneb",
+      "composition": "multiple vertical axes with one polyline per entity crossing all axes",
+      "use_when": [
+        "Multi-attribute pattern detection",
+        "Cluster discovery across 5-8 dimensions",
+        "Analyst-audience exploration"
+      ],
+      "anti_use": [
+        "> 8 attribute axes",
+        "> 200 entities without alpha blending",
+        "Mixed scales per axis",
+        "Rainbow per-polyline colors"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "magnitude"
+    },
+    {
+      "id": "word-cloud",
+      "file": "word-cloud.md",
+      "title": "Word Cloud",
+      "visual_type": "WordCloud1447959067750",
+      "composition": "words sized by frequency / weight with limited rotation",
+      "use_when": [
+        "Qualitative text preview",
+        "Survey open-response teaser",
+        "Social media theme snapshot"
+      ],
+      "anti_use": [
+        "Sole visual on a page",
+        "Precise value comparison",
+        "Skipping stopword filtering",
+        "All-angle rotation"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "magnitude"
+    },
+    {
+      "id": "zebra-bi-variance",
+      "file": "zebra-bi-variance.md",
+      "title": "Zebra BI Variance",
+      "visual_type": "variance8E4BB1B41A8942A7B897C7014A6E1F56 OR zebraBiCards2C860CFAA9944091B75F0DBD117F20FA",
+      "composition": "IBCS-compliant AC / PY / PL / FC variance rows with standardized notation",
+      "use_when": [
+        "IBCS-trained finance audience",
+        "Dense variance reviews",
+        "Controllership / FP&A scorecards"
+      ],
+      "anti_use": [
+        "Non-IBCS audience without legend",
+        "Custom colors replacing IBCS notation",
+        "Mixed with non-IBCS charts on same page",
+        "Raw deltas without % labels"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "deviation"
+    },
+    {
+      "id": "advance-card",
+      "file": "advance-card.md",
+      "title": "Advance Card (Rich KPI)",
+      "visual_type": "advanceCardE03760C5AB684758B56AA29F9E6C257B",
+      "composition": "card with value + delta + status + icon zones and conditional formatting per zone",
+      "use_when": [
+        "Conditional colors + icons + 3 zones needed",
+        "Brand-critical polished KPI tiles",
+        "Richer storytelling than kpi-banner allows"
+      ],
+      "anti_use": [
+        "kpi-banner suffices",
+        "> 3 informational zones (loses hero number)",
+        "Hard-coded hex colors",
+        "Status icon without defined threshold"
+      ],
+      "slots": 1,
+      "tier": "low",
+      "category": "kpi"
     }
   ],
-  "gaps": []
+  "gaps": [
+    "cartogram-equalised",
+    "cartogram-scaled",
+    "azure-map-flow",
+    "azure-map-dot-density",
+    "azure-map-heatmap",
+    "arc-diagram",
+    "isotype-pictogram",
+    "venn-diagram",
+    "slopegraph-multi",
+    "clustered-stacked-combo"
+  ]
 }

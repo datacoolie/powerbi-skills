@@ -1,5 +1,7 @@
 # Landing / Navigation Hub (Mobile)
 
+> **Preview:** [![landing-navigation-mobile preview](../../assets/layout-previews/landing-navigation-mobile.svg)](../../assets/layout-previews/landing-navigation-mobile.svg) · variants: [annotated](../../assets/layout-previews/landing-navigation-mobile-annotated.svg) · [dark](../../assets/layout-previews/landing-navigation-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`landing-navigation`](./landing-navigation.md).
 
 - Canvas: `390×844` (mobile-portrait)

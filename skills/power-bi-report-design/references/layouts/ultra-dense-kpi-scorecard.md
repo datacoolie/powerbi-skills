@@ -1,5 +1,7 @@
 # Layout: Ultra-Dense KPI Scorecard
 
+> **Preview:** [![ultra-dense-kpi-scorecard preview](../../assets/layout-previews/ultra-dense-kpi-scorecard.svg)](../../assets/layout-previews/ultra-dense-kpi-scorecard.svg) · variants: [annotated](../../assets/layout-previews/ultra-dense-kpi-scorecard-annotated.svg) · [dark](../../assets/layout-previews/ultra-dense-kpi-scorecard-dark.svg)
+
 - **id:** `ultra-dense-kpi-scorecard`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — 4–6 labeled category blocks, each packed with 10–20 KPI cards / shapes / mini-charts

@@ -1,5 +1,7 @@
 # Sales Performance (Mobile)
 
+> **Preview:** [![sales-performance-mobile preview](../../assets/layout-previews/sales-performance-mobile.svg)](../../assets/layout-previews/sales-performance-mobile.svg) · variants: [annotated](../../assets/layout-previews/sales-performance-mobile-annotated.svg) · [dark](../../assets/layout-previews/sales-performance-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`sales-performance`](./sales-performance.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -1,5 +1,7 @@
 # Recipe: Pareto 80/20 (ABC Analysis)
 
+> **Preview:** [![pareto-80-20 preview](../../assets/chart-previews/pareto-80-20.svg)](../../assets/chart-previews/pareto-80-20.svg)
+
 - **id:** `pareto-80-20`
 - **Visual type:** `lineClusteredColumnCombo` (column + line secondary axis)
 - **Typical size:** 640 × 400

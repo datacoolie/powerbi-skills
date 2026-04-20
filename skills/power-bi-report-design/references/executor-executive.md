@@ -1,6 +1,6 @@
 # Role: Executor — Executive Style Personality
 
-> **Inherits from `executor-base.md`.** Read that first; this file overrides density and narrative voice only.
+> **Inherits from [`executor-base.md`](executor-base.md).** Read that first; this file overrides density and narrative voice only.
 
 ---
 

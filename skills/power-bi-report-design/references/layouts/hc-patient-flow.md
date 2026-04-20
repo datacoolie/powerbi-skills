@@ -1,5 +1,7 @@
 # Patient Flow
 
+> **Preview:** [![hc-patient-flow preview](../../assets/layout-previews/hc-patient-flow.svg)](../../assets/layout-previews/hc-patient-flow.svg) · variants: [annotated](../../assets/layout-previews/hc-patient-flow-annotated.svg) · [dark](../../assets/layout-previews/hc-patient-flow-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `operational` · Domain: `healthcare`
 - Visuals: 7

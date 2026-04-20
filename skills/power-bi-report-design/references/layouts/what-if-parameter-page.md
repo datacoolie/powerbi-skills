@@ -1,5 +1,7 @@
 # Layout: What-If Parameter Page
 
+> **Preview:** [![what-if-parameter-page preview](../../assets/layout-previews/what-if-parameter-page.svg)](../../assets/layout-previews/what-if-parameter-page.svg) · variants: [annotated](../../assets/layout-previews/what-if-parameter-page-annotated.svg) · [dark](../../assets/layout-previews/what-if-parameter-page-dark.svg)
+
 - **id:** `what-if-parameter-page`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical — Parameter-slider strip at top + scenario KPI cards + response chart + comparison table

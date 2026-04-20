@@ -1,5 +1,7 @@
 # Recipe: Left-Rail Global Slicer Panel
 
+> **Preview:** [![left-rail-global-panel preview](../../assets/slicer-previews/left-rail-global-panel.svg)](../../assets/slicer-previews/left-rail-global-panel.svg)
+
 - **id:** `left-rail-global-panel`
 - **Family:** architecture
 - **Control type:** slicer group + container

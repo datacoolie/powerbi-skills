@@ -5,6 +5,10 @@ audience, and editorial intent. Derived from *Storytelling with Data* (Knaflic, 
 *Storytelling with Data: Let's Practice!* (Knaflic, 2020), and *Data Visualization:
 A Handbook for Data Driven Design* (Kirk, 2nd ed., 2019).
 
+> **Visual preview catalog:** SVG silhouettes for every chart recipe live in
+> [`../assets/chart-previews/`](../assets/chart-previews/) — use them to compare
+> silhouettes before committing to a chart type.
+
 > **Intent-first alternate entry point.** If you already know the *data
 > relationship* (Deviation, Correlation, Ranking, Distribution, Change over
 > Time, Magnitude, Part-to-whole, Spatial, Flow) — skip to the taxonomy-driven

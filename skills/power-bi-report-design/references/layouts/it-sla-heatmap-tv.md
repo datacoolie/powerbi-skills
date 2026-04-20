@@ -1,5 +1,7 @@
 # SLA Heatmap (TV Wall 1080p)
 
+> **Preview:** [![it-sla-heatmap-tv preview](../../assets/layout-previews/it-sla-heatmap-tv.svg)](../../assets/layout-previews/it-sla-heatmap-tv.svg) · variants: [annotated](../../assets/layout-previews/it-sla-heatmap-tv-annotated.svg) · [dark](../../assets/layout-previews/it-sla-heatmap-tv-dark.svg)
+
 > **Derived layout** — TV-wall variant of [`it-sla-heatmap`](./it-sla-heatmap.md).
 
 - Canvas: `1920×1080` (tv-wall-1080p)

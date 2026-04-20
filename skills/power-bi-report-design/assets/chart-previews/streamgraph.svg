@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g fill="currentColor" stroke="none">
+  <path d="M 16,90 Q 60,70 110,55 T 200,50 T 304,65 L 304,85 Q 260,80 200,78 T 110,82 T 16,95 Z" fill-opacity="0.85"/>
+  <path d="M 16,90 Q 60,105 110,115 T 200,120 T 304,105 L 304,85 Q 260,92 200,94 T 110,95 T 16,90 Z" fill-opacity="0.85"/>
+  <path d="M 16,75 Q 60,55 110,40 T 200,35 T 304,50 L 304,65 Q 260,70 200,68 T 110,72 T 16,85 Z" fill-opacity="0.55"/>
+  <path d="M 16,105 Q 60,125 110,135 T 200,140 T 304,125 L 304,110 Q 260,115 200,118 T 110,115 T 16,100 Z" fill-opacity="0.55"/>
+  <path d="M 16,60 Q 60,45 110,30 T 200,25 T 304,40 L 304,50 Q 260,55 200,52 T 110,55 T 16,70 Z" fill-opacity="0.3"/>
+  <path d="M 16,120 Q 60,140 110,150 T 200,155 T 304,140 L 304,125 Q 260,130 200,135 T 110,130 T 16,115 Z" fill-opacity="0.3"/>
+</g>
+</svg>

@@ -1,5 +1,7 @@
 # Drillthrough Detail (Mobile)
 
+> **Preview:** [![drillthrough-detail-mobile preview](../../assets/layout-previews/drillthrough-detail-mobile.svg)](../../assets/layout-previews/drillthrough-detail-mobile.svg) · variants: [annotated](../../assets/layout-previews/drillthrough-detail-mobile-annotated.svg) · [dark](../../assets/layout-previews/drillthrough-detail-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`drillthrough-detail`](./drillthrough-detail.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -1,5 +1,7 @@
 # Tachometer Gauge Row (Mobile)
 
+> **Preview:** [![tachometer-gauge-row-mobile preview](../../assets/layout-previews/tachometer-gauge-row-mobile.svg)](../../assets/layout-previews/tachometer-gauge-row-mobile.svg) · variants: [annotated](../../assets/layout-previews/tachometer-gauge-row-mobile-annotated.svg) · [dark](../../assets/layout-previews/tachometer-gauge-row-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`tachometer-gauge-row`](./tachometer-gauge-row.md).
 
 - Canvas: `390×844` (mobile-portrait)

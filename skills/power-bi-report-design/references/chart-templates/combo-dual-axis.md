@@ -1,5 +1,7 @@
 # Recipe: Combo Chart (Bar + Line, Dual Axis)
 
+> **Preview:** [![combo-dual-axis preview](../../assets/chart-previews/combo-dual-axis.svg)](../../assets/chart-previews/combo-dual-axis.svg)
+
 - **id:** `combo-dual-axis`
 - **Visual type:** `lineStackedColumnComboChart` or
   `lineClusteredColumnComboChart` (core visual)

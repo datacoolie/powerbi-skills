@@ -1,5 +1,7 @@
 # Paginated Export (A4 Portrait)
 
+> **Preview:** [![paginated-export-a4 preview](../../assets/layout-previews/paginated-export-a4.svg)](../../assets/layout-previews/paginated-export-a4.svg) · variants: [annotated](../../assets/layout-previews/paginated-export-a4-annotated.svg) · [dark](../../assets/layout-previews/paginated-export-a4-dark.svg)
+
 - Canvas: `827×1169` (print-a4)
 - Style: `analytical` · Domain: `cross-domain`
 - Visuals: 3

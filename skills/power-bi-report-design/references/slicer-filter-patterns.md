@@ -5,6 +5,9 @@ and **how** it should behave. Populate the "Filters & Interactions" section of
 the Design Spec (see [design-spec-reference.md §10](design-spec-reference.md))
 using the tables below.
 
+> **Visual preview catalog:** SVG mockups for every slicer recipe live in
+> [`../assets/slicer-previews/`](../assets/slicer-previews/) (15 previews, dark-mode aware).
+
 Input: the **filter requirements** captured upstream in
 [../../power-bi-business-analysis/references/requirements-document-template.md](../../power-bi-business-analysis/references/requirements-document-template.md)
 §6 — the business-analysis skill lists *which dimensions* the audience needs to

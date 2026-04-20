@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g fill="currentColor" stroke="currentColor" stroke-opacity="0.5" stroke-width="1">
+  <polygon points="16,20 120,20 140,50 90,90 16,80" fill-opacity="0.7"/>
+  <polygon points="120,20 220,20 220,65 140,50" fill-opacity="0.5"/>
+  <polygon points="220,20 304,20 304,70 220,65" fill-opacity="0.3"/>
+  <polygon points="16,80 90,90 70,130 16,140" fill-opacity="0.35"/>
+  <polygon points="90,90 140,50 190,100 150,130 70,130" fill-opacity="0.55"/>
+  <polygon points="140,50 220,65 250,110 190,100" fill-opacity="0.4"/>
+  <polygon points="220,65 304,70 304,140 250,110" fill-opacity="0.25"/>
+  <polygon points="16,140 70,130 110,160 16,160" fill-opacity="0.2"/>
+  <polygon points="70,130 150,130 180,160 110,160" fill-opacity="0.3"/>
+  <polygon points="150,130 250,110 304,140 304,160 180,160" fill-opacity="0.45"/>
+</g>
+</svg>

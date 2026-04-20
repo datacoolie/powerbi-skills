@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g transform="translate(160 94)" stroke="currentColor" stroke-opacity="0.3" fill="none">
+  <polygon points="0,-60 57,-18 35,48 -35,48 -57,-18"/>
+  <polygon points="0,-40 38,-12 23,32 -23,32 -38,-12"/>
+  <polygon points="0,-20 19,-6 12,16 -12,16 -19,-6"/>
+  <line x1="0" y1="0" x2="0" y2="-60"/>
+  <line x1="0" y1="0" x2="57" y2="-18"/>
+  <line x1="0" y1="0" x2="35" y2="48"/>
+  <line x1="0" y1="0" x2="-35" y2="48"/>
+  <line x1="0" y1="0" x2="-57" y2="-18"/>
+</g>
+<g transform="translate(160 94)" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.85" fill-opacity="0.25">
+  <polygon points="0,-50 40,-12 28,40 -18,24 -45,-14"/>
+  <circle cx="0"   cy="-50" r="3" fill-opacity="0.9"/>
+  <circle cx="40"  cy="-12" r="3" fill-opacity="0.9"/>
+  <circle cx="28"  cy="40"  r="3" fill-opacity="0.9"/>
+  <circle cx="-18" cy="24"  r="3" fill-opacity="0.9"/>
+  <circle cx="-45" cy="-14" r="3" fill-opacity="0.9"/>
+</g>
+</svg>

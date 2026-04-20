@@ -1,5 +1,7 @@
 # Recipe: Small Multiples Trend
 
+> **Preview:** [![small-multiples-trend preview](../../assets/chart-previews/small-multiples-trend.svg)](../../assets/chart-previews/small-multiples-trend.svg)
+
 - **id:** `small-multiples-trend`
 - **Visual type:** `lineChart` with **Small multiples** field set
 - **Typical size:** 960 × 480 (full-width). Each panel ≈ 200 × 140 at 3×2 grid.

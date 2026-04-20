@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g stroke="currentColor" stroke-opacity="0.7" stroke-width="1">
+  <line x1="40" y1="60" x2="40" y2="120"/>
+  <line x1="48" y1="60" x2="48" y2="120"/>
+  <line x1="55" y1="60" x2="55" y2="120"/>
+  <line x1="63" y1="60" x2="63" y2="120"/>
+  <line x1="72" y1="60" x2="72" y2="120"/>
+  <line x1="78" y1="60" x2="78" y2="120"/>
+  <line x1="88" y1="60" x2="88" y2="120"/>
+  <line x1="96" y1="60" x2="96" y2="120"/>
+  <line x1="105" y1="60" x2="105" y2="120"/>
+  <line x1="116" y1="60" x2="116" y2="120"/>
+  <line x1="124" y1="60" x2="124" y2="120"/>
+  <line x1="135" y1="60" x2="135" y2="120"/>
+  <line x1="145" y1="60" x2="145" y2="120"/>
+  <line x1="160" y1="60" x2="160" y2="120"/>
+  <line x1="175" y1="60" x2="175" y2="120"/>
+  <line x1="188" y1="60" x2="188" y2="120"/>
+  <line x1="198" y1="60" x2="198" y2="120"/>
+  <line x1="214" y1="60" x2="214" y2="120"/>
+  <line x1="222" y1="60" x2="222" y2="120"/>
+  <line x1="236" y1="60" x2="236" y2="120"/>
+  <line x1="252" y1="60" x2="252" y2="120"/>
+  <line x1="268" y1="60" x2="268" y2="120"/>
+  <line x1="282" y1="60" x2="282" y2="120"/>
+</g>
+<line x1="175" y1="50" x2="175" y2="130" stroke="currentColor" stroke-opacity="0.95" stroke-width="3"/>
+<line x1="40" y1="130" x2="288" y2="130" stroke="currentColor" stroke-opacity="0.4"/>
+</svg>

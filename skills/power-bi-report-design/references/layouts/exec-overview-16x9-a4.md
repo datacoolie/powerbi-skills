@@ -1,5 +1,7 @@
 # Executive Overview (16:9) (A4 Print)
 
+> **Preview:** [![exec-overview-16x9-a4 preview](../../assets/layout-previews/exec-overview-16x9-a4.svg)](../../assets/layout-previews/exec-overview-16x9-a4.svg) · variants: [annotated](../../assets/layout-previews/exec-overview-16x9-a4-annotated.svg) · [dark](../../assets/layout-previews/exec-overview-16x9-a4-dark.svg)
+
 > **Derived layout** — Print / A4 variant of [`exec-overview-16x9`](./exec-overview-16x9.md).
 
 - Canvas: `1169×826` (print-a4-landscape)

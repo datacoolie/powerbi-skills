@@ -1,5 +1,7 @@
 # Manufacturing Line Status (OEE) (TV Wall 1080p)
 
+> **Preview:** [![mfg-line-status-tv preview](../../assets/layout-previews/mfg-line-status-tv.svg)](../../assets/layout-previews/mfg-line-status-tv.svg) · variants: [annotated](../../assets/layout-previews/mfg-line-status-tv-annotated.svg) · [dark](../../assets/layout-previews/mfg-line-status-tv-dark.svg)
+
 > **Derived layout** — TV-wall variant of [`mfg-line-status`](./mfg-line-status.md).
 
 - Canvas: `1920×1080` (tv-wall-1080p)

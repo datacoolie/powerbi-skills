@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
+<rect x="0.5" y="0.5" width="319" height="179" rx="6" stroke-opacity="0.25"/>
+<g stroke="currentColor" stroke-opacity="0.35" stroke-width="1">
+  <line x1="40" y1="30" x2="40" y2="150"/>
+  <line x1="100" y1="30" x2="100" y2="150"/>
+  <line x1="160" y1="30" x2="160" y2="150"/>
+  <line x1="220" y1="30" x2="220" y2="150"/>
+  <line x1="280" y1="30" x2="280" y2="150"/>
+</g>
+<g stroke="currentColor" stroke-opacity="0.6" fill="none" stroke-width="1.2">
+  <polyline points="40,50 100,70 160,60 220,90 280,80"/>
+  <polyline points="40,80 100,110 160,95 220,60 280,120"/>
+  <polyline points="40,110 100,90 160,130 220,110 280,70"/>
+  <polyline points="40,140 100,130 160,100 220,140 280,110"/>
+</g>
+<g fill="currentColor" stroke="none" fill-opacity="0.4" font-family="system-ui" font-size="9">
+  <text x="28" y="22">A</text><text x="88" y="22">B</text><text x="148" y="22">C</text><text x="208" y="22">D</text><text x="268" y="22">E</text>
+</g>
+</svg>

@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" font-family="Segoe UI, Inter, system-ui, sans-serif">
+<style id="preview-theme">
+  svg { color: #24292f; background: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    svg { color: #e6edf3; background: #0d1117; }
+  }
+</style>
   <title>logo-manufacturing</title>
   <desc>ACME Industries placeholder logo — gear wheel with solid hub. Badge uses currentColor; glyph is white.</desc>
   <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="currentColor" fill-opacity="0.92" stroke="none"/>

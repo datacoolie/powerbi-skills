@@ -5,6 +5,9 @@ Financial Times *Visual Vocabulary* (via Gramener's Vega edition) to Power BI, s
 the Strategist can bind each chart slot in Design Spec §5 to a named, defensible
 data relationship rather than a chart type.
 
+> **Visual preview catalog:** every recipe listed below has an SVG silhouette in
+> [`../assets/chart-previews/`](../assets/chart-previews/) (62 previews, dark-mode aware). Show them to stakeholders during Phase 4a.5 Seven Confirmations.
+
 > **Attribution** — Taxonomy, category descriptions, and chart catalog are adapted
 > from:
 > - Financial Times — [Visual Vocabulary](https://ft.com/vocabulary) (Alan Smith,
@@ -58,9 +61,9 @@ data relationship rather than a chart type.
 | Chart | Power BI implementation | Notes | Template |
 |---|---|---|---|
 | Diverging bar | `clusteredBarChart` with conditional formatting | One series split by sign, or two series anchored at zero | [`tornado-chart.md`](chart-templates/tornado-chart.md) |
-| Diverging stacked bar | `barChart` (100% stacked) | Ideal for Likert / survey sentiment | — |
+| Diverging stacked bar | `barChart` (100% stacked) | Ideal for Likert / survey sentiment | [`diverging-likert.md`](chart-templates/diverging-likert.md) |
 | Spine | `clusteredBarChart` (single row) | Splits one value into two contrasting components (Male/Female) | — |
-| Surplus / deficit filled area | `areaChart` with positive/negative rules | Baseline at zero; shade above/below | — |
+| Surplus / deficit filled area | `areaChart` with positive/negative rules | Baseline at zero; shade above/below | [`surplus-deficit-area.md`](chart-templates/surplus-deficit-area.md) |
 | Surplus / deficit filled line | `lineChart` + `areaChart` overlay | Same as above when series are richer | [`yoy-variance.md`](chart-templates/yoy-variance.md) |
 
 ---
@@ -73,9 +76,9 @@ data relationship rather than a chart type.
 |---|---|---|---|
 | Scatterplot | `scatterChart` | Square aspect ratio preferred; add trend line | [`scatter-quadrant.md`](chart-templates/scatter-quadrant.md) |
 | Column + line timeline | `lineClusteredColumnComboChart` | Amount (columns) vs. rate (line) — avoid secondary axis unless both scales are labelled | — |
-| Connected scatterplot | `scatterChart` with `Play Axis` | Shows how the X/Y relationship evolves over time | — |
+| Connected scatterplot | `scatterChart` with `Play Axis` | Shows how the X/Y relationship evolves over time | [`connected-scatter.md`](chart-templates/connected-scatter.md) |
 | Bubble | `scatterChart` with `Size` role | Encode area (not diameter); cap at ~30 bubbles | — |
-| XY heatmap | `matrix` with data bars / conditional color | Good for pattern density, poor for precise deltas | — |
+| XY heatmap | `matrix` with data bars / conditional color | Good for pattern density, poor for precise deltas | [`xy-heatmap.md`](chart-templates/xy-heatmap.md) |
 
 ---
 
@@ -88,10 +91,10 @@ data relationship rather than a chart type.
 | Ordered bar | `clusteredBarChart` (sorted desc) | Default choice when category names are long | [`bar-comparison.md`](chart-templates/bar-comparison.md) |
 | Ordered column | `clusteredColumnChart` (sorted desc) | Use when ≤ 8 categories and labels are short | [`bar-comparison.md`](chart-templates/bar-comparison.md) |
 | Ordered proportional symbol | Deneb / PowerBIVisuals circle chart ★ | Big variance between values; precise delta not important | — |
-| Dot strip plot | Deneb ★ | Space-efficient ranks across many categories | — |
+| Dot strip plot | Deneb ★ | Space-efficient ranks across many categories | [`dot-strip-plot.md`](chart-templates/dot-strip-plot.md) |
 | Slope | Deneb ★ or `lineChart` with 2 periods | Rank change between two dates | [`yoy-variance.md`](chart-templates/yoy-variance.md) |
-| Lollipop | `clusteredBarChart` with narrow bars + markers | Draws attention to the endpoint | — |
-| Bump | Deneb ★ | Rank changes across many dates — group lines by color to reduce clutter | — |
+| Lollipop | `clusteredBarChart` with narrow bars + markers | Draws attention to the endpoint | [`lollipop.md`](chart-templates/lollipop.md) |
+| Bump | Deneb ★ | Rank changes across many dates — group lines by color to reduce clutter | [`bump-chart.md`](chart-templates/bump-chart.md) |
 
 ---
 
@@ -102,12 +105,12 @@ data relationship rather than a chart type.
 | Chart | Power BI implementation | Notes | Template |
 |---|---|---|---|
 | Histogram | `histogramXY6E3D5691159E41859A007A262D4B0E9E` ★ | Keep column gaps minimal so shape reads | — |
-| Dot plot | Deneb ★ | Min/max across categories | — |
-| Dot strip plot | Deneb ★ | Individual values; problematic with collision | — |
-| Barcode plot | Deneb ★ | All-data display; best for highlighting single values | — |
+| Dot plot | Deneb ★ | Min/max across categories | [`dot-plot.md`](chart-templates/dot-plot.md) |
+| Dot strip plot | Deneb ★ | Individual values; problematic with collision | [`dot-strip-plot.md`](chart-templates/dot-strip-plot.md) |
+| Barcode plot | Deneb ★ | All-data display; best for highlighting single values | [`barcode-plot.md`](chart-templates/barcode-plot.md) |
 | Boxplot | `BoxWhiskerChart1455240051538` ★ | Median + IQR + outliers | — |
-| Violin plot | `ViolinPlot1445472000811` ★ | Preferred over boxplot for complex / multimodal data | — |
-| Population pyramid | `clusteredBarChart` split by sign (back-to-back) | Age × sex breakdowns | [`tornado-chart.md`](chart-templates/tornado-chart.md) |
+| Violin plot | `ViolinPlot1445472000811` ★ | Preferred over boxplot for complex / multimodal data | [`violin-plot.md`](chart-templates/violin-plot.md) |
+| Population pyramid | `clusteredBarChart` split by sign (back-to-back) | Age × sex breakdowns | [`population-pyramid.md`](chart-templates/population-pyramid.md) |
 | Cumulative curve | `lineChart` on running-total measure | Y is always cumulative, X is the measure | — |
 | Frequency polygons | `lineChart` with 3-4 series max | Multi-distribution comparisons | — |
 
@@ -123,16 +126,16 @@ data relationship rather than a chart type.
 | Column | `clusteredColumnChart` | Best with a single series | — |
 | Column + line timeline | `lineClusteredColumnComboChart` | Amount × rate over time | — |
 | Slope | `lineChart` (2 anchor dates only) | Crisp when story collapses to 2 periods | [`yoy-variance.md`](chart-templates/yoy-variance.md) |
-| Area chart | `areaChart` — use sparingly | Total reads well, component changes do not | — |
-| Candlestick | Deneb ★ | OHLC per period, usually financial | — |
-| Fan chart (projections) | Deneb ★ | Growing uncertainty cone around a central line | — |
+| Area chart | `areaChart` — use sparingly | Total reads well, component changes do not | [`area-chart.md`](chart-templates/area-chart.md) |
+| Candlestick | Deneb ★ | OHLC per period, usually financial | [`candlestick-ohlc.md`](chart-templates/candlestick-ohlc.md) |
+| Fan chart (projections) | Deneb ★ | Growing uncertainty cone around a central line | [`fan-chart-projection.md`](chart-templates/fan-chart-projection.md) |
 | Connected scatterplot | `scatterChart` with `Play Axis` | Two variables evolving together | — |
 | Calendar heatmap | `bciCalendarCC0FA2BFE4B54EE1ACCFE383B9B1DE61` ★ | Daily/weekly/monthly patterns; sacrifices precision | — |
-| Priestley timeline | Gantt ★ (`Gantt1467746032498`) | Events with duration | — |
+| Priestley timeline | Gantt ★ (`Gantt1467746032498`) | Events with duration | [`gantt-timeline.md`](chart-templates/gantt-timeline.md) |
 | Circle timeline | Deneb ★ | Discrete events of varying size on a time axis | — |
 | Vertical timeline | Custom layout / Deneb ★ | Great on mobile scroll | — |
 | Seismogram | Deneb ★ | Alt. to circle timeline for extreme variance | — |
-| Streamgraph | Deneb ★ | Proportional change over time; not individual values | — |
+| Streamgraph | Deneb ★ | Proportional change over time; not individual values | [`streamgraph.md`](chart-templates/streamgraph.md) |
 
 ---
 
@@ -146,12 +149,12 @@ data relationship rather than a chart type.
 | Bar | `clusteredBarChart` | Good when labels are long or non-temporal | [`bar-comparison.md`](chart-templates/bar-comparison.md) |
 | Paired column | `clusteredColumnChart` (2 series) | Difficult beyond 2 series — switch to small multiples | — |
 | Paired bar | `clusteredBarChart` (2 series) | Same caution | — |
-| Marimekko | `MekkoChart1513095496262` ★ | Size × proportion together — keep data simple | — |
+| Marimekko | `MekkoChart1513095496262` ★ | Size × proportion together — keep data simple | [`mekko-chart.md`](chart-templates/mekko-chart.md) |
 | Proportional symbol | Deneb ★ | Big variance; precise delta not important | — |
 | Isotype (pictogram) | Deneb ★ | Whole numbers only (never slice off an arm) | — |
 | Lollipop | Narrow bar + marker | Draws focus to the value | — |
-| Radar | `RadarChart1423470498847` ★ | Organise axes to tell a consistent story | — |
-| Parallel coordinates | `PBI_CV_9D24DAC5_8DAD_4E53_971F_5112EB5A3C35` ★ or Deneb | Axis order is critical | — |
+| Radar | `RadarChart1423470498847` ★ | Organise axes to tell a consistent story | [`radar-chart.md`](chart-templates/radar-chart.md) |
+| Parallel coordinates | `PBI_CV_9D24DAC5_8DAD_4E53_971F_5112EB5A3C35` ★ or Deneb | Axis order is critical | [`parallel-coordinates.md`](chart-templates/parallel-coordinates.md) |
 | Bullet | `BulletChart1443347686880` ★ | Measurement vs. target + range | [`gauge-target.md`](chart-templates/gauge-target.md) |
 | Grouped symbol | Deneb ★ | Alt. to bar when highlighting individuals matters | — |
 
@@ -164,16 +167,16 @@ data relationship rather than a chart type.
 | Chart | Power BI implementation | Notes | Template |
 |---|---|---|---|
 | Stacked column | `clusteredColumnChart` (stacked) | ≤ 5 segments; label base segment | — |
-| Marimekko | `MekkoChart1513095496262` ★ | Size × proportion | — |
+| Marimekko | `MekkoChart1513095496262` ★ | Size × proportion | [`mekko-chart.md`](chart-templates/mekko-chart.md) |
 | Pie | **Avoid** — replace with sorted `clusteredBarChart` or 100% stacked bar | Only exception: ≤ 3 distinct segments totalling 100 % | — |
 | Donut | **Avoid** — replace same as pie | Even harder than pie | — |
 | Treemap | `treemap` | Large hierarchies; struggles with many small segments | — |
-| Voronoi | Deneb ★ | Points → areas; each area closest to its seed | — |
+| Voronoi | Deneb ★ | Points → areas; each area closest to its seed | [`voronoi-share.md`](chart-templates/voronoi-share.md) |
 | Arc | Deneb ★ | Hemicycle; political-result style | — |
-| Gridplot (waffle) | `WaffleChart1453776852267` ★ | Whole numbers; works well in small multiples | — |
+| Gridplot (waffle) | `WaffleChart1453776852267` ★ | Whole numbers; works well in small multiples | [`waffle-chart.md`](chart-templates/waffle-chart.md) |
 | Venn | Static image / Deneb ★ | Schematic only; not quantitative | — |
 | Waterfall | `waterfallChart` | Part-to-whole with signed components | [`waterfall-bridge.md`](chart-templates/waterfall-bridge.md) |
-| Sunburst | `Sunburst1445472000808` ★ | 3+ nested hierarchy levels | — |
+| Sunburst | `Sunburst1445472000808` ★ | 3+ nested hierarchy levels | [`sunburst.md`](chart-templates/sunburst.md) |
 
 ---
 
@@ -202,8 +205,8 @@ data relationship rather than a chart type.
 |---|---|---|---|
 | Sankey | `SankeyDiagram1458048422238` ★ | Flow paths between nodes | [`funnel-conversion.md`](chart-templates/funnel-conversion.md) |
 | Waterfall | `waterfallChart` | Sequencing of signed components | [`waterfall-bridge.md`](chart-templates/waterfall-bridge.md) |
-| Chord | `ChordChart1443052498688` ★ | 2-way flows in a matrix; can show net winner | — |
-| Network | `ForceGraph1438016029256` ★ or Deneb | Complex, interconnected relationships | — |
+| Chord | `ChordChart1443052498688` ★ | 2-way flows in a matrix; can show net winner | [`chord-diagram.md`](chart-templates/chord-diagram.md) |
+| Network | `ForceGraph1438016029256` ★ or Deneb | Complex, interconnected relationships | [`network-graph.md`](chart-templates/network-graph.md) |
 
 ---
 
@@ -213,17 +216,28 @@ Charts from the FT/Gramener catalog that do **not** yet have a Power BI recipe
 under [`chart-templates/`](chart-templates/). Each line is a candidate follow-up
 item — copy into Design Spec §11 if a report needs one.
 
-- `dot-plot`, `dot-strip-plot`, `barcode-plot` — best done in Deneb; no shared
-  recipe yet.
-- `bump`, `slope`, `cumulative-curve` — useful for executive ranking/deviation
-  stories but no reusable template yet.
+- `cumulative-curve` — running-total line variant; use `trend-line` until a
+  dedicated recipe lands.
 - `calendar-heatmap` — custom visual wired, but no layout-grade recipe.
-- `isotype`, `gridplot`, `arc` — part-to-whole alternatives needing Deneb
-  specs + icon/tile assets.
-- `sankey`, `chord`, `network` — recipes only for the simple funnel case; full
-  network/chord recipes missing.
+- `isotype-pictogram` — whole-number icon chart; needs icon asset library.
+- `arc-diagram` — hemicycle / political seat charts; needs Deneb spec.
+- `venn-diagram` — schematic set overlap; not quantitative.
 - Cartograms (`equalised-cartogram`, `scaled-cartogram`) — require shared
   TopoJSON library.
+- Azure Maps layers (`azure-map-flow`, `azure-map-dot-density`,
+  `azure-map-heatmap`) — recipe needed once Azure Maps keys are provisioned.
+
+> As of v0.4, 35 new recipes added: `deneb-custom`, `stacked-bar-absolute`,
+> `multi-row-card`, `kpi-indicator`, `table-detail`, `key-influencers`,
+> `smart-narrative`, `qna-visual`, `area-chart`, `lollipop`,
+> `diverging-likert`, `surplus-deficit-area`, `connected-scatter`,
+> `xy-heatmap`, `sunburst`, `waffle-chart`, `mekko-chart`, `radar-chart`,
+> `chord-diagram`, `gantt-timeline`, `population-pyramid`, `dot-plot`,
+> `dot-strip-plot`, `barcode-plot`, `bump-chart`, `streamgraph`,
+> `candlestick-ohlc`, `fan-chart-projection`, `voronoi-share`, `violin-plot`,
+> `network-graph`, `parallel-coordinates`, `word-cloud`, `zebra-bi-variance`,
+> `advance-card`. See
+> [`chart-templates-index.json`](chart-templates/chart-templates-index.json).
 
 ---
 

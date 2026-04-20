@@ -1,5 +1,7 @@
 # Recipe: Year-over-Year Variance
 
+> **Preview:** [![yoy-variance preview](../../assets/chart-previews/yoy-variance.svg)](../../assets/chart-previews/yoy-variance.svg)
+
 - **id:** `yoy-variance`
 - **Visual type:** `clusteredColumn` (default) OR `lineClusteredColumnCombo` (when variance is a % line overlaid)
 - **Typical size:** 816 × 384 (supporting slot)

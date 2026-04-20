@@ -1,5 +1,7 @@
 # Recipe: Sparkline Table (Row-wise Micro-trends)
 
+> **Preview:** [![sparkline-table preview](../../assets/chart-previews/sparkline-table.svg)](../../assets/chart-previews/sparkline-table.svg)
+
 - **id:** `sparkline-table`
 - **Visual type:** `tableEx` / matrix with inline line sparkline column (core
   visual) OR table + custom `Sparkline` visual

@@ -1,5 +1,7 @@
 # Recipe: Waterfall Bridge
 
+> **Preview:** [![waterfall-bridge preview](../../assets/chart-previews/waterfall-bridge.svg)](../../assets/chart-previews/waterfall-bridge.svg)
+
 - **id:** `waterfall-bridge`
 - **Visual type:** `waterfallChart`
 - **Typical size:** 1632 × 384 (hero or wide supporting)

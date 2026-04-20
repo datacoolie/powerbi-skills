@@ -190,7 +190,7 @@ Fewer sections → more improvisation → less predictable output.
 
 ## Referenced by
 
-- `strategist.md` — output format
+- [`strategist.md`](strategist.md) — output format
 - Agent Phase 4a.5 — reads §4-8 to build Seven Confirmations bundle
 - Agent Phase 4b — Executor reads every section to generate JSON
 - Agent Phase 4c — Polisher verifies output against §6 (theme tokens), §7 (icons), §9 (mobile)

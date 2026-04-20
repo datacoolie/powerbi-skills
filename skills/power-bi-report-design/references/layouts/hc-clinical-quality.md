@@ -1,5 +1,7 @@
 # Clinical Quality Scorecard
 
+> **Preview:** [![hc-clinical-quality preview](../../assets/layout-previews/hc-clinical-quality.svg)](../../assets/layout-previews/hc-clinical-quality.svg) · variants: [annotated](../../assets/layout-previews/hc-clinical-quality-annotated.svg) · [dark](../../assets/layout-previews/hc-clinical-quality-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `executive` · Domain: `healthcare`
 - Visuals: 6

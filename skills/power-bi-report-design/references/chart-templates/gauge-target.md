@@ -1,5 +1,7 @@
 # Recipe: Gauge vs Target
 
+> **Preview:** [![gauge-target preview](../../assets/chart-previews/gauge-target.svg)](../../assets/chart-previews/gauge-target.svg)
+
 - **id:** `gauge-target`
 - **Visual type:** `gauge` (built-in) — preferred only for Operational style
 - **Typical size:** 320 × 220

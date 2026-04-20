@@ -1,5 +1,7 @@
 # Pipeline Forecast
 
+> **Preview:** [![sales-pipeline-forecast preview](../../assets/layout-previews/sales-pipeline-forecast.svg)](../../assets/layout-previews/sales-pipeline-forecast.svg) · variants: [annotated](../../assets/layout-previews/sales-pipeline-forecast-annotated.svg) · [dark](../../assets/layout-previews/sales-pipeline-forecast-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `sales`
 - Visuals: 8

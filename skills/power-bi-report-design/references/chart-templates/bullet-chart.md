@@ -1,5 +1,7 @@
 # Recipe: Bullet Chart (IBCS Actual vs Target)
 
+> **Preview:** [![bullet-chart preview](../../assets/chart-previews/bullet-chart.svg)](../../assets/chart-previews/bullet-chart.svg)
+
 - **id:** `bullet-chart`
 - **Visual type:** Custom visual (`BulletChart` / IBCS) OR composed `clusteredBar`
   with reference lines

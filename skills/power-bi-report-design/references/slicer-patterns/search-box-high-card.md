@@ -1,5 +1,7 @@
 # Recipe: Search-Box Lookup (Very High Cardinality)
 
+> **Preview:** [![search-box-high-card preview](../../assets/slicer-previews/search-box-high-card.svg)](../../assets/slicer-previews/search-box-high-card.svg)
+
 - **id:** `search-box-high-card`
 - **Family:** search
 - **Control type:** slicer (dropdown, search-only) OR custom text-search visual

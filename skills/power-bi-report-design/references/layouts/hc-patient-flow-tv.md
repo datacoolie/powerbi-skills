@@ -1,5 +1,7 @@
 # Patient Flow (TV Wall 1080p)
 
+> **Preview:** [![hc-patient-flow-tv preview](../../assets/layout-previews/hc-patient-flow-tv.svg)](../../assets/layout-previews/hc-patient-flow-tv.svg) · variants: [annotated](../../assets/layout-previews/hc-patient-flow-tv-annotated.svg) · [dark](../../assets/layout-previews/hc-patient-flow-tv-dark.svg)
+
 > **Derived layout** — TV-wall variant of [`hc-patient-flow`](./hc-patient-flow.md).
 
 - Canvas: `1920×1080` (tv-wall-1080p)

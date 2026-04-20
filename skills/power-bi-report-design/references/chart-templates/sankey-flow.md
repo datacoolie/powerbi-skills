@@ -1,5 +1,7 @@
 # Recipe: Sankey Flow (Stage-to-Stage Attribution)
 
+> **Preview:** [![sankey-flow preview](../../assets/chart-previews/sankey-flow.svg)](../../assets/chart-previews/sankey-flow.svg)
+
 - **id:** `sankey-flow`
 - **Visual type:** Custom visual (`Sankey` by Microsoft / `xViz Sankey`)
 - **Typical size:** 720 × 400 (wide — flows need horizontal room)

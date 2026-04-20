@@ -3,14 +3,21 @@
 Raster artwork used as PBIR backgrounds, banners, section dividers, and
 placeholder/mocked logos.
 
-## Folders
+> **Current state (v0.1):** the catalog is intentionally empty \u2014 no raster
+> assets ship yet. Planned additions are tracked in the `gaps[]` array of
+> [`images-index.json`](images-index.json) (neutral gradient backgrounds,
+> banner strips, demo-customer logos). The folder structure below is the
+> **target layout** when those assets land; create the subfolders as you
+> populate them.
+
+## Folders (target layout)
 
 | Folder | Purpose | Max size / asset |
 |---|---|---|
 | `backgrounds/` | Full-canvas backgrounds (textures, gradients). Placed on `shape/background` visuals. | 300 KB, WebP preferred |
-| `banners/` | Header bands at the top of executive pages. 1664 × 120 px typical. | 150 KB |
+| `banners/` | Header bands at the top of executive pages. 1664 \u00d7 120 px typical. | 150 KB |
 | `dividers/` | Horizontal / vertical dividers between page zones. | 30 KB |
-| `logos/` | Placeholder / demo logos ONLY. **No real customer logos shipped here.** | 50 KB |
+| `logos/` | Placeholder / demo logos ONLY. **No real customer logos shipped here.** For production-quality industry placeholder marks see [`../logos/`](../logos/) at the asset root. |
 
 ## Rules
 

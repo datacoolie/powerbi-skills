@@ -197,7 +197,7 @@ Gridlines:        #E0E0E0
 | On Track / Neutral | Dark Gray | `#605E5C` | Within tolerance, expected, no change |
 
 > For industry-specific palettes (8 industries) and ready-to-use theme JSON files,
-> see `references/theme-colors.md` and `references/themes/*.json`.
+> see [`theme-colors.md`](theme-colors.md) and `themes/*.json`.
 
 **Alert/Warning pattern** (colorblind-safe alternative to red/green):
 ```

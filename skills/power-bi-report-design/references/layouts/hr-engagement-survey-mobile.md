@@ -1,5 +1,7 @@
 # Engagement Survey (eNPS) (Mobile)
 
+> **Preview:** [![hr-engagement-survey-mobile preview](../../assets/layout-previews/hr-engagement-survey-mobile.svg)](../../assets/layout-previews/hr-engagement-survey-mobile.svg) · variants: [annotated](../../assets/layout-previews/hr-engagement-survey-mobile-annotated.svg) · [dark](../../assets/layout-previews/hr-engagement-survey-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`hr-engagement-survey`](./hr-engagement-survey.md).
 
 - Canvas: `390×844` (mobile-portrait)

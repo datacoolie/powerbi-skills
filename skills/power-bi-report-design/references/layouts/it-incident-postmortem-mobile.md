@@ -1,5 +1,7 @@
 # Incident Postmortem (Mobile)
 
+> **Preview:** [![it-incident-postmortem-mobile preview](../../assets/layout-previews/it-incident-postmortem-mobile.svg)](../../assets/layout-previews/it-incident-postmortem-mobile.svg) · variants: [annotated](../../assets/layout-previews/it-incident-postmortem-mobile-annotated.svg) · [dark](../../assets/layout-previews/it-incident-postmortem-mobile-dark.svg)
+
 > **Derived layout** — Mobile portrait variant of [`it-incident-postmortem`](./it-incident-postmortem.md).
 
 - Canvas: `390×844` (mobile-portrait)

@@ -1,6 +1,6 @@
 # Role: Executor Base (all styles inherit)
 
-> **This is a role file.** The `power-bi-developer` agent invokes this role during **Phase 4b — Report Executor**, alongside one of: `executor-executive.md`, `executor-analytical.md`, `executor-operational.md`.
+> **This is a role file.** The `power-bi-developer` agent invokes this role during **Phase 4b — Report Executor**, alongside one of: [`executor-executive.md`](executor-executive.md), [`executor-analytical.md`](executor-analytical.md), [`executor-operational.md`](executor-operational.md).
 
 The Executor turns an **approved Design Spec** into PBIR JSON. It does **not** make design decisions — those were made by the Strategist and locked by Phase 4a.5 Seven Confirmations.
 
@@ -77,14 +77,14 @@ For each page (revisit in Design Spec order):
 ### Formatting
 - **No hard-coded colors** in visual.json — use theme tokens (`data0`, `foreground`, `good`, `bad`, etc.)
 - Apply the chart-template recipe's formatting exactly — do not "improve" it
-- Font family + sizes follow `shared-standards.md` §4
+- Font family + sizes follow [`shared-standards.md`](shared-standards.md) §4
 
 ### Accessibility
 - Every visual must have `altText` (derive from visual's purpose, not its title alone)
 - Tab order is assigned per page (not default)
 
 ### Positioning
-- All x/y/w/h snapped to 8px grid (from `shared-standards.md` §2)
+- All x/y/w/h snapped to 8px grid (from [`shared-standards.md`](shared-standards.md) §2)
 - No overlaps (unless intentional Z-order with explicit comment)
 
 ---
@@ -92,9 +92,9 @@ For each page (revisit in Design Spec order):
 ## Per-style personality overrides
 
 Before generating, also read the matching personality file:
-- **Executive** → `executor-executive.md` (density, annotation heaviness, title phrasing)
-- **Analytical** → `executor-analytical.md` (KPI banner + hero + grid, direct labels, reference lines)
-- **Operational** → `executor-operational.md` (density 8-12, traffic-light status, larger fonts)
+- **Executive** → [`executor-executive.md`](executor-executive.md) (density, annotation heaviness, title phrasing)
+- **Analytical** → [`executor-analytical.md`](executor-analytical.md) (KPI banner + hero + grid, direct labels, reference lines)
+- **Operational** → [`executor-operational.md`](executor-operational.md) (density 8-12, traffic-light status, larger fonts)
 
 When the personality file contradicts this file, **the personality wins** (for style-specific choices like density). When this file contradicts a personality (for cross-cutting rules like alt text, grid snap, theme tokens), **this file wins**.
 

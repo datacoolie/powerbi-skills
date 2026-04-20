@@ -1,5 +1,7 @@
 # Recipe: Decomposition Tree
 
+> **Preview:** [![decomposition-tree preview](../../assets/chart-previews/decomposition-tree.svg)](../../assets/chart-previews/decomposition-tree.svg)
+
 - **id:** `decomposition-tree`
 - **Visual type:** `decompositionTreeVisual`
 - **Typical size:** full-page width × 560+ (exploratory)

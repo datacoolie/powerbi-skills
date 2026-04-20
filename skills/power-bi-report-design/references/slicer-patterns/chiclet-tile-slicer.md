@@ -1,5 +1,7 @@
 # Recipe: Chiclet / Tile Slicer (Low-Cardinality Buttons)
 
+> **Preview:** [![chiclet-tile-slicer preview](../../assets/slicer-previews/chiclet-tile-slicer.svg)](../../assets/slicer-previews/chiclet-tile-slicer.svg)
+
 - **id:** `chiclet-tile-slicer`
 - **Family:** category
 - **Control type:** slicer (tile)

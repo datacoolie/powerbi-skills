@@ -1,5 +1,7 @@
 # Layout: Wide Flat Tooltip
 
+> **Preview:** [![wide-flat-tooltip preview](../../assets/layout-previews/wide-flat-tooltip.svg)](../../assets/layout-previews/wide-flat-tooltip.svg) · variants: [annotated](../../assets/layout-previews/wide-flat-tooltip-annotated.svg) · [dark](../../assets/layout-previews/wide-flat-tooltip-dark.svg)
+
 - **id:** `wide-flat-tooltip`
 - **Canvas:** 1200 × 320
 - **Style personality:** Analytical — Panoramic tooltip (~1200×320) showing 1–3 side-by-side sparklines / trend bars

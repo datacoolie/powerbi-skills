@@ -1,5 +1,7 @@
 # Layout: Finance P&L Waterfall
 
+> **Preview:** [![finance-pnl-waterfall preview](../../assets/layout-previews/finance-pnl-waterfall.svg)](../../assets/layout-previews/finance-pnl-waterfall.svg) · variants: [annotated](../../assets/layout-previews/finance-pnl-waterfall-annotated.svg) · [dark](../../assets/layout-previews/finance-pnl-waterfall-dark.svg)
+
 - **id:** `finance-pnl-waterfall`
 - **Canvas:** 1664 × 936
 - **Style personality:** Analytical (see `../executor-analytical.md`)

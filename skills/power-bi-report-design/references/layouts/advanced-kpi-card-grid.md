@@ -1,5 +1,7 @@
 # Layout: Advanced KPI Card Grid
 
+> **Preview:** [![advanced-kpi-card-grid preview](../../assets/layout-previews/advanced-kpi-card-grid.svg)](../../assets/layout-previews/advanced-kpi-card-grid.svg) · variants: [annotated](../../assets/layout-previews/advanced-kpi-card-grid-annotated.svg) · [dark](../../assets/layout-previews/advanced-kpi-card-grid-dark.svg)
+
 - **id:** `advanced-kpi-card-grid`
 - **Canvas:** 1664 × 936
 - **Style personality:** Executive — 4×5 grid of Advanced Card visuals — each embeds a sparkline + comparison arrow + Δ%

@@ -1,5 +1,7 @@
 # Recipe: 100% Stacked Bar (Share / Mix)
 
+> **Preview:** [![stacked-bar-100 preview](../../assets/chart-previews/stacked-bar-100.svg)](../../assets/chart-previews/stacked-bar-100.svg)
+
 - **id:** `stacked-bar-100`
 - **Visual type:** `hundredPercentStackedBar` OR `hundredPercentStackedColumn`
 - **Typical size:** 536 × 384

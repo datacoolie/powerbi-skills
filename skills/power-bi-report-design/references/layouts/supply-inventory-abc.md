@@ -1,5 +1,7 @@
 # Inventory ABC Analysis
 
+> **Preview:** [![supply-inventory-abc preview](../../assets/layout-previews/supply-inventory-abc.svg)](../../assets/layout-previews/supply-inventory-abc.svg) · variants: [annotated](../../assets/layout-previews/supply-inventory-abc-annotated.svg) · [dark](../../assets/layout-previews/supply-inventory-abc-dark.svg)
+
 - Canvas: `1664×936` (landscape-16x9)
 - Style: `analytical` · Domain: `supply-chain`
 - Visuals: 8

@@ -40,8 +40,9 @@ Canvas size: **1664 × 936** (standard Power BI canvas). Tooltip pages: **320 ×
 | `references/definition-pbir-template.json` | JSON template for `definition.pbir` |
 | `references/themes/*.json` | Ready-to-use custom theme files (8 industries) — copy to `StaticResources/RegisteredResources/` |
 | `scripts/validate_report.py` | **Run after generation** — validates against official Microsoft JSON schemas, required properties, cross-references, bookmarks, naming conventions. Supports `--offline` for cached-only mode. |
+| `scripts/validate_schemas.py` | **Proactive schema validator** — maps every PBIR file to its correct schema by filename pattern (not relying on `$schema` declarations). Supports `--sync` (download all schemas), `--sync-only` (CI cache prep), `--component <type> <file>` (single-file validation), `--check-versions` (detect outdated schema versions), `--offline`. |
 | `scripts/finalize_pbir.py` | **Phase 4c polish** — snap_grid, align_kpi_row, apply_theme_tokens, normalize_fonts, ensure_alt_text. Supports `--dry-run`, `--skip`, `--only`. |
-| `scripts/design_quality_check.py` | **Phase 4c lint** — 8 checks (visual counts, drillthrough back button, pie slices, alt text, default page names, bad titles, hardcoded hex, bookmark targets). Use `--style executive\|analytical\|operational` and `--write-report` to emit `design_report.md`. |
+| `scripts/design_quality_check.py` | **Phase 4c lint** — 14 checks (E1-E4: contrast, drillthrough back button, bookmark targets, orphan pages; W1-W10: visual counts, pie slices, alt text, default page names, bad titles, hardcoded hex, 3D effects, rainbow palette, visual budget, alt text quality). Use `--style executive\|analytical\|operational` and `--write-report` to emit `design_report.md`. |
 | `scripts/pbir_gate.py` | **Unified Phase 4c gate** — chains finalize → lint → validate into one pass/fail command. Supports `--dry-run`, `--skip-finalize`, `--skip-lint`, `--allow-warnings`, `--json`. Exit codes: `0` pass, `1` input error, `2` fail, `3` tool error. |
 
 ## Quick Reference: Folder Structure
@@ -58,8 +59,8 @@ Canvas size: **1664 × 936** (standard Power BI canvas). Tooltip pages: **320 ×
 │   │   │       │   ├── visual.json   ← Visual type, query, formatting
 │   │   │       │   └── mobile.json   ← Mobile layout overrides (optional)
 │   │   │       └── ...
+│   │   ├── pages.json           ← Page ordering metadata
 │   │   └── ...
-│   ├── pages.json               ← Page ordering metadata
 │   ├── version.json             ← Schema version metadata
 │   ├── bookmarks/               ← Bookmark definitions (optional)
 │   │   ├── bookmarks.json       ← Bookmark ordering
@@ -155,9 +156,10 @@ python skills/power-bi-pbip-report/scripts/pbir_gate.py `
     --style <style-from-design-spec>
 ```
 
-The gate chains `finalize_pbir.py` → `design_quality_check.py` → `validate_report.py` automatically.
+The gate chains 4 stages: `finalize_pbir.py` → `design_quality_check.py` → `validate_report.py` → `validate_schemas.py`.
 Exit codes: `0` = pass, `1` = input error, `2` = fail, `3` = tool error.
 Add `--allow-warnings` to pass with warnings, `--json verdict.json` to save the result.
+Flags: `--skip-finalize`, `--skip-lint`, `--skip-validate`, `--skip-schemas`.
 See `../power-bi-report-design/references/polisher.md` for the full Phase 4c routing table.
 
 <details><summary>Manual alternative (run each stage separately)</summary>
@@ -172,8 +174,11 @@ python skills/power-bi-pbip-report/scripts/design_quality_check.py `
     --style <style-from-design-spec> `
     --write-report
 
-# 3. Schema validation (always last)
+# 3. Structural validation (cross-refs, naming, required properties)
 python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder>
+
+# 4. JSON Schema validation (proactive, path-based)
+python skills/power-bi-pbip-report/scripts/validate_schemas.py <path-to-.Report-folder> --offline
 ```
 
 Per-script exit codes: `0` = pass, `1` = warnings only, `2` = errors present (must fix).
@@ -183,15 +188,16 @@ Per-script exit codes: `0` = pass, `1` = warnings only, `2` = errors present (mu
 **Standalone usage:**
 ```
 python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder>
-python skills/power-bi-pbip-report/scripts/validate_report.py <path-to-.Report-folder> --offline
+python skills/power-bi-pbip-report/scripts/validate_schemas.py <path-to-.Report-folder> --offline
 ```
 
-Checks:
+`validate_report.py` checks:
 1. **JSON syntax** — every `.json` and `.pbir` file parses cleanly
-2. **Schema validation** — structure matches Microsoft's published JSON schemas (requires `jsonschema`)
-3. **Required properties** — `$schema`, `name`, `position`, `themeCollection`, etc.
-4. **Cross-references** — page folders match `pages.json`, custom visuals registered in `report.json`
-5. **Naming conventions** — kebab-case for page and visual folders
+2. **Required properties** — `$schema`, `name`, `position`, `themeCollection`, etc.
+3. **Cross-references** — page folders match `pages.json`, custom visuals registered in `report.json`
+4. **Naming conventions** — kebab-case for page and visual folders
+
+`validate_schemas.py` checks: every file against its correct Microsoft JSON schema (by path pattern).
 
 Fix all **errors** before delivering. **Warnings** are advisory (naming, unused registrations).  
 
@@ -206,37 +212,21 @@ If neither script is available, manually verify:
 
 ## JSON Schema Reference
 
-| File | Schema URL |
-|---|---|
-| report.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json` |
-| page.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json` |
-| visual.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json` |
-| pages.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json` |
-| version.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json` |
-| definition.pbir | `https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json` |
-| bookmark.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json` |
-| bookmarks.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json` |
-| reportExtensions.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtension/1.0.0/schema.json` |
-| mobile.json | `https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.3.0/schema.json` |
-
-**Finding the latest version:** Browse available versions at the
-[GitHub json-schemas repository](https://github.com/microsoft/json-schemas/tree/main/fabric/item/report/definition).
+Schema URLs and versions are maintained in `scripts/validate_schemas.py` → `SCHEMA_REGISTRY`.
+Run `python validate_schemas.py --check-versions` to detect outdated schema declarations.
+Browse available versions at the [GitHub json-schemas repository](https://github.com/microsoft/json-schemas/tree/main/fabric/item/report/definition).
 
 ## Required Properties (Quick Reference)
 
-Each JSON file has a `$schema` property. Beyond that:
+Each JSON file must have a `$schema` property. For full property details, theme selection,
+conditional formatting, and format strings, read `references/required-properties.md`.
 
 | File | Key Required Properties |
 |---|---|
 | `report.json` | `themeCollection` (with `baseTheme.name`, `reportVersionAtImport`, `type`) |
-| `page.json` | `name`, `displayName`, `displayOption` (`"FitToPage"` / `"FitToWidth"` / `"ActualSize"`) |
+| `page.json` | `name`, `displayName`, `displayOption` |
 | `visual.json` | `name`, `position` (`x`, `y`, `height`, `width`), plus `visual` or `visualGroup` |
-| `pages.json` | *(only `$schema`)* — `pageOrder` array is optional |
-| `version.json` | `version` (e.g. `"2.0.0"`) |
 | `definition.pbir` | `version`, `datasetReference` (`byPath` or `byConnection`) |
-
-For full property details, theme selection guidance, conditional formatting, and format strings,
-read `references/required-properties.md`. For JSON structure, use the template files.
 
 ## Custom Visuals
 
@@ -249,64 +239,13 @@ When a visual uses a **custom visual**, you **must**:
 
 Prefer built-in visuals when they can achieve the visualization. Custom visuals shine when
 built-in alternatives lack the chart type entirely (e.g., no built-in histogram, Sankey, or
-calendar heatmap). Read `references/custom-visuals.md` for all templates, query roles, and identifiers.
-
-### Key Custom Visuals
-
-| visualType | Name | Query Roles | When to Use |
-|---|---|---|---|
-| `advanceCardE03760C5AB...` | Advance Card | `Data` | Rich KPI with conditional formatting |
-| `ChicletSlicer14485...` | Chiclet Slicer | `Category`, `Values` | Image/tile category selection |
-| `Timeline1447991079100` | Timeline Slicer | `Time` | Interactive date range slider |
-| `BulletChart14433476...` | Bullet Chart | `Category`, `Value`, `TargetValue` | Actual vs target with ranges |
-| `TornadoChart14525176...` | Tornado Chart | `Group`, `Values` | Diverging bar (A vs B) |
-| `BoxWhiskerChart1455...` | Box & Whisker | `Groups`, `Values`, `Samples` | Distribution analysis |
-| `Sunburst1445472000808` | Sunburst | `Nodes`, `Values` | Multi-level hierarchy ring |
-| `SankeyDiagram14580...` | Sankey Diagram | `Source`, `Destination`, `Weight` | Flow between categories |
-| `RadarChart14234704...` | Radar Chart | `Category`, `Y` | Multi-dimensional scoring |
-| `WaffleChart14537768...` | Waffle Chart | `Category`, `Values` | Percentage as discrete blocks |
-| `bciCalendarCC0FA2B...` | BCI Calendar | `category`, `measure` | Heatmap calendar view |
-| `zebraBiCards2C860C...` | Zebra BI Cards | `Category`, `Values`, `PY`, `AC` | IBCS financial variance cards |
-| `Deneb6E97C82C58E5...` | Deneb | *(Vega spec)* | Fully custom Vega/Vega-Lite chart |
-| `Gantt1467746032498` | Gantt Chart | `Task`, `StartDate`, `Duration` | Project timeline |
-| `WordCloud1447959067750` | Word Cloud | `Category`, `Values` | Word frequency display |
+calendar heatmap). Read `references/custom-visuals.md` for all identifiers, templates, and query roles.
 
 ## Visual Type Reference
 
-Read `references/chart-selection-guide.md` for WHICH chart to use — it explains why
-certain charts work better than others (bar charts beat pie charts for comparison because
-the human eye reads length more accurately than angle/area).
-
+Read `../power-bi-report-design/references/chart-selection-guide.md` for WHICH chart to use.
 Read `references/visual-templates.md` for complete JSON templates per visual type.
 Read `references/custom-visuals.md` for custom visual identifiers, templates, and query roles.
-
-### Query Role Names by Visual Type
-
-| visualType | Query Roles | When to Use |
-|---|---|---|
-| `card` | `Values` | Single hero KPI |
-| `cardVisual` | `Data` | New-style card with reference labels |
-| `multiRowCard` | `Values` | 4-8 related KPIs at equal weight |
-| `slicer` | `Values` | Filter control — date, category, hierarchy |
-| `advancedSlicerVisual` | `Values` | Tile-based visual slicer |
-| `clusteredBarChart` | `Category`, `Y` | **Default for category comparison** — horizontal |
-| `clusteredColumnChart` | `Category`, `Y` | Vertical bars — time on x-axis or ≤8 categories |
-| `barChart` | `Category`, `Y` | Stacked horizontal — part-of-whole |
-| `columnChart` | `Category`, `Y` | Stacked vertical — part-of-whole with time |
-| `lineChart` | `Category`, `Y` | **Default for trends over time** |
-| `areaChart` | `Category`, `Y` | Filled area — single series where volume matters |
-| `lineClusteredColumnComboChart` | `Category`, `Y`, `Y2` | Combo — only when two scales truly needed |
-| `waterfallChart` | `Category`, `Y` | Cumulative additions/subtractions |
-| `treemap` | `Group`, `Values` | Part-of-whole with many segments (10+) |
-| `pivotTable` | `Rows`, `Columns`, `Values` | Matrix — row and column groupings |
-| `tableEx` | `Values` | Flat table — row-level detail |
-| `funnel` | `Category`, `Y` | Sequential pipeline stages |
-| `scatterChart` | `Category`, `X`, `Y`, `Size` | Correlation between two metrics |
-| `map` | `Category`, `Size` | Geographic patterns |
-| `gauge` | `Y`, `TargetValue`, `MinValue`, `MaxValue` | Single metric vs. target |
-| `kpi` | `Indicator`, `TrendAxis`, `Goal` | KPI with trend and target |
-| `ribbonChart` | `Category`, `Series`, `Y` | Ranking changes over time |
-| `stackedAreaChart` | `Category`, `Y`, `Series` | Cumulative composition over time |
 
 Non-data visuals (no query): `shape`, `basicShape`, `textbox`, `actionButton`, `image`, `pageNavigator`.
 
@@ -320,84 +259,23 @@ Aggregation `Function` codes: `0`=Sum, `1`=Avg, `2`=Count, `3`=Min, `4`=Max, `5`
 
 ## Formatting Patterns
 
-### Literal Value Suffixes
-
 All property values in PBIR use `{ "expr": { "Literal": { "Value": "<value>" } } }` format.
-The value string has type-specific suffixes:
-
-| Suffix | Type | Example |
-|---|---|---|
-| `D` | Double/numeric | `"12D"`, `"0.5D"` |
-| `L` | Long/integer | `"4L"`, `"0L"` |
-| *(none)* | String | `"'text'"` (single-quoted) |
-| *(none)* | Boolean | `"true"` or `"false"` |
+Literal suffixes: `D` (double), `L` (long/integer), single-quoted strings, bare booleans.
 
 For advanced formatting (rounded corners, shadows, conditional colors, axis/legend/sort,
 theme visual styles, conditional formatting in tables, format strings),
 read `references/formatting-patterns.md` and `references/required-properties.md`.
-
-## Slicer Types
-
-| Slicer | visualType | Description |
-|---|---|---|
-| Original slicer | `slicer` | Vertical list, tile, dropdown styles |
-| Button slicer | `advancedSlicerVisual` | Interactive buttons with grid layout, image support, conditional formatting |
-| List slicer (preview) | `listSlicer` | Vertical list with hierarchy, search, conditional formatting |
-| Text slicer (preview) | `textSlicer` | Free-form text input for exact string matching |
-
-Button slicers support: `Single select`, `Force selection`, conditional formatting on background/border/text,
-paste values to select. List slicers support: hierarchical drilling, `Restrict to leaf nodes`, conditional formatting.
 
 ## Page Types
 
 | Type | `page.json` config | Typical Size |
 |---|---|---|
 | Normal page | *(default — no special type)* | 1664×936 (standard) |
-| Drillthrough | `"type": "Drillthrough"` + `drillthrough` filter fields in `filterConfig` | Standard canvas |
-| Tooltip | `"type": "Tooltip"`, `"visibility": "HiddenInViewMode"` | Use Tooltip canvas preset (small) |
+| Drillthrough | `"type": "Drillthrough"` + drillthrough filter fields in `filterConfig` | Standard canvas |
+| Tooltip | `"type": "Tooltip"`, `"visibility": "HiddenInViewMode"` | Tooltip canvas preset (small) |
 | Hidden page | `"visibility": "HiddenInViewMode"` | Standard canvas |
 
-### Drillthrough Pages
-
-1. Set `"type": "Drillthrough"` in `page.json`
-2. Add drillthrough filter fields to the page's `filterConfig`
-3. Power BI auto-creates a back button; add `actionButton-back` visual
-4. Design visuals for single-entity detail (card + table + trend chart pattern)
-5. **Cross-report drillthrough**: both reports must be in the same workspace; enable in report settings; field names/types must match exactly
-
-### Report Page Tooltips
-
-1. Set page `"type": "Tooltip"` and `"visibility": "HiddenInViewMode"` in `page.json`
-2. Use the Tooltip page size preset (small canvas)
-3. Add tooltip fields to the page's configuration
-4. Assign tooltip to visuals: visual's `Tooltip > Type = Report page`, select the tooltip page
-5. Keep tooltip pages small — they hover over the report canvas
-
-## Field Parameters
-
-Field parameters let users dynamically switch which fields appear in visuals via a slicer.
-In the semantic model: a DAX table expression:
-
-```dax
-Parameter = {
-    ("Customer", NAMEOF('Customer'[Customer]), 0),
-    ("Category", NAMEOF('Product'[Category]), 1),
-    ("Color", NAMEOF('Product'[Color]), 2)
-}
-```
-
-**Limitations**: Can't use as drillthrough/tooltip linked fields. Not supported with AI visuals or Q&A.
-Use explicit DAX measures (not implicit aggregations) for measure parameters.
-
-## Sparklines in Tables/Matrices
-
-Add sparklines on numeric fields in tables/matrices — up to **5 per visual**, max **52 data points** each.
-Available as **line** or **column** type. Configurable markers (highest, lowest, first, last).
-
-## Visual Grouping
-
-Set `parentGroupName` in `visual.json` to group visuals. Groups can nest, support background color,
-and use `isHidden` to toggle all members. Organize via Selection pane.
+For drillthrough and tooltip page setup details, read `references/common-patterns.md`.
 
 ## Bookmarks
 

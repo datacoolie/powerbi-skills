@@ -26,7 +26,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -43,7 +42,7 @@ from pbir_utils import (
     get_visual_title,
     normalize_hex,
     read_json_strict as _read_json,
-    set_alt_text as _set_alt_text,
+    set_alt_text,
     setup_logging,
     visual_type as _visual_type,
     write_json as _write_json,
@@ -156,7 +155,7 @@ def align_kpi_row(report: Report, dry_run: bool = False) -> dict[str, int]:
                 continue
             data = _read_json(vjson)
             if _visual_type(data) in ("card", "multiRowCard"):
-                pos = _get_pos(data)
+                pos = get_position(data)
                 if pos and all(k in pos for k in ("x", "y", "width", "height")):
                     cards.append((vjson, data, pos))
 
@@ -212,7 +211,7 @@ def apply_theme_tokens(report: Report, dry_run: bool = False) -> dict[str, int]:
     if not report.theme:
         return {"visuals_changed": 0, "replacements": 0, "skipped_reason": "no theme found"}
 
-    reverse = {_normalize_hex(v): k for k, v in report.theme.items() if isinstance(v, str)}
+    reverse = {normalize_hex(v): k for k, v in report.theme.items() if isinstance(v, str)}
     changes_total = 0
     visuals_changed = 0
 
@@ -235,7 +234,7 @@ def _replace_hex_in_tree(node: Any, reverse: dict[str, str]) -> int:
         for key in list(node.keys()):
             val = node[key]
             if isinstance(val, str) and HEX_RE.fullmatch(val):
-                norm = _normalize_hex(val)
+                norm = normalize_hex(val)
                 token = reverse.get(norm)
                 if token:
                     node[key] = {
@@ -247,7 +246,7 @@ def _replace_hex_in_tree(node: Any, reverse: dict[str, str]) -> int:
     elif isinstance(node, list):
         for i, item in enumerate(node):
             if isinstance(item, str) and HEX_RE.fullmatch(item):
-                norm = _normalize_hex(item)
+                norm = normalize_hex(item)
                 token = reverse.get(norm)
                 if token:
                     node[i] = {
@@ -351,37 +350,18 @@ def ensure_alt_text(report: Report, dry_run: bool = False) -> dict[str, int]:
 
     for _page, _vdir, visual_json in report.iter_visuals():
         data = _read_json(visual_json)
-        alt = _get_alt_text(data)
+        alt = get_alt_text(data)
         if alt:
             continue
-        title = _get_visual_title(data) or _visual_type(data) or "visual"
+        title = get_visual_title(data) or _visual_type(data) or "visual"
         vtype = _visual_type(data) or "visual"
         derived = f"{vtype} showing {title}".strip()
-        if _set_alt_text(data, derived):
+        if set_alt_text(data, derived):
             added += 1
             if not dry_run:
                 _write_json(visual_json, data)
 
     return {"alt_text_added": added}
-
-
-# ────────────────────────────────────────────────────────────────
-# Helpers
-# ────────────────────────────────────────────────────────────────
-
-def _read_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _write_json(path: Path, data: dict) -> None:
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
-# Aliases for imported helpers used in this module
-_get_pos = get_position
-_get_visual_title = get_visual_title
-_get_alt_text = get_alt_text
-_normalize_hex = normalize_hex
 
 
 # ────────────────────────────────────────────────────────────────

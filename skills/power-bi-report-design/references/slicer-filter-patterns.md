@@ -60,17 +60,23 @@ page — forces users to keep re-setting it when they leave and return.
 
 ## 2. Slicer Type Selection
 
+> **Native button slicer (GA Oct 2025):** For categorical low-card (≤7 values) and
+> boolean scenarios, prefer the **native button slicer** (slicer visual in button/tile
+> mode) over the AppSource Chiclet Slicer. It supports cross-highlighting, auto-grid
+> layout, and requires no custom visual registration. Use Chiclet only when you need
+> image-based tiles.
+
 | Data shape | Cardinality | Recommended control | Recipe |
 |---|---|---|---|
 | **Date range** | Continuous | Between slider OR relative-date (Last N months) | [date-between-slider](slicer-patterns/date-between-slider.md), [date-relative-rolling](slicer-patterns/date-relative-rolling.md) |
 | **Single date** | — | Dropdown calendar | [date-between-slider](slicer-patterns/date-between-slider.md) (set equal bounds) |
-| **Categorical low-card** (≤ 7) | 2–7 values | Button/tile slicer (horizontal chips) | [chiclet-tile-slicer](slicer-patterns/chiclet-tile-slicer.md) |
+| **Categorical low-card** (≤ 7) | 2–7 values | **Native button slicer** (tile mode) | [chiclet-tile-slicer](slicer-patterns/chiclet-tile-slicer.md) (patterns apply to native button slicer too) |
 | **Categorical medium** (8–25) | 8–25 | Dropdown with search | [dropdown-search-slicer](slicer-patterns/dropdown-search-slicer.md) |
 | **Categorical high-card** (> 25) | 26–10 000 | Dropdown with search + multi-select | [dropdown-search-slicer](slicer-patterns/dropdown-search-slicer.md) |
 | **Very high cardinality** (> 10 000) | Customer ID, SKU | **Do not use a slicer** — require drill-in or search visual | [search-box-high-card](slicer-patterns/search-box-high-card.md) |
 | **Hierarchical** (Year → Quarter → Month; Region → Country → City) | Any | Hierarchy slicer (expand/collapse) | [hierarchy-slicer](slicer-patterns/hierarchy-slicer.md) |
 | **Numeric continuous** | Any | Numeric range slider | [numeric-range-slicer](slicer-patterns/numeric-range-slicer.md) |
-| **Boolean / On-Off** | 2 | Button slicer with 2 tiles | [chiclet-tile-slicer](slicer-patterns/chiclet-tile-slicer.md) |
+| **Boolean / On-Off** | 2 | Native button slicer with 2 tiles | [chiclet-tile-slicer](slicer-patterns/chiclet-tile-slicer.md) |
 | **Unknown / free-text search** | Any | Search box bound to a text column | [search-box-high-card](slicer-patterns/search-box-high-card.md) |
 
 ### Multi-select vs. single-select

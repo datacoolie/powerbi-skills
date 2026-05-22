@@ -258,3 +258,22 @@ Cross-reference: Report page structures per domain are in
 - Incident trend by priority (stacked area), SLA compliance gauge
 - Infrastructure health card matrix (green/amber/red), cloud cost treemap
 - Project portfolio timeline, deployment frequency trend
+
+---
+
+## Calendar Considerations
+
+| Calendar Type | MS Support | Approach |
+|---|---|---|
+| Standard (Jan-Dec) | ✅ Built-in TI | Use standard DAX TI functions |
+| Fiscal (Apr-Mar, Jul-Jun) | ✅ Built-in TI | Set FiscalYearStartMonth in model |
+| 4-4-5 / 4-5-4 / Retail | ⚠️ Preview (calendar-based TI) | Use preview feature OR custom calendar table |
+| ISO 8601 (Weeks) | ✅ Custom calendar | Create ISO calendar table |
+| Islamic / Hijri | ✅ Custom calendar | Create Hijri calendar table |
+
+**Tip:** When the client uses a non-standard fiscal year, always confirm the
+year-start month and week-numbering system during stakeholder interviews.
+
+Calendar-based time intelligence (preview) can also improve performance — the
+engine can clear context more efficiently with calendar-aware TI functions vs.
+classic DATEADD/SAMEPERIODLASTYEAR patterns.

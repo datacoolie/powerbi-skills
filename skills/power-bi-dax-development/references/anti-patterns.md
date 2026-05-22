@@ -489,4 +489,92 @@ it makes context transition behavior harder to reason about.
 Total = SUM(FactSales[Amount])
 ```
 Always qualify columns with `TableName[ColumnName]`. Measures are referenced
-without a table prefix: `[Total Sales]`.
+without a table prefix: `[Total Sales]`
+
+---
+
+## 19. Using FORMAT() for Conditional Display
+
+**Bad:**
+```dax
+Display Sales =
+FORMAT([Total Sales],
+    IF(SELECTEDVALUE(DimCurrency[Code]) = "EUR", "€#,##0", "$#,##0")
+)
+```
+Returns a STRING — breaks charts, sorting, conditional formatting, and totals.
+
+**Good — Dynamic Format Strings (2024+):**
+
+1. Select the measure in the Data pane
+2. Measure tools → Format → Dynamic
+3. Enter a DAX expression for the format string:
+
+```dax
+SELECTEDVALUE(DimCurrency[FormatString], "$#,##0.00")
+```
+
+Benefits:
+- Measure keeps numeric data type
+- Charts and conditional formatting work correctly
+- No performance penalty from string conversion
+- Works with calculation groups (SELECTEDMEASUREFORMATSTRING())
+
+### Source
+
+- https://learn.microsoft.com/power-bi/create-reports/desktop-dynamic-format-strings.
+
+---
+
+## 19. FORMAT() for Conditional Formatting Instead of Dynamic Format Strings
+
+**Bad:**
+```dax
+Revenue Display =
+IF(
+    [Total Sales] >= 1000000,
+    FORMAT([Total Sales] / 1000000, "#,0.0") & "M",
+    FORMAT([Total Sales] / 1000, "#,0") & "K"
+)
+```
+FORMAT() returns TEXT — cannot be summed, sorted numerically, or used in
+calculations. Visuals treat it as a string, breaking conditional formatting
+and totals.
+
+**Good — Dynamic Format String (DFS):**
+```dax
+Total Sales =
+VAR _value = SUM(FactSales[SalesAmount])
+VAR _format =
+    SWITCH(
+        TRUE(),
+        ABS(_value) >= 1e9, "#,0.0,,, \B",
+        ABS(_value) >= 1e6, "#,0.0,, \M",
+        ABS(_value) >= 1e3, "#,0.0, \K",
+        "#,0"
+    )
+RETURN _value
+
+-- Then set the measure's FormatString property to:
+-- FormatString = the _format expression above via calculation group or
+-- use formatStringDefinition in TMDL
+
+-- Calculation Group approach (preferred):
+Dynamic Format :=
+VAR _val = SELECTEDMEASURE()
+VAR _fmt =
+    SWITCH(
+        TRUE(),
+        ABS(_val) >= 1e9, "#,0.0,,, \B",
+        ABS(_val) >= 1e6, "#,0.0,, \M",
+        ABS(_val) >= 1e3, "#,0.0, \K",
+        "#,0"
+    )
+RETURN FORMAT(_val, _fmt)
+```
+
+**Why DFS is better:**
+- Value stays numeric → totals, sorting, conditional formatting all work
+- One calculation group item applies to ALL measures
+- FORMAT() in a measure forces FE evaluation (slower)
+- TMDL supports `formatStringDefinition` for per-measure DFS without calc groups

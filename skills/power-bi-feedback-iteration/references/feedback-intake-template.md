@@ -57,21 +57,16 @@ Store each intake as a single structured record:
 - **Users affected:** <count or scope>
 - **Business impact:** <Critical | High | Medium | Low>
 - **Workaround:** <yes/no — describe>
-
-## Classification
-- **Category:** <1-12 from classification.md>
-- **Severity:** <Critical | High | Medium | Low>
-
-## Prioritization
-- **Business impact:** <High | Low>
-- **Effort:** <Low < 1h | High > 1h>
-- **Quadrant:** <★★★★★ | ★★★★ | ★★★ | ★★>
-
-## Routing
-- **Destination phase:** <Phase 1 | 2 | 3 | 4a | 4b | 4c | Perf>
-- **Skill:** <skill name>
-- **Owner:** <assignee>
 ```
+
+### After Intake — Next Steps
+
+After capturing the intake record, apply these references in order:
+1. **Classify** → [classification.md](classification.md)
+2. **Prioritize** → [prioritization.md](prioritization.md)
+3. **Route** → Agent routing table in `power-bi-developer.agent.md`
+
+Do not classify or prioritize during intake — capture the problem first.
 
 ## Interview discipline
 

@@ -5,31 +5,65 @@ for Power BI semantic models stored in PBIP format.
 
 ---
 
-## TMDL File Structure
+## PBIP Semantic Model File Structure
+
+Complete folder layout for a `.SemanticModel/` project folder:
 
 ```
 <ProjectName>.SemanticModel/
-├── .platform                     ← Fabric metadata (JSON)
-├── definition.pbism              ← PBIP semantic model manifest (JSON)
-└── definition/
-    ├── model.tmdl                ← Model-level properties
-    ├── database.tmdl             ← Compatibility level
-    ├── tables/
-    │   ├── Sales.tmdl            ← One file per table
-    │   ├── Date.tmdl
-    │   └── Product.tmdl
-    ├── relationships.tmdl        ← All relationships
-    ├── roles.tmdl                ← RLS roles (if any)
+├── .pbi/                              ← Local/editor settings
+│   ├── localSettings.json             ← User/machine settings (gitignored)
+│   ├── editorSettings.json            ← Shared editor settings (committed)
+│   ├── cache.abf                      ← Local data cache (gitignored)
+│   └── unappliedChanges.json          ← Pending Power Query changes
+├── .platform                          ← Fabric Git integration metadata
+├── definition.pbism                   ← Semantic model manifest (REQUIRED)
+├── diagramLayout.json                 ← Model diagram positions (no external edit)
+├── Copilot/                           ← AI/Copilot configuration
+│   ├── Instructions/
+│   │   └── instructions.md            ← AI instructions for Copilot
+│   ├── VerifiedAnswers/
+│   │   ├── definitions/
+│   │   │   └── [answer-id]/
+│   │   │       ├── definition.json
+│   │   │       ├── filters.json
+│   │   │       └── visualSource.json
+│   │   └── version.json
+│   ├── schema.json                    ← Schema selection & field synonyms
+│   ├── settings.json                  ← Copilot tooling settings
+│   └── examplePrompts.json            ← Example prompts for Zero Prompt
+├── DAXQueries/                        ← Saved DAX query tabs
+│   ├── .pbi/
+│   │   └── daxQueries.json            ← Editor settings (defaultTab, order)
+│   └── [Tab name].dax                 ← One .dax file per query tab
+├── TMDLScripts/                       ← Saved TMDL script tabs
+│   ├── .pbi/
+│   │   └── tmdlscripts.json           ← Editor settings (defaultTab, order)
+│   └── [Tab name].tmdl                ← One .tmdl file per script tab
+└── definition/                        ← TMDL model definition (REQUIRED if version ≥ 4.0)
+    ├── database.tmdl                  ← Compatibility level
+    ├── model.tmdl                     ← Model-level properties
+    ├── relationships.tmdl             ← All relationships
+    ├── expressions.tmdl               ← Shared M expressions (parameters)
+    ├── roles.tmdl                     ← RLS roles (if any)
+    ├── perspectives.tmdl              ← Perspectives (if any)
     ├── cultures/
-    │   └── en-US.tmdl            ← Translations & linguistic metadata
-    ├── expressions.tmdl          ← Shared M expressions (parameters)
-    ├── perspectives.tmdl         ← Perspectives (if any)
-    └── diagramLayout.json        ← Model diagram layout (JSON)
+    │   └── en-US.tmdl                 ← Translations & linguistic metadata
+    └── tables/
+        ├── Sales.tmdl                 ← One file per table
+        ├── Date.tmdl
+        └── Product.tmdl
 ```
 
-### Project Metadata Files
+> **Note:** Not every project includes all folders. `Copilot/`, `DAXQueries/`, and
+> `TMDLScripts/` appear only when their features are used.
 
-**.platform** (Fabric workspace metadata):
+---
+
+## Project Metadata Files
+
+### .platform (Fabric workspace metadata)
+
 ```json
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
@@ -44,13 +78,104 @@ for Power BI semantic models stored in PBIP format.
 }
 ```
 
-**definition.pbism** (PBIP manifest):
+### definition.pbism (semantic model manifest — REQUIRED)
+
 ```json
 {
-  "version": "4.0",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
+  "version": "4.2",
   "settings": {}
 }
 ```
+
+| version | Format | Notes |
+|---|---|---|
+| `"1.0"` | TMSL (`model.bim` file) | Legacy — single large JSON file |
+| `"4.0"` or above | TMDL (`definition/` folder) or TMSL | TMDL recommended for source control |
+
+> Once upgraded to TMDL (version ≥ 4.0), you cannot revert to TMSL.
+
+### .pbi/editorSettings.json (shared editor settings)
+
+```json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/editorSettings/1.0.0/schema.json",
+  "autodetectRelationships": true,
+  "parallelQueryLoading": true,
+  "typeDetectionEnabled": true,
+  "relationshipImportEnabled": true,
+  "shouldNotifyUserOfNameConflictResolution": true
+}
+```
+
+Committed to Git — shared across team members. Controls Power BI Desktop
+behavior during model editing.
+
+### diagramLayout.json
+
+Stores visual diagram positions of tables and relationships in the model view.
+
+> **Limitation:** During preview, this file does NOT support external editing.
+> Changes must be made through Power BI Desktop's model diagram view.
+
+---
+
+## Copilot Folder
+
+Contains Prep for AI metadata and settings. All stored on the semantic model (not report).
+Configure via Home ribbon → "Prep data for AI" in Desktop or Service.
+
+```text
+Copilot/
+├── instructions/
+│   └── instructions.md          # AI instructions (business context, terminology)
+├── VerifiedAnswers/
+│   ├── definitions/
+│   │   └── {answer-id}/
+│   │       ├── definition.json   # Answer visual definition (PBIR format)
+│   │       ├── filters.json      # Applied filters
+│   │       └── visualSource.json # Visual source configuration
+│   └── version.json
+├── schema.json                   # AI data schema (selected tables/columns/measures + synonyms)
+├── settings.json                 # Top-level Copilot settings (Prepped for AI flag)
+├── examplePrompts.json           # Zero-prompt Copilot examples
+└── version.json                  # Feature file structure version tracker
+```
+
+**AI Instructions** (`instructions.md`): Domain-specific guidance for Copilot DAX generation.
+The DAX generation tool relies solely on semantic model metadata + Prep for AI configs —
+it ignores agent-level instructions. Example content:
+- "Revenue always means Net Revenue after discounts"
+- "Fiscal year starts in April"
+- "Regional hierarchy: Country → State → City"
+
+**AI Data Schema** (`schema.json`): Focused subset of tables/columns/measures Copilot
+prioritizes. Reduces ambiguity, improves accuracy, reduces response latency.
+Deselect relationship IDs, sort-by columns, and unused technical fields.
+
+**Verified Answers** (`VerifiedAnswers/`): Map trigger phrases to specific visuals.
+Stored in PBIR format. Each answer has its own folder under `definitions/`.
+
+---
+
+## DAXQueries Folder
+
+Saved DAX query tabs from the DAX Query View. Each tab is stored as a `.dax` file.
+Editor settings (default tab, tab order) stored in `.pbi/daxQueries.json`.
+
+These files are committed to Git — useful for sharing validation queries,
+performance testing queries, or documentation queries across the team.
+
+---
+
+## TMDLScripts Folder
+
+Saved TMDL script tabs from the TMDL View. Each tab is stored as a `.tmdl` file.
+Editor settings stored in `.pbi/tmdlscripts.json`.
+
+---
+
+## TMDL Definition Files
 
 ### database.tmdl
 
@@ -61,9 +186,7 @@ database
 
 The `compatibilityLevel` value is typically `1550` (standard) or `1600` (Fabric/DirectLake).
 
----
-
-## Model Definition (model.tmdl)
+### model.tmdl
 
 ```tmdl
 model Model

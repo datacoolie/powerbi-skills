@@ -556,3 +556,131 @@ RETURN
 scenarios but require the tabular model to be at compatibility level 1601+
 (December 2022+). For maximum backwards compatibility, use the traditional
 patterns. For new models, prefer window functions when they simplify the logic.
+
+---
+
+## RANK and ROWNUMBER
+
+### ROWNUMBER — Assign Sequential Position
+
+Returns 1-based row number within the specified relation (no ties handling).
+
+```dax
+-- Sequential row number by sales descending
+Sales Row# =
+ROWNUMBER(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC)
+)
+
+-- Row number partitioned by category
+Row# in Category =
+ROWNUMBER(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC),
+    PARTITIONBY(DimProduct[Category])
+)
+```
+
+**Syntax:** `ROWNUMBER([relation[, orderBy[, blanks[, partitionBy[, matchBy]]]]])`
+
+### RANK — Assign Rank with Tie Handling
+
+Returns rank (ties get same rank, next rank is skipped — "1224" pattern).
+
+```dax
+-- Dense rank by sales (default ties = Skip)
+Sales Rank =
+RANK(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC)
+)
+
+-- Dense rank (ties = Dense → "1223" pattern, no gap)
+Sales Rank Dense =
+RANK(
+    DENSE,
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC)
+)
+
+-- Rank within each region
+Regional Rank =
+RANK(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC),
+    PARTITIONBY(DimGeography[Region])
+)
+```
+
+**Syntax:** `RANK([ties,] relation, orderBy[, blanks[, partitionBy[, matchBy]]])`
+
+- `ties`: `SKIP` (default, competition rank) or `DENSE` (no gaps)
+
+### Top N Filtering with RANK
+
+```dax
+-- Show only top 5 products
+Is Top 5 = RANK(ALLSELECTED(DimProduct[ProductName]), ORDERBY([Total Sales], DESC)) <= 5
+
+-- Use in visual filter or CALCULATE
+Top 5 Sales =
+VAR _rank =
+    RANK(
+        ALLSELECTED(DimProduct[ProductName]),
+        ORDERBY([Total Sales], DESC)
+    )
+RETURN IF(_rank <= 5, [Total Sales])
+```
+
+### RANK vs RANKX — When to Use Which
+
+| Feature | RANK (2022+) | RANKX (legacy) |
+|---|---|---|
+| Partitioning | Built-in PARTITIONBY | Manual nested iterators |
+| Dense rank | DENSE parameter | Additional logic needed |
+| Readability | Declarative | Imperative / harder to read |
+| Performance | Optimized by engine | Can be slow on large tables |
+| Compatibility | 1601+ models only | All models |
+
+**Guidance:** Use RANK for new models. Keep RANKX only for backward compatibility
+or when you need custom tie-breaking logic RANK cannot express.
+
+---
+
+### RANK and ROWNUMBER — Modern Ranking Functions
+
+Since compatibility level 1601+, use `RANK` and `ROWNUMBER` instead of
+COUNTROWS + FILTER patterns for ranking.
+
+```dax
+-- Dense rank by sales (ties get same rank)
+Product Rank =
+RANK(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC)
+)
+
+-- Sequential row number (no ties — deterministic with tiebreaker)
+Product Row# =
+ROWNUMBER(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC, DimProduct[ProductName], ASC)
+)
+
+-- Rank within partition (e.g., rank within each category)
+Rank in Category =
+RANK(
+    ALLSELECTED(DimProduct[ProductName]),
+    ORDERBY([Total Sales], DESC),
+    PARTITIONBY(DimProduct[Category])
+)
+```
+
+**When to use which:**
+
+| Function | Ties | Use Case |
+|---|---|---|
+| `RANK` | Same rank for ties | Leaderboards, Top N filters |
+| `ROWNUMBER` | No ties (deterministic) | Row numbering, pagination |
+| COUNTROWS + FILTER (legacy) | Custom tie logic | Backward compatibility only |

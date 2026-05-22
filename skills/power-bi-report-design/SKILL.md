@@ -71,161 +71,24 @@ one matching the current phase.
 | `../power-bi-pbip-report/references/mobile-layout.md` | Mobile design rules, auto-create, minimum visual sizes, formatting, slicer behavior, limitations |
 | `../power-bi-pbip-report/references/themes/*.json` | Ready-to-use custom theme files (8 industries) — canonical source |
 
-## Design Workflow
+## Design Workflow (Summary)
 
-### Step 1: Understand the Audience and Purpose
+The full workflow is driven by the **Strategist** role (`references/strategist.md`).
+Each step below links to the detailed reference — load the reference, don't re-derive.
 
-Before choosing any chart, answer these questions (from Knaflic's "Storytelling with Data"):
-
-```
-Pre-Design Questions:
-□ WHO is the audience? (Executive, Analyst, Operational user)
-□ WHAT decisions will this report support?
-□ What is the BIG IDEA — one sentence that captures the main insight?
-□ What ACTION should the audience take after seeing this report?
-```
-
-Read `references/visual-design-principles.md` → Audience Design Guide for audience-specific
-density, interaction, and update frequency guidance.
-
-### Step 2: Plan Page Structure
-
-Determine the pages needed. Every report starts with an Overview page.
-
-```
-Page Planning Template:
-| Page | Type | Purpose | Key Visuals |
-|------|------|---------|-------------|
-| Overview | Normal | Landing — headline KPIs + top trends | KPI cards, hero trend line, Top-N bar |
-| [Domain] Analysis | Normal | Deep dive into [domain] | Breakdown charts, matrix |
-| [Entity] Detail | Drillthrough | Single-entity detail | Cards, table, mini trend |
-| [Entity] Tooltip | Tooltip | Hover context | 2-3 compact visuals |
-```
-
-For industry-specific page sets, read `references/domain-report-structures.md`.
-For layout starting points, read `references/page-layout-templates.md`.
-
-### Step 3: Select Chart Types
-
-Start from the **analytical task**, not from a chart name. Read
-`references/chart-selection-guide.md` for the full decision matrix.
-
-Quick decision tree:
-
-```
-What is the analytical task?
-├── Compare categories     → Horizontal bar chart (sorted desc)
-├── Show trend over time   → Line chart
-├── Show parts of whole    → Stacked bar or treemap
-├── Show distribution      → Histogram or box plot
-├── Show correlation       → Scatter chart
-├── Show geographic data   → Filled map or Azure map
-├── Show flow / pipeline   → Funnel, Sankey (custom visual)
-├── Show ranking changes   → Ribbon chart
-└── Show single KPI value  → Card or KPI visual
-```
-
-**Hard rules:**
-- Bar charts beat pie charts for comparison (human eye reads length > angle)
-- Line charts require a continuous axis (time or sequential numeric)
-- Limit pie/donut to ≤ 5 slices (merge the rest into "Other")
-- Maximum 6-8 non-slicer visuals per page (more causes performance and cognitive overload)
-- Dual-axis charts only when the two series are genuinely related and need different scales
-
-### Step 4: Design Layout and Positioning
-
-Follow Kirk's 5-layer design process (read `references/visual-design-principles.md`):
-
-1. **Data Representation** — Choose the encoding (Layer 1 = chart types from Step 3)
-2. **Interactivity** — Decide slicers, drillthrough, cross-filtering, bookmarks
-3. **Annotation** — Titles, subtitles, direct labels, reference lines, callouts
-4. **Color** — Start gray, add ONE accent for the insight, then category/magnitude hues
-5. **Composition** — Z-pattern flow, KPIs at top, hero visual below, filters at left/top
-
-Layout rules:
-- **Z-pattern reading flow**: top-left (headline) → top-right → bottom-left → bottom-right
-  — Best for **executive dashboards** and overview pages with distinct visual blocks
-- **F-pattern reading flow**: top (full-width header) → left column scan → selective right reads
-  — Best for **text-heavy analytical pages**, tables/matrices, and detail pages where users scan
-  down the left side for labels then read right for values
-- **KPI row** at the top: 3-6 card visuals showing the most important numbers
-- **Hero visual** immediately below the KPI row: the largest chart on the page
-- **Supporting visuals** fill the remaining space in a balanced grid
-- **Slicers**: left sidebar (vertical) or top strip (horizontal)
-- **White space**: separate logical groups using proximity (Gestalt principle)
-
-**Data-Ink Ratio** (Tufte principle): Maximize the share of ink devoted to data.
-- Remove chart borders, gridlines, and axis lines that don't aid comprehension
-- Use direct labels instead of legends when ≤ 5 series
-- Remove unnecessary background fills (set to transparent)
-- Hide field headers on slicers when the title is sufficient
-
-Canvas: **1664 × 936** (standard). Tooltip pages: **320 × 240**.
-
-**Mobile Design Decision:**
-- **Design mobile layout** when ≥ 30% of audience uses phone/tablet (ask stakeholders)
-- **Desktop-only** is acceptable for internal analyst reports viewed on desktops
-- For mobile: prioritize KPI cards + 1-2 key visuals per page; hide complex matrices
-- See `../power-bi-pbip-report/references/mobile-layout.md` for generation details
-
-### Step 5: Choose Theme and Colors
-
-Read `references/theme-colors.md` for the full theme architecture.
-
-Decision process:
-1. Check if the client has brand colors → build a custom theme
-2. If no brand → pick an industry-appropriate theme from `references/themes/`
-3. Ensure accessible contrast (4.5:1 minimum for text)
-4. Test with colorblind simulation (avoid red/green as the only differentiator)
-
-Available industry themes:
-| Theme File | Industry |
-|---|---|
-| `themes/sales-revenue.json` | Sales & Revenue |
-| `themes/manufacturing-operations.json` | Manufacturing & Operations |
-| `themes/corporate-financial.json` | Corporate / Financial |
-| `themes/supply-chain-logistics.json` | Supply Chain & Logistics |
-| `themes/retail-consumer.json` | Retail / Consumer |
-| `themes/healthcare-pharma.json` | Healthcare & Pharma |
-| `themes/sustainability-esg.json` | Sustainability / ESG |
-| `themes/technology-it.json` | Technology / IT |
-
-### Step 6: Plan Navigation
-
-Choose a navigation pattern based on report complexity:
-
-| Report Size | Navigation Pattern | Reference |
+| Step | Action | Primary Reference |
 |---|---|---|
-| 1-3 pages | No explicit navigation — default tab strip | — |
-| 4-8 pages | Page navigator visual or button bar | `references/navigation-patterns.md` |
-| 9+ pages | Bookmark-based tab groups + landing page | `references/navigation-patterns.md` |
+| 1. Audience & Purpose | Five-question intake (WHO, WHAT, BIG IDEA, ACTION, STYLE) | `references/strategist.md` Step 1 + `references/visual-design-principles.md` |
+| 2. Page Structure | Select pages by domain + page type | `references/domain-report-structures.md` + `references/page-layout-templates.md` |
+| 3. Chart Selection | Start from analytical task → pick chart → pick recipe | `references/chart-selection-guide.md` + `references/visual-vocabulary.md` |
+| 4. Layout & Positioning | Kirk's 5-layer process; Z/F-pattern; canvas 1664×936 | `references/visual-design-principles.md` + `references/layouts/` |
+| 5. Theme & Colors | Brand or industry palette; 60/30/10 rule; 4.5:1 contrast | `references/theme-colors.md` + `references/shared-standards.md` §3 |
+| 6. Navigation & Filters | Pattern selection + slicer recipe binding | `references/navigation-patterns.md` + `references/slicer-filter-patterns.md` + `references/slicer-patterns/` |
+| 7. Mobile Layout | Auto-create as starting point; refine for touch/single-column | `../power-bi-pbip-report/references/mobile-layout.md` |
+| 8. Produce Design Spec | Fill all 11 sections of the contract template | `references/design-spec-reference.md` |
 
-Also decide:
-- Which pages need **drillthrough** (detail pages accessed from summary visuals)
-- Which visuals need **report page tooltips** (hover cards for extra context)
-- Whether **reset filters** button is needed (recommended for 3+ slicers)
-- Whether **back button** is needed on drillthrough pages (always yes)
-- **Slicer & filter design** — scope, type, sync groups, cross-filter vs. highlight, defaults, pane visibility, RLS interaction → decision guide `references/slicer-filter-patterns.md`; composition recipes `references/slicer-patterns/` (14 recipes, see `slicer-patterns/README.md`)
-
-### Step 7: Produce the Design Spec
-
-Compile all decisions into a structured Design Spec. This is the handoff artifact
-for the `power-bi-pbip-report` skill.
-
-```
-Design Spec Structure:
-═══════════════════════════════════════════
-REPORT DESIGN SPEC: [Report Name]
-═══════════════════════════════════════════
-
-## Audience & Purpose
-- Primary audience: [role]
-- Key decisions supported: [list]
-- Big Idea: [one sentence]
-
-## Theme
-...
-```
+> **Hard rules** (no pie>5, no 3D, no rainbow, max visuals/page) are defined
+> authoritatively in `references/shared-standards.md` §1. All roles load that file first.
 
 ## Related Skills
 
@@ -236,41 +99,6 @@ REPORT DESIGN SPEC: [Report Name]
 | `power-bi-business-analysis` | Upstream (Phase 1) | Page plan, audience, KPIs, and domain from requirements |
 | `power-bi-performance-troubleshooting` | Cross-cutting | Report-level optimization (visual count, slicer design, query reduction) |
 | `power-bi-feedback-iteration` | Loop-back | Chart/layout redesign feedback routes through this skill |
-- Theme file: [path or "custom"]
-- Brand colors: [hex codes if custom]
-
-## Pages
-### Page 1: [page-name] (Overview)
-- Layout template: [from page-layout-templates.md]
-- Visuals:
-  | Visual Name | Type | Data (Table.Column/Measure) | Position |
-  |-------------|------|----------------------------|----------|
-  | card-kpi-revenue | card | _Measures.Total Revenue | top-left |
-  | lineChart-monthly-trend | lineChart | DimDate.Month, _Measures.Total Revenue | center |
-  | ... | ... | ... | ... |
-- Slicers: [date range, category, ...]
-- Interactions: [cross-filter / cross-highlight rules]
-
-### Page 2: [page-name] (Detail)
-[same structure]
-
-### Page N: [page-name] (Drillthrough)
-- Drillthrough field: [Table.Column]
-[same structure]
-
-## Navigation
-- Pattern: [tab strip / page navigator / bookmarks]
-- Drillthrough: [list source → target pages]
-- Tooltips: [list visual → tooltip page]
-- Reset filters: [yes/no]
-
-## Notes
-- [any special requirements, constraints, deviations]
-═══════════════════════════════════════════
-```
-
-The `power-bi-pbip-report` skill uses this spec to generate all PBIR JSON files
-without re-making design decisions.
 
 ---
 

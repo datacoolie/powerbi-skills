@@ -94,29 +94,11 @@ Additional columns:
 
 ## 6. Performance Validation
 
-VertiPaq compression is driven by column cardinality. Prioritize checks in this order:
+VertiPaq compression optimization is critical for model size and query speed.
+Validate column cardinality, encoding types, and model size against capacity limits.
 
-```
-Priority 1 — Reduce cardinality (biggest compression impact):
-□ Remove unused columns entirely (not just hidden — hidden still consume memory)
-□ Split DateTime columns into Date + Time (DateTime has high cardinality as a key)
-□ Round decimal measures to business-needed precision (fewer distinct values)
-□ Group rare categories into an "Other" bucket where possible
-□ Bin continuous numeric values (e.g., price ranges) for dimension use
-
-Priority 2 — Use optimal types:
-□ Int64 keys, not Text (value encoding vs. hash encoding — directly affects speed)
-□ DATE type for date columns, not DATETIME (strips time component)
-□ No calculated columns on large fact tables (blocks RLE compression)
-□ Prefer Power Query transformations over calculated columns
-
-Priority 3 — Model-level checks:
-□ Model size is within capacity limits (< 1GB shared, < 10GB Premium)
-□ Aggregation tables present for very large models (>100M rows)
-□ Incremental refresh configured for growing fact tables
-□ Storage modes are appropriate per table (see storage-mode-decision.md)
-□ See references/vertipaq-optimization.md for deep-dive guidance
-```
+**Full optimization guide** with encoding rules, cardinality reduction strategies,
+relationship key design, and model size targets → `vertipaq-optimization.md`
 
 ## 7. Security Validation
 

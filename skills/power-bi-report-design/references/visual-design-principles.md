@@ -549,6 +549,10 @@ reports for accessibility.
 
 ### Accessibility Checklist (Run Before Publishing)
 
+> **Binding version:** [`shared-standards.md`](shared-standards.md) §5 defines the
+> mandatory accessibility checklist that blocks sign-off. The list below is the expanded
+> rationale-rich version for design reference.
+
 - [ ] Alt text on all non-decorative visuals
 - [ ] Tab order set; decorative items hidden from tab order
 - [ ] Color is NOT the only way information is conveyed (use text, icons, markers)

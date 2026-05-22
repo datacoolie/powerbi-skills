@@ -76,6 +76,12 @@ For every unique visual type the report will use:
 - Adding a gap entry to §11 Backlog **and** to the backlog section of
   [`visual-vocabulary.md`](visual-vocabulary.md), then using the closest-match recipe as a starting point.
 
+**Visual calculations (Preview).** For presentation-layer calculations (running totals,
+% of total, rankings) that don't need to be shared across visuals or reports, consider
+using visual calculations instead of model measures. Note in §5 whether a binding uses
+a visual calculation vs. a model measure. Do NOT use visual calculations for measures
+that appear in multiple visuals or need RLS/aggregation awareness.
+
 ### Step 5 — Select Theme
 
 1. Read [`theme-colors.md`](theme-colors.md) for the palette-selection principles and the 21-theme catalog, then open `themes/themes-index.json` for a matching industry theme

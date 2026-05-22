@@ -125,19 +125,9 @@ Identify standard KPIs and analyses for the domain.
 → **Read [domain-kpi-templates.md](references/domain-kpi-templates.md)** — find the
 matching section for your domain and lift the KPI table, dimensions, and analyses.
 
-**Domain index** (pick one; see reference file for full KPI tables with DAX patterns):
-
-| Domain | Typical audience | Hero metrics |
-|---|---|---|
-| Sales & Revenue | Sales ops, execs | Revenue, Growth YoY, AOV, Win Rate |
-| FMCG | Brand/category mgrs | Net Revenue, Market Share, Trade ROI, OOS Rate |
-| Manufacturing | Plant managers | OEE, Defect Rate, Downtime, Throughput |
-| Supply Chain | Logistics / S&OP | OTIF, Inventory Turnover, Fill Rate, Supplier Score |
-| Financial / P&L | CFO, controllers | Revenue, Gross Margin, EBITDA, Budget Variance |
-| Retail | Store ops, merch | Sales/sqft, Basket Size, Same-Store Growth, Conversion |
-| Procurement | Sourcing, category mgrs | Spend by category, Savings, PO Cycle Time, Maverick % |
-| Healthcare / Pharma | Ops, clinical | Patient volume, Readmission, Avg LOS, Drug utilization |
-| Technology / IT | IT ops, SRE | Uptime, MTTR, Ticket volume, Cost per user |
+Domains covered: Sales & Revenue, FMCG, Manufacturing, Supply Chain, Financial/P&L,
+Retail, Procurement, Healthcare/Pharma, Technology/IT. Customize based on stakeholder
+interview answers (questions 8–10).
 
 Storytelling principles (pre-attentive attributes, narrative structure) live in
 the `power-bi-report-design` skill at
@@ -155,14 +145,11 @@ for archetype-specific page flows, canvas sizing, and navigation patterns.
 
 ### Page plan
 
-Every report follows this universal layered progression:
+→ **Read [information-architecture-patterns.md](references/information-architecture-patterns.md)**
+for the universal 4-layer progression and archetype-specific page flows.
 
-1. **Overview** (Layer 1) — "How are we doing?" 3–5 KPI cards, hero trend visual
-2. **Analysis** (Layer 2, 1–3 pages) — "Why is it happening?" broken down by key dimensions
-3. **Detail / Drillthrough** (Layer 3, hidden) — "Show me the rows"
-4. **Tooltip pages** (Layer 4, optional) — "More info on hover"
-
-Minimum viable report = Layers 1 + 3. Full analytical report = all four layers.
+**Minimum viable report** = Overview (Layer 1) + Detail drillthrough (Layer 3).
+Full analytical report = all four layers (Overview → Analysis → Detail → Tooltip).
 For archetype-specific page counts and flows, use the reference file's diagrams.
 
 ### Filter requirements (not design)
@@ -206,6 +193,11 @@ The template's §5 Measure Inventory is the direct input to the
 `power-bi-dax-development` skill — name each measure, its pattern, dependencies,
 and priority.
 
+**Note:** For quick iterations, measures and relationships can be edited directly
+in the Power BI Service (web). Only complex model changes (partitions, M queries,
+custom columns with complex logic) require Desktop. Specify which changes can be
+service-side for faster turnaround.
+
 ### Handoff to Phase 2
 
 The Phase 1 → Phase 2 transition emits a handoff JSON conforming to
@@ -247,33 +239,10 @@ iterate within Step 4.
 
 ---
 
-## Worked Example — FMCG Trade Analytics (Executive)
+## Worked Example
 
-A one-page trace of the four Steps for a realistic brief:
-
-> *"Our brand managers need to see how our trade-promotion spend is paying off
-> across modern trade vs. general trade, by brand and by month."*
-
-**Step 1 — Context**
-- WHO: 8 brand managers + 2 commercial directors; data literacy 3; weekly cadence; desktop primary, mobile secondary
-- WHAT: decide where to reallocate trade budget next quarter; Big-Idea = *"Trade ROI is highest in MT-Premium; shift 15% spend from GT-Mass by Q3"*; success = ≤ 2 hrs to assemble monthly review
-- HOW: data in gold lakehouse (`gold.FactTradeSpend`, `gold.FactSales`, `gold.DimBrand`); daily grain; 36 months history; RLS by region
-- **Archetype:** Analytical (managers + drill-down), leaning Executive at overview page
-
-**Step 2 — Domain** (FMCG row from the index → [domain-kpi-templates.md §FMCG](references/domain-kpi-templates.md))
-- Must-have KPIs: Net Revenue, Gross Margin %, Trade Spend ROI, Promotion Uplift, Market Share
-- Nice-to-have: OOS Rate, Distribution Coverage
-- Dimensions: Date, Brand, Channel (MT/GT/e-com), Promotion, Geography
-
-**Step 3 — IA + Gaps**
-- Page plan: Overview → Trade ROI by Channel → Brand Deep-dive → Promotion Post-mortem → Detail drillthrough (5 pages)
-- Gap analysis: Market Share is ❌ (no Nielsen feed) → demote to backlog, keep 4 must-haves. Uplift is ⚠️ (baseline calculation needs 12-week pre-period assumption — document in §4)
-
-**Step 4 — Output**
-- Requirements Document filled; §5 Measure Inventory has 14 measures (4 base + 6 time-intel + 4 ratios)
-- Handoff JSON emitted with `from_phase: "phase-1"`; validator passes
-- User approves after one round of feedback (requested merging "Brand Deep-dive" + "Promotion Post-mortem" into a single page → updated §3)
-- **Exit criteria: all 8 checkboxes satisfied → proceed to Phase 2**
+→ **Read [worked-example-fmcg.md](references/worked-example-fmcg.md)** for a complete
+trace of the four Steps applied to a realistic FMCG Trade Analytics brief.
 
 ---
 

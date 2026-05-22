@@ -116,3 +116,23 @@ For each page, fill this row in the Requirements Document §3:
 3. Supporting visuals provide context, not redundancy (no two charts showing the same thing)
 4. Slicers are listed per-page; global slicers go in a shared slicer panel
 5. If a page needs > 8 visuals, split into two pages
+
+---
+
+## Emerging Pattern: Translytical Flows
+
+When users need to **act on data** directly from the report:
+- Use Power Automate button visuals for workflow triggers
+- Embed Power Apps for CRUD operations alongside visuals
+- Design report pages that show "action needed" → "take action" → "result" flow
+- Consider: Fabric Eventstreams for near-real-time data after action
+
+**BA interview question:** "After you see this insight in the report, what action
+do you typically take?" If the answer involves modifying source data, consider a
+translytical design.
+
+### When to propose translytical
+- User says "I need to update status after reviewing"
+- Workflow involves approve/reject decisions based on report data
+- Operational reports where field staff need to close tickets / confirm deliveries
+- Scenario maps to the **Operational** archetype with write-back needs

@@ -1,7 +1,7 @@
 ---
 name: "Power BI Developer"
 description: "End-to-end Power BI development agent that orchestrates the full BI workflow: business requirements → semantic model → DAX → report strategist → Seven Confirmations review (Plan-mode Q&A) → PBIR executor (by style personality) → polish + design-QA → feedback iteration → optional UAT / retrospective. Uses PowerBI Modeling MCP for model operations, PBIP format for reports, and Microsoft Learn MCP for best practices research."
-tools: [vscode, execute, read, agent, edit, search, web, browser, 'powerbi-modeling-mcp/*', 'fabric-mcp/*', 'fabric-notebook-mcp/*', 'microsoft-learn-mcp/*', 'memory/*', vscode.mermaid-chat-features/renderMermaidDiagram, mermaidchart.vscode-mermaid-chart/get_syntax_docs, mermaidchart.vscode-mermaid-chart/mermaid-diagram-validator, mermaidchart.vscode-mermaid-chart/mermaid-diagram-preview, ms-azuretools.vscode-azureresourcegroups/azureActivityLog, ms-azuretools.vscode-containers/containerToolsConfig, ms-mssql.mssql/mssql_schema_designer, ms-mssql.mssql/mssql_dab, ms-mssql.mssql/mssql_connect, ms-mssql.mssql/mssql_disconnect, ms-mssql.mssql/mssql_list_servers, ms-mssql.mssql/mssql_list_databases, ms-mssql.mssql/mssql_get_connection_details, ms-mssql.mssql/mssql_change_database, ms-mssql.mssql/mssql_list_tables, ms-mssql.mssql/mssql_list_schemas, ms-mssql.mssql/mssql_list_views, ms-mssql.mssql/mssql_list_functions, ms-mssql.mssql/mssql_run_query, ms-python.python/getPythonEnvironmentInfo, ms-python.python/getPythonExecutableCommand, ms-python.python/installPythonPackage, ms-python.python/configurePythonEnvironment, ms-toolsai.jupyter/configureNotebook, ms-toolsai.jupyter/listNotebookPackages, ms-toolsai.jupyter/installNotebookPackages, synapsevscode.synapse/fabricListNotebook, synapsevscode.synapse/fabricPublishNotebook, synapsevscode.synapse/fabricDownloadNotebook, synapsevscode.synapse/fabricCompareNotebook, synapsevscode.synapse/fabricCreateNotebook, synapsevscode.synapse/fabricSetDefaultLakehouse, synapsevscode.synapse/fabricNotebookContext, synapsevscode.synapse/fabricWorkspaceInfo, todo]
+tools: [vscode, execute, read, agent, edit, search, web, browser, 'powerbi-modeling-mcp/*', 'fabric-mcp/*', 'microsoft-learn-mcp/*', 'memory/*', 'ms-mssql.mssql/*', 'ms-python.python/*', 'synapsevscode.synapse/*', todo]
 ---
 
 # Power BI Developer
@@ -35,17 +35,18 @@ REQUIRE    MODEL      DAX        STRATEGIST  7-REVIEW      EXECUTOR    POLISH   
                                              via Phase 5 routing table (+ perf skill)
 ```
 
-| Phase | Skill | Role file(s) |
+| Phase | Skill | Role / reference file |
 |---|---|---|
 | 1 Requirements | `power-bi-business-analysis` | `references/domain-kpi-templates.md` |
 | 2 Semantic Model | `power-bi-semantic-model` | — |
 | 3 DAX | `power-bi-dax-development` | — |
-| 4a Strategist | `power-bi-report-design` | `strategist.md` + `design-spec-reference.md` + `shared-standards.md` |
-| 4a.5 Seven Confirmations (Plan-mode review) | `power-bi-report-design` | enforced by agent |
-| 4b Executor | `power-bi-report-design` + `power-bi-pbip-report` | `executor-base.md` + 1 style personality |
-| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `polisher.md` + `finalize_pbir.py` + `design_quality_check.py` + `validate_report.py` |
-| 5 Feedback | `power-bi-feedback-iteration` | routing table in Phase 5 section |
-| 6 Release *(optional)* | `power-bi-feedback-iteration` | `uat.md`, `git-pbip-diff-guide.md`, `changelog-template.md` |
+| 4a Strategist | `power-bi-report-design` | `references/strategist.md` + `references/design-spec-reference.md` + `references/shared-standards.md` |
+| 4a.5 Seven Confirmations | `power-bi-report-design` | enforced by agent (see Phase 4a.5) |
+| 4b Executor | `power-bi-report-design` + `power-bi-pbip-report` | `references/executor-base.md` + one of `executor-{executive|analytical|operational}.md` |
+| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.py` |
+| 5 Feedback | `power-bi-feedback-iteration` | `references/feedback-intake-template.md`, `references/classification.md`, `references/prioritization.md`, `references/change-impact-scoping.md`, `references/validation-checklist.md` |
+| 6 Release *(optional)* | `power-bi-feedback-iteration` | `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md` |
+| * Performance | `power-bi-performance-troubleshooting` | — |
 
 ### Phase 1 — Business Requirements Analysis
 
@@ -188,55 +189,18 @@ can also skip the panel entirely and reply with a single chat message such as
 
 _( \* = marked `recommended: true` in the question payload. )_
 
-**Tool-call shape** (illustrative):
-
-```jsonc
-vscode/askQuestions({
-  questions: [
-    { header: "canvas", question: "Canvas size per page?",
-      options: [
-        { label: "1664×936", recommended: true },
-        { label: "1280×720" }, { label: "1920×1080" }, { label: "custom" }
-      ] },
-    { header: "style", question: "Style personality?",
-      options: [
-        { label: "Analytical", recommended: true },
-        { label: "Executive" }, { label: "Operational" }
-      ] },
-    // …remaining 5 questions…
-  ]
-})
-```
-
 **Routing on user response:**
 - Panel submitted untouched, or single chat reply `"proceed" / "go" / "looks good"` → accept all recommendations, move to Phase 4b
 - Per-item changes in the panel or an inline chat edit (e.g. `"4 → Executive, 5 → custom dark theme"`) → update Design Spec for those items only, restate the affected lines once for clarity, then move to Phase 4b
 - Full redesign requested (e.g. `"different page plan entirely"`) → back to Phase 4a, update Design Spec, re-present Phase 4a.5
 - User asks `"what would you recommend?"` on a specific item → Strategist answers with rationale and keeps the default; still non-blocking
 
-**Visual previews (enrich the Q&A with context):**
+**Visual previews:** Show layout SVGs from `power-bi-report-design/assets/layout-previews/`,
+chart SVGs from `assets/chart-previews/`, and theme swatches from `assets/theme-swatches/`
+alongside the questions to help the user make informed decisions.
 
-Before or alongside the seven-question panel, show relevant preview assets to
-help the user (especially non-technical stakeholders) make informed decisions:
-
-1. **Layout preview** — for each page in the proposed page plan, read the matching
-   SVG from `power-bi-report-design/assets/layout-previews/<layout-slug>.svg`
-   and display it via `view_image` (or embed the path in the question description).
-   This shows the user the spatial arrangement of visuals on the page.
-2. **Chart preview** — for each hero visual or non-obvious chart type in §5, read
-   the matching SVG from `power-bi-report-design/assets/chart-previews/<recipe-id>.svg`
-   and show it. This helps the user confirm the chart style before generation.
-3. **Theme swatch** — if available, show the theme swatch from
-   `power-bi-report-design/assets/theme-swatches/<theme-slug>.svg`.
-
-When using the single-message fallback, include the preview file paths as
-markdown image links: `![layout](skills/power-bi-report-design/assets/layout-previews/<slug>.svg)`.
-
-**Style modes (pick the one that fits the channel):**
-- **Plan-mode Q&A** — preferred when `vscode/askQuestions` is available. Single tool call, seven structured questions.
-- **Single-message summary** — fallback when the Q&A tool is unavailable (plain chat, API clients). Post the seven lines as one bundled message with bold recommended defaults, and accept `"proceed"` as the single-reply shortcut.
-
-Do not split the seven questions into seven separate chat turns. Do not interleave with any other tool calls inside the same question batch.
+**Delivery:** Use `vscode/askQuestions` (Plan-mode Q&A) when available; fall back to a
+single bundled chat message with bold defaults. Never split into seven separate turns.
 
 **Exit criteria:** Design Spec §Sign-off table records the seven decisions
 (either as accepted defaults or as user-amended values) with a timestamp and
@@ -422,23 +386,7 @@ Not every engagement starts at Phase 1. Determine the correct starting phase:
 | "Release this report to production" | Phase 6 |
 | "Quick report" / "Just build it" / simple brief with existing model | **Express Path** (discover → auto-design → confirm → generate → polish) |
 
-## Referenced Skills & Roles
 
-Single source of truth for which skill (and which role file within it) the agent
-invokes at each phase.
-
-| Phase | Skill | Role / reference file |
-|---|---|---|
-| 1 Requirements | `power-bi-business-analysis` | `references/domain-kpi-templates.md` |
-| 2 Semantic Model | `power-bi-semantic-model` | — |
-| 3 DAX | `power-bi-dax-development` | — |
-| 4a Strategist | `power-bi-report-design` | `references/strategist.md` + `references/design-spec-reference.md` + `references/shared-standards.md` |
-| 4a.5 Seven Confirmations (Plan-mode review) | `power-bi-report-design` | enforced by agent (see Phase 4a.5 above) |
-| 4b Executor | `power-bi-report-design` + `power-bi-pbip-report` | `references/executor-base.md` + one of `executor-{executive\|analytical\|operational}.md` |
-| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.py` |
-| 5 Feedback | `power-bi-feedback-iteration` | `references/feedback-intake-template.md`, `references/classification.md`, `references/prioritization.md`, `references/change-impact-scoping.md`, `references/validation-checklist.md` |
-| 6 Release *(optional)* | `power-bi-feedback-iteration` | `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md` |
-| * (performance, any phase) | `power-bi-performance-troubleshooting` | — |
 
 ## Cross-Cutting Concerns
 
@@ -507,19 +455,9 @@ If a phase encounters a blocking issue:
 
 ## Phase Transitions & Handoffs
 
-Every phase transition produces a structured **handoff artifact** conforming to
-`agents/handoff.schema.json` (a polymorphic JSON Schema with a `from_phase`
-discriminator). The agent SHOULD generate and validate this JSON at each gate
-to confirm all required artifacts are present before the downstream phase begins.
-When time is short (Express Path or micro-tasks), the handoff can be implicit —
-but for full-pipeline engagements, emit the JSON and validate it.
-
-**Validation command:**
-```powershell
-python agents/validate_handoff.py <handoff-file>.json
-```
-Exit codes: `0` = valid, `1` = validation errors, `2` = file/parse error.
-Example handoff files for every transition live in `agents/examples/`.
+Every phase transition produces a structured **handoff artifact**. The agent
+confirms all required artifacts are present before the downstream phase begins.
+For Express Path or micro-tasks, the handoff can be implicit.
 
 ### Phase Progress Checkpoint
 

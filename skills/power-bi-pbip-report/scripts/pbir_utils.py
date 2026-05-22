@@ -54,6 +54,24 @@ PRIMITIVE_VTYPES = frozenset({
 # Performance budget (shared-standards.md §8)
 REPORT_VISUAL_BUDGET = 60
 
+# All built-in visual types shipped with Power BI Desktop (no registration needed).
+BUILTIN_VISUAL_TYPES = frozenset({
+    "card", "cardVisual", "multiRowCard", "slicer",
+    "advancedSlicerVisual", "listSlicer", "textSlicer",
+    "clusteredBarChart", "clusteredColumnChart", "barChart", "columnChart",
+    "hundredPercentStackedBarChart", "hundredPercentStackedColumnChart",
+    "lineChart", "areaChart", "stackedAreaChart",
+    "lineClusteredColumnComboChart", "lineStackedColumnComboChart",
+    "waterfallChart", "treemap", "pieChart", "donutChart",
+    "pivotTable", "tableEx", "funnel",
+    "scatterChart", "map", "filledMap", "shapeMap", "azureMap",
+    "gauge", "kpi", "ribbonChart", "decompositionTreeVisual",
+    "keyInfluencersVisual", "qnaVisual",
+    "shape", "basicShape", "textbox", "actionButton", "image",
+    "pageNavigator", "bookmarkNavigator",
+    "scriptVisual", "pythonVisual",
+})
+
 
 # ── JSON I/O ──────────────────────────────────────────────────
 

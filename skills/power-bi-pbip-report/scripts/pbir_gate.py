@@ -6,7 +6,8 @@ Runs the full polish + lint + schema chain and returns ONE pass/fail verdict:
 
     1. finalize_pbir.py        (mechanical polish — grid, KPI row, theme tokens, fonts, alt text)
     2. design_quality_check.py (design lint rules, style-aware)
-    3. validate_report.py      (Microsoft JSON-schema validation + structural cross-ref checks)
+    3. validate_report.py      (structural cross-ref checks + naming conventions)
+    4. validate_schemas.py     (proactive JSON-schema validation for ALL components)
 
 All stages are imported and called directly (no subprocess overhead).
 
@@ -99,6 +100,7 @@ def stage_lint(report: Path, style: str, skip: bool) -> tuple[StageResult, int, 
     try:
         from design_quality_check import (
             LintReport,
+            _clear_cache,
             check_visual_counts,
             check_drillthrough_back_button,
             check_pie_slices,
@@ -116,6 +118,7 @@ def stage_lint(report: Path, style: str, skip: bool) -> tuple[StageResult, int, 
             write_report,
         )
 
+        _clear_cache()
         lint = LintReport()
         check_visual_counts(report, style, lint)
         check_drillthrough_back_button(report, lint)
@@ -166,6 +169,28 @@ def stage_validate(report: Path, skip: bool) -> StageResult:
         return StageResult(name="validate_report", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2))
 
 
+def stage_schemas(report: Path, skip: bool) -> StageResult:
+    """Proactive JSON-schema validation for all PBIR components."""
+    if skip:
+        return StageResult(name="validate_schemas", ok=True, skipped=True, summary="skipped by flag")
+
+    t0 = time.monotonic()
+    try:
+        from validate_schemas import validate_report_folder
+
+        result = validate_report_folder(report, offline=True)
+        elapsed = time.monotonic() - t0
+        n_err = len(result.errors)
+        n_validated = result.validated
+        n_skipped = result.skipped
+        ok = n_err == 0
+        summary = f"errors={n_err}, validated={n_validated}, skipped={n_skipped}"
+        return StageResult(name="validate_schemas", ok=ok, summary=summary, duration_s=round(elapsed, 2))
+    except Exception as exc:
+        elapsed = time.monotonic() - t0
+        return StageResult(name="validate_schemas", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Single-command Phase 4c gate: finalize + lint + schema-validate.",
@@ -182,7 +207,8 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="Run finalize without writing changes")
     parser.add_argument("--skip-finalize", action="store_true", help="Skip finalize_pbir stage")
     parser.add_argument("--skip-lint", action="store_true", help="Skip design_quality_check stage")
-    parser.add_argument("--skip-validate", action="store_true", help="Skip schema-validate stage")
+    parser.add_argument("--skip-validate", action="store_true", help="Skip structural-validate stage")
+    parser.add_argument("--skip-schemas", action="store_true", help="Skip proactive schema-validation stage")
     parser.add_argument("--allow-warnings", action="store_true", help="Gate passes even with lint warnings")
     parser.add_argument("--json", type=Path, default=None, help="Write JSON verdict to this path")
     parser.add_argument("--verbose", action="store_true", help="Show debug details")
@@ -221,11 +247,15 @@ def main() -> int:
     s3 = stage_validate(args.report, args.skip_validate)
     verdict.stages.append(s3)
 
+    # ── Stage 4: schema validation ──
+    s4 = stage_schemas(args.report, args.skip_schemas)
+    verdict.stages.append(s4)
+
     verdict.duration_s = round(time.monotonic() - gate_t0, 2)
 
     # ── Verdict ──
     any_stage_failed = any(not s.ok and not s.skipped for s in verdict.stages)
-    has_errors = errs > 0 or (not s3.ok and not s3.skipped)
+    has_errors = errs > 0 or (not s3.ok and not s3.skipped) or (not s4.ok and not s4.skipped)
     has_warnings = warns > 0
 
     if any_stage_failed and not has_errors:

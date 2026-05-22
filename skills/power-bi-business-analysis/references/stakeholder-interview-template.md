@@ -42,8 +42,9 @@ Before the interview:
 | 11 | What data sources are available? (SQL Server, Lakehouse, Excel, API, etc.) | Drives storage mode (Import / DQ / DirectLake) |
 | 12 | What is the lowest grain of the data? (Transaction, daily summary, monthly) | Sets fact-table design and drill-down depth |
 | 13 | How far back do you need historical data? (1 yr, 3 yr, all-time) | Affects model size and incremental refresh |
-| 14 | Are there data-access restrictions? (Roles that see only their region/team) | Triggers RLS design in Phase 2 |
-| 15 | Any deadlines, compliance, or branding constraints? | Scopes timeline and theme selection |
+| 14 | What calendar system do you use? (standard Jan-Dec, fiscal year start month, 4-4-5 retail, different per region?) | Determines time-intelligence approach |
+| 15 | Are there data-access restrictions? (Roles that see only their region/team) | Triggers RLS design in Phase 2 |
+| 16 | Any deadlines, compliance, or branding constraints? | Scopes timeline and theme selection |
 
 ## Recording the Answers
 

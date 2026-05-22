@@ -36,6 +36,25 @@ Direct Lake:              Delta Parquet in OneLake → Read into VertiPaq → Qu
 | **Direct Lake on OneLake** | Any Fabric Delta table source (Lakehouse, Warehouse, shortcuts) | No fallback — fails if guardrails exceeded | Yes (DL + Import, DL + DQ via XMLA tools) |
 | **Direct Lake on SQL** | Single Lakehouse/Warehouse via SQL analytics endpoint | Falls back to DirectQuery | No (DL tables only; extend via composite model chaining) |
 
+**Note:** FT1 is Fabric Trial SKU — same guardrails as F64.
+
+---
+
+## Creation Methods
+
+| Method | Status (Nov 2025) | Notes |
+|---|---|---|
+| Power BI Service (web modeling) | GA | Default for Fabric workspaces |
+| Power BI Desktop (live edit) | GA (Sep 2025) | From any OneLake source — Lakehouse, Warehouse, mirrored DBs, SQL DBs |
+| XMLA endpoint | GA | For programmatic/external tool creation |
+| REST API (Fabric) | GA | For CI/CD automation |
+
+**2025 updates:**
+- DL + Import tables in same model supported (DL on OneLake only)
+- DL from mirrored Azure Databricks catalogs
+- DL from SQL and mirrored databases in Fabric
+- Enhanced relationship handling for Direct Lake tables
+
 ---
 
 ## Framing Lifecycle
@@ -112,7 +131,7 @@ When guardrails are exceeded:
 | F8 | 1,000 | 1,000 | 300 | 10 | 3 |
 | F16 | 1,000 | 1,000 | 300 | 20 | 5 |
 | F32 | 1,000 | 1,000 | 300 | 40 | 10 |
-| F64 / P1 | 5,000 | 5,000 | 1,500 | Unlimited | 25 |
+| F64 / FT1 / P1 | 5,000 | 5,000 | 1,500 | Unlimited | 25 |
 | F128 / P2 | 5,000 | 5,000 | 3,000 | Unlimited | 50 |
 | F256 / P3 | 5,000 | 5,000 | 6,000 | Unlimited | 100 |
 | F512 / P4 | 10,000 | 10,000 | 12,000 | Unlimited | 200 |

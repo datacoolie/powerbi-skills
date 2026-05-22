@@ -32,19 +32,54 @@ repo/
 ### Recommended .gitignore
 
 ```gitignore
-# Power BI generated files
-*.pbip.local
-.pbi/
-localSettings.json
-diagramLayout.json
+# Power BI local/user files (always ignore)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
 
-# Cache files
-*.cache
-.cache/
+# Optional — uncomment if team prefers clean query commits
+# **/.pbi/unappliedChanges.json
 
-# User-specific settings
+# Diagram layout (no external editing supported during preview)
+# **/diagramLayout.json
+
+# Binary files
 *.pbix
+*.pbip.local
 ```
+
+### Local Cache Behavior (`cache.abf`)
+
+The `.pbi/cache.abf` file is an Analysis Services Backup containing local data.
+
+- **Without `cache.abf`:** Desktop opens with model schema only (no data)
+- **With `cache.abf`:** Desktop loads cached data and overwrites model definition
+  with TMDL files (TMDL takes precedence over cached model metadata)
+- Always gitignored — never commit (large binary file)
+
+This means external TMDL edits are always respected on next Desktop open,
+even when a cache exists.
+
+### Power Query Pending Changes (`unappliedChanges.json`)
+
+When a user saves Power Query edits without applying them ("Apply later"),
+changes go into `.pbi/unappliedChanges.json`.
+
+**Git implications:**
+- File is committed by default — allows teammates to see in-progress query work
+- When Desktop opens with this file, it prompts: Apply or Discard
+- If Applied: overwrites M expressions in TMDL `partition` blocks
+- If you edited TMDL queries externally AND this file exists, your external
+  edits will be **overwritten** when the file is applied
+
+**Team workflow options:**
+
+| Strategy | When |
+|---|---|
+| Commit `unappliedChanges.json` | Team wants visibility into WIP query changes |
+| Add to `.gitignore` | Team wants clean commits; unfinished work stays local |
+
+**Recommendation:** Add to `.gitignore` in teams where multiple people edit
+queries. Keep committed in solo-developer or trunk-based workflows.
 
 ### Branching Strategy
 
@@ -73,6 +108,35 @@ main           ← Production-ready models and reports
 | Review TMDL diffs in PRs | Catch unintended model changes |
 | Never commit .pbix files | Binary format, not diff-able |
 | Store themes in repo | Track visual identity changes |
+
+---
+
+## Semantic Model Version History (GA Nov 2025)
+
+Auto-captures up to 5 versions. Complements Git integration (not a replacement).
+
+| Trigger | Behavior |
+|---|---|
+| Open model in Editing mode (web) | Captures version before edits |
+| Publish/upload .pbix | Captures pre-publish version |
+| Restore a previous version | Captures pre-restore version |
+| Manual save to version history | User-triggered with optional description |
+
+Access: workspace list → “...” → Version history, or File menu in web editor.
+Works for web-edited models AND Direct Lake live editing in Desktop.
+
+---
+
+## TMDL Tooling (GA Sep–Nov 2025)
+
+| Tool | Status | Key Capabilities |
+|---|---|---|
+| TMDL View (Power BI Desktop) | GA (Sep 2025) | createOrReplace scripts, drag-and-drop scripting, named expression scripting, compat-level upgrade prompts |
+| TMDL VS Code Extension | GA (Nov 2025) | DAX semantic highlighting, Power Query support, breadcrumb nav, code actions, formatting, localization |
+| Power BI Modeling MCP Server | Preview (Nov 2025) | AI agents interact with models via natural language; VS Code extension |
+
+Both Desktop and VS Code tools provide a "semantic modeling as code" experience.
+Use TMDL View for interactive scripting; use VS Code extension for PBIP file editing.
 
 ---
 

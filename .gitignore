@@ -1,6 +1,8 @@
 # Ignore the .agents
 .agents/
 skills-lock.json
+.github/
+plans/
 
 # Ignore references to the .venv directory
 .venv/

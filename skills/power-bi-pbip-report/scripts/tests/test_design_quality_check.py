@@ -169,7 +169,7 @@ def _make_report(
 
     if page_order is None:
         page_order = names
-    # pages.json lives at definition/pages.json (not inside pages/)
-    (defn / "pages.json").write_text(json.dumps({"pageOrder": page_order}), encoding="utf-8")
+    # pages.json lives at definition/pages/pages.json (inside the pages folder)
+    (pages_dir / "pages.json").write_text(json.dumps({"pageOrder": page_order}), encoding="utf-8")
 
     return report

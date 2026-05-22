@@ -402,6 +402,20 @@ Use a **runtime expression** (measure/iterator) when:
    - If the column is needed by only 1-2 reports → keep the iterator
 ```
 
+### Materialization Decision Table
+
+| Scenario | Recommend | Reason |
+|---|---|---|
+| Low-cardinality flag (e.g., `IsActive`) | Calculated column | Excellent compression, enables SE filtering |
+| Sort-by column (e.g., `MonthSort`) | Calculated column | Required for sort relationships |
+| Simple arithmetic (Qty × Price) | Runtime iterator | Trivial FE cost, avoids RAM |
+| High-cardinality string concat | Avoid or Power Query | Poor compression, high RAM |
+| Relationship key derivation | Calculated column | Relationships require materialized columns |
+| Context-dependent expression | Measure (impossible as column) | Columns cannot respond to filter context |
+| Aggregation needed by 10+ visuals | Calculated column (if low cardinality) | Reduces query count |
+| Used only in one report page | Runtime | Not worth the materialization cost |
+```
+
 ### Alternative: Compute in Data Source
 
 If a calculated column is beneficial but its RAM cost is too high, compute

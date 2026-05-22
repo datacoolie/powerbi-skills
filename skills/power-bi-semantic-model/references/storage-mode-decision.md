@@ -53,78 +53,31 @@ START: What kind of table is this?
 
 ## Direct Lake Mode (Fabric)
 
-Direct Lake is the recommended mode for Fabric environments. It reads Delta
-Parquet files directly from OneLake into the VertiPaq engine — combining
-Import-level query speed with near-real-time data freshness.
+Direct Lake reads Delta Parquet files directly from OneLake into VertiPaq —
+combining Import-level speed with near-real-time freshness. Two variants:
 
-```
-Requirements:
-- Data must be in Delta format in a Fabric Lakehouse or Warehouse
-- Semantic model must be in a Fabric workspace (not My Workspace)
-- Requires Fabric capacity (F SKU) or Premium (P SKU)
-- Tables are read directly from Delta Parquet files (no import/copy)
-- V-Order optimization recommended for best transcoding performance
+| Variant | Fallback | Composite Support |
+|---|---|---|
+| Direct Lake on OneLake | No fallback (errors on guardrail breach) | Yes (DL + Import, DL + DQ) |
+| Direct Lake on SQL | Falls back to DirectQuery | No (use chained composite) |
 
-Two variants:
-- Direct Lake on OneLake: no fallback (errors on guardrail breach)
-- Direct Lake on SQL: falls back to DirectQuery when needed
+Can now be created from Power BI Desktop (GA 2025) from any OneLake source.
+DL + Import tables in same model supported (DL on OneLake only).
 
-Key limitations (pre-compute these in Lakehouse ETL):
-✗ No calculated columns on Direct Lake tables
-✗ No user-defined aggregation tables
-✗ No hybrid tables or model-level partitions
-
-Benefits:
-✅ VertiPaq engine (same as Import) — comparable query speed
-✅ Framing refresh in seconds (metadata only, no data copy)
-✅ Automatic updates detect Delta changes (near-real-time)
-✅ No data duplication (single copy in OneLake)
-✅ Supports very large datasets via per-query column loading
-```
-
-**For comprehensive Direct Lake guidance** — framing lifecycle, SKU guardrails,
-fallback behavior, composite patterns, V-Order tuning, monitoring —
-read `directlake-guide.md`.
+**Full guide** — requirements, guardrails, framing, fallback, V-Order, composite patterns →
+`directlake-guide.md`
 
 ## Composite Model Patterns
 
-### Pattern 1: Hot & Cold Data
-```
-Hot data (recent 3 months): DirectQuery → real-time
-Cold data (historical): Import → fast historical queries
-Dimensions: Dual mode → works with both
-```
+| Pattern | Summary |
+|---|---|
+| **Hot & Cold** | Recent data DQ (real-time) + historical Import + Dual dims |
+| **Extend Existing** | Published model via DQ chain + local Import tables + Dual bridges |
+| **Aggregation + Detail** | Import summary + DQ detail + Dual dims (auto-selects agg at matching grain) |
+| **Direct Lake + Import** | DL facts + Import reference/calculated tables + Dual dims |
+| **Chained Composite** | Published DL model ← DQ chain ← local Import tables |
 
-### Pattern 2: Extend Existing Model
-```
-Published semantic model: DirectQuery (live connection)
-New local tables: Import (additional data sources)
-Bridge tables: Dual mode
-```
-
-### Pattern 3: Aggregation + Detail
-```
-Aggregation tables: Import (summary level)
-Detail tables: DirectQuery (drill-down only)
-Dimensions: Dual mode
-Power BI auto-selects aggregation when query matches grain
-```
-
-### Pattern 4: Direct Lake + Import (Fabric)
-```
-Fact tables: Direct Lake on OneLake (large, auto-refreshed from Lakehouse)
-Small reference tables: Import (external sources, Power Query transforms)
-Calculated tables: Import (DL tables don't support calculated columns)
-Dimensions shared by both: Dual mode
-```
-
-### Pattern 5: Chained Composite on Direct Lake
-```
-Published Direct Lake model: DirectQuery (chained live connection)
-Analyst's local tables: Import (additional data sources)
-Bridge tables: Dual mode
-Use when IT publishes DL model and analysts need to extend it
-```
+**Full pattern details with code examples** → `directlake-guide.md` §Composite Patterns
 
 ## Anti-Patterns
 

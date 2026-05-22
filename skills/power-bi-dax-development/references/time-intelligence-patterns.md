@@ -429,3 +429,121 @@ DATEADD, etc.) require:
 3. **Unique dates** — One row per day, Date/DateTime data type
 4. **Marked as Date Table** — Use `calendar_operations` to mark it
 5. **Auto Date/Time DISABLED** — The hidden auto date tables conflict
+
+---
+
+## Calendar-Based Time Intelligence [Preview]
+
+A new approach (Sep 2025, preview) using calendar metadata definitions.
+Eliminates the requirement for contiguous dates and enables week-based calculations
+with any calendar structure (445, 454, 544, 13-month, lunar, etc.).
+
+### Setup
+
+Define a calendar on your date table via:
+- Power BI Desktop → Table tools → Mark as calendar
+- Or via TMDL calendar definitions
+
+### Week-to-Date
+
+```dax
+WTD Sales = TOTALWTD([Total Sales], FiscalCalendar)
+```
+
+### Week Functions
+
+```dax
+-- Closing balance at end of week
+Closing Balance Week = CLOSINGBALANCEWEEK([Inventory Level], FiscalCalendar)
+
+-- Opening balance at start of week
+Opening Balance Week = OPENINGBALANCEWEEK([Inventory Level], FiscalCalendar)
+```
+
+### Benefits over Classic Time Intelligence
+
+| Aspect | Classic | Calendar-Based |
+|---|---|---|
+| Requires contiguous dates | Yes | No |
+| Week-level calculations | Not native | Native (TOTALWTD, etc.) |
+| Non-Gregorian calendars | Limited (fiscal year end only) | Full flexibility |
+| Performance | Standard | Improved (engine optimized) |
+| Sparse dates | Error | Works as-is |
+
+### Functions
+
+TOTALWTD, DATESWTD, CLOSINGBALANCEWEEK, OPENINGBALANCEWEEK,
+ENDOFWEEK, STARTOFWEEK, NEXTWEEK, PREVIOUSWEEK.
+
+### Source
+
+- https://learn.microsoft.com/power-bi/transform-model/desktop-time-intelligence
+
+---
+
+## Calendar-Based Time Intelligence [Preview]
+
+> These functions are in **preview** as of 2025. Check current availability
+> before using in production.
+
+Calendar-based week functions align to ISO 8601 or custom week definitions
+rather than standard months/quarters.
+
+### Week-to-Date (WTD)
+
+```dax
+WTD Sales =
+TOTALWTD([Total Sales], DimDate[Date])
+
+-- With custom week start (Monday = 2)
+WTD Sales (Mon Start) =
+TOTALWTD([Total Sales], DimDate[Date], 2)
+```
+
+### Dates in Week-to-Date
+
+```dax
+WTD Filter =
+CALCULATE(
+    [Total Sales],
+    DATESWTD(DimDate[Date])
+)
+```
+
+### Available Functions
+
+| Function | Description |
+|---|---|
+| `TOTALWTD(expr, dates[, weekStart])` | Week-to-date total |
+| `DATESWTD(dates[, weekStart])` | Returns WTD date set |
+| `STARTOFWEEK(dates[, weekStart])` | First day of current week |
+| `ENDOFWEEK(dates[, weekStart])` | Last day of current week |
+| `PREVIOUSWEEK(dates[, weekStart])` | Dates of prior week |
+| `NEXTWEEK(dates[, weekStart])` | Dates of next week |
+
+### Week Start Parameter
+
+| Value | Day |
+|---|---|
+| 1 (default) | Sunday |
+| 2 | Monday |
+| 3 | Tuesday |
+| ... | ... |
+| 7 | Saturday |
+
+### Combining with Other Patterns
+
+```dax
+-- Previous week comparison
+PW Sales =
+CALCULATE(
+    [Total Sales],
+    PREVIOUSWEEK(DimDate[Date], 2)  -- Monday start
+)
+
+-- Week-over-Week growth
+WoW % =
+VAR _current = [WTD Sales]
+VAR _previous = [PW Sales]
+RETURN DIVIDE(_current - _previous, _previous)
+```

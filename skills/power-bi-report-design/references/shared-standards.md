@@ -145,6 +145,8 @@ Every page must pass:
 - [ ] Color pairs with icon/pattern for meaning
 - [ ] Line charts use markers (not color alone)
 - [ ] Data labels visible where space permits
+- [ ] Visual data is readable via "Show visuals as tables" mode (`Ctrl+Shift+F11`) — ensure column names and data labels are descriptive
+- [ ] Decorative shapes/images hidden from tab order
 
 ---
 
@@ -161,13 +163,25 @@ Every page must pass:
 
 ---
 
-## 7. PBIR Feature Compatibility
+## 7. PBIR Format (Mandatory)
 
-PBIR (the new JSON report format) supports features PBIX does not, and vice versa. Respect:
-- **PBIR required for:** report-level measures (`reportExtensions.json`), granular source control, JSON generation
-- **PBIX / Desktop required for:** some legacy visuals, interactive authoring for non-standard configs
-- **Always generate PBIR** unless the project manifest says otherwise
-- Target PBIR schema version 4.0 or latest
+PBIR is the **only** target report format. It is the default for all new reports in the
+Power BI service and will become mandatory at GA. Do NOT generate PBIR-Legacy (`report.json`).
+
+- **PBIR required for:** report-level measures (`reportExtensions.json`), granular source control, JSON generation, copy/paste pages/visuals between reports, batch edits via scripts
+- **PBIR-Legacy (report.json):** deprecated — existing reports auto-convert in-service
+- **Always generate PBIR** — target schema version 4.0+
+- Each file has a public JSON schema at `https://github.com/microsoft/json-schemas/tree/main/fabric/item/report/definition`
+- PBIR annotations (name-value pairs on visual/page/report) are ignored by Desktop but useful for external scripts
+
+### New Visual Capabilities (2024-2025)
+
+| Visual | Status | Notes |
+|---|---|---|
+| **Card visual (new)** | GA Nov 2025 | Replaces legacy `card` + `multiRowCard`. Supports multiple values, callout images (SVG/data-driven), reference labels, Fit-to-space layout. Use `card` visualType for all new reports. |
+| **Button slicer** | GA Oct 2025 | Native first-party tile/button slicer. Supports cross-highlighting, auto-grid. Replaces AppSource Chiclet Slicer for most cases. |
+| **Visual calculations** | Preview (Q1 2024+) | DAX calculations defined on-visual (running totals, %, rank). Reduces need for model measures in simple cases. Use for presentation-layer calcs only. |
+| **Auto mobile layout** | GA (Q1 2024) | Auto-generate mobile layout as starting point; refine manually. |
 
 ---
 

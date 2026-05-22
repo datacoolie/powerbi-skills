@@ -58,12 +58,13 @@ Then select the chart that makes that answer most obvious for the target audienc
 | **Market share × segment size** | Mekko chart | `MekkoChart1513095496262` ★ | Variable-width stacked bar |
 | **Daily activity heatmap** | Calendar heatmap | `bciCalendarCC0FA2BFE4B54EE1ACCFE383B9B1DE61` ★ | Colored calendar grid by value |
 | **Geographic patterns** | Filled map | `map` | Use equal-area projections for thematic data |
-| **Single large number** | Card visual | `card` | "One or two numbers — just show the number" |
-| **Multiple KPIs** | Multi-row card | `multiRowCard` | Keep to ≤6 metrics for readability |
-| **Rich KPI with formatting** | Advance Card | `advanceCardE03760C5AB684758B56AA29F9E6C257B` ★ | Conditional colors, icons, multiple rows |
+| **Single large number** | Card visual (new) | `card` | GA Nov 2025 — unified card replaces legacy card + multiRowCard. Supports multiple values, callout images, reference labels |
+| **Multiple KPIs** | Card visual (new) | `card` | Add multiple measures to Values well; auto-creates multi-card layout. Legacy `multiRowCard` deprecated |
+| **Rich KPI with formatting** | Card visual (new) | `card` | Data-driven SVG callout images, conditional formatting, Fit-to-space. AppSource Advance Card rarely needed now |
 | **Status vs. target** | KPI visual | `kpi` | Shows indicator + trend axis + goal |
 | **Before-after comparison** | Slopegraph | *(line with 2 time points)* | Very clean for exactly 2 periods |
-| **Image-based filter** | Chiclet Slicer | `ChicletSlicer1448559807354` ★ | Tile/button slicer with images |
+| **Tile/button filter (low-card)** | Button slicer (native) | `slicer` (button mode) | GA Oct 2025 — native tile slicer with cross-highlighting and auto-grid. Replaces Chiclet Slicer for most cases |
+| **Image-based filter** | Chiclet Slicer | `ChicletSlicer1448559807354` ★ | Fallback for image-tile use case only; prefer native button slicer when no images needed |
 | **Interactive date range** | Timeline Slicer | `Timeline1447991079100` ★ | Drag-to-select date range slider |
 | **Project timeline** | Gantt Chart | `Gantt1467746032498` ★ | Task bars, milestones, dependencies |
 | **Word/text frequency** | Word Cloud | `WordCloud1447959067750` ★ | Word size proportional to measure |
@@ -80,56 +81,17 @@ See `custom-visuals.md` for full identifiers, templates, and query roles.
 
 ## Hard Rules — Non-Negotiable
 
-### NEVER use these:
+> **Authoritative source:** [`shared-standards.md`](shared-standards.md) §1 (Banned Patterns)
+> defines the complete list of non-negotiable rules. The rationale and quotes below provide
+> the *why* from data visualization literature; the binding constraints are in shared-standards.
 
-**❌ 3D Charts (any type)**
-> "Never use 3D. The only exception is if you are actually plotting a third dimension of data.
-> 3D skews our numbers, making them difficult or impossible to interpret or compare."
-> — *Storytelling with Data*
+### Why these matter (from *Storytelling with Data* & *Data Visualization*):
 
-- 3D bars tilt the visual plane; bar heights are read against an invisible tangent plane
-- 3D pies magnify front slices, shrink back slices — the pie no longer represents the data
-- Power BI offers 3D variants of some visuals — always choose the flat version
+- **3D charts**: Tilt the visual plane; bar heights read against invisible tangent; pie front slices magnified. Always choose flat.
+- **Pie/Donut charts**: Human eye can't ascribe quantitative value to area/arc. Alternatives: sorted bar, 100% stacked. Exception: ≤3 clearly distinct segments totalling 100%.
+- **Secondary Y-axis**: Implies relationship that may not exist; forces re-learning. Alternative: vertically aligned charts sharing x-axis.
 
-**❌ Pie Charts (almost always)**
-> "The human eye isn't good at ascribing quantitative value to two-dimensional space.
-> Pie charts are hard for people to read."
-> — *Storytelling with Data*
-
-- When slices are close in size: impossible to tell which is bigger
-- When slices differ significantly: can only say "bigger" or "smaller" — not by how much
-- Alternatives that are always clearer: sorted horizontal bar chart, 100% stacked bar
-- **Only acceptable exception**: Part-of-whole communication where the total equals 100%
-  AND there are ≤3 clearly distinct segments (e.g., 75% vs. 25%)
-
-**❌ Donut Charts**
-> "With a donut chart, we ask the audience to compare arc lengths.
-> Don't use donut charts."
-> — *Storytelling with Data*
-
-- Even harder than pie (arc length is less intuitive than area)
-- The empty center wastes space and provides no information
-
-**❌ Secondary Y-Axis**
-> "It takes time and reading to understand which data reads against which axis.
-> Generally not a good idea."
-> — *Storytelling with Data*
-
-- Implies a relationship between the two series that may not exist
-- Alternatives: pull graphs apart vertically with a shared x-axis, or label data points directly
-
-**❌ Donut + Pie + 3D in Power BI**
-Power BI `visualType` values to avoid (prefer alternatives):
-
-| Avoid | Use Instead |
-|---|---|
-| `pieChart` | `clusteredBarChart` (sorted) or `barChart` (100% stacked) |
-| `donutChart` | `clusteredBarChart` (sorted) or `barChart` (100% stacked) |
-| Any 3D variant | Flat equivalent |
-
----
-
-## Common Mistakes by Chart Type
+### Common Mistakes by Chart Type
 
 ### Bar / Column Charts
 - ❌ **Truncated y-axis** — must start at zero; a bar at 95 vs. 100 looks equal but shouldn't

@@ -38,6 +38,7 @@ the latest performance guidance before recommending optimizations.
 | `../power-bi-semantic-model/references/vertipaq-optimization.md` | VertiPaq encoding, cardinality reduction, column design, relationship keys |
 | `../power-bi-semantic-model/references/storage-mode-decision.md` | Import vs DirectQuery vs DirectLake vs Composite decision matrix |
 | `../power-bi-semantic-model/references/directlake-guide.md` | Direct Lake: framing, SKU guardrails, fallback, V-Order, composite patterns, monitoring |
+| `references/fabric-capacity-monitoring.md` | Capacity-level diagnosis: CU saturation, throttling, Fabric Metrics App, Evaluation Config |
 
 ## Performance Targets
 
@@ -149,21 +150,8 @@ After all optimizations:
 4. Test with realistic filter combinations (not just default view)
 5. Document changes made and their measured impact
 
-## Quick Diagnosis Cheat Sheet
-
-| If you see... | It means... | Fix with... |
-|---|---|---|
-| DAX Query > 5s in Perf Analyzer | Slow measure or model | Copy query → DAX Studio Server Timings |
-| Visual Display > 2s in Perf Analyzer | Too many data points or complex render | Reduce data points, simplify visual |
-| FE time > SE time in DAX Studio | Formula Engine bottleneck | Optimize DAX (anti-patterns, split iterators) |
-| Many small SE queries (>20) | Excessive context transitions | Reduce iterator scope, use column refs |
-| Single large SE query (>1M rows) | Early materialization | Restructure ADDCOLUMNS→SUMMARIZE, reduce columns |
-| CallbackDataID in query plan | FE handling SE work | Move IF/SWITCH out of iterators |
-| Column > 100 MB in VertiPaq Analyzer | High-cardinality column | Remove, bin, or move to dimension |
-| > 8 visuals on a page | Visual overload | Split into multiple pages, use bookmarks |
-| Slicer with > 10K items | High-cardinality slicer | Use dropdown mode, add hierarchy |
-| Refresh > 2 hours | Full refresh on large table | Implement incremental refresh |
-| DQ query timeout | Source too slow for real-time | Add aggregation table |
+→ For quick symptom-to-fix mapping, see the Layer tables in Step 3 above.
+→ For DAX-specific anti-patterns, see `../power-bi-dax-development/references/anti-patterns.md`.
 
 ## MCP Tools for Performance Analysis
 
@@ -171,117 +159,26 @@ Use these PowerBI Modeling MCP tools during diagnosis:
 
 | Tool | Use For |
 |---|---|
-| `dax_query_operations` | Run test queries, measure execution time |
-| `trace_operations` | Capture query traces for timing analysis |
-| `model_operations` | Inspect model metadata, storage modes |
-| `table_operations` | Check table row counts, partitions, storage mode |
-| `column_operations` | Inspect column data types, cardinality |
-| `relationship_operations` | Check relationship types, referential integrity |
-| `partition_operations` | Inspect/configure incremental refresh partitions |
-| `measure_operations` | Review measure expressions for anti-patterns |
+| `dax_query_operations` | Run test queries, measure execution time, capture traces |
+| `table_operations` | Check row counts, partitions, storage mode |
+| `column_operations` | Inspect data types, cardinality |
+| `measure_operations` | Review expressions for anti-patterns |
 
-### Example: Baseline Test Query
+## Common Scenarios — Quick Reference
 
-```dax
--- Run via dax_query_operations to measure query time
--- Test the same query that Performance Analyzer generates
-DEFINE
-    VAR _startTime = NOW()
-EVALUATE
-SUMMARIZECOLUMNS(
-    DimDate[Year],
-    DimDate[Month],
-    "Sales", [Total Sales],
-    "Margin", [% Margin]
-)
-```
+| Scenario | Start With | Key Reference |
+|---|---|---|
+| Slow dashboard (multiple visuals) | Performance Analyzer → identify slowest visual | `references/performance-analyzer-guide.md` |
+| Composite model slow queries | Check storage modes → Dual dimensions → aggregation | `references/aggregation-tables.md` |
+| Model too large for Pro (>1 GB) | VertiPaq Analyzer → sort columns by size | `references/dax-studio-workflow.md` §VertiPaq |
+| Refresh taking too long | Check partition strategy → incremental refresh | `references/incremental-refresh.md` |
+| Direct Lake fallback / cold state | Check DirectLakeBehavior → V-Order → OPTIMIZE | `../power-bi-semantic-model/references/directlake-guide.md` |
+| Capacity throttling / multi-report slow | Fabric Capacity Metrics App → CU analysis | `references/fabric-capacity-monitoring.md` |
 
-## Common Optimization Scenarios
+## DAX Anti-Pattern Scan
 
-### Scenario: Slow Dashboard (Multiple KPI Cards + Charts)
-
-1. Performance Analyzer → identify which visuals are slowest
-2. If all visuals are slow (similar timing):
-   - Problem is likely model-level or shared slicer context
-   - Check: cross-filtering chain, slicer cardinality
-   - Read: `references/report-level-optimization.md`
-3. If one visual is much slower:
-   - Problem is that visual's measure
-   - Copy DAX query → DAX Studio → Server Timings
-   - Read: `references/dax-studio-workflow.md`
-
-### Scenario: Composite Model Slow Queries
-
-1. Check which tables are DirectQuery vs Import
-   - `table_operations` → inspect storage modes
-2. Ensure all dimension tables are Dual or Import mode
-3. Check for cross-engine joins in DAX queries
-4. Verify FILTER() never references full remote tables
-   - Read: `../power-bi-dax-development/references/optimization-guide.md` (Composite Model section)
-5. Add aggregation tables for frequent query patterns
-   - Read: `references/aggregation-tables.md`
-
-### Scenario: Model Too Large for Pro License (>1 GB)
-
-1. Run VertiPaq Analyzer in DAX Studio
-   - Read: `references/dax-studio-workflow.md` (VertiPaq Analyzer section)
-2. Sort columns by size → identify top 10 largest columns
-3. For each large column, decide:
-   - Remove if unused (check visuals and measures)
-   - Move to dimension if it's a text column on a fact table
-   - Bin if it's a continuous numeric used for grouping
-   - Split if it's a DateTime (separate Date + Time)
-4. Read: `../power-bi-semantic-model/references/vertipaq-optimization.md`
-
-### Scenario: Refresh Taking Too Long
-
-1. Check current refresh approach:
-   - `partition_operations` → list partitions and their types
-2. If full refresh on a large table (>10M rows):
-   - Implement incremental refresh
-   - Read: `references/incremental-refresh.md`
-3. If calculated columns are slow:
-   - Move computation to Power Query / source SQL
-   - Read: `../power-bi-dax-development/references/optimization-guide.md` (Calculated Column Trade-Off section)
-4. Check Power Query for non-folding steps (breaks query folding)
-
-### Scenario: Direct Lake Fallback / Slow Cold State
-
-1. Verify whether Direct Lake model is actually using Direct Lake mode:
-   - Check `DirectLakeBehavior` property and refresh history in Fabric portal
-   - If SQL queries appear in DAX Studio Server Timings → fallback occurred
-2. If **fallback detected** (DL on SQL):
-   - Check Delta table row count vs. SKU guardrails → scale up or OPTIMIZE
-   - Check if table references a SQL view → use Delta table instead
-   - Check for SQL-based RLS → switch to semantic model RLS with fixed identity
-   - Set `DirectLakeBehavior = DirectLakeOnly` to surface issues during dev
-3. If **cold-state slow** (first query after framing):
-   - Verify V-Order is enabled on Delta tables (Delta Analyzer)
-   - Run `OPTIMIZE` to compact small Parquet files into larger row groups
-   - Check if Overwrite mode is used for data loads (forces full reload)
-   - Switch to append + delete patterns for incremental framing benefit
-4. If **framing fails**:
-   - Check Parquet file count vs. SKU limit (e.g., 1,000 for F2-F8)
-   - Run `OPTIMIZE` to reduce file count → re-frame
-5. Read: `../power-bi-semantic-model/references/directlake-guide.md`
-
-## Anti-Pattern Quick Scan
-
-Run this mental checklist against the model's measures before deep analysis:
-
-```
-□ Any division without DIVIDE()? → Fix immediately
-□ Any calculated columns on fact tables? → Replace with measures
-□ Any FILTER(FactTable, ...) in CALCULATE? → Use dimension filters
-□ Any IF/SWITCH inside SUMX/iterators? → Split into CALCULATE calls
-□ Any measure reference inside SUMX over fact table? → Use column refs
-□ Any nested iterators on large tables? → Restructure with VAR + ADDCOLUMNS
-□ Any ALLEXCEPT with cross-filtered columns? → Use ALL + VALUES
-□ Any FORMAT() in measures? → Use format string property instead
-□ Any DISTINCTCOUNT on high-cardinality text? → Use INT surrogate key
-```
-
-→ Full list with examples: `../power-bi-dax-development/references/anti-patterns.md`
+Before deep analysis, run the anti-pattern checklist:
+→ **Read `../power-bi-dax-development/references/anti-patterns.md`** — 18 patterns with fixes and benchmarks.
 
 ## Related Skills
 

@@ -28,9 +28,23 @@ Each `skills/<name>/` folder contains a `SKILL.md` plus its own `references/`, `
 
 ## Install
 
-You have two options.
+You have three options.
 
-### Option A — Use this repo as your workspace (easiest)
+### Option A — One-line install (recommended)
+
+Use the `skills` CLI to install directly into your workspace:
+
+```bash
+npx skills add https://github.com/datacoolie/powerbi-skills
+```
+
+Or use `curl` to fetch just the agent file:
+
+```bash
+curl --create-dirs -o .github/agents/power-bi-developer.agent.md https://raw.githubusercontent.com/datacoolie/powerbi-skills/main/agents/power-bi-developer.agent.md
+```
+
+### Option B — Use this repo as your workspace
 
 Just clone and open. No copying needed.
 
@@ -41,7 +55,7 @@ code powerbi-skills
 
 VS Code auto-discovers `agents/*.agent.md` and `skills/*/SKILL.md` from the workspace root.
 
-### Option B — Install into your own workspace
+### Option C — Install into your own workspace
 
 Copy two folders into your project:
 

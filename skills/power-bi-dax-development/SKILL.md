@@ -1,24 +1,14 @@
 ---
 name: power-bi-dax-development
 description: >
-  Develop, optimize, and validate DAX measures, visual calculations, and
-  calculation groups for Power BI semantic models. Covers measure creation,
-  evaluation contexts, CALCULATE semantics, time intelligence (including
-  calendar-based week functions), semi-additive measures, calculation groups,
-  field parameters, visual calculations (RUNNINGSUM, MOVINGAVERAGE), dynamic
-  format strings, window functions (OFFSET, INDEX, WINDOW, RANK, ROWNUMBER),
-  advanced patterns (ABC analysis, new/returning customers, virtual
-  relationships via TREATAS), user-defined functions, and performance
-  optimization using PowerBI Modeling MCP tools. Based on "The Definitive
-  Guide to DAX" and "Optimizing DAX" by Ferrari & Russo. Triggers include:
-  "write a measure", "create DAX", "DAX formula", "calculation group",
-  "time intelligence", "YTD", "YoY", "WTD", "TOTALWTD", "field parameter",
-  "CALCULATE", "evaluation context", "filter context", "row context",
-  "context transition", "optimize measure", "DAX pattern", "TREATAS",
-  "virtual relationship", "semi-additive", "visual calculation", "RUNNINGSUM",
-  "MOVINGAVERAGE", "dynamic format string", "RANK function", "ROWNUMBER",
-  "OFFSET", "INDEX", "WINDOW", "user-defined function", "UDF".
-  Always research Microsoft Learn MCP before recommending patterns.
+  Develop, optimize, and validate DAX measures, calculation groups, visual
+  calculations, field parameters, dynamic format strings, time intelligence,
+  semi-additive logic, virtual relationships with TREATAS, DAX window
+  functions, and user-defined functions for Power BI semantic models. Use for
+  requests to write or optimize DAX, create measures, explain CALCULATE or
+  evaluation context, build YTD/YoY/WTD logic, use RUNNINGSUM or MOVINGAVERAGE,
+  rank with RANK/ROWNUMBER/OFFSET/INDEX/WINDOW, or apply advanced DAX patterns.
+  Research Microsoft Learn MCP before recommending patterns.
 ---
 
 # Power BI DAX Development

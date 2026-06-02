@@ -3,6 +3,7 @@
 skills-lock.json
 .github/
 plans/
+.codex/
 
 # Ignore references to the .venv directory
 .venv/

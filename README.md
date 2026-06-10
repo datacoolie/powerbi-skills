@@ -10,8 +10,7 @@ Unlike single-file agents you copy into `.github/agents/`, this one is **multi-f
 
 ```
 powerbi-skills/
-├── agents/
-│   └── power-bi-developer.agent.md     ← the agent file
+├── AGENTS.md                            ← the agent file (multi-platform)
 └── skills/                              ← 7 skill folders the agent uses
     ├── power-bi-business-analysis/
     ├── power-bi-semantic-model/
@@ -41,7 +40,7 @@ npx skills add https://github.com/datacoolie/powerbi-skills
 Or use `curl` to fetch just the agent file:
 
 ```bash
-curl --create-dirs -o .github/agents/power-bi-developer.agent.md https://raw.githubusercontent.com/datacoolie/powerbi-skills/main/agents/power-bi-developer.agent.md
+curl -o AGENTS.md https://raw.githubusercontent.com/datacoolie/powerbi-skills/main/AGENTS.md
 ```
 
 ### Option B — Use this repo as your workspace
@@ -61,16 +60,14 @@ Copy two folders into your project:
 
 | Copy from this repo | Paste into your workspace |
 |---|---|
-| `agents/power-bi-developer.agent.md` | `.github/agents/power-bi-developer.agent.md` |
+| `AGENTS.md` | `AGENTS.md` (repo root) |
 | Each folder under `skills/power-bi-*/` | `.agents/skills/<same-folder-name>/` |
 
 So after copying, your workspace looks like:
 
 ```
 your-project/
-├── .github/
-│   └── agents/
-│       └── power-bi-developer.agent.md
+├── AGENTS.md
 └── .agents/
     └── skills/
         ├── power-bi-business-analysis/
@@ -92,7 +89,7 @@ Only **two file types** are auto-discovered by VS Code Copilot. Everything else 
 
 | File | Auto-loaded? | Who reads it |
 |---|---|---|
-| `agents/*.agent.md` | Yes | VS Code, when you pick the agent in chat |
+| `AGENTS.md` | Yes | VS Code Copilot, Claude Code, Cursor, Windsurf, and other AI tools |
 | `skills/<name>/SKILL.md` | Yes (listed) | Agent reads it when the skill applies |
 | `skills/<name>/references/*.md` | No | Agent reads only when `SKILL.md` points to a specific file |
 | `skills/<name>/scripts/*.py` | No | Agent runs them via terminal (e.g. Phase 4c QA) |
@@ -186,7 +183,7 @@ pip install jsonschema
 
 ## Troubleshooting
 
-**Agent doesn't appear in Copilot Chat.** Make sure you're in **Agent** mode (not Ask or Edit). Check that the agent file is at `.github/agents/power-bi-developer.agent.md` (Option B) or `agents/power-bi-developer.agent.md` (Option A). Restart VS Code.
+**Agent doesn't appear in Copilot Chat.** Make sure you're in **Agent** mode (not Ask or Edit). Check that `AGENTS.md` is at the repo root. Restart VS Code.
 
 **Agent says "skill not found".** You only copied `SKILL.md` and forgot the rest of the folder. Recopy the entire `skills/<name>/` folder including `references/`.
 

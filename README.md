@@ -34,7 +34,7 @@ You have three options.
 Use the `skills` CLI to install directly into your workspace:
 
 ```bash
-npx skills add https://github.com/datacoolie/powerbi-skills
+npx skills add datacoolie/powerbi-skills
 ```
 
 Or use `curl` to fetch just the agent file:
@@ -48,7 +48,7 @@ curl -o AGENTS.md https://raw.githubusercontent.com/datacoolie/powerbi-skills/ma
 Just clone and open. No copying needed.
 
 ```bash
-git clone <this-repo-url> powerbi-skills
+git clone https://github.com/datacoolie/powerbi-skills.git powerbi-skills
 code powerbi-skills
 ```
 

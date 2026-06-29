@@ -11,7 +11,7 @@ description: >-
   "composite model", "RLS", "optimize model", "model review", "explore data",
   "connect to gold layer", "extend model", "add dimension", "add fact table".
   Do NOT use for DAX measure creation (use power-bi-dax-development) or
-  report generation (use power-bi-pbip-report).
+  report generation (use power-bi-report-authoring).
 ---
 
 # Power BI Semantic Model Builder
@@ -28,22 +28,62 @@ Read `references/mcp-tool-reference.md` for the complete tool mapping.
 
 ## Quick Reference
 
-| Task | Approach |
-|---|---|
-| Explore existing model | `model_operations` → get model info, `table_operations` → list tables |
-| Connect to gold layer | `connection_operations` → configure data source |
-| Design star schema | Run Star Schema Checklist (references/star-schema-checklist.md) |
-| Choose storage mode | Use Decision Matrix (references/storage-mode-decision.md) |
-| Direct Lake guide | Framing, guardrails, fallback, composite (references/directlake-guide.md) |
-| Build relationships | `relationship_operations` → create with proper cardinality |
-| Advanced relationships | M:M, weak, role-playing, ambiguity (references/advanced-relationships.md) |
-| Optimize columns | `column_operations` → set data types, remove unused, hide keys |
-| Power Query / ETL | M language, query folding, transformations (references/power-query-reference.md) |
-| Implement RLS | Dynamic RLS, OLS, DirectLake RLS patterns (references/rls-patterns.md) |
-| TMDL / PBIP structure | Tables, columns, measures, relationships, roles (references/tmdl-reference.md) |
-| Deploy to workspace | Git integration, CI/CD, Fabric pipelines (references/deployment-alm-guide.md) |
-| Gateway & refresh | On-prem gateway, scheduled/incremental refresh (references/gateway-refresh-guide.md) |
-| Test the model | `dax_query_operations` → run EVALUATE queries |
+| Task | Approach | Reference |
+|---|---|---|
+| Explore existing model | `model_operations` → get model info, `table_operations` → list tables | — |
+| Discover model metadata | INFO.VIEW.* queries for tables, columns, measures, relationships | `references/discovery-queries.md` |
+| Connect to gold layer | `connection_operations` → configure data source | `references/connection-binding.md` |
+| Design star schema | Run Star Schema Checklist | `references/star-schema-checklist.md` |
+| Naming conventions | Tables, columns, measures, hierarchies naming rules | `references/naming-conventions.md` |
+| Choose storage mode | Use Decision Matrix | `references/storage-mode-decision.md` |
+| Direct Lake guide | Framing, guardrails, fallback, composite | `references/directlake-guide.md` |
+| Build relationships | `relationship_operations` → create with proper cardinality | `references/advanced-relationships.md` |
+| Optimize columns | `column_operations` → set data types, remove unused, hide keys | `references/vertipaq-optimization.md` |
+| DAX coding standards | Variables, comments, query syntax, best practices | `references/dax-guidelines.md` |
+| DAX performance | Optimization framework (21 patterns, tier 1–4) | `references/dax-perf-decision-guide.md` + `references/dax-perf-patterns.md` |
+| Power Query / ETL | M language, query folding, transformations | `references/power-query-reference.md` |
+| Implement RLS | Dynamic RLS, OLS, DirectLake RLS patterns | `references/rls-patterns.md` |
+| TMDL / PBIP structure | Tables, columns, measures, relationships, roles | `references/tmdl-reference.md` + `references/pbip.md` |
+| Deploy to workspace | Git integration, CI/CD, Fabric pipelines | `references/deployment-alm-guide.md` |
+| Gateway & refresh | On-prem gateway, scheduled/incremental refresh | `references/gateway-refresh-guide.md` |
+| Fabric REST API | TMDL CRUD, refresh, data sources, permissions | `references/semantic-model-rest-api.md` |
+| Prepare for AI/Copilot | Descriptions, synonyms, AI instructions, verified answers | `references/semantic-model-ai-readiness.md` |
+| Test the model | `dax_query_operations` → run EVALUATE queries | `references/discovery-queries.md` |
+
+## Tool Selection Priority
+
+When multiple tools can perform the same operation, follow this priority:
+
+**Tier 1 — MCP (powerbi-modeling-mcp)**: Use MCP tools for all authoring operations
+when connected to the target model. Fastest, least-error-prone, no file I/O.
+
+**Tier 2 — TMDL files + az rest**: Use when MCP is unavailable. Edit TMDL files
+directly and deploy via Fabric REST API. See `references/tmdl-reference.md` for syntax
+and `references/semantic-model-rest-api.md` for API endpoints.
+
+**Tier 3 — Fallback**: If neither MCP nor TMDL access is available, guide the user
+to save as PBIP or install MCP.
+
+## Must / Prefer / Avoid
+
+### MUST
+- Understand data source schema before designing the model
+- Follow star schema principles (`references/star-schema-checklist.md`)
+- Follow naming conventions (`references/naming-conventions.md`)
+- Follow tool selection priority (MCP → TMDL → Fallback)
+- Validate model with DAX queries after structural changes
+
+### PREFER
+- Star schema over flat/denormalized tables
+- Explicit measures over implicit aggregation
+- TMDL format for version-controlled model definitions
+- INT keys over TEXT keys for relationships
+
+### AVOID
+- Hardcoded workspace/item IDs — resolve dynamically
+- Reading TMDL files when MCP is connected (use MCP operations instead)
+- Calculated columns on fact tables (use measures or Power Query)
+- Auto Date/Time (use dedicated date dimension)
 
 ## Workflow
 
@@ -151,6 +191,8 @@ Use `powerbi-modeling-mcp/dax_query_operations` to validate:
 - Row count spot-check — `COUNTROWS()` per table
 - RLS propagation test — `CALCULATETABLE` with role context
 
+Full discovery query catalog → `references/discovery-queries.md`
+
 ### Step 8: Prepare for AI (Copilot Readiness)
 
 Optimize the model for Power BI Copilot and Fabric Data Agent:
@@ -170,6 +212,7 @@ Prep for AI Checklist:
 ```
 
 Copilot folder structure in PBIP → `references/tmdl-reference.md` §Copilot Folder
+Full AI readiness guide → `references/semantic-model-ai-readiness.md`
 
 ## Common Modeling Scenarios
 
@@ -203,7 +246,7 @@ Full column requirements → `references/star-schema-checklist.md` (Section 3)
 ## PBIP / TMDL File Structure
 
 For complete PBIP folder layout, file schemas, and TMDL syntax →
-read `references/tmdl-reference.md`.
+read `references/tmdl-reference.md` and `references/pbip.md`.
 
 ## Related Skills
 
@@ -212,4 +255,4 @@ read `references/tmdl-reference.md`.
 | `power-bi-business-analysis` | Upstream (Phase 1) | Requirements doc defines tables, data sources, and RLS needs |
 | `power-bi-dax-development` | Downstream (Phase 3) | Model schema feeds into measure creation |
 | `power-bi-performance-troubleshooting` | Cross-cutting | VertiPaq optimization, storage mode tuning, cardinality reduction |
-| `power-bi-pbip-report` | Downstream (Phase 4b) | Model schema used during PBIR generation for queryState bindings |
+| `power-bi-report-authoring` | Downstream (Phase 4b) | Model schema used during PBIR generation for queryState bindings |

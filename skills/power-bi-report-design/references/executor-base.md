@@ -31,7 +31,7 @@ For each page (Design Spec §4):
 3. Generate `page.json` with canvas size and basic properties
 4. For every visual in §5 (Visual Inventory) for this page:
    a. Read the chart-template recipe (e.g., `chart-templates/kpi-banner.md`)
-   b. Read the JSON template in `../power-bi-pbip-report/references/visual-templates.md` (for built-in visuals) or `custom-visuals.md` (for AppSource)
+   b. Read the JSON template in `../power-bi-report-authoring/references/visual-templates.md` (for built-in visuals) or `custom-visuals.md` (for AppSource)
    c. Create the visual folder: `pages/<slug>/visuals/<visual-name>/`
    d. Generate `visual.json` with:
       - `position` from §5

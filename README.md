@@ -16,7 +16,7 @@ powerbi-skills/
     ├── power-bi-semantic-model/
     ├── power-bi-dax-development/
     ├── power-bi-report-design/
-    ├── power-bi-pbip-report/
+    ├── power-bi-report-authoring/
     ├── power-bi-performance-troubleshooting/
     └── power-bi-feedback-iteration/
 ```
@@ -74,7 +74,7 @@ your-project/
         ├── power-bi-semantic-model/
         ├── power-bi-dax-development/
         ├── power-bi-report-design/
-        ├── power-bi-pbip-report/
+        ├── power-bi-report-authoring/
         ├── power-bi-performance-troubleshooting/
         └── power-bi-feedback-iteration/
 ```
@@ -164,11 +164,11 @@ You can also jump in mid-pipeline:
 
 ## Optional: QA Scripts
 
-The `power-bi-pbip-report` skill ships Python scripts you can run standalone:
+The `power-bi-report-authoring` skill ships Python scripts you can run standalone:
 
 ```bash
 # Full QA pass on a .Report folder (finalize → lint → validate)
-python skills/power-bi-pbip-report/scripts/pbir_gate.py \
+python skills/power-bi-report-authoring/scripts/pbir_gate.py \
   --report path/to/MyReport.Report \
   --style analytical
 ```
@@ -196,9 +196,9 @@ pip install jsonschema
 | Skill | Purpose | Triggers when you say |
 |---|---|---|
 | `power-bi-business-analysis` | Phase 1: requirements interview, KPI selection | "analyze requirements", "what KPIs" |
-| `power-bi-semantic-model` | Phase 2: star schema, storage modes, RLS | "build the model", "star schema", "DirectLake" |
+| `power-bi-semantic-model` | Phase 2: star schema, storage modes, RLS, naming conventions, DAX standards, AI/Copilot readiness, REST API | "build the model", "star schema", "DirectLake", "naming conventions", "prepare for Copilot" |
 | `power-bi-dax-development` | Phase 3: DAX measures, time intelligence | "write a measure", "CALCULATE", "YTD" |
 | `power-bi-report-design` | Phase 4a: layouts, charts, themes, design spec | "design a report", "choose chart types" |
-| `power-bi-pbip-report` | Phase 4b/4c: generate PBIR JSON, lint, validate | "build the report", "validate this PBIP" |
+| `power-bi-report-authoring` | Phase 4b/4c: generate PBIR JSON, lint, validate | "build the report", "validate this PBIP" |
 | `power-bi-performance-troubleshooting` | Cross-cutting: diagnose slow reports | "report is slow", "query timeout" |
 | `power-bi-feedback-iteration` | Phase 5/6: classify feedback, UAT, changelog | "user feedback", "release notes" |

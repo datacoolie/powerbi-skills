@@ -32,15 +32,15 @@ REQUIRE    MODEL      DAX        STRATEGIST  7-REVIEW      EXECUTOR    POLISH   
 | Phase | Skill | Role / reference file |
 |---|---|---|
 | 1 Requirements | `power-bi-business-analysis` | `references/domain-kpi-templates.md` |
-| 2 Semantic Model | `power-bi-semantic-model` | — |
-| 3 DAX | `power-bi-dax-development` | — |
+| 2 Semantic Model | `power-bi-semantic-model` | `references/star-schema-checklist.md` + `references/naming-conventions.md` + `references/dax-guidelines.md` + `references/semantic-model-ai-readiness.md` |
+| 3 DAX | `power-bi-dax-development` | `references/anti-patterns.md` + `references/optimization-guide.md` |
 | 4a Strategist | `power-bi-report-design` | `references/strategist.md` + `references/design-spec-reference.md` + `references/shared-standards.md` |
 | 4a.5 Seven Confirmations | `power-bi-report-design` | enforced by agent (see Phase 4a.5) |
-| 4b Executor | `power-bi-report-design` + `power-bi-pbip-report` | `references/executor-base.md` + one of `executor-{executive|analytical|operational}.md` |
-| 4c Polish & QA | `power-bi-pbip-report` + `power-bi-report-design` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.py` |
+| 4b Executor | `power-bi-report-design` + `power-bi-report-authoring` | `references/executor-base.md` + one of `executor-{executive|analytical|operational}.md` |
+| 4c Polish & QA | `power-bi-report-authoring` + `power-bi-report-design` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.py` |
 | 5 Feedback | `power-bi-feedback-iteration` | `references/feedback-intake-template.md`, `references/classification.md`, `references/prioritization.md`, `references/change-impact-scoping.md`, `references/validation-checklist.md` |
 | 6 Release *(optional)* | `power-bi-feedback-iteration` | `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md` |
-| * Performance | `power-bi-performance-troubleshooting` | — |
+| * Performance | `power-bi-performance-troubleshooting` | `references/performance-analyzer-guide.md` + `references/dax-studio-workflow.md` |
 
 ### Phase 1 — Business Requirements Analysis
 
@@ -69,26 +69,40 @@ requirements document.
 
 **Skill:** `power-bi-semantic-model`
 
+**Tool selection priority:** MCP (powerbi-modeling-mcp) → TMDL files + az rest → Fallback.
+See `references/semantic-model-rest-api.md` for Fabric REST API endpoints.
+
 **What to do:**
 1. Explore available data sources (SQL, Lakehouse, files)
 2. Design star schema (fact tables, dimension tables, bridge tables)
-3. Choose storage modes (Import, DirectQuery, DirectLake, Composite)
-4. Build relationships using `powerbi-modeling-mcp`
-5. Configure date table and mark as date table
-6. Optimize: remove unused columns, correct data types, add hierarchies
-7. Implement RLS if required
-8. Validate with DAX queries
+3. Apply naming conventions (`references/naming-conventions.md`)
+4. Choose storage modes (Import, DirectQuery, DirectLake, Composite)
+5. Build relationships using `powerbi-modeling-mcp`
+6. Configure date table and mark as date table
+7. Optimize: remove unused columns, correct data types, add hierarchies
+8. Implement RLS if required
+9. Validate with DAX queries (`references/discovery-queries.md`)
+10. Prepare for AI/Copilot (`references/semantic-model-ai-readiness.md`)
 
 **MCP tools used:** `table_operations`, `column_operations`,
 `relationship_operations`, `partition_operations`, `calendar_operations`,
 `model_operations`, `security_role_operations`, `dax_query_operations`
 
+**Key references:**
+- Star schema checklist → `references/star-schema-checklist.md`
+- DAX coding standards → `references/dax-guidelines.md`
+- DAX performance patterns → `references/dax-perf-decision-guide.md` + `references/dax-perf-patterns.md`
+- Connection binding → `references/connection-binding.md`
+- PBIP structure → `references/pbip.md`
+
 **Exit criteria:**
-- [ ] Star schema validated (see Star Schema Checklist below)
+- [ ] Star schema validated (see Star Schema Checklist)
+- [ ] Naming conventions applied per `references/naming-conventions.md`
 - [ ] All relationships are 1:M, single-direction
 - [ ] Date table marked and validated
 - [ ] Storage modes appropriate for data size and freshness needs
 - [ ] Validation queries pass
+- [ ] Model prepared for AI/Copilot (descriptions, synonyms, AI instructions)
 
 ### Phase 3 — DAX Measure Development
 
@@ -134,7 +148,7 @@ The Strategist makes design decisions; Phase 4b does not.
 4. For each page: pick a **layout** from the layouts index; fill Design Spec §4
 5. For each visual on each page: pick a **chart-template recipe** from the
    chart-templates index; fill Design Spec §5 (Visual Inventory)
-6. Select theme (existing from `themes/` or custom — §6), iconography (§7),
+6. Select theme (existing from `assets/pbi-themes/` or custom — §6), iconography (§7),
    navigation pattern (§8), mobile strategy (§9), interactions (§10)
 7. Capture gaps / open questions in Design Spec §11 (Backlog)
 
@@ -177,7 +191,7 @@ can also skip the panel entirely and reply with a single chat message such as
 | 2 | `pages` | §4 | `as proposed`*, `add page`, `remove page`, `reorder` |
 | 3 | `audience` | §2 | `as proposed`*, `edit audience`, `edit decision` |
 | 4 | `style` | §3 | `Analytical`*, `Executive`, `Operational` |
-| 5 | `palette` | §6 | `themes/<recommended>.json`*, `another theme`, `custom` |
+| 5 | `palette` | §6 | `assets/pbi-themes/<recommended>.json`*, `another theme`, `custom` |
 | 6 | `icons` | §7 | `KPI + nav set`*, `swap icon set`, `none` |
 | 7 | `navigation` | §8 | `top bar + drillthrough`*, `left rail`, `tabs`, `no chrome` |
 
@@ -190,8 +204,9 @@ _( \* = marked `recommended: true` in the question payload. )_
 - User asks `"what would you recommend?"` on a specific item → Strategist answers with rationale and keeps the default; still non-blocking
 
 **Visual previews:** Show layout SVGs from `power-bi-report-design/assets/layout-previews/`,
-chart SVGs from `assets/chart-previews/`, and theme swatches from `assets/theme-swatches/`
-alongside the questions to help the user make informed decisions.
+chart SVGs from `power-bi-report-design/assets/chart-previews/`, and theme swatches
+from `power-bi-report-design/assets/theme-swatches/` alongside the questions to help
+the user make informed decisions.
 
 **Delivery:** Use `vscode/askQuestions` (Plan-mode Q&A) when available; fall back to a
 single bundled chat message with bold defaults. Never split into seven separate turns.
@@ -203,7 +218,7 @@ checkbox is required.
 
 ### Phase 4b — Report Executor (two-pass)
 
-**Skill:** `power-bi-report-design` + `power-bi-pbip-report`
+**Skill:** `power-bi-report-design` + `power-bi-report-authoring`
 **Role files:** `power-bi-report-design/references/executor-base.md` + one of
 `executor-executive.md` / `executor-analytical.md` / `executor-operational.md`
 (matching §3 of the Design Spec)
@@ -223,7 +238,7 @@ the minimum viable properties. No narrative elements yet.
    `pages/<slug>/visuals/<name>/visual.json` with position, queryState binding,
    and recipe-mandated formatting
 3. Apply the theme file at report level (place under `StaticResources/`)
-4. Validate structure with `power-bi-pbip-report/scripts/validate_report.py`
+4. Validate structure with `power-bi-report-authoring/scripts/validate_report.py`
 
 #### Pass 2 — Narrative Construction
 
@@ -236,8 +251,9 @@ Goal: turn a valid-but-bland report into one that communicates.
 5. Configure sync slicer groups per §8
 6. Generate mobile layouts per §9 (or defer complex cases to Polisher)
 
-**MCP + tool usage:** file I/O; `fabric-mcp` for Fabric workspace publishing
-later; no model-modifying MCP calls in this phase.
+**MCP + tool usage:** file I/O; `powerbi-report-author` CLI for metadata lookup
+and validation; `powerbi-desktop` CLI for reload/screenshot verification;
+`fabric-mcp` for Fabric workspace publishing later; no model-modifying MCP calls.
 
 **Exit criteria:**
 - [ ] Every page + visual from Design Spec §4-5 exists with correct position + binding
@@ -245,20 +261,21 @@ later; no model-modifying MCP calls in this phase.
 - [ ] Every visual has alt text
 - [ ] Navigation wired (buttons, drillthrough with back button, bookmarks)
 - [ ] Sync slicers configured
-- [ ] `validate_report.py` passes (zero errors)
+- [ ] `powerbi-report-author validate` passes (zero errors)
+- [ ] Desktop reload + screenshot review confirms rendered output matches spec
 
 **Do not run the Polisher or Design-QA linter here — those are Phase 4c.**
 
 ### Phase 4c — Polish & Design QA
 
-**Skill:** `power-bi-pbip-report` (scripts) + `power-bi-report-design` (polisher role)
+**Skill:** `power-bi-report-authoring` (scripts) + `power-bi-report-design` (polisher role)
 **Role file:** `power-bi-report-design/references/polisher.md`
 
 **What to do:**
 
 Run the unified gate (chains all three steps into one pass/fail verdict):
 ```powershell
-python skills/power-bi-pbip-report/scripts/pbir_gate.py --report <path> --style <style>
+python skills/power-bi-report-authoring/scripts/pbir_gate.py --report <path> --style <style>
 ```
 Add `--allow-warnings` to pass with warnings only. Add `--json verdict.json` to save the verdict.
 
@@ -269,9 +286,12 @@ The gate runs these stages in order:
 3. **Schema validation** — `validate_report.py` for PBIR schema correctness
 
 After the gate passes:
-4. **Reconcile** with Design Spec — every page, visual, binding, and theme token
+4. **Desktop verification** — run `powerbi-desktop reload --pid <pid>` then
+   `powerbi-desktop screenshot-all --pid <pid> --output-dir screenshots/` to
+   capture rendered output for every page
+5. **Reconcile** with Design Spec — every page, visual, binding, and theme token
    referenced in the spec exists in the JSON
-5. **Evidence package** — capture screenshots per page; attach `design_report.md`
+6. **Evidence package** — attach screenshots, `design_report.md`,
    and the sign-off copy of the Design Spec
 
 **Routing on lint results:**

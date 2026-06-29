@@ -10,7 +10,7 @@ description: >-
   "what should we measure", "what problems can we solve", "propose a dashboard",
   "what reports do we need", "BI strategy", "define metrics".
   Do NOT use for actual model building (use power-bi-semantic-model),
-  DAX writing (use power-bi-dax-development), or report generation (use power-bi-pbip-report).
+  DAX writing (use power-bi-dax-development), or report generation (use power-bi-report-authoring).
 ---
 
 # Power BI Business Analysis
@@ -200,11 +200,7 @@ service-side for faster turnaround.
 
 ### Handoff to Phase 2
 
-The Phase 1 → Phase 2 transition emits a handoff JSON conforming to
-[handoff.schema.json](../../agents/handoff.schema.json) with `from_phase: "phase-1"`.
-
-See [handoff-phase1-to-phase2.json](../../agents/examples/handoff-phase1-to-phase2.json)
-for the exact shape. The `artifacts["phase-1"]` payload must include:
+The Phase 1 → Phase 2 transition passes the following artifacts:
 
 | Key | Source |
 |---|---|
@@ -213,10 +209,7 @@ for the exact shape. The `artifacts["phase-1"]` payload must include:
 | `page_plan` | Requirements Document §3 |
 | `data_source_list` | Requirements Document §4 + gap analysis results |
 
-Validate before handing off:
-```powershell
-python agents/validate_handoff.py <handoff-file>.json
-```
+The agent validates completeness before proceeding to Phase 2.
 
 ---
 

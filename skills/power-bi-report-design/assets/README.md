@@ -43,7 +43,7 @@ manifest (see per-folder docs for schema).
 ## Cross-references
 
 - Recipe catalog (prose): [`../references/`](../references/)
-- Theme JSON (canonical): [`../../power-bi-pbip-report/references/themes/`](../../power-bi-pbip-report/references/themes/)
+- Theme JSON (canonical): [`../../power-bi-report-authoring/references/themes/`](../../power-bi-report-authoring/references/themes/)
 - Visual-vocabulary intent map: [`../references/visual-vocabulary.md`](../references/visual-vocabulary.md)
 
 ## Seeding status (current)

@@ -65,7 +65,7 @@ Feedback → Intake → Classify → Scope → Prioritize → Route (via agent) 
 3. **Scope** — apply [references/change-impact-scoping.md](references/change-impact-scoping.md) to identify affected files, downstream validation, and risk
 4. **Prioritize** — apply [references/prioritization.md](references/prioritization.md) (impact × effort)
 5. **Route** — the `power-bi-developer` agent consults its routing table and dispatches to the correct downstream skill (see the agent's Phase 5 routing table)
-6. **Implement** — done by the routed downstream skill (power-bi-semantic-model, power-bi-dax-development, power-bi-report-design, power-bi-pbip-report, or power-bi-performance-troubleshooting)
+6. **Implement** — done by the routed downstream skill (power-bi-semantic-model, power-bi-dax-development, power-bi-report-design, power-bi-report-authoring, or power-bi-performance-troubleshooting)
 7. **Validate** — apply [references/validation-checklist.md](references/validation-checklist.md) before marking the item resolved
 8. **Release** (optional, production reports) — run [references/uat.md](references/uat.md), tag in Git per [references/git-pbip-diff-guide.md](references/git-pbip-diff-guide.md), update [references/changelog-template.md](references/changelog-template.md)
 
@@ -85,7 +85,7 @@ First-pass triage with [references/performance-quick-check.md](references/perfor
 | `power-bi-semantic-model` | Routes to | Data accuracy, missing data, RLS, and relationship issues |
 | `power-bi-dax-development` | Routes to | New or broken measures, calculation fixes |
 | `power-bi-report-design` | Routes to | Chart type changes, layout redesign, theme updates |
-| `power-bi-pbip-report` | Routes to | Visual formatting fixes, JSON corrections, mobile layout |
+| `power-bi-report-authoring` | Routes to | Visual formatting fixes, JSON corrections, mobile layout |
 | `power-bi-business-analysis` | Routes to | New requirements or significant scope expansion |
 
 ## Anti-patterns

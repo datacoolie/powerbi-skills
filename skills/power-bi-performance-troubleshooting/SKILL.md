@@ -186,5 +186,5 @@ Before deep analysis, run the anti-pattern checklist:
 |---|---|---|
 | `power-bi-dax-development` | Cross-reference | DAX optimization guide, anti-patterns, query plan analysis |
 | `power-bi-semantic-model` | Cross-reference | VertiPaq optimization, storage mode decisions, Direct Lake tuning |
-| `power-bi-pbip-report` | Cross-reference | Report-level optimization (visual count, slicer design) |
+| `power-bi-report-authoring` | Cross-reference | Report-level optimization (visual count, slicer design) |
 | `power-bi-feedback-iteration` | Upstream | Performance complaints route here from the feedback skill |

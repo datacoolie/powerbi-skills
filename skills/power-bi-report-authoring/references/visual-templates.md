@@ -138,18 +138,35 @@ Aggregation `Function` values: `0` = Sum, `1` = Avg, `2` = Count, `3` = Min, `4`
 ## Accessibility Properties
 
 Every non-decorative visual should include `altText` for screen readers and
-a meaningful `tabOrder` for keyboard navigation. These are top-level
-properties in `visual.json` (siblings of `visual`, `position`, `name`).
+a meaningful `tabOrder` for keyboard navigation.
 
 ### Alt Text
+
+`altText` is a shared **visualContainerObjects (VCO)** property named `general`
+— valid for every visual type — not a per-visual-type `objects` property.
+Confirm with `powerbi-report-author formatting list-vcos` (the `general` VCO
+lists `altText`) before assuming any other placement.
 
 ```json
 {
   "$schema": "...",
   "name": "bar-revenue-by-region",
   "position": { "..." : "..." },
-  "visual": { "..." : "..." },
-  "altText": "Bar chart showing revenue by region. North leads with $2.4M, followed by South at $1.8M."
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "...": "...",
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": { "Literal": { "Value": "'Bar chart showing revenue by region. North leads with $2.4M, followed by South at $1.8M.'" } }
+            }
+          }
+        }
+      ]
+    }
+  }
 }
 ```
 

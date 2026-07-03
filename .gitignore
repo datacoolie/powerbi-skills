@@ -20,7 +20,8 @@ research/
 # Ignore the working files
 _*.txt
 _*.py
-scripts/
+.scripts/
+tests/
 
 # Ignore generated artifacts (npm, Python cache, schema cache)
 __pycache__/

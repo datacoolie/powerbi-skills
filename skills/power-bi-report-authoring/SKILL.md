@@ -92,6 +92,7 @@ Canvas size: **1664 × 936** (standard Power BI canvas). Tooltip pages: **320 ×
 | `scripts/finalize_pbir.py` | **Phase 4c polish** — snap_grid, align_kpi_row, apply_theme_tokens, normalize_fonts, ensure_alt_text |
 | `scripts/design_quality_check.py` | **Phase 4c lint** — 14 checks (E1-E4 critical, W1-W10 warnings). Use `--style executive\|analytical\|operational` |
 | `scripts/pbir_gate.py` | **Unified Phase 4c gate** — chains finalize → lint → validate → CLI validate into one pass/fail command |
+| `scripts/pbir_utils.py` | Internal shared helper (constants, logging, console fix) — imported by the 4 scripts above, not run directly |
 
 ## Quick Reference: Folder Structure
 

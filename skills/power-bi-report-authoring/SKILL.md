@@ -245,15 +245,7 @@ See `../power-bi-report-design/references/polisher.md` for the full Phase 4c rou
 
 ```powershell
 # 1. Mechanical polish (snap grid, align KPIs, tokenize theme colors, unify fonts, alt text)
-python skills/power-bi-report-authoring/scripts/finalize_pbir.py --report <path-to-.Report-folder>
-
-# 2. Design-quality lint (style-aware: executive / analytical / operational)
-python skills/power-bi-report-authoring/scripts/design_quality_check.py `
-    --report <path-to-.Report-folder> `
-    --style <style-from-design-spec> `
-    --write-report
-
-# 3. Structural validation (cross-refs, naming, required properties)
+# 3. Structural validation (cross-refs, naming, advisories — not schema)
 python skills/power-bi-report-authoring/scripts/validate_report.py <path-to-.Report-folder>
 
 # 4. CLI Schema validation
@@ -270,22 +262,23 @@ python skills/power-bi-report-authoring/scripts/validate_report.py <path-to-.Rep
 npx powerbi-report-author validate <path-to-.Report-folder>
 ```
 
-`validate_report.py` checks:
-1. **JSON syntax** — every `.json` and `.pbir` file parses cleanly
-2. **Required properties** — `$schema`, `name`, `position`, `themeCollection`, etc.
-3. **Cross-references** — page folders match `pages.json`, custom visuals registered in `report.json`
-4. **Naming conventions** — kebab-case for page and visual folders
+`validate_report.py` checks (schema validation is intentionally NOT duplicated here —
+that is the CLI's job):
+1. **JSON syntax** — every `.json` and `.pbir` file parses cleanly (needed to run the checks below)
+2. **Cross-references** — page folders match `pages.json`, bookmarks reference real pages,
+   custom visuals registered in `report.json`
+3. **Naming conventions** — kebab-case for page and visual folders
+4. **Query semantics** — visual query `From` items reference a valid `Entity`/`Name`
+5. **Drillthrough/tooltip advisories** — missing drillthrough filters, oversized tooltip pages
 
-`powerbi-report-author validate` checks: every file against its correct Microsoft JSON schema.
+`powerbi-report-author validate` checks: every file against its correct Microsoft JSON schema
+(required properties, `$schema`, position shape, `displayOption` enum values, `visual` vs
+`visualGroup` presence, etc.) — always run this as the source of truth for schema correctness.
 
-Fix all **errors** before delivering. **Warnings** are advisory (naming, unused registrations).  
+Fix all **errors** before delivering. **Warnings** are advisory (naming, unused registrations).
 
-If neither script is available, manually verify:
-- Every JSON file parses (`json.loads()` succeeds)
-- Every `visual.json` has `name`, `position` (with `x`, `y`, `height`, `width`), and either `visual` or `visualGroup`
-- `pages.json` → `pageOrder` entries match actual page folder names
-- `page.json` → `name` matches its parent folder name
-- Custom visual types used in visuals are registered in `report.json` → `publicCustomVisuals`
+If the CLI is not available, `validate_report.py` alone is not a substitute for schema
+validation — install the CLI (Step 0) before delivering a report.
 
 ---
 

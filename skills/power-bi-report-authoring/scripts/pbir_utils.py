@@ -54,23 +54,66 @@ PRIMITIVE_VTYPES = frozenset({
 # Performance budget (shared-standards.md §8)
 REPORT_VISUAL_BUDGET = 60
 
-# All built-in visual types shipped with Power BI Desktop (no registration needed).
-BUILTIN_VISUAL_TYPES = frozenset({
+# Offline fallback ONLY — used when `powerbi-report-author catalog list` cannot be
+# reached (CLI/npx not installed). The CLI is the authoritative source of truth for
+# built-in visual types; see get_builtin_visual_types() below, which always prefers
+# it. Keep this list only as a degraded-mode safety net, not as the primary source.
+_FALLBACK_BUILTIN_VISUAL_TYPES = frozenset({
     "card", "cardVisual", "multiRowCard", "slicer",
-    "advancedSlicerVisual", "listSlicer", "textSlicer",
+    "advancedSlicerVisual", "listSlicer", "textSlicer", "filterSlicer",
     "clusteredBarChart", "clusteredColumnChart", "barChart", "columnChart",
     "hundredPercentStackedBarChart", "hundredPercentStackedColumnChart",
-    "lineChart", "areaChart", "stackedAreaChart",
+    "hundredPercentStackedAreaChart",
+    "lineChart", "areaChart", "stackedAreaChart", "realTimeLineChart",
     "lineClusteredColumnComboChart", "lineStackedColumnComboChart",
     "waterfallChart", "treemap", "pieChart", "donutChart",
-    "pivotTable", "tableEx", "funnel",
-    "scatterChart", "map", "filledMap", "shapeMap", "azureMap",
-    "gauge", "kpi", "ribbonChart", "decompositionTreeVisual",
-    "keyInfluencersVisual", "qnaVisual",
+    "pivotTable", "tableEx", "table", "matrix", "accessibleTable", "funnel",
+    "scatterChart", "map", "filledMap", "shapeMap", "azureMap", "heatMap",
+    "gauge", "kpi", "scorecard", "ribbonChart", "decompositionTreeVisual",
+    "keyDriversVisual", "qnaVisual", "dataQueryVisual", "aiNarratives",
+    "animatedNumber", "rdlVisual",
     "shape", "basicShape", "textbox", "actionButton", "image",
     "pageNavigator", "bookmarkNavigator",
     "scriptVisual", "pythonVisual",
 })
+
+_builtin_visual_types_cache: frozenset[str] | None = None
+
+
+def get_builtin_visual_types() -> frozenset[str]:
+    """Return the set of built-in visual types (no report.json registration needed).
+
+    Sources this live from `powerbi-report-author catalog list` — the official CLI
+    is authoritative and is kept current with Power BI Desktop releases, unlike a
+    hand-maintained Python list. Falls back to a static snapshot only if the CLI
+    is unavailable (npx missing, network/timeout, non-zero exit, bad JSON).
+    Result is cached per-process — the catalog does not change during a run.
+    """
+    global _builtin_visual_types_cache
+    if _builtin_visual_types_cache is not None:
+        return _builtin_visual_types_cache
+
+    import shutil
+    import subprocess
+
+    npx_path = shutil.which("npx")
+    if npx_path is not None:
+        try:
+            result = subprocess.run(
+                [npx_path, "powerbi-report-author", "catalog", "list"],
+                capture_output=True, text=True, timeout=30,
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                payload = json.loads(result.stdout)
+                visual_types = payload.get("data", {}).get("visualTypes")
+                if visual_types:
+                    _builtin_visual_types_cache = frozenset(visual_types)
+                    return _builtin_visual_types_cache
+        except (subprocess.TimeoutExpired, json.JSONDecodeError, OSError):
+            pass
+
+    _builtin_visual_types_cache = _FALLBACK_BUILTIN_VISUAL_TYPES
+    return _builtin_visual_types_cache
 
 
 # ── JSON I/O ──────────────────────────────────────────────────

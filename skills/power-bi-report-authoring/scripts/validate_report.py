@@ -5,15 +5,18 @@ Usage:
     python validate_report.py <path-to-.Report-folder>
 
 Checks:
-    1. JSON syntax — every .json and .pbir file must parse cleanly
-    2. Required properties — structural checks per file type
-    3. Cross-references — page folders ↔ pages.json, bookmarks, custom visuals
-    4. Naming conventions — kebab-case for page/visual folders
+    1. JSON syntax — every .json and .pbir file must parse cleanly (needed to run the checks below)
+    2. Cross-references — page folders ↔ pages.json, bookmarks, custom visuals
+    3. Naming conventions — kebab-case for page/visual folders
+    4. Query semantics — visual.json query From-items reference a valid Entity/Name
+    5. Drillthrough/tooltip advisories — missing drillthrough filters, oversized tooltip pages
 
-Note: JSON Schema validation is handled by the official `powerbi-report-author validate`
-CLI (npm install -g @microsoft/powerbi-report-authoring-cli). This script focuses on
-structural correctness that schema validation does not express — cross-file references,
-naming conventions, and PBIR-specific consistency rules.
+Note: JSON Schema validation (required properties, position shape, $schema, enum values
+such as displayOption) is handled entirely by the official `powerbi-report-author validate`
+CLI (npm install -g @microsoft/powerbi-report-authoring-cli) — already run as a stage in
+pbir_gate.py. This script does NOT re-implement schema validation; it only covers structural
+correctness that schema validation cannot express because it is cross-file or advisory in
+nature — cross-file references, naming conventions, and PBIR-specific consistency rules.
 
 Exit code 0 = all checks pass. Non-zero = errors found.
 """
@@ -31,31 +34,15 @@ _SCRIPTS_DIR = Path(__file__).resolve().parent
 if str(_SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_DIR))
 
-from pbir_utils import setup_logging, BUILTIN_VISUAL_TYPES  # noqa: E402
+from pbir_utils import setup_logging, get_builtin_visual_types  # noqa: E402
 
 
 # --- Configuration ---
-
-REQUIRED_PROPERTIES = {
-    "report.json": ["themeCollection"],
-    "page.json": ["name", "displayName", "displayOption"],
-    "visual.json": ["name", "position"],
-    "pages.json": [],  # only $schema required
-    "version.json": ["version"],
-    "definition.pbir": ["version", "datasetReference"],
-    "bookmarks.json": [],
-    "mobile.json": [],
-    "reportExtensions.json": [],  # only $schema required; present when report-level measures exist
-}
 
 # Page types — Power BI encodes page purpose via the 'type' integer field.
 PAGE_TYPE_REPORT = 0       # default report page
 PAGE_TYPE_TOOLTIP = 1      # tooltip page
 PAGE_TYPE_DRILLTHROUGH = 2 # drillthrough page
-
-VISUAL_POSITION_PROPS = ["x", "y", "height", "width"]
-
-VALID_DISPLAY_OPTIONS = {"FitToPage", "FitToWidth", "ActualSize"}
 
 
 # --- Helpers ---
@@ -109,71 +96,36 @@ def validate_json_syntax(file_path: Path, root: Path, result: ValidationResult) 
         return None
 
 
-def validate_schema_property(data: dict, file_path: Path, root: Path, result: ValidationResult):
-    """Check that the file has a $schema property."""
-    if "$schema" not in data:
-        result.warn(rel(file_path, root), "Missing $schema property")
+def validate_page_advisories(data: dict, file_path: Path, root: Path, result: ValidationResult):
+    """Advisory checks for page.json that JSON Schema validation cannot express
+    (schema only checks shape/enum values, not cross-cutting UX guidance).
 
-
-def validate_required_properties(data: dict, file_path: Path, root: Path, result: ValidationResult):
-    """Check required properties based on file type."""
-    file_name = file_path.name
-
-    # Match against known file types
-    if file_name == "definition.pbir":
-        key = "definition.pbir"
-    elif file_name in REQUIRED_PROPERTIES:
-        key = file_name
-    elif file_name.endswith(".bookmark.json"):
-        return  # bookmark files have varied structure
-    else:
+    Schema-level checks (required properties, position shape, displayOption enum,
+    'visual' vs 'visualGroup' presence, $schema presence, etc.) are intentionally
+    NOT duplicated here — they are covered by the official
+    `powerbi-report-author validate` CLI.
+    """
+    if file_path.name != "page.json":
         return
 
-    for prop in REQUIRED_PROPERTIES.get(key, []):
-        if prop not in data:
-            result.error(rel(file_path, root), f"Missing required property: '{prop}'")
-
-    # Extra check for visual.json position
-    if file_name == "visual.json" and "position" in data:
-        pos = data["position"]
-        for p in VISUAL_POSITION_PROPS:
-            if p not in pos:
-                result.error(rel(file_path, root), f"Missing position.{p}")
-
-    # Extra check for visual.json — must have either 'visual' or 'visualGroup'
-    if file_name == "visual.json":
-        if "visual" not in data and "visualGroup" not in data:
-            result.error(rel(file_path, root), "Must have either 'visual' or 'visualGroup' property")
-
-    # Drillthrough / tooltip page validation
-    if file_name == "page.json":
-        page_type = data.get("type", PAGE_TYPE_REPORT)
-        if page_type == PAGE_TYPE_DRILLTHROUGH:
-            # Drillthrough pages should have filters or allFilters configured
-            if "filters" not in data and "allFilters" not in data:
-                result.warn(
-                    rel(file_path, root),
-                    "Drillthrough page (type=2) has no 'filters' or 'allFilters' — "
-                    "users won't be able to drill through to this page"
-                )
-        if page_type == PAGE_TYPE_TOOLTIP:
-            # Tooltip pages should have appropriate width/height (typically 320x240)
-            w = data.get("width")
-            h = data.get("height")
-            if w and h and (w > 680 or h > 480):
-                result.warn(
-                    rel(file_path, root),
-                    f"Tooltip page (type=1) has large dimensions ({w}x{h}) — "
-                    "tooltip pages are typically 320x240 or similar small sizes"
-                )
-
-        # Validate displayOption has a recognized value
-        display_opt = data.get("displayOption")
-        if display_opt is not None and display_opt not in VALID_DISPLAY_OPTIONS:
-            result.error(
+    page_type = data.get("type", PAGE_TYPE_REPORT)
+    if page_type == PAGE_TYPE_DRILLTHROUGH:
+        # Drillthrough pages should have filters or allFilters configured
+        if "filters" not in data and "allFilters" not in data:
+            result.warn(
                 rel(file_path, root),
-                f"Invalid displayOption: '{display_opt}' — "
-                f"must be one of {sorted(VALID_DISPLAY_OPTIONS)}"
+                "Drillthrough page (type=2) has no 'filters' or 'allFilters' — "
+                "users won't be able to drill through to this page"
+            )
+    if page_type == PAGE_TYPE_TOOLTIP:
+        # Tooltip pages should have appropriate width/height (typically 320x240)
+        w = data.get("width")
+        h = data.get("height")
+        if w and h and (w > 680 or h > 480):
+            result.warn(
+                rel(file_path, root),
+                f"Tooltip page (type=1) has large dimensions ({w}x{h}) — "
+                "tooltip pages are typically 320x240 or similar small sizes"
             )
 
 
@@ -350,9 +302,12 @@ def validate_cross_references(root: Path, parsed_cache: dict[str, dict | None], 
                 if cv not in used_visual_types:
                     result.warn("report.json", f"Custom visual '{cv}' registered but not used in any visual")
 
-            # Check: visual uses a non-built-in type but it's not registered
+            # Check: visual uses a non-built-in type but it's not registered.
+            # Built-in types are sourced live from `powerbi-report-author catalog list`
+            # (falls back to a static snapshot only if the CLI is unavailable).
+            builtin_visual_types = get_builtin_visual_types()
             for vtype in used_visual_types:
-                if vtype not in BUILTIN_VISUAL_TYPES and vtype not in registered_visuals:
+                if vtype not in builtin_visual_types and vtype not in registered_visuals:
                     result.error(
                         "report.json",
                         f"Visual type '{vtype}' used but not registered in publicCustomVisuals"
@@ -414,8 +369,7 @@ def validate_report(report_path: Path) -> ValidationResult:
         parsed_cache[str(jf)] = data
         if data is not None:
             parsed_count += 1
-            validate_schema_property(data, jf, report_path, result)
-            validate_required_properties(data, jf, report_path, result)
+            validate_page_advisories(data, jf, report_path, result)
             validate_visual_query(data, jf, report_path, result)
 
     # 2. Cross-reference checks (uses cached parse results to avoid duplicate errors)
@@ -431,7 +385,7 @@ def validate_report(report_path: Path) -> ValidationResult:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Validate a Power BI PBIR .Report folder — structural checks (JSON syntax, required properties, cross-references, naming).",
+        description="Validate a Power BI PBIR .Report folder — cross-reference, naming, and advisory checks (schema validation is handled by `powerbi-report-author validate`).",
         epilog="Examples:\n"
                "  python validate_report.py ./MyReport.Report\n",
         formatter_class=argparse.RawDescriptionHelpFormatter,

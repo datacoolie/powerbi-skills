@@ -156,7 +156,7 @@ You can also jump in mid-pipeline:
 | Say this | Agent starts at |
 |---|---|
 | *"Help me write DAX measures for this model"* | Phase 3 |
-| *"Design a report for this dataset"* | Phase 4a |
+| *"Design a report for this dataset"* | Phase 4a — agent first checks the model has every measure the report needs (Measures Gate); missing ones are created in Phase 3 before design starts |
 | *"Validate this PBIP report"* | Phase 4c (runs the QA scripts) |
 | *"My report is slow"* | Performance troubleshooting skill |
 

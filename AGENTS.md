@@ -137,6 +137,21 @@ The Strategist turns the Requirements Document + model + measures into an
 approved **Design Spec** — the contract that Phase 4b will build against.
 The Strategist makes design decisions; Phase 4b does not.
 
+**Precondition — Measures Gate (MANDATORY, do not skip):**
+Before starting the Strategist steps below, verify every measure needed by the
+Requirements Document's Measures Inventory actually exists in the model.
+**Never assume measures exist just because a report was requested** — always check:
+1. Run `measure_operations` (list) against the target model
+2. Diff the returned measures against the Measures Inventory (Phase 1) or the
+   domain template's KPI list (if no formal inventory exists)
+3. **Any measure missing** → do NOT proceed to Phase 4a. Go to Phase 3, create
+   the missing measures (test + format + describe them), THEN return here
+4. **All measures present** → proceed to Phase 4a as normal
+
+This gate applies even when entering mid-pipeline (see `Workflow Entry Points`
+and `Edge Cases & Non-Linear Entry` below) — "design/build a report" is never
+sufficient grounds to assume the model already has the DAX it needs.
+
 **What to do:**
 1. Load `references/shared-standards.md`, `references/strategist.md`, and the two
    library indexes: `references/layouts/layouts-index.json` and
@@ -389,9 +404,9 @@ Not every engagement starts at Phase 1. Determine the correct starting phase:
 |---|---|
 | "Build me a report for sales data" | Phase 1 |
 | "I have a model, create DAX measures" | Phase 3 |
-| "Design a report for this model" | Phase 4a (design) |
+| "Design a report for this model" | Phase 4a (design) — **Measures Gate first: if any needed measure is missing, Phase 3 first** |
 | "Generate PBIR files from this design spec" | Phase 4b (generation) |
-| "Generate a PBIP report from this model" | Phase 4a (design → generation) |
+| "Generate a PBIP report from this model" | Phase 4a (design → generation) — **Measures Gate first: if any needed measure is missing, Phase 3 first** |
 | "Fix this measure / visual / model" | Phase 5 (feedback) |
 | "I need a semantic model for this data" | Phase 2 |
 | "Review my Power BI project" | Phase 5 (feedback / audit) |
@@ -611,14 +626,20 @@ Do not duplicate it here.
 Some phases can partially overlap:
 
 - **Phase 2 + Phase 3**: Base measures can be created as tables are built
-- **Phase 3 + Phase 4a**: Report design can start while measures are being finalized
-  (use placeholder measure names from the inventory)
+- **Phase 3 + Phase 4a (planning only)**: The Strategist may start drafting layout
+  and chart-type choices using the *planned* measure names from the Measures
+  Inventory while Phase 3 is still finalizing formatting/descriptions. This does
+  **not** bypass the Measures Gate — the Design Spec cannot be signed off (Phase
+  4a.5) and Phase 4b cannot generate a single `visual.json` until every measure
+  it references actually exists, tested, in the model. Never bind a visual to a
+  placeholder or not-yet-created measure name.
 - **Phase 4a + Phase 4b**: Once the first pages are designed, generation can begin
   while remaining pages are still being designed
 - **Phase 4b pages**: Multiple pages can be generated in parallel
 
 However, Phase 1 must complete before Phase 2 begins (requirements drive design),
-Phase 4a must produce a Design Spec before Phase 4b generates JSON,
+Phase 3 must complete (Measures Gate passed) before Phase 4a's Design Spec is
+signed off, Phase 4a must produce a Design Spec before Phase 4b generates JSON,
 and Phase 5 is inherently sequential (must wait for user feedback).
 
 ---
@@ -632,9 +653,9 @@ common scenarios:
 
 | User Says | What's Missing | Action |
 |---|---|---|
-| "Just add a chart to my report" | No requirements doc, but intent is clear | Treat as Phase 4b micro-task. Ask: what measure, what visual type, which page? |
+| "Just add a chart to my report" | No requirements doc, but intent is clear | Treat as Phase 4b micro-task. Ask: what measure, what visual type, which page? **Verify the measure exists via `measure_operations` before binding it — create it in Phase 3 first if missing.** |
 | "Write a DAX measure for YoY growth" | No model context | Ask for table/column names. Use `model_operations` to discover schema if model is connected. Start at Phase 3 |
-| "I already have a model, build me a report" | No requirements or design spec | Run abbreviated Phase 1 (quick KPI interview) → Phase 4a (design) → Phase 4b (generate) |
+| "I already have a model, build me a report" | No requirements or design spec, and measures may not exist yet | Run abbreviated Phase 1 (quick KPI interview) → **Measures Gate: check via `measure_operations`, create any missing measures in Phase 3** → Phase 4a (design) → Phase 4b (generate) |
 | "Fix this visual" | No prior context | Treat as Phase 5 (feedback). Read the visual.json, diagnose, fix |
 
 **Rule:** When a user skips phases, infer what's needed from context rather than
@@ -645,8 +666,12 @@ forcing them back to Phase 1. Ask only the minimum clarifying questions.
 When the user has an existing semantic model:
 1. Use `model_operations` and `table_operations` to discover tables, columns, relationships
 2. Use `measure_operations` to list existing measures
-3. Skip Phase 2 (model exists) and Phase 3 (if measures exist)
-4. Proceed to the phase the user actually needs
+3. Skip Phase 2 (model exists)
+4. **Do not assume Phase 3 is done.** Diff the existing measures against what the
+   requested report actually needs (Measures Inventory or domain template KPIs —
+   see the Measures Gate in Phase 4a). Skip Phase 3 only if every needed measure
+   is already present; otherwise create the missing ones in Phase 3 first
+5. Proceed to the phase the user actually needs
 
 ### Scenario: Partial Requirements
 
@@ -661,8 +686,11 @@ When the user gives vague requirements like "build me a sales dashboard":
 When the user wants to add pages or visuals to an existing report:
 1. Read the existing report structure (`report.json`, page folders)
 2. Understand the current theme, naming conventions, layout patterns
-3. Match the new content to the existing style
-4. Add only the new pages/visuals — do NOT regenerate existing ones
+3. **Measures Gate**: identify which measures the new visual(s) need, run
+   `measure_operations` against the bound semantic model, and create any missing
+   measure in Phase 3 before writing the new `visual.json`
+4. Match the new content to the existing style
+5. Add only the new pages/visuals — do NOT regenerate existing ones
 
 ### Scenario: Performance Issue Mid-Project
 
@@ -680,21 +708,25 @@ Phases 1-3 into discovery and runs a streamlined Phase 4.
 
 **Trigger conditions** (any of these):
 - User says `"quick report"`, `"simple dashboard"`, or `"just build it"`
-- Model already exists AND has ≤ 5 measures AND user describes ≤ 3 pages
+- Model already exists AND ≤ 5 measures are **missing** (gap, not existing count —
+  0 existing measures is NOT automatically Express Path; it means Phase 3 work is
+  needed, and Express Path only stays in play if that gap is itself ≤ 5 measures)
+  AND user describes ≤ 3 pages
 - User provides a complete brief in one message (domain + KPIs + page plan)
 - Agent detects the scope is small after running `model_operations` and
-  `measure_operations` (≤ 2 fact tables, ≤ 5 measures)
+  `measure_operations` (≤ 2 fact tables, ≤ 5 measures missing)
 
 **Express Path flow:**
 
 ```
-DISCOVER ── AUTO-DESIGN ── AUTO-CONFIRM ── GENERATE ── POLISH
-  (5 min)     (auto)        (non-block)    (Phase 4b)  (Phase 4c)
+DISCOVER ── ENSURE MEASURES ── AUTO-DESIGN ── AUTO-CONFIRM ── GENERATE ── POLISH
+  (5 min)     (if gap ≤ 5)        (auto)        (non-block)   (Phase 4b)  (Phase 4c)
 ```
 
 | Step | What Happens | Phase Equivalent |
 |---|---|---|
-| 1. **Discover** | Read model schema via MCP (`model_operations`, `table_operations`, `measure_operations`). List existing tables, relationships, measures. Identify the domain from table/measure names. | Abbreviated Phase 1 + Phase 2 skip + Phase 3 skip |
+| 1. **Discover** | Read model schema via MCP (`model_operations`, `table_operations`, `measure_operations`). List existing tables, relationships, measures. Identify the domain from table/measure names. **Diff existing measures against the domain template's KPI list — this is the Measures Gate; never assume it's already satisfied.** | Abbreviated Phase 1 + Phase 2 skip |
+| 1.5 **Ensure Measures** | If the gap is empty → skip to Step 2. If ≤ 5 measures are missing → create them now (mini Phase 3: base measures + format strings + descriptions, tested with `dax_query_operations`) before designing any visual. If > 5 are missing → **exit Express Path**, switch to the full pipeline at Phase 3. | Phase 3 (abbreviated, only if needed) |
 | 2. **Auto-Design** | Select the matching domain template. Auto-pick: layout (from `layouts-index.json`), chart recipes (from `chart-templates-index.json`), theme (first match in `pbi-themes/`), style personality (infer from audience hint or default to Analytical). Fill Design Spec §§1-11 with sensible defaults. | Abbreviated Phase 4a |
 | 3. **Auto-Confirm** | Present the Seven Confirmations via Plan-mode Q&A with all defaults pre-filled and a note: *"Express Path — defaults auto-selected from the [domain] template. Reply 'proceed' or edit any item."* Show layout and chart preview SVGs. If user replies `"proceed"` or does not push back → advance. | Phase 4a.5 (non-blocking, as usual) |
 | 4. **Generate** | Run Phase 4b two-pass (Layout → Narrative) as normal. | Phase 4b |
@@ -704,17 +736,20 @@ DISCOVER ── AUTO-DESIGN ── AUTO-CONFIRM ── GENERATE ── POLISH
 - Full 15-question stakeholder interview (replaced by model discovery)
 - Requirements Document generation (inline notes suffice)
 - Phase 2 model building (model already exists)
-- Phase 3 DAX development (measures already exist, or auto-create basic ones)
+- Phase 3 DAX development **only when every needed measure already exists** —
+  otherwise Step 1.5 (Ensure Measures) runs a mini Phase 3 before any visual is designed
 - Handoff JSON validation (implicit handoff is fine for small scope)
 
 **What Express Path does NOT skip:**
 - Phase 4a.5 Seven Confirmations (always presented, even if auto-accepted)
 - Phase 4c Polish & QA (every report gets linted)
 - Phase 5 Feedback (user can still iterate)
+- **The Measures Gate (Step 1.5)** — a missing measure is never silently ignored
 
 **Guard rail:** If the agent discovers complexity during Step 1 (> 5 measures
-needed, > 3 pages, RLS required, multiple audiences with conflicting archetypes),
-**exit Express Path** and switch to the full pipeline starting at Phase 1.
+**missing**, > 3 pages, RLS required, multiple audiences with conflicting archetypes),
+**exit Express Path** and switch to the full pipeline starting at Phase 1 (or Phase 3
+if only the measure gap is large).
 
 ---
 

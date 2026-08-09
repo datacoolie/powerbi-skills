@@ -448,35 +448,56 @@ Read `references/powerbi-report-author-cli.md` for full command catalog and enco
 ## Anti-Patterns and Pitfalls
 
 | Pitfall | Consequence | Fix |
-|---|---|---|
-| Using legacy visual types (`card`, `table`, `matrix`, `map`) | Deprecated; may break | Use `cardVisual`, `tableEx`, `pivotTable`, `azureMap` |
-| Using `"Entity"` inside filter `Where` conditions | Filter silently fails | Use `"Source"` with alias from `From` |
+|---------|-------------|-----|
+| Using `"Entity"` inside filter `Where` conditions | Filter silently fails | Use `"Source"` with the alias from `From` |
 | Omitting `nativeQueryRef` | Visual calculations may break | Always include `nativeQueryRef` |
 | Reusing visual/filter names | Unpredictable behavior | Generate unique IDs |
-| Wrong role name for visual type | Field ignored; visual blank | Match roles from `catalog describe <type>` |
+| Setting `visualType` to invalid string | Visual renders as error box | Run `powerbi-report-author catalog describe <type>` or `powerbi-report-author catalog list` |
+| Wrong role name for visual type | Field is ignored; visual blank | Match role names from `powerbi-report-author catalog describe <type>` |
 | Mixing `Column` and `Measure` types | Query fails; visual error | Columns use `Column`, measures use `Measure` |
 | Forgetting to add page to `pages.json` | Page invisible | Add to `pageOrder` array |
+| Booleans without correct format | Wrong type | `"true"` / `"false"` (no suffix, unquoted in Value) |
 | Numbers without type suffix | Type mismatch | `D` for decimals, `L` for integers |
-| Editing `$schema` version | Desktop may reject | Preserve existing version |
+| Editing `$schema` version | PBI Desktop may reject | Preserve existing version |
 | Stringified JSON in `paragraphs` | Textbox shows nothing | `paragraphs` is a native JSON array |
-| Using textbox as thin line/divider | Renders ~24px tall | Use `shape` visual (rectangle) |
-| `visualContainerObjects` as sibling of `visual` | Schema error | Must be **inside** `visual` object |
-| Using `tableEx` with dimensions+measures all in `Values` | No data rows | Use `pivotTable`; dimensions in `Rows`, measures in `Values` |
-| Using PowerShell `ConvertTo-Json` to edit JSON | Nesting truncation | Use Node.js or always pass `-Depth 20` |
-| Using regex/string replacement on JSON | Corrupts structure | Parse → modify → stringify |
-| `dataPoint.fill` without selector on single-series | Bars invisible | Use `dataPoint.defaultColor` for base color |
-| `dataPoint.defaultColor` on multi-series | All series same color | Use `dataPoint.fill` with `metadata` selectors |
-| `ThemeDataColor` in explicit `dataPoint.fill` with metadata selector | Resolves to white/black | Use `Literal` hex values for explicit assignments |
-| Colors without checking background contrast | Bars/lines invisible | Pick saturated hues contrasting with background |
-| `show` property on page-level `background` | Schema error | Page background has no `show`; only VCO does |
-| Guessing property names from memory | Silent failures | Always use `formatting describe-object` or `formatting search` |
-| Formatting property has no effect (no error) | Missing id selector | Check `_selectorHint`; use dual-entry pattern |
-| Theme JSON changes don't apply after reload | Desktop caches by name | Rename theme file + update `report.json` |
-| `sortDefinition` outside of `query` | Sort ignored | Place in `visual.query.sortDefinition` |
+| Using textbox as a thin line/divider | Renders ~24px tall regardless of `height` | Use a `shape` visual (rectangle) instead — shapes respect small dimensions |
+| `visualContainerObjects` as sibling of `visual` | Schema validation error in PBI Desktop | Must be **inside** `visual` object, as sibling of `objects` |
 | Partial VCO overrides | PBI resets omitted properties | Always set background + border + padding + visualHeader together |
-| Dark theme but cards/tables still white | Need explicit overrides per visual type | Follow dark mode checklist: stylePreset, fillCustom, objects vs VCO |
-| `tableEx`/`pivotTable` without `columnAdjustment: growToFit` | Columns shrink-wrap | Set `columnHeaders.columnAdjustment` to `growToFit` |
-| Custom table colors with no effect | Style preset overrides | Set `stylePreset` VCO to `'None'` |
+| Using `tableEx` with dimension columns and measures all in `Values` | Headers render but no data rows even when DAX confirms data exists | Use `pivotTable`; put dimensions in `Rows` and measures in `Values` |
+| Using PowerShell `ConvertTo-Json` to edit visual JSON | Property reordering, nesting depth truncation (`-Depth` default is 2) | Use Node.js for JSON manipulation, or always pass `-Depth 20` and verify structure |
+| Using regex or string replacement to modify JSON files | Corrupts nesting structure — properties end up inside sibling values, braces misalign | Read file → `JSON.parse` → modify object → `JSON.stringify` → write back. Or use the `edit` tool with exact old/new string matching |
+| `dataPoint.fill` without a selector on single-series charts | Bars/columns invisible despite data in tooltips | Use `dataPoint.defaultColor` for a base color without a selector; `fill` requires a `metadata` selector |
+| Using `dataPoint.defaultColor` on multi-series charts | All series/categories get the same color — no visual differentiation | Use theme `dataColors` for consistent palette across visuals, or `dataPoint.fill` with `metadata` selectors for per-series overrides — see [color-strategy.md § Color Strategy Quick Reference](references/color-strategy.md#color-strategy-quick-reference) |
+| Clustered bar/column chart colors collapse into one legend color | The visual has a Series role but all bars and legend markers share the same hue | Use per-series `dataPoint.fill` selectors or a theme `dataColors` palette; do not use `defaultColor` on clustered charts |
+| Relying on theme `dataColors` alone for cross-visual measure consistency | Same measure gets different colors on different visuals (index-based assignment varies with projection order) | Maintain a measure→color mapping and apply explicit `dataPoint.fill`/`defaultColor` per visual — see [color-strategy.md § Cross-Visual Measure-Color Consistency](references/color-strategy.md#pattern-cross-visual-measure-color-consistency) |
+| Using `ThemeDataColor` for explicit per-measure `dataPoint.fill` with metadata selectors | Colors silently resolve to white or black instead of expected palette color | Use `Literal` hex values for explicit color assignments with metadata selectors — `ThemeDataColor` is unreliable in this context |
+| Choosing bar/series colors without checking background contrast | Bars or lines invisible against page/card background (e.g., white bars on white canvas) | Always pick saturated, mid-to-dark hues that contrast with the page and VCO background colors |
+| `show` property on page-level `background` | Schema error — page `background` only supports `color`, `image`, `transparency` | Only VCO `background` (on visuals) has `show`; page background is always visible |
+| Copying property names from doc examples without verifying | Warnings or silent failures — property names vary by visual type | Always run `powerbi-report-author formatting describe-object <type> <object>` for exact property names |
+| Guessing which object a property belongs to | Wasted calls checking wrong objects one by one | Run `powerbi-report-author formatting search <type> <regex>` to grep across all objects at once |
+| Formatting property has no effect (no error) | Setting `show: false` on cardVisual outline without an id selector — validates but renders unchanged | Check `powerbi-report-author formatting describe-object <type> <object>` for `_selectorHint`; use the dual-entry pattern (static + id selector entries) |
+| Using `cardCalloutArea` on a single-value card | Properties validate but have no visible effect — `cardCalloutArea` only renders on multi-value cards (2+ measures in Data) | Use `outline`/`accentBar`/`fillCustom` with `{ id: "default" }` selector for single-value cards. For multi-value cards, `cardCalloutArea` controls per-callout tile styling — see [card.md § Multi-Value Formatting](references/card.md#multi-value-formatting) |
+| Using `"Fields"` as the `queryState` role for `cardVisual` | Cards render empty — PBI Desktop cannot resolve the binding. Validator reports `Unknown role "Fields"` and `Required role "Data" missing` | `cardVisual`'s only data role is `"Data"`. `"Fields"` is the legacy `card` visual's role name — never carry it over. Always verify role names with `powerbi-report-author catalog describe cardVisual` — see [card.md § Single-Value Template](references/card.md#single-value-template) |
+| Creating separate single-value `cardVisual` instances for multiple related KPIs | Wastes canvas space and misuses the visual type — `cardVisual` natively supports multiple projections in one tile | Default to one multi-value `cardVisual` with all measures as `Data` projections when ≥2 related KPIs are requested. Only use separate cards when per-card styling differences are required — see [card.md § When to Consolidate vs. Keep Separate](references/card.md#when-to-consolidate-vs-keep-separate) |
+| Adding multiple fields to button slicer Values or Label roles | Slicer breaks or shows unexpected results — each role accepts only 1 field | Put one field in Values, one in Label; additional fields go to Tooltips |
+| Looking at `filterConfig` on other visuals to understand slicer selections | Wrong location — selections live **only** inside the slicer's own `visual.json` via `expansionStates` + `objects.general.filter` | Always read `references/slicers.md` first when modifying slicers |
+| Creating an image visual without prompting for the source type | Wrong visual structure — URL vs local file vs data field each have different schemas and expression types | Always ask the user for the image source (local file / URL / data field) before creating the visual — see [image.md § Source Types Overview](references/image.md#source-types-overview) |
+| Creating a data-bound image visual with a field that lacks `dataCategory: ImageUrl` | Visual renders blank or error | **Warn the user first** — present alternatives (other ImageUrl fields, local file, URL) and confirm before creating — see [image.md § Select from data](references/image.md#3-select-from-data) |
+| Placing background image on page canvas instead of visual plot area | Background image lands on `page.json → objects.background` when a visual context was intended | When a background image is requested in the context of a specific visual, default to `plotArea.image`. Only use page-level `background.image` when the user explicitly says "page/canvas background" — see [image.md § Plot Area Background Image](references/image.md#plot-area-background-image-plotareaimage) |
+| Creating a `multiRowCard` visual | Legacy multi-row card — deprecated; `powerbi-report-author validate` warns with `PBIR_VISUAL_TYPE_DEPRECATED` | Always use `cardVisual`. For multiple KPIs, use a single multi-value `cardVisual` with all measures as projections in the `Data` role — see [card.md](references/card.md#multi-value-template) |
+| Using `map` or `filledMap` instead of `azureMap` for map visuals | Legacy Bing Maps visuals — deprecated and must not be created; `powerbi-report-author validate` warns with `PBIR_VISUAL_TYPE_DEPRECATED` | Always use `azureMap` — see [map.md](references/map.md). If the map fails to geocode, debug fields or ask the user — do **not** silently substitute a non-map visual |
+| Using legacy `card`/`table`/`matrix` | Deprecated; may break | Use `cardVisual`, `tableEx`, `pivotTable` |
+| Creating `tableEx`/`pivotTable` without `columnAdjustment: growToFit` | Columns shrink-wrap to content, leaving unused whitespace | Always set `columnHeaders.columnAdjustment` to `growToFit` and `autoSizeColumnWidth` to `true` — see [table.md](references/table.md#default-rule--grow-to-fit) |
+| Custom table/matrix row colors with no effect (white background) | Default style preset overrides `objects`-level `backColorPrimary`/`backColorSecondary` | Set `stylePreset` VCO to `'None'` on every `tableEx`/`pivotTable` with custom colors — see [table.md § Style Presets](references/table.md#style-presets-for-tables) |
+| Table cells white despite dark VCO background | `visualContainerObjects.background` only controls outer container — table cells paint on top | Set dark colors in `objects.values.backColorPrimary/Secondary` and `objects.columnHeaders.backColor`, not in VCO — see [re-theming.md § Dark Mode Checklist](references/re-theming.md#dark-mode-authoring-checklist) |
+| Dark theme applied but cards/tables/slicers still white | Dark mode triggers every formatting trap simultaneously | Follow the full [re-theming.md § Dark Mode Authoring Checklist](references/re-theming.md#dark-mode-authoring-checklist) — covers stylePreset, fillCustom+id selector, objects vs VCO, and contrast audit |
+| Theme JSON changes do not appear after Desktop reload | Desktop caches theme files by file name | Rename the theme JSON with a small random suffix, update the theme registration in `report.json`, then reload; otherwise close and reopen Desktop |
+| Placing `sortDefinition` inside `visual` or at root of `visual.json` | Schema validation error; sort silently ignored — chart falls back to alphabetical | `sortDefinition` is a property of **`query`** — use `visual.query.sortDefinition`. Supported since `visualConfiguration/2.2.0` |
+| Container shape fill doesn't match reference | Text invisible or wrong background color | Match fill color and transparency to the reference. If the page background already provides the color, skip the shape. If the shape must be invisible, verify text still contrasts with the canvas — see [shape.md § Container Shapes](references/shape.md#container-shapes) |
+| Shape text invisible after re-theme | Shape `text` object has no explicit `fontColor` — inherited foreground vanishes against a light fill on a light canvas | Always set explicit `fontColor` on shape `text` objects (in the `{ selector: { id: "default" } }` entry). During re-theming, audit all shapes with `text.show: true` |
+| Enabling `logAxisScale` on data with zero or negative values | PBI Desktop silently falls back to linear scale — log of zero/negative is undefined | **Warn the user before applying.** Present alternatives (filter negatives, switch measure, use `labelDisplayUnits`). Apply only after all bound values are positive — see [cartesian.md § Log Scale](references/cartesian.md#log-scale-logaxisscale) |
+| Changing theme without sweeping inline overrides | Old colors remain on shapes, page backgrounds, nav buttons, textboxes — theme-only change has no effect on hardcoded `Literal` hex at Priority 2 | Follow [re-theming.md § Re-theming Workflow](references/re-theming.md#re-theming-an-existing-report) Steps 0–3: build a color mapping, update theme JSON, then bulk-sweep `definition/` files for old hex before reload |
+| Changing only `dataColors` in theme without sweeping | Shapes, accent bars, nav button borders retain old accent colors — they use hardcoded Literal hex from the old `dataColors` array, not `ThemeDataColor` references | Sweep ALL old `dataColors[N]` hex values across `definition/` files. Even same-polarity "just change the data colors" requests need the full sweep |
 
 ---
 

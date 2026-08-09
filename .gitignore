@@ -5,6 +5,7 @@ skills-lock.json
 plans/
 .codex/
 .instructions/
+.claude/
 
 # Ignore references to the .venv directory
 .venv/

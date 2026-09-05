@@ -113,8 +113,8 @@ powerbi-report-author formatting list-objects shape
 powerbi-report-author formatting describe-object shape <object>
 ```
 
-Shape objects that require `id` selectors use the **dual-entry pattern**
-described in [`formatting.md` § Dual-Entry Pattern](formatting.md#dual-entry-pattern).
+Shape objects that require `id` selectors need only the **single entry with the
+`id` selector** — the static (no-selector) entry is redundant but harmless.
 The CLI annotates these with `(selector: default)` in
 `powerbi-report-author formatting list-objects` output and `_selectorHint` in
 `powerbi-report-author formatting describe-object` output.

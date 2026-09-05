@@ -144,21 +144,23 @@ Resolution order (highest to lowest priority):
 
 | Priority | Type | Syntax | Use Case |
 |----------|------|--------|----------|
-| 1 | **data** (scope identity) | `"data": [{"scopeId": {"expr": {Comparison...}}}]` | Color a specific category value |
+| 1 | **data** (scope identity) | `"data": [{"scopeId": {Comparison...}}]` | Color a specific category value (charts only) |
 | 2 | **data** (wildcard) | `"data": [{"dataViewWildcard": {"matchingOption": N}}]` | All instances, totals, or both |
 | 3 | **metadata** | `"metadata": "Table.Field"` | Target a specific measure/column |
 | 4 | **id** | `"id": "default"` | User-defined instance (cards, filter cards) |
-| 5 | **none** (static) | *(no selector)* | Base/fallback for selectored objects; the only mode for visual-wide objects (axes, legend, VCOs) |
+| 5 | **none** (static) | *(no selector)* | Base/fallback for objects that use selectors; the only mode for visual-wide objects (axes, legend, VCOs) |
 
 Within each priority row, **first match in array order wins**.
 
 ### No Selector (Static / Base)
 
 ```json
-{ "properties": { "show": true } }
+{ "properties": { "show": { "expr": { "Literal": { "Value": "true" } } } } }
 ```
 
 Base formatting for all data points. Any other selector overrides this.
+Property values are expression-typed even for booleans — use the `expr.Literal`
+wrapper, not a bare `true`/`false`.
 
 ### Metadata Selector
 
@@ -201,7 +203,9 @@ Common for per-series colors in `dataPoint.fill`.
 
 ### Scope Identity Selector
 
-Targets a specific data point value (e.g., "Electronics" in Category):
+Targets a specific data point value (e.g., "Electronics" in Category).
+Works on chart visuals only (bar, column, pie, donut, line, area, scatter,
+treemap, funnel).
 
 ```json
 {
@@ -219,6 +223,11 @@ Targets a specific data point value (e.g., "Electronics" in Category):
   }
 }
 ```
+
+> ⚠️ **Only `ComparisonKind: 0` (Equal) is honored.** Other comparison kinds
+> (1–4) pass schema validation but are silently ignored at render. Values ≥ 5
+> cause schema validation errors. For compound conditions, use rules-based
+> `Conditional.Cases[]` (see `conditional-formatting.md` Type 2).
 
 Highest priority among data selectors. Used for per-category color assignment.
 
@@ -254,32 +263,52 @@ need selectors — they're annotated inline.
 
 #### Dual-Entry Pattern
 
-Many objects with id selectors require **two** array entries to fully apply
-formatting — one static entry (no selector) and one with the `id` selector.
-If a property like `show: false` has no visible effect with only a static
-entry, add a second entry with the `id` selector.
+Objects with `id` selectors always require at least the entry with the `id` selector.
+Some visual types (`actionButton`, `pageNavigator`, `bookmarkNavigator`) require
+**two** array entries — one static (no selector) and one with the `id` selector.
+For `cardVisual` and `shape` objects, the entry with the `id` selector alone is
+sufficient (the static entry is redundant but harmless).
 
-**Example: Hiding the cardVisual inner tile border**
+**Example: actionButton fill (dual entry required)**
 
 ```json
-"outline": [
+"fill": [
   {
     "properties": {
-      "show": { "expr": { "Literal": { "Value": "false" } } }
+      "show": { "expr": { "Literal": { "Value": "true" } } },
+      "fillColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#00FF00'" } } } } },
+      "transparency": { "expr": { "Literal": { "Value": "0D" } } }
     }
   },
   {
     "properties": {
-      "show": { "expr": { "Literal": { "Value": "false" } } }
+      "show": { "expr": { "Literal": { "Value": "true" } } },
+      "fillColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#00FF00'" } } } } },
+      "transparency": { "expr": { "Literal": { "Value": "0D" } } }
     },
     "selector": { "id": "default" }
   }
 ]
 ```
 
-> ⚠️ **Validates but doesn't render:** Some properties pass validation and
-> produce zero errors, but have no visual effect without the correct selector.
-> This is the hardest class of bug to debug. If formatting has no effect,
+**Example: cardVisual accentBar (single entry sufficient)**
+
+```json
+"accentBar": [
+  {
+    "properties": {
+      "show": { "expr": { "Literal": { "Value": "true" } } },
+      "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FF0000'" } } } } },
+      "transparency": { "expr": { "Literal": { "Value": "0L" } } }
+    },
+    "selector": { "id": "default" }
+  }
+]
+```
+
+> ⚠️ **Without the `id` selector, property overrides are silently dropped.**
+> The object still renders but with its default theme appearance instead of
+> the JSON-specified values. No error is produced. If formatting has no effect,
 > check `powerbi-report-author formatting describe-object <type> <object>` for
 > a `_selectorHint` on that object.
 
@@ -295,10 +324,10 @@ entry, add a second entry with the `id` selector.
 | cardVisual objects (16) | ✅ | `id` (`"default"`) — see table above |
 | navigator/button objects (12) | ✅ | `id` (4 states) — see table above |
 | slicer objects | ✅ | `id` (5 states) — see table above |
-| shape objects | ✅ | `id` — uses [dual-entry pattern](#dual-entry-pattern) |
-| `legend` | ❌ | Applied uniformly |
-| `categoryAxis` / `valueAxis` | ❌ | Applied uniformly |
-| `title`, `background`, `border` (VCO) | ❌ | Applied uniformly (container objects) |
+| shape objects | ✅ | `id` (`"default"`) — single entry sufficient |
+| `legend` | ❌ | **none** — omit `selector` |
+| `categoryAxis` / `valueAxis` | ❌ | **none** — omit `selector` |
+| `title`, `background`, `border` (VCO) | ❌ | **none** — omit `selector` |
 
 **Rule**: Data-bound objects support `metadata`/`data` selectors. Tile-based
 visuals (cardVisual, shape, navigators, slicers) use `id` selectors for
@@ -390,9 +419,7 @@ for table/matrix conditional formatting — see
 
 ## Shape Visual Formatting
 
-For shape-object discovery, the dual-entry selector pattern used by shape
-objects that need `id` selectors, and the `rotation` object (the only shape
-formatting object that does not require a selector), see
+For shape-object discovery, available shapes, and formatting, see
 [`shape.md` § Available Shapes and Formatting](shape.md#available-shapes-and-formatting).
 
 ## Line & Marker Formatting (lineStyles / markers)

@@ -71,12 +71,12 @@ based on **scope** and **series count**:
 ]
 ```
 
-> **Compatibility:** Per-series `dataPoint.fill` with `metadata` selectors is
-> reliable on bar, column, combo, pie, donut, and scatter visuals. For line and
-> area charts, prefer letting the theme's `dataColors` array auto-assign series
-> colors — explicit `dataPoint` overrides on these types can cause lines to
-> disappear. Use `powerbi-report-author formatting list-objects <type>` to
-> confirm `dataPoint` is listed before adding color overrides.
+> **Compatibility:** Per-series `dataPoint.fill` with `metadata` selectors
+> works on cartesian charts (bar, column, line, area, combo). For non-cartesian
+> visuals (pie, donut, scatter, treemap, funnel), `metadata` selectors are
+> silently ignored — use `scopeId` selectors instead to color individual data
+> points by category value. Use `powerbi-report-author formatting list-objects
+> <type>` to confirm `dataPoint` is listed before adding color overrides.
 
 ## Pattern: Single-Series Default Color
 
@@ -171,12 +171,10 @@ with metadata selectors can silently resolve to wrong colors (white, black):
 ]
 ```
 
-> **Line / area charts:** `dataPoint.fill` with `metadata` selectors can cause
-> lines to disappear on line and area visual types. For these, align the theme
-> `dataColors` array order to match your mapping, and verify with screenshot
-> review. Only add explicit `dataPoint` overrides on line/area after confirming
-> the property works via `powerbi-report-author formatting list-objects <type>`
-> and screenshot validation.
+> **Non-cartesian charts (pie, donut, scatter, treemap, funnel):**
+> `dataPoint.fill` with `metadata` selectors is silently ignored on these
+> visual types — they fall back to theme colors. Use `scopeId` selectors
+> (per-category value) instead to color individual slices, bubbles, or segments.
 
 ## Pattern: Different Formatting for Totals vs Data
 

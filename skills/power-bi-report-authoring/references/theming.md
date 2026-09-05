@@ -574,5 +574,5 @@ authoring patterns.
 | Forgetting `reportVersionAtImport` | Preserve as-is — PBI Desktop manages this field |
 | Putting conditional formatting rules in theme JSON | Apply conditional formatting separately on individual visuals |
 | Dark theme but table/matrix rows still white | See [§ Style Presets](#7-style-presets) and [re-theming.md § Dark Mode Checklist](re-theming.md#dark-mode-authoring-checklist) |
-| Setting `visualStyles["slicer"]` for dark slicer text | Modern slicers use `filterSlicer` / `advancedSlicerVisual` — the legacy `"slicer"` key has no effect. Add type-specific entries for both modern types |
+| Setting `visualStyles["slicer"]` for dark slicer text | Modern slicers ignore the legacy `"slicer"` key. Add type-specific entries: `filterSlicer` uses `header`/`items`; `listSlicer` and `advancedSlicerVisual` use `background`/`label`/`value` (no `header`/`items`) |
 | Shape text invisible after dark theme switch | Shapes relying on inherited foreground have no explicit `fontColor` — the bulk hex sweep can't add a property that didn't exist. Add explicit `text.fontColor` to every shape with `text.show: true` |

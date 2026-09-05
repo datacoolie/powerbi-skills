@@ -3,8 +3,8 @@
 > **Preview:** [![sparkline-table preview](../../assets/chart-previews/sparkline-table.svg)](../../assets/chart-previews/sparkline-table.svg)
 
 - **id:** `sparkline-table`
-- **Visual type:** `tableEx` / matrix with inline line sparkline column (core
-  visual) OR table + custom `Sparkline` visual
+- **Visual type:** `tableEx` / `pivotTable` with inline line sparkline column (core
+  visual) OR `tableEx` + custom `Sparkline` visual
 - **Typical size:** 720 × 360 (full-width table, 8-12 rows)
 
 ---

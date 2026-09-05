@@ -22,15 +22,15 @@ data format, ambiguous location names, missing coordinates). When this happens:
    lat/lon columns are available
 4. **Do not silently substitute a non-map visual** for data/geocoding issues — if
    the user explicitly requested a map and the underlying geography is workable,
-   `ask_user` before changing visual types. Substituting a non-map visual for a
+   use `ask_user` before changing visual types. Substituting a non-map visual for a
    resolvable data problem violates the design brief.
-5. **When Azure Maps is unavailable in the environment** (e.g., disabled by tenant
-   policy, unsupported region), fall back to a non-map encoding such as a
-   `tableEx` of locations with conditional formatting or a `barChartClustered` by
-   region — and tell the user why the map was replaced. Avoid the legacy `map`,
-   `filledMap`, and `shapeMap` visuals as fallbacks. This matches the operational
-   monitor archetype's map guidance
-   ([archetype reference](../../powerbi-report-design/references/archetypes/operational-monitor.md)).
+5. **When Azure Maps is unavailable in the environment** (for example, disabled by
+   tenant policy or unsupported region), fall back to a non-map encoding such as a
+   `tableEx` of locations with conditional formatting or a `clusteredBarChart` by
+   region, and tell the user why the map was replaced. Avoid the legacy `map`
+   and `filledMap` visuals as fallbacks; `shapeMap` is a specialized supported
+   visual for built-in or custom shape-based geographies, not a general-purpose
+   substitute for Azure Maps.
 
 ---
 

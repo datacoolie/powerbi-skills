@@ -186,8 +186,8 @@ data relationship rather than a chart type.
 
 | Chart | Power BI implementation | Notes | Template |
 |---|---|---|---|
-| Basic choropleth (rate) | `filledMap` | Use rates, not totals; pick a sensible base geography | [`map-geo.md`](chart-templates/map-geo.md) |
-| Proportional symbol map | `map` (bubble) | Totals/magnitude; small variations are hard to see | [`map-geo.md`](chart-templates/map-geo.md) |
+| Basic choropleth (rate) | `azureMap` (filled layer) | Use rates, not totals; pick a sensible base geography | [`map-geo.md`](chart-templates/map-geo.md) |
+| Proportional symbol map | `azureMap` (bubble layer) | Totals/magnitude; small variations are hard to see | [`map-geo.md`](chart-templates/map-geo.md) |
 | Flow map | `shapeMap` + Deneb ★ overlay | Unambiguous movement across a map | — |
 | Contour map | Deneb ★ / Azure Maps ★ | Equal-value areas; diverging palette for +/- | — |
 | Equalised cartogram | Shape Map with custom TopoJSON | Regular shapes for voting regions | — |

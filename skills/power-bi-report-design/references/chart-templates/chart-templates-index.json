@@ -7,7 +7,7 @@
       "id": "kpi-banner",
       "file": "kpi-banner.md",
       "title": "KPI Banner Card",
-      "visual_type": "card",
+      "visual_type": "cardVisual",
       "composition": "single metric + delta + spark/icon",
       "use_when": [
         "KPI row on page 1",
@@ -146,7 +146,7 @@
       "id": "map-geo",
       "file": "map-geo.md",
       "title": "Map (Geographic)",
-      "visual_type": "filledMap OR azureMap OR shapeMap",
+      "visual_type": "azureMap OR shapeMap",
       "composition": "region fill by magnitude OR point overlay with size / color",
       "use_when": [
         "Geographic pattern story",
@@ -290,7 +290,7 @@
       "id": "heatmap-calendar",
       "file": "heatmap-calendar.md",
       "title": "Calendar Heatmap (Daily Pattern)",
-      "visual_type": "matrix with conditional background OR Calendar custom visual",
+      "visual_type": "pivotTable with conditional background OR Calendar custom visual",
       "composition": "day-of-week rows \u00d7 week columns, tile coloured by metric intensity",
       "use_when": [
         "Daily traffic / transaction patterns",
@@ -380,7 +380,7 @@
       "id": "sparkline-table",
       "file": "sparkline-table.md",
       "title": "Sparkline Table (Row-wise Micro-trends)",
-      "visual_type": "tableEx / matrix with inline sparkline column OR table + custom Sparkline visual",
+      "visual_type": "tableEx / pivotTable with inline sparkline column OR tableEx + custom Sparkline visual",
       "composition": "rows × (category + value + delta + per-row sparkline); per-row min/max scaling",
       "use_when": [
         "Dense exec scorecard (8-12 rows)",
@@ -529,7 +529,7 @@
       "id": "multi-row-card",
       "file": "multi-row-card.md",
       "title": "Multi-Row Card",
-      "visual_type": "multiRowCard",
+      "visual_type": "cardVisual",
       "composition": "4-8 metrics stacked vertically at equal weight with label + value",
       "use_when": [
         "4-8 related metrics at equal weight",
@@ -756,7 +756,7 @@
       "id": "xy-heatmap",
       "file": "xy-heatmap.md",
       "title": "XY Heatmap",
-      "visual_type": "matrix with conditional background color",
+      "visual_type": "pivotTable with conditional background color",
       "composition": "two discrete dimensions cross-tabulated with color intensity encoding a measure",
       "use_when": [
         "Hour × day-of-week patterns",

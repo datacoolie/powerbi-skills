@@ -3,7 +3,7 @@
 > **Preview:** [![kpi-banner preview](../../assets/chart-previews/kpi-banner.svg)](../../assets/chart-previews/kpi-banner.svg)
 
 - **id:** `kpi-banner`
-- **Visual type:** `card` (single value)
+- **Visual type:** `cardVisual` (single value)
 - **Typical size:** 320 × 120 (adjust width proportionally for 3-6 cards in a row)
 
 ---

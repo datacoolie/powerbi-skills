@@ -182,8 +182,8 @@ See `custom-visuals.md` for full identifiers, templates, and query roles.
 
 | Use | When |
 |---|---|
-| **Card** (`card`) | Single hero metric with maximum visual weight |
-| **Multi-row card** (`multiRowCard`) | 4-8 related metrics at equal visual weight |
+| **Card** (`cardVisual`) | Single hero metric with maximum visual weight |
+| **Multi-value card** (`cardVisual`) | 4-8 related metrics at equal visual weight (all as `Data` projections) |
 | **Table** (`tableEx`) | Many metrics with row-level detail needed |
 
 ---
@@ -218,13 +218,13 @@ Never choose a chart to impress — choose it to communicate.
 | Part-to-whole | `treemap` | For many segments; avoid pie |
 | Waterfall | `waterfallChart` | Cumulative changes |
 | Scatter / Bubble | `scatterChart` | Correlation; add size role for bubble |
-| KPI card | `card` | Single hero metric |
-| Multi KPI | `multiRowCard` | Multiple metrics at equal weight |
+| KPI card | `cardVisual` | Single hero metric |
+| Multi KPI | `cardVisual` | Multiple metrics at equal weight (multi-value `Data` role) |
 | Status vs. target | `kpi` | Indicator + trend + goal |
 | Filter | `slicer` | Date, category, or hierarchy filter |
 | Detail grid | `pivotTable` | Matrix with row/column groupings |
 | Flat table | `tableEx` | Row-level or summary table |
-| Geographic | `map` | Filled/bubble map |
+| Geographic | `azureMap` | Filled/bubble/heat layers |
 | Custom tooltip | *(card + chart)* | On tooltip page (320×240) |
 
 ### Avoid or Use With Caution
@@ -233,7 +233,7 @@ Never choose a chart to impress — choose it to communicate.
 |---|---|---|
 | `pieChart` | Arc/area hard to compare | `clusteredBarChart` (sorted) |
 | `donutChart` | Arc length unreadable | `clusteredBarChart` (sorted) |
-| `gauge` | Only shows one value; wastes space | `kpi` or `card` with target |
+| `gauge` | Only shows one value; wastes space | `kpi` or `cardVisual` with target |
 | `funnel` | Misleading unless stages are actually sequential | `clusteredBarChart` |
 | `areaChart` | Stacked version unreadable; single area often better as line | `lineChart` |
 

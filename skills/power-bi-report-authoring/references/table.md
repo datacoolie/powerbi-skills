@@ -183,11 +183,18 @@ When Primary ≠ Secondary → banding visible. When equal → no banding.
 
 | Region | Object Name | Key Properties |
 |--------|-------------|---------------|
-| Data cells | `values` | `backColorPrimary/Secondary`, `fontColorPrimary/Secondary` |
+| Data cells + row headers | `values` | `backColorPrimary/Secondary`, `fontColorPrimary/Secondary` |
 | Column headers | `columnHeaders` | `fontColor`, `backColor`, `outline`, `outlineColor`, `autoSizeColumnWidth`, `columnAdjustment` |
 | Row headers (matrix) | `rowHeaders` | `fontColor`, `backColor` |
-| Totals | `total` | `fontColor`, `backColor`, `applyToHeaders` (bool) |
+| Total label (matrix) | inherits from `rowHeaders` | `fontColor` |
+| Row totals (bottom row values) | `rowTotal` | `fontColor`, `backColor`, `applyToHeaders` (bool) |
+| Column totals ("Total" column) | `columnTotal` | `fontColor`, `backColor`, `applyToHeaders` (bool) |
 | Subtotals | `subTotals` | `fontColor`, `backColor` |
+
+> ⚠️ **`pivotTable` has `rowTotal` and `columnTotal` — not just `total`.**
+> The `total` object exists but its `fontColor` is a conditional formatting slot
+> (like `values.fontColor`). Use `rowTotal` and `columnTotal` for static total
+> colors on matrices.
 
 Matrix has an additional `bandedRowHeaders` (bool) property to band row headers.
 
@@ -246,6 +253,32 @@ different roles:
 Desktop writes when you enable data-driven cell coloring (gradients, rules,
 field values). Use `backColorPrimary`/`Secondary` for static row backgrounds.
 
+### `fontColor` vs `fontColorPrimary` — Different Purposes (pivotTable)
+
+Both appear as valid `fill` properties on `values` in the CLI, but they serve
+different roles:
+
+| Property | Purpose | Use Case |
+|----------|---------|----------|
+| `fontColorPrimary` | **Static** odd-row text color | Base text coloring |
+| `fontColorSecondary` | **Static** even-row text color | Base text coloring |
+| `fontColor` | **Conditional formatting** slot | Rules-based, field-value text coloring |
+
+**For static data cell text colors, always use `fontColorPrimary` /
+`fontColorSecondary`.** Setting `values.fontColor` to a static color has NO
+effect — text will inherit from the theme `foreground` instead. This is the most
+common cause of invisible text on dark-themed matrices.
+
+> ⚠️ **This inconsistency applies only to `values` and `total` on
+> `pivotTable`.** On other objects (`columnHeaders`, `rowHeaders`, `rowTotal`,
+> `columnTotal`, `subTotals`), `fontColor` works as a normal static color.
+> `tableEx` does not expose `fontColor` on `values` at all — only
+> `fontColorPrimary`/`Secondary`.
+
+**Scope of `values.fontColorPrimary`/`Secondary`:** These properties control
+text color for both data cells AND row header labels. The "Total" row label
+inherits from `rowHeaders.fontColor` instead.
+
 ### Full Table Example with Custom Styling
 
 ```json
@@ -261,17 +294,30 @@ field values). Use `backColorPrimary`/`Secondary` for static row backgrounds.
           "autoSizeColumnWidth": { "expr": { "Literal": { "Value": "true" } } }
         }
       }],
-      "values": [{
-        "properties": {
-          "backColorPrimary": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
-          "backColorSecondary": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E8F0FE'" } } } } }
-        }
-      }],
-      "total": [{
+      "rowHeaders": [{
         "properties": {
           "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
-          "backColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1B3A5C'" } } } } },
-          "applyToHeaders": { "expr": { "Literal": { "Value": "true" } } }
+          "backColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1A1F27'" } } } } }
+        }
+      }],
+      "values": [{
+        "properties": {
+          "fontColorPrimary": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+          "fontColorSecondary": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E0E0E0'" } } } } },
+          "backColorPrimary": { "solid": { "color": { "expr": { "Literal": { "Value": "'#14181E'" } } } } },
+          "backColorSecondary": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1A1F27'" } } } } }
+        }
+      }],
+      "rowTotal": [{
+        "properties": {
+          "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+          "backColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1B3A5C'" } } } } }
+        }
+      }],
+      "columnTotal": [{
+        "properties": {
+          "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } },
+          "backColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1B3A5C'" } } } } }
         }
       }]
     },

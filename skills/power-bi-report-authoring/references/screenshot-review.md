@@ -13,8 +13,11 @@
 Do not rely only on structural validation. Fix any issue found in screenshots.
 
 > **Screenshot scope:** Each screenshot captures the report page **AND** the
-> right-hand filter pane (`outspacePane`) when enabled. Filter pane and filter
-> card chrome are formattable surfaces — review them alongside on-page visuals.
+> right-hand filter pane (`outspacePane`) when the filter pane is enabled and
+> expanded. Filter pane and filter card (`filterCard`) chrome are formattable
+> surfaces — review them alongside on-page visuals (background color, border,
+> font color, search/checkbox treatment, applied vs available states). See
+> [filter-pane.md](filter-pane.md) for the formatting model.
 
 ## Checklist
 
@@ -47,6 +50,10 @@ Do not rely only on structural validation. Fix any issue found in screenshots.
 - [ ] Conditional formatting visually present where expected
 - [ ] Border radius, shadows, and effects render as intended
 - [ ] Filter pane styling matches theme (background, font, border colors)
+
+> **Note:** Some formatting properties are valid JSON but have no visible effect
+> for a visual type. If a property is not rendering, verify it with
+> `powerbi-report-author formatting describe-object <type> <object>`.
 
 ## Common Screenshot Problems
 

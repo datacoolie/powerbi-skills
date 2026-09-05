@@ -3,7 +3,7 @@
 > **Preview:** [![heatmap-calendar preview](../../assets/chart-previews/heatmap-calendar.svg)](../../assets/chart-previews/heatmap-calendar.svg)
 
 - **id:** `heatmap-calendar`
-- **Visual type:** `matrix` with conditional background colour OR custom
+- **Visual type:** `pivotTable` with conditional background colour OR custom
   visual (Calendar by MAQ / OKVIZ)
 - **Typical size:** 800 × 240 (full quarter) or 560 × 180 (single month)
 

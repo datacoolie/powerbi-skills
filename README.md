@@ -2,7 +2,7 @@
 
 A VS Code Copilot agent for end-to-end Power BI development.
 
-Unlike single-file agents you copy into `.github/agents/`, this one is **multi-file**: it ships an agent file **plus** seven companion skill folders that the agent loads on demand.
+Unlike single-file agents you copy into `.github/agents/`, this one is **multi-file**: it ships an agent file **plus** eight companion skill folders that the agent loads on demand.
 
 ---
 
@@ -11,12 +11,13 @@ Unlike single-file agents you copy into `.github/agents/`, this one is **multi-f
 ```
 powerbi-skills/
 ├── AGENTS.md                            ← the agent file (multi-platform)
-└── skills/                              ← 7 skill folders the agent uses
+└── skills/                              ← 8 skill folders the agent uses
     ├── power-bi-business-analysis/
     ├── power-bi-semantic-model/
     ├── power-bi-dax-development/
     ├── power-bi-report-design/
     ├── power-bi-report-authoring/
+    ├── power-bi-management/
     ├── power-bi-performance-troubleshooting/
     └── power-bi-feedback-iteration/
 ```
@@ -75,6 +76,7 @@ your-project/
         ├── power-bi-dax-development/
         ├── power-bi-report-design/
         ├── power-bi-report-authoring/
+        ├── power-bi-management/
         ├── power-bi-performance-troubleshooting/
         └── power-bi-feedback-iteration/
 ```
@@ -118,7 +120,7 @@ The agent works best with these MCP servers configured in `.vscode/mcp.json`:
 |---|---|---|
 | `microsoft-learn-mcp` | Looks up official Microsoft docs | Strongly recommended |
 | `powerbi-modeling-mcp` | Creates tables, measures, RLS in semantic models | Required for Phase 2–3 |
-| `fabric-mcp` | Publishes to Microsoft Fabric workspaces | Optional |
+| `fabric-mcp` | Native Fabric operations when an exact capability exists (else `power-bi-management` handles publish via `az rest`) | Optional |
 | `fabric-notebook-mcp` | Fabric notebook operations | Optional |
 
 Example `.vscode/mcp.json`:
@@ -200,5 +202,6 @@ pip install jsonschema
 | `power-bi-dax-development` | Phase 3: DAX measures, time intelligence | "write a measure", "CALCULATE", "YTD" |
 | `power-bi-report-design` | Phase 4a: layouts, charts, themes, design spec | "design a report", "choose chart types" |
 | `power-bi-report-authoring` | Phase 4b/4c: generate PBIR JSON, lint, validate | "build the report", "validate this PBIP" |
+| `power-bi-management` | Phase 6: publish/download/list/delete reports in Fabric (`az rest` Tier-2, MCP-first) | "publish to Fabric", "deploy this report", "download report definition" |
 | `power-bi-performance-troubleshooting` | Cross-cutting: diagnose slow reports | "report is slow", "query timeout" |
 | `power-bi-feedback-iteration` | Phase 5/6: classify feedback, UAT, changelog | "user feedback", "release notes" |

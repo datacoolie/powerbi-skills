@@ -1,7 +1,7 @@
 # Card Visual Authoring Guide
 
-Cards (`cardVisual`) display one or more headline metrics. `card` (legacy) is
-deprecated — always use `cardVisual`.
+Cards (`cardVisual`) display one or more headline metrics. `card` and `multiRowCard`
+(both legacy) are deprecated — always use `cardVisual`.
 
 - [Single-Value Template](#single-value-template)
 - [Multi-Value Template](#multi-value-template)
@@ -15,6 +15,11 @@ deprecated — always use `cardVisual`.
 ---
 
 ## Single-Value Template
+
+> ⚠️ **Role name is `Data`, not `Fields`.** The only valid `queryState` key for
+> `cardVisual` is `"Data"`. Using `"Fields"` (the legacy `card` role name) causes
+> the visual to render empty — PBI Desktop cannot resolve the binding. The
+> validator catches this as `Unknown role "Fields"` and `Required role "Data" missing`.
 
 The `Data` role accepts one or more measures. For a single headline KPI:
 
@@ -43,6 +48,12 @@ The `Data` role accepts one or more measures. For a single headline KPI:
 ---
 
 ## Multi-Value Template
+
+> **Default for multiple related KPIs:** When the user asks for 2–5 related
+> KPIs on the same row (e.g. "Sales, Profit, Units, Gross Margin"), create
+> **one** multi-value `cardVisual` with all measures as projections in `Data`.
+> Do **not** create separate single-value cards unless the user explicitly needs
+> per-card styling differences (see [When to Consolidate vs. Keep Separate](#when-to-consolidate-vs-keep-separate)).
 
 Add multiple projections to the `Data` role. PBI renders them as a horizontal
 row of callouts inside one visual. Use this instead of placing multiple
@@ -134,24 +145,188 @@ with `label.text`:
 }]
 ```
 
-### Font sizing and clipping
+### Font sizing and clipping — MANDATORY pre-check
 
-> **Applies to both creation and resizing.** Whenever a card is created or its
-> `position.height` / `position.width` changes, re-evaluate font sizes against
-> the new dimensions before proceeding.
+> **BLOCKING REQUIREMENT.** Before creating or resizing any cardVisual, compute
+> `required_height` and `required_width` using the formulas below. If either
+> exceeds the card's dimensions, adjust or reduce font sizes.
 
-The default callout font is 45 pt (from `textClasses.callout`), which overflows
-cards shorter than ~250 px. Scale `value.fontSize` with card height, and also
-check `label.fontSize` and VCO `padding` top/bottom margins — they consume
-vertical space too. Confirm the final card with a Desktop screenshot because
-schema-valid font and padding choices can still clip rendered content.
+#### Step 1: Resolve effective values from cascade
 
-| Card height | Recommended `value.fontSize` |
-|-------------|------------------------------|
-| 72 px | `28D` |
-| 80 px | `32D` |
-| 120 px | `36D` |
-| 200+ px | `45D` (default) |
+Before computing, inspect these sources in priority order (first match wins):
+
+1. **Visual file** (`visual.json` → `objects` and `visualContainerObjects`)
+2. **Custom theme** → `visualStyles.cardVisual.*` (type-specific)
+3. **Custom theme** → `visualStyles.*.*` (global wildcard)
+4. **Custom theme** → `textClasses.callout.fontSize` (for value default)
+5. **Base theme** → `visualStyles.cardVisual.*` (content padding, spacing)
+
+Check the **base theme** (`StaticResources/SharedResources/BaseThemes/*.json`)
+for the content area default properties:
+- `visualStyles.cardVisual.*.padding.paddingUniform` → content inner padding
+- `visualStyles.cardVisual.*.layout.paddingUniform` → content outer padding
+- `visualStyles.cardVisual.*.spacing.verticalSpacing` → gap between value and label
+
+These follow the same cascade as other properties (visual `objects` →
+custom theme `cardVisual.*` → custom theme `*.*` → base theme).
+
+Check the **custom theme** JSON for:
+- `textClasses.callout.fontSize` → this is the default `value_fontSize`
+- `visualStyles.*.*.padding.top/bottom` → VCO padding override
+- `visualStyles.*.*.border.show` + `.width` → border contribution
+- `visualStyles.cardVisual.*.spacing.verticalSpacing` → verticalSpacing override
+
+Check the **visual** JSON for any per-card overrides on:
+- `objects.value.fontSize`, `objects.label.fontSize`
+- `visualContainerObjects.padding.top/bottom`
+- `visualContainerObjects.border.show/width`
+- `visualContainerObjects.title.show/fontSize`
+- `visualContainerObjects.spacing.spaceBelowTitleArea`
+
+Only after resolving all effective values, proceed to Step 2.
+
+#### Step 2: Card visual anatomy (top to bottom)
+
+```
+┌──────────────────────────────────────────────────────────┐
+│ VCO border (top)                                         │ border_width
+├──────────────────────────────────────────────────────────┤
+│ VCO padding (top)                                        │ padding_top
+├──────────────────────────────────────────────────────────┤
+│ Title text (if shown)                                    │ render(title_fontSize)
+│ Space below title                                        │ spaceBelowTitleArea
+├──────────────────────────────────────────────────────────┤
+│ Content padding (top)                                    │ content_padding_top
+│ Value text: "283K"                                       │ render(value_fontSize)
+│ verticalSpacing                                          │ spacing.verticalSpacing
+│ Label text: "Sum of Profit"                              │ render(label_fontSize)
+│ Content padding (bottom)                                 │ content_padding_bottom
+├──────────────────────────────────────────────────────────┤
+│ VCO padding (bottom)                                     │ padding_bottom
+├──────────────────────────────────────────────────────────┤
+│ VCO border (bottom)                                      │ border_width
+└──────────────────────────────────────────────────────────┘
+```
+
+Key facts:
+- **Label ALWAYS renders** even with `label.show=false`. Allocate for ≥12pt.
+- **Content padding** comes from two objects, each with uniform/individual modes:
+  - `objects.padding`: if `paddingIndividual=true` use per-side values, else `paddingUniform`
+  - `objects.layout`: if `paddingIndividual=true` use `topOuterMargin`/`bottomOuterMargin`, else `paddingUniform`
+- **VCO padding** (`visualContainerObjects.padding`): `top`/`bottom`/`left`/`right`
+- **verticalSpacing**: from `objects.spacing` or `visualContainerObjects.spacing`
+- **calloutSize** (`objects.layout.calloutSize`): percentage that may scale the
+  content area. Runtime default is unverified.
+
+#### Step 3: Compute height
+
+```
+render(fs) = ceil(fs × 1.5)
+
+# Resolve content padding from cascade:
+# - padding object: paddingUniform (or paddingTop/paddingBottom if paddingIndividual=true)
+# - layout object: paddingUniform (or topOuterMargin/bottomOuterMargin if paddingIndividual=true)
+content_padding_top    = padding_obj_top + layout_obj_top
+content_padding_bottom = padding_obj_bottom + layout_obj_bottom
+
+required_height = border_width × 2
+                + padding_top + padding_bottom
+                + (render(title_fontSize) + spaceBelowTitleArea) × title_visible
+                + content_padding_top + content_padding_bottom
+                + render(value_fontSize)
+                + verticalSpacing
+                + render(effective_label_fontSize)
+                + accentBar_width × accentBar_top_or_bottom
+
+effective_label_fontSize = max(explicit_label_fontSize, 12)
+
+Constraint: required_height ≤ position.height
+```
+
+#### Step 4: Width considerations
+
+Width overflow shows ellipsis ("...") rather than clipping — less severe than
+height clipping. Properties that consume horizontal space:
+
+- VCO padding left/right (`visualContainerObjects.padding`)
+- Content padding left/right (from `objects.padding` and `objects.layout`, same uniform/individual logic as vertical)
+- Border width (left + right)
+- Accent bar width (if positioned left or right)
+
+If values are truncated with ellipsis, increase `position.width` or reduce
+`value_fontSize`.
+
+Use **5 chars** when display format is unknown. Width overflow shows ellipsis.
+
+#### Default values (cascade resolution)
+
+Priority: visual `objects` → custom theme `cardVisual.*` → custom theme `*.*` → base theme.
+
+| Variable | Source | Notes |
+|----------|--------|-------|
+| `value_fontSize` | `textClasses.callout.fontSize` | Override via `objects.value.fontSize` (id selector) |
+| `label_fontSize` | `textClasses.label.fontSize` | Override via `objects.label.fontSize` (id selector) |
+| `padding_top/bottom/left/right` | `visualContainerObjects.padding` | VCO padding around the whole visual |
+| `padding` object | `objects.padding` (id selector) | `paddingUniform` or individual `paddingTop/Bottom/Left/Right` |
+| `layout` object | `objects.layout` (id selector) | `paddingUniform` or individual `topOuterMargin/bottomOuterMargin/leftOuterMargin/rightOuterMargin` |
+| `verticalSpacing` | `objects.spacing` (id selector) | Gap between value and label |
+| `spaceBelowTitleArea` | `visualContainerObjects.spacing` | Gap below title area |
+| `calloutSize` | `objects.layout.calloutSize` | Percentage; runtime default unverified |
+| `title_fontSize` | `visualContainerObjects.title` | Title font size when title is shown |
+| `border_width` | `visualContainerObjects.border` | Only contributes when `border.show=true` |
+| `accentBar_width` | `objects.accentBar` (id selector) | Only contributes when `accentBar.show=true` |
+
+> Always read the report's base theme file
+> (`StaticResources/SharedResources/BaseThemes/*.json`) for authoritative
+> default values. Do not assume hardcoded constants.
+
+#### Worked examples
+
+These examples assume base theme values: `padding.paddingUniform=12`,
+`layout.paddingUniform=12`, `verticalSpacing=2`, VCO padding top/bottom=8.
+Always verify these values from the actual base theme file.
+
+**Example 1 — theme callout=36, card h=100 w=180 (FAILS):**
+```
+content_padding = (12+12) × 2 = 48
+required_height = 0 + 8+8 + 0 + 48 + ceil(36×1.5) + 2 + ceil(12×1.5) + 0
+               = 16 + 48 + 54 + 2 + 18 = 138
+→ 138 > 100 → CLIPS!
+
+Fix: set value.fontSize=20 → 16+48+30+2+18 = 114, use h=120
+```
+
+**Example 2 — with title and accent bar:**
+```
+title_area = render(title_fontSize) + spaceBelowTitleArea
+required_height = border + VCO_padding + title_area + content_padding
+               + render(value) + verticalSpacing + render(label) + accentBar
+```
+
+**Example 3 — custom VCO padding=4, border=2:**
+```
+required_height = 2×2 + 4+4 + 0 + 48 + ceil(32×1.5) + 2 + ceil(14×1.5) + 0
+               = 4 + 8 + 48 + 48 + 2 + 21 = 131
+→ use h ≥ 131
+```
+
+#### Quick-reference safe dimensions
+
+Example assuming `padding.paddingUniform=12`, `layout.paddingUniform=12`,
+VCO padding=8, `verticalSpacing=2`, label=12pt, no title, no border:
+
+| value.fontSize | Min height |
+|----------------|------------|
+| 20 | 114 |
+| 24 | 120 |
+| 28 | 126 |
+| 32 | 132 |
+| 36 | 138 |
+| 40 | 144 |
+| 45 | 152 |
+
+With title: add `render(title_fontSize) + spaceBelowTitleArea` to height.
+With custom VCO padding=4: subtract **8px** from height.
 
 ### Accent bar
 
@@ -250,16 +425,15 @@ belong to the visual-container `divider` object, not `cardVisual`'s own).
 
 ## When to Consolidate vs. Keep Separate
 
-**Use one multi-value card** when adjacent KPI cards:
-- Share the same container styling (border, background, shadow)
-- Need uniform font sizes and label formatting
-- Are a cohesive metric group (e.g., Revenue, Profit, Units)
-- Benefit from built-in `layout` gridlines and per-callout `divider` lines
+**Default: always use one multi-value `cardVisual`** for multiple KPIs. Put all
+measures as projections in the `Data` role — this is exactly what `cardVisual`
+is designed for. Do **not** create separate single-value cards per metric unless
+the user explicitly needs per-card styling differences (see below).
 
-**Keep separate single-value cards** when you need:
+**Only keep separate single-value cards** when the user specifically requires:
 - Per-card accent bar colors (each card gets its own accent color)
 - Different background colors or conditional formatting per metric
-- Different font sizes per metric (e.g., hero card larger than supporting cards)
+- Different font sizes per metric (e.g., one hero card larger than the rest)
 - Individual card click/drill-through behavior
 
 ---

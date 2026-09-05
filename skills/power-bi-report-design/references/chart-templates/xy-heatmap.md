@@ -3,7 +3,7 @@
 > **Preview:** [![xy-heatmap preview](../../assets/chart-previews/xy-heatmap.svg)](../../assets/chart-previews/xy-heatmap.svg)
 
 - **id:** `xy-heatmap`
-- **Visual type:** `matrix` with conditional background color
+- **Visual type:** `pivotTable` with conditional background color
 - **Typical size:** 824 × 480
 
 ---

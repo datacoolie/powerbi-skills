@@ -1,0 +1,48 @@
+{
+  "$comment": "Design-to-authoring visual generation contract. Enforced by scripts/check_visual_type_contract.py. Generation targets must match power-bi-report-authoring policy; legacy types stay readable but are never generated.",
+  "version": "1.0",
+  "generate_replacements": {
+    "card": "cardVisual",
+    "multiRowCard": "cardVisual",
+    "map": "azureMap",
+    "filledMap": "azureMap",
+    "table": "tableEx",
+    "matrix": "pivotTable"
+  },
+  "prohibited_generate": [
+    "card",
+    "multiRowCard",
+    "map",
+    "filledMap",
+    "table",
+    "matrix"
+  ],
+  "legacy_readable": [
+    "card",
+    "multiRowCard",
+    "map",
+    "filledMap",
+    "table",
+    "matrix"
+  ],
+  "slicers": {
+    "generate": [
+      "slicer",
+      "listSlicer",
+      "filterSlicer",
+      "advancedSlicerVisual"
+    ],
+    "retheme_coverage": [
+      "slicer",
+      "listSlicer",
+      "filterSlicer",
+      "advancedSlicerVisual"
+    ]
+  },
+  "notes": [
+    "cardVisual is the current first-party card (data role 'Data', supports referenceLabel/cardCalloutArea/smallMultiples). 'card' is the legacy single-value visual (role 'Values').",
+    "azureMap replaces the deprecated Bing 'map' and 'filledMap'.",
+    "tableEx/pivotTable replace legacy 'table'/'matrix'.",
+    "Legacy types remain readable when importing existing reports; they are never emitted by a recipe."
+  ]
+}

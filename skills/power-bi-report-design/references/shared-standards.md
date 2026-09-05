@@ -178,7 +178,7 @@ Power BI service and will become mandatory at GA. Do NOT generate PBIR-Legacy (`
 
 | Visual | Status | Notes |
 |---|---|---|
-| **Card visual (new)** | GA Nov 2025 | Replaces legacy `card` + `multiRowCard`. Supports multiple values, callout images (SVG/data-driven), reference labels, Fit-to-space layout. Use `card` visualType for all new reports. |
+| **Card visual (new)** | GA Nov 2025 | Replaces legacy `card` + `multiRowCard`. Supports multiple values, callout images (SVG/data-driven), reference labels, Fit-to-space layout. Use `cardVisual` visualType for all new reports (`card` is the legacy single-value visual). |
 | **Button slicer** | GA Oct 2025 | Native first-party tile/button slicer. Supports cross-highlighting, auto-grid. Replaces AppSource Chiclet Slicer for most cases. |
 | **Visual calculations** | Preview (Q1 2024+) | DAX calculations defined on-visual (running totals, %, rank). Reduces need for model measures in simple cases. Use for presentation-layer calcs only. |
 | **Auto mobile layout** | GA (Q1 2024) | Auto-generate mobile layout as starting point; refine manually. |

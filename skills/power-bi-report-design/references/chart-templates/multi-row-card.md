@@ -3,7 +3,7 @@
 > **Preview:** [![multi-row-card preview](../../assets/chart-previews/multi-row-card.svg)](../../assets/chart-previews/multi-row-card.svg)
 
 - **id:** `multi-row-card`
-- **Visual type:** `multiRowCard`
+- **Visual type:** `cardVisual` (multi-value — all metrics as `Data` projections)
 - **Typical size:** 536 × 200 (4–8 metrics stacked)
 
 ---

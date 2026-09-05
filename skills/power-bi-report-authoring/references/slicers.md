@@ -126,6 +126,14 @@ General rules applied to all slicers:
 2. The filter property under general in objects describes value selections.
 3. The expansionStates only available for hierarchy slicers and only needed when the slicer is expanded.
 4. identityKeys only defined on the first level of the hierarchy (the level whose nodes can be expanded to reveal children). Not defined on leaf levels.  identityValues defined inside root.children[] only when a specific node has been toggled open (expanded)
+5. Adding a field to the `Tooltips` queryState role is **necessary but not sufficient** to show tooltips. You must **also** set `visualContainerObjects.visualTooltip.show = true` — the tooltip panel is off by default and the user will see nothing on hover without it:
+   ```json
+   "visualContainerObjects": {
+     "visualTooltip": [
+       { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } } } }
+     ]
+   }
+   ```
 
 With the theme applied, this template is complete for the **light variant**
 (border from theme, no fill). The theme handles header font, items font,

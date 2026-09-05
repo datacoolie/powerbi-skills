@@ -39,7 +39,7 @@ REQUIRE    MODEL      DAX        STRATEGIST  7-REVIEW      EXECUTOR    POLISH   
 | 4b Executor | `power-bi-report-design` + `power-bi-report-authoring` | `references/executor-base.md` + one of `executor-{executive|analytical|operational}.md` |
 | 4c Polish & QA | `power-bi-report-authoring` + `power-bi-report-design` | `references/polisher.md` + `scripts/finalize_pbir.py` + `scripts/design_quality_check.py` + `scripts/validate_report.py` |
 | 5 Feedback | `power-bi-feedback-iteration` | `references/feedback-intake-template.md`, `references/classification.md`, `references/prioritization.md`, `references/change-impact-scoping.md`, `references/validation-checklist.md` |
-| 6 Release *(optional)* | `power-bi-feedback-iteration` | `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md` |
+| 6 Release *(optional)* | `power-bi-feedback-iteration` + `power-bi-management` | `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md` · publish via `power-bi-management` |
 | * Performance | `power-bi-performance-troubleshooting` | `references/performance-analyzer-guide.md` + `references/dax-studio-workflow.md` |
 
 ### Phase 1 — Business Requirements Analysis
@@ -267,8 +267,10 @@ Goal: turn a valid-but-bland report into one that communicates.
 6. Generate mobile layouts per §9 (or defer complex cases to Polisher)
 
 **MCP + tool usage:** file I/O; `powerbi-report-author` CLI for metadata lookup
-and validation; `powerbi-desktop` CLI for reload/screenshot verification;
-`fabric-mcp` for Fabric workspace publishing later; no model-modifying MCP calls.
+and validation; `powerbi-desktop` CLI for reload/screenshot verification. No
+model-modifying MCP calls. Publishing happens in Phase 6, not here: prefer an
+exact `fabric-mcp` publish capability, otherwise fall back to `power-bi-management`
+(`az rest` Tier-2).
 
 **Exit criteria:**
 - [ ] Every page + visual from Design Spec §4-5 exists with correct position + binding
@@ -365,7 +367,7 @@ variant testing, UAT, Git / PBIP diff guide, changelog template).
 
 ### Phase 6 — Release & Retrospective *(optional)*
 
-**Skill:** `power-bi-feedback-iteration` (reference kit)
+**Skill:** `power-bi-feedback-iteration` (reference kit) + `power-bi-management` (Fabric publish)
 **Reference files:** `references/uat.md`, `references/git-pbip-diff-guide.md`, `references/changelog-template.md`
 
 Invoke this phase when the user explicitly asks for UAT sign-off, a production
@@ -384,7 +386,12 @@ every engagement.
    (SemVer for Power BI: MAJOR.MINOR.PATCH with model-vs-report considerations)
 6. **Git tagging & PR** — per `references/git-pbip-diff-guide.md` (commit convention,
    PBIP file diff map, .gitignore essentials)
-7. **Retrospective** *(optional)* — capture what worked, what didn't, and which
+7. **Publish to Fabric** *(optional)* — when the user asks to publish/deploy the
+   report to a Fabric workspace, hand off to **`power-bi-management`** (Fabric REST
+   transport: resolve workspace, rebind `definition.pbir` to `byConnection`,
+   upload PBIR definition, poll LRO). Authoring stays MCP/local; this is the
+   `az rest` publish lane.
+8. **Retrospective** *(optional)* — capture what worked, what didn't, and which
    Design Spec backlog items to promote into the next iteration
 
 **Exit criteria:**
@@ -392,6 +399,7 @@ every engagement.
 - [ ] All blocker / major issues resolved; minor issues either fixed or logged
 - [ ] Changelog entry added with today's date + version bump
 - [ ] Git tag created (e.g., `v1.2.0`) and PR merged
+- [ ] If publishing: report deployed to the confirmed Fabric workspace via `power-bi-management`, workspace/report URL surfaced
 - [ ] Any deferred items captured in Design Spec §11 (Backlog) for next iteration
 
 ---
@@ -413,6 +421,8 @@ Not every engagement starts at Phase 1. Determine the correct starting phase:
 | "Polish this report" / "Run design QA" | Phase 4c |
 | "Present report for UAT sign-off" | Phase 6 |
 | "Release this report to production" | Phase 6 |
+| "Publish / deploy / upload this report to Fabric" | Phase 6 (`power-bi-management`) |
+| "Download / list / delete a report in a Fabric workspace" | `power-bi-management` |
 | "Quick report" / "Just build it" / simple brief with existing model | **Express Path** (discover → auto-design → confirm → generate → polish) |
 
 

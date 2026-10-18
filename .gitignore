@@ -1,7 +1,9 @@
 # Ignore the .agents
 .agents/
 skills-lock.json
-.github/
+# Local Copilot config stays out of the repo; CI workflows are tracked.
+.github/*
+!.github/workflows/
 plans/
 .codex/
 .instructions/
@@ -22,7 +24,8 @@ research/
 _*.txt
 _*.py
 .scripts/
-tests/
+# Root-level sample PBIPs only. Script unit tests under skills/**/scripts/tests and scripts/tests are tracked.
+/tests/
 
 # Ignore generated artifacts (npm, Python cache, schema cache)
 __pycache__/

@@ -16,6 +16,79 @@ role files for each phase.
 This applies to: schema design, DAX patterns, storage modes, visual types,
 PBIP format, security implementation, and performance optimization.
 
+## Tool Selection Policy — CLI first, MCP second
+
+**Rule: when a CLI and an MCP tool can both do the job, use the CLI.** Reasons:
+deterministic and scriptable, structured diagnostics, same behavior in CI, no
+server lifecycle, and it is what Microsoft's official `powerbi-report-cli` skill
+mandates for report work. Use MCP only when no CLI path covers the operation.
+
+| Operation | Use | Rationale |
+|---|---|---|
+| Visual roles, formatting, enums, expression encoding, themes | `powerbi-report-author catalog / formatting / expr / theme / text` | CLI = source of truth for PBIR facts |
+| New report shell | `powerbi-report-author scaffold` | Pinned valid `$schema`s; never hand-author shell files |
+| PBIR validation | `powerbi-report-author validate` (+ `pbir_gate.py`) | Offline, structured |
+| Desktop/service preview, reload, screenshots | `powerbi-report-author preview --host desktop\|service` | One entry point; bundles the Desktop bridge; never call `powerbi-desktop` directly or use `--pid` |
+| Report audit | `powerbi-report-author preview-visuals / -pages / -filters / -themes` | Read-only |
+| Fabric report CRUD, getDefinition/updateDefinition, rebind, publish | `az rest` + `powerbi-report-author pack/unpack` (helper: `power-bi-management/scripts/power_bi_management.py`) | CLI beats `Fabric-MCP-*` |
+| Workspace/item discovery | `az rest` + JMESPath | CLI beats `Fabric-MCP-core_search-catalog` |
+| **Live semantic-model authoring** (tables, columns, relationships, measures, RLS) and **DAX execution** | Power BI Modeling MCP (`powerbi-modeling-mcp`, may be registered as `powerbi-authoring-local`) | **No CLI equivalent** — MCP is the only option, not a tie |
+| Read-only model inventory from local/downloaded TMDL | Read the `.tmdl` files | No connection needed |
+| Lakehouse/OneLake discovery for modeling (find items, list files/tables, schemas) | `fab` (Microsoft Fabric CLI: `fab find`, `fab dir`, `fab get`, `fab table schema`) | CLI exists → beats `Fabric-MCP-onelake_*` / `fabric-notebook-mcp`; MCP only if `fab` is unavailable or lacks the operation (row preview, column stats) |
+| Microsoft Learn docs | `microsoft-learn-mcp` | No CLI equivalent |
+
+Fabric MCP tools are a **fallback** when the CLI lacks the capability or is
+not installed — say so explicitly when falling back.
+
+## Official mode-dispatch rules (`powerbi-report-cli`)
+
+Microsoft's `powerbi-report-cli` skill splits report work into four modes; in this
+repo each mode is a skill: `planning` → `power-bi-business-analysis`, `design` →
+`power-bi-report-design`, `authoring` → `power-bi-report-authoring`, `management` →
+`power-bi-management`. Rules that apply across the pipeline:
+
+- **Classify by intent**, not by which file or tool is open. Choosing a chart is
+  design; writing it into `visual.json` is authoring. Restyling an existing local
+  report is authoring unless the user wants advice/a contract (design).
+- **One mode at a time, in order** for greenfield: planning → design → authoring →
+  management. Announce each switch and read that mode's reference end to end
+  before its first command or edit. A focused edit to an existing report goes
+  straight to authoring.
+- **Deliverables:** planning → locked `_brief/report-spec.md` + approval request;
+  design → complete `Design Brief:` (no PBIR edits, no Fabric calls); authoring →
+  validated PBIR + screenshot review (never publishes); management → the Fabric
+  operation incl. LRO polling and readback verification (never authors PBIR).
+- **Keep local edits local** unless the current request explicitly asks to publish.
+- **Retain compact working state** across turns (resolved workspace/item/model
+  IDs, local + downloaded paths, references already read); don't re-list or
+  re-read unless asked or invalidated. Infer facts already in the prompt, model,
+  PBIP, or approved spec instead of re-asking.
+- **Use the CLI metadata** (`catalog`/`formatting`/`expr`/`validate`) instead of
+  guessing PBIR schemas, roles, selectors, or enums.
+- Every `api.fabric.microsoft.com` call carries `x-ms-fabric-skill: powerbi-report-cli`.
+- **Preview host choice:** `--host desktop` when the user works locally with a `.pbip` and Power BI Desktop
+  (needs the owning `.pbip`; never closes Desktop). `--host service` when the semantic model is already
+  published and the user supplies both `--group <workspace-guid>` and `--dataset <semantic-model-guid>`
+  (never infer either; `--headless` for agent runs; leave a visible preview open after review). If the
+  user did not name a host, derive it from context (local `.pbip` + Desktop → desktop; published model +
+  GUIDs → service); ask only if both are possible or an ID is missing. Never switch hosts after a
+  failure. Check `powerbi-report-author preview --list-hosts` to see what is available.
+- **Screenshot gate on micro-tasks:** the gate stays mandatory for any change that alters rendered
+  content, even a single visual. If no host can load/capture (e.g. Desktop closed, unsaved changes,
+  no published model), finish the edit + `validate`, then report **"screenshot validation blocked"**
+  with the reason — never claim the task complete and never use a stale screenshot.
+- **Data questions about a report's content** ("what was Q3 revenue?") are not report-lifecycle work:
+  route to the `fabriciq` skill if available (otherwise `dax_query_operations`), not to authoring.
+
+**Install the report CLI once (Node ≥ 20):** `npm install -g @microsoft/powerbi-report-authoring-cli@latest`
+(bundles the Desktop bridge — no separate `powerbi-desktop` install), then run the **preflight**
+`python scripts/doctor.py` (checks Node, `powerbi-report-author` ≥ 0.5.0 and its own doctor, preview hosts,
+`az`/`az login`, optional `fab`, Python; `--json` for agents, `--strict` for CI). Run it before Phase 4b and
+whenever a CLI call fails unexpectedly. Fabric calls need `az login` (or `fab auth login`) and carry the
+mandatory `x-ms-fabric-skill: powerbi-report-cli` header (the management helper adds it; with
+`fab api` pass `-H "x-ms-fabric-skill=powerbi-report-cli"`). Optional: `pip install ms-fabric-cli` for
+the `fab` CLI used for OneLake/lakehouse discovery and `fab api`.
+
 ## Workflow
 
 ```
@@ -64,13 +137,31 @@ requirements document.
 - [ ] Measures inventory with naming conventions
 
 **Deliver the requirements document to the user for approval before proceeding.**
+(For a new report the Requirements Document is folded into `_brief/report-spec.md`
+— see the mapping table in `power-bi-business-analysis/SKILL.md` — and that spec is
+the single approved hand-off.)
+**New-report requests ("create/build a report/dashboard") — official planning mode.**
+Phase 1 also runs the official `powerbi-report-cli` planning flow
+(`power-bi-business-analysis/references/planning.md` + `planning-part-02.md`):
+Rounds 0–4 with `ask_user` (one question at a time, ≤ 5 rounds, never re-ask what
+is known), dependency check, model inventory, and a locked **`_brief/report-spec.md`**
+that embeds the canonical `Design Brief:` from Phase 4a.
+
+> **GREENFIELD APPROVAL BARRIER — MANDATORY.** If the user asked to plan *and*
+> build/publish but has not approved the locked spec in a **prior reply**, stay in
+> Phase 1: persist `_brief/report-spec.md`, ask for explicit approval, and end the
+> turn. Do not start Phases 2–6 work: no PBIR/semantic-model edits or scaffolding,
+> no synthetic data, no Fabric writes, no publish. Build/publish wording in the
+> request is future scope, not approval. (The Express Path below applies only to
+> small asks on an existing model and does not bypass this barrier for new reports.)
 
 ### Phase 2 — Semantic Model Design & Build
 
 **Skill:** `power-bi-semantic-model`
 
-**Tool selection priority:** MCP (powerbi-modeling-mcp) → TMDL files + az rest → Fallback.
-See `references/semantic-model-rest-api.md` for Fabric REST API endpoints.
+**Tool selection priority:** CLI where one exists (`az rest` for Fabric item transport) →
+`powerbi-modeling-mcp` for live model authoring/DAX (no CLI equivalent) → TMDL files + `az rest`
+→ Fallback. See the **Tool Selection Policy** above and `references/semantic-model-rest-api.md`.
 
 **What to do:**
 1. Explore available data sources (SQL, Lakehouse, files)
@@ -157,25 +248,31 @@ sufficient grounds to assume the model already has the DAX it needs.
    library indexes: `references/layouts/layouts-index.json` and
    `references/chart-templates/chart-templates-index.json`
 2. Run the **5-Question Intake** (WHO / WHAT / BIG IDEA / ACTION / STYLE) — record
-   answers verbatim in Design Spec §1
+   answers verbatim in Design Spec §1 (after the official Step 0 data-first model
+   investigation; brownfield → `references/design/brownfield.md`)
 3. Select one **Style Personality** (Executive / Analytical / Operational) and
-   record the rationale
-4. For each page: pick a **layout** from the layouts index; fill Design Spec §4
+   record the rationale; commit to a **tone + signature** (design identity,
+   `references/design/tone-catalog.md` + `signatures.md`)
+4. For each page: route to an **archetype + variant** (`references/design/archetypes/*.md`),
+   pick a **layout** from the layouts index; fill Design Spec §4
 5. For each visual on each page: pick a **chart-template recipe** from the
    chart-templates index; fill Design Spec §5 (Visual Inventory)
 6. Select theme (existing from `assets/pbi-themes/` or custom — §6), iconography (§7),
    navigation pattern (§8), mobile strategy (§9), interactions (§10)
 7. Capture gaps / open questions in Design Spec §11 (Backlog)
+8. Emit the official **`Design Brief:`** YAML (Design Spec Appendix A, schema in
+   `references/design/design-brief.md`) and run `references/design/pre-flight-checklist.md`
 
 **Output:** A Design Spec following `references/design-spec-reference.md` with
-all 11 sections complete (or explicitly marked N/A).
+all 11 sections complete (or explicitly marked N/A), plus the canonical `Design Brief:`.
 
 **Exit criteria:**
 - [ ] All 11 Design Spec sections filled
-- [ ] Every page references an existing layout file
+- [ ] Every page references an existing layout file and an archetype/variant
 - [ ] Every visual references an existing chart-template recipe
-- [ ] Style personality chosen and justified
+- [ ] Style personality + tone/signature chosen and justified
 - [ ] Theme + iconography + navigation decided
+- [ ] `Design Brief:` complete (mechanical `layout_contract` per page) and pre-flight checklist passed
 - [ ] Backlog captures any gaps against the libraries
 
 Before running Phase 4b, hand off through Phase 4a.5 for a lightweight review.
@@ -202,7 +299,7 @@ can also skip the panel entirely and reply with a single chat message such as
 
 | # | Question `header` | Source in Design Spec | Example `options` (recommended first) |
 |---|---|---|---|
-| 1 | `canvas` | §4 | `1664×936`*, `1280×720`, `1920×1080`, `custom` |
+| 1 | `canvas` | §4 | `1920×1080`*, `1280×720`, `2560×1440`, `custom` |
 | 2 | `pages` | §4 | `as proposed`*, `add page`, `remove page`, `reorder` |
 | 3 | `audience` | §2 | `as proposed`*, `edit audience`, `edit decision` |
 | 4 | `style` | §3 | `Analytical`*, `Executive`, `Operational` |
@@ -211,6 +308,16 @@ can also skip the panel entirely and reply with a single chat message such as
 | 7 | `navigation` | §8 | `top bar + drillthrough`*, `left rail`, `tabs`, `no chrome` |
 
 _( \* = marked `recommended: true` in the question payload. )_
+
+**Canvas note.** The default canvas is **FHD `1920×1080`** (the official `Design Brief:` default)
+and every layout recipe is authored on it. For another 16:9 canvas (1280×720, 2560×1440) or a
+brownfield report's existing size, the Executor rescales recipe slots with
+`power-bi-report-design/scripts/rescale_layout.py --layout <id> --canvas <WxH> [--format md]`
+(edge-snapped to the 8-px grid). Whichever canvas is confirmed in item #1 is written to
+`layout_contract.canvas` — never mix coordinates from two canvases. Brownfield reports keep their
+existing canvas unless a resize is approved. FHD's extra room is spent under the official
+space-allocation rules and visual budgets (Executive ≤ 6, Analytical ≤ 12, Operational ≤ 14 —
+`power-bi-report-design/references/layouts/archetype-map.md`).
 
 **Routing on user response:**
 - Panel submitted untouched, or single chat reply `"proceed" / "go" / "looks good"` → accept all recommendations, move to Phase 4b
@@ -248,7 +355,16 @@ The Executor runs in **two sequential passes**. Do not interleave.
 Goal: every visual exists at its final position with its data bindings, using
 the minimum viable properties. No narrative elements yet.
 
-1. Create `.Report/definition/pages/<slug>/` for each page in §4
+0. New report (no `.Report/` yet): `powerbi-report-author scaffold <dir> --name <ReportName> --model-path ../<Model>.SemanticModel`
+   (add `--offline` for older Desktop builds); then bind the model per
+   `power-bi-report-authoring/references/authoring/model-binding.md`
+0b. **Layout-recipe pages → generator.** For every page built from a library recipe, write a slot spec
+   (`power-bi-report-authoring/references/layout-spec-example.json`: slot → `visualType` + role bindings + alt text)
+   and run `python skills/power-bi-report-authoring/scripts/build_report_from_layout.py --report <.Report> --spec <spec.json>`.
+   It places each slot at the recipe's FHD coordinates (rescaled for another canvas), checks roles against
+   `powerbi-report-author catalog`, refuses legacy visual types, validates the result, and records the approved
+   layout in `_brief/layout-manifest.json` (used by the Phase 4c drift stage). Hand-author only what a recipe cannot express.
+1. Create `.Report/definition/pages/<slug>/` for each page in §4 (the generator does this for recipe pages)
 2. For each visual in §5: read the chart-template recipe; generate
    `pages/<slug>/visuals/<name>/visual.json` with position, queryState binding,
    and recipe-mandated formatting
@@ -266,20 +382,28 @@ Goal: turn a valid-but-bland report into one that communicates.
 5. Configure sync slicer groups per §8
 6. Generate mobile layouts per §9 (or defer complex cases to Polisher)
 
-**MCP + tool usage:** file I/O; `powerbi-report-author` CLI for metadata lookup
-and validation; `powerbi-desktop` CLI for reload/screenshot verification. No
-model-modifying MCP calls. Publishing happens in Phase 6, not here: prefer an
-exact `fabric-mcp` publish capability, otherwise fall back to `power-bi-management`
-(`az rest` Tier-2).
+**Tool usage (CLI first):** file I/O; `powerbi-report-author` CLI for `scaffold`,
+metadata lookup (`catalog`/`formatting`/`expr`), `validate`, and `preview`. No
+model-modifying MCP calls. Publishing happens in Phase 6, not here: use
+`power-bi-management` (`az rest` + `pack`/`unpack`); a `Fabric-MCP-*` tool is a
+fallback only when the CLI path cannot do the operation.
+
+**Authoring completion gate (official, MANDATORY):** after every logical batch —
+`validate` → `preview --status` → open/attach or `--reload` → `--screenshot`
+(every affected page; `--all-pages` for theme/global changes) → review with
+`power-bi-report-authoring/references/authoring/screenshot-review.md` → fix and
+repeat. Schema success alone never completes Phase 4b. Details and the
+`hasUnsavedChanges` / `correction` safety rules: `references/authoring/preview.md`.
 
 **Exit criteria:**
+- [ ] New report: shell created with `powerbi-report-author scaffold` (never hand-authored)
 - [ ] Every page + visual from Design Spec §4-5 exists with correct position + binding
 - [ ] No hard-coded hex colors (theme tokens only)
 - [ ] Every visual has alt text
 - [ ] Navigation wired (buttons, drillthrough with back button, bookmarks)
 - [ ] Sync slicers configured
 - [ ] `powerbi-report-author validate` passes (zero errors)
-- [ ] Desktop reload + screenshot review confirms rendered output matches spec
+- [ ] Preview screenshots of every affected page reviewed; rendered output matches spec (or screenshot validation reported as blocked)
 
 **Do not run the Polisher or Design-QA linter here — those are Phase 4c.**
 
@@ -292,20 +416,28 @@ exact `fabric-mcp` publish capability, otherwise fall back to `power-bi-manageme
 
 Run the unified gate (chains all three steps into one pass/fail verdict):
 ```powershell
-python skills/power-bi-report-authoring/scripts/pbir_gate.py --report <path> --style <style>
+python skills/power-bi-report-authoring/scripts/pbir_gate.py --report <path> --style <style> [--apply]
 ```
-Add `--allow-warnings` to pass with warnings only. Add `--json verdict.json` to save the verdict.
+The gate is **read-only by default** (finalize runs as a dry run; `design_report.md` goes to a temp evidence dir).
+Add `--apply` only for a report generated in this session so finalize may snap/tokenize/alt-text it — never for a
+brownfield report whose layout must be preserved. Add `--allow-warnings` to pass with warnings only,
+`--json verdict.json` to save the verdict, `--evidence-dir <dir>` to choose where `design_report.md` lands.
 
 The gate runs these stages in order:
 1. **Mechanical polish** — `finalize_pbir.py` (`snap_grid`, `align_kpi_row`, `apply_theme_tokens`,
-   `normalize_fonts`, `ensure_alt_text`)
+   `normalize_fonts`, `ensure_alt_text`); dry run unless `--apply` (guarded: clean git tree or backup)
 2. **Design-QA lint** — `design_quality_check.py` (8 style-aware checks)
 3. **Schema validation** — `validate_report.py` for PBIR schema correctness
+4. `powerbi-report-author validate` (CLI schema, source of truth)
+5. **Layout drift** — `check_layout_drift.py` compares built positions with the approved
+   `_brief/layout-manifest.json` (moved/missing visuals = error, new overlaps = warning); skipped when no manifest exists
 
 After the gate passes:
-4. **Desktop verification** — run `powerbi-desktop reload --pid <pid>` then
-   `powerbi-desktop screenshot-all --pid <pid> --output-dir screenshots/` to
-   capture rendered output for every page
+4. **Preview verification** — `powerbi-report-author preview "<folder>" --host desktop --status`,
+   then `--reload` (only when status allows), then
+   `powerbi-report-author preview "<folder>" --host desktop --screenshot "<dir>" --all-pages`
+   (service host: add `--group <workspace-guid> --dataset <semantic-model-guid> --headless`;
+   never infer those IDs). Review every page; never call `powerbi-desktop` directly or pass `--pid`.
 5. **Reconcile** with Design Spec — every page, visual, binding, and theme token
    referenced in the spec exists in the JSON
 6. **Evidence package** — attach screenshots, `design_report.md`,
@@ -389,8 +521,10 @@ every engagement.
 7. **Publish to Fabric** *(optional)* — when the user asks to publish/deploy the
    report to a Fabric workspace, hand off to **`power-bi-management`** (Fabric REST
    transport: resolve workspace, rebind `definition.pbir` to `byConnection`,
-   upload PBIR definition, poll LRO). Authoring stays MCP/local; this is the
-   `az rest` publish lane.
+   upload PBIR definition, poll LRO). CLI-first: `az rest` + `powerbi-report-author
+   pack`/`unpack` (with the mandatory `x-ms-fabric-skill: powerbi-report-cli` header);
+   a `Fabric-MCP-*` tool is a fallback only. Publish only on an explicit request and
+   get explicit confirmation before overwriting an existing remote report.
 8. **Retrospective** *(optional)* — capture what worked, what didn't, and which
    Design Spec backlog items to promote into the next iteration
 
@@ -645,7 +779,11 @@ Some phases can partially overlap:
   placeholder or not-yet-created measure name.
 - **Phase 4a + Phase 4b**: Once the first pages are designed, generation can begin
   while remaining pages are still being designed
-- **Phase 4b pages**: Multiple pages can be generated in parallel
+- **Phase 4b pages**: Pages may be *drafted* in parallel only as scoped work — never hand a whole PBIP to a
+  subagent. The owning agent keeps the Design Spec/`Design Brief:`, model inventory, cross-page consistency, and the
+  validate → preview → review loop; a subagent gets one page (or one visual family) with its brief excerpt, exact
+  fields/measures and layout contract, returns scoped PBIR JSON or a patch, and the owner integrates and validates it.
+  For large builds prefer a deterministic Node.js generator driven by the approved brief.
 
 However, Phase 1 must complete before Phase 2 begins (requirements drive design),
 Phase 3 must complete (Measures Gate passed) before Phase 4a's Design Spec is
@@ -740,7 +878,7 @@ DISCOVER ── ENSURE MEASURES ── AUTO-DESIGN ── AUTO-CONFIRM ── GE
 | 2. **Auto-Design** | Select the matching domain template. Auto-pick: layout (from `layouts-index.json`), chart recipes (from `chart-templates-index.json`), theme (first match in `pbi-themes/`), style personality (infer from audience hint or default to Analytical). Fill Design Spec §§1-11 with sensible defaults. | Abbreviated Phase 4a |
 | 3. **Auto-Confirm** | Present the Seven Confirmations via Plan-mode Q&A with all defaults pre-filled and a note: *"Express Path — defaults auto-selected from the [domain] template. Reply 'proceed' or edit any item."* Show layout and chart preview SVGs. If user replies `"proceed"` or does not push back → advance. | Phase 4a.5 (non-blocking, as usual) |
 | 4. **Generate** | Run Phase 4b two-pass (Layout → Narrative) as normal. | Phase 4b |
-| 5. **Polish** | Run Phase 4c via `pbir_gate.py --report <path> --style <style>`. | Phase 4c |
+| 5. **Polish** | Run Phase 4c via `pbir_gate.py --report <path> --style <style> --apply` (report generated this session). | Phase 4c |
 
 **What Express Path skips:**
 - Full 15-question stakeholder interview (replaced by model discovery)

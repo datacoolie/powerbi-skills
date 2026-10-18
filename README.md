@@ -82,6 +82,8 @@ your-project/
 ```
 
 > **Important:** Copy the **whole skill folder** (including `references/`, `assets/`, `scripts/`), not just `SKILL.md`. The agent reads files inside those folders.
+>
+> **Install the skills as a set.** The skills cross-reference each other with relative paths (for example `../../power-bi-management/references/…` from planning, `../power-bi-report-authoring/references/…` from design). Copy every `skills/power-bi-*` folder side by side; a partial install leaves those links dangling.
 
 ---
 
@@ -112,16 +114,27 @@ If it doesn't show up, restart VS Code.
 
 ---
 
-## MCP Servers (Optional but Recommended)
+## CLIs and MCP Servers — CLI first
 
-The agent works best with these MCP servers configured in `.vscode/mcp.json`:
+**Policy: if a CLI and an MCP tool can both do the job, the agent uses the CLI.** MCP is used only where no CLI exists.
+
+### CLIs (preferred)
+
+| CLI | Install | What the agent uses it for |
+|---|---|---|
+| `powerbi-report-author` (Node ≥ 20) | `npm install -g @microsoft/powerbi-report-authoring-cli@latest` | Official Microsoft PBIR toolkit: `scaffold`, `catalog`, `formatting`, `expr`, `theme`, `text`, `validate`, `preview --host desktop\|service` (reload + screenshots; bundles the Desktop bridge), `preview-*`, `pack`/`unpack`. Verify with `powerbi-report-author doctor`. |
+| `az` (Azure CLI) | [install](https://learn.microsoft.com/cli/azure/install-azure-cli), then `az login` | Fabric REST (`az rest`): report CRUD, definition download/upload, rebind, publish, workspace/item discovery. Calls carry the mandatory `x-ms-fabric-skill: powerbi-report-cli` header (opt out: `POWERBI_SKILLS_TELEMETRY=off`). |
+| `fab` (Microsoft Fabric CLI, optional) | `pip install ms-fabric-cli`, then `fab auth login` | OneLake/lakehouse discovery for modeling (`fab find`, `fab dir`, `fab get`, `fab table schema`) and `fab api` (pass `-H "x-ms-fabric-skill=powerbi-report-cli"`). Preferred over `Fabric-MCP-*` / `fabric-notebook-mcp` when installed. |
+| `python` ≥ 3.10 | — | Phase 4c QA scripts, `power_bi_management.py` helper |
+
+### MCP servers (only where there is no CLI equivalent)
 
 | Server | What it does | Required? |
 |---|---|---|
-| `microsoft-learn-mcp` | Looks up official Microsoft docs | Strongly recommended |
-| `powerbi-modeling-mcp` | Creates tables, measures, RLS in semantic models | Required for Phase 2–3 |
-| `fabric-mcp` | Native Fabric operations when an exact capability exists (else `power-bi-management` handles publish via `az rest`) | Optional |
-| `fabric-notebook-mcp` | Fabric notebook operations | Optional |
+| `powerbi-modeling-mcp` (also seen as `powerbi-authoring-local` — same tool set: `measure_operations`, `dax_query_operations`, `table_operations`, …) | Live semantic-model authoring + DAX execution (no CLI equivalent) | Required for Phase 2–3 |
+| `microsoft-learn-mcp` | Looks up official Microsoft docs (no CLI equivalent) | Strongly recommended |
+| `fabric-notebook-mcp` | Lakehouse/notebook inspection — **fallback** when `fab` is not installed | Optional |
+| `fabric-mcp` | **Fallback only** — Fabric operations the CLI path doesn't cover; report/item operations use `az rest` instead | Optional |
 
 Example `.vscode/mcp.json`:
 
@@ -137,7 +150,22 @@ Example `.vscode/mcp.json`:
 }
 ```
 
-Replace `<package-name-for-the-server>` with the actual MCP server package name from its repository. Without these servers the agent still runs but skips the model-build steps.
+Replace `<package-name-for-the-server>` with the actual MCP server package name from its repository. Without the modeling MCP the agent still runs but falls back to editing TMDL files directly.
+
+### Official Microsoft skill coverage
+
+`power-bi-report-authoring`, `power-bi-report-design`, `power-bi-management`, and the planning flow in `power-bi-business-analysis` mirror the four modes of Microsoft's [`powerbi-report-cli`](https://github.com/microsoft/skills-for-fabric) skill (v1.0.5 / `apm` 0.2.9, MIT; CLI `@microsoft/powerbi-report-authoring-cli` 0.5.0) verbatim — all 86 reference files — with repo-specific pipeline layers on top. On conflict, the official file wins.
+
+| Official mode | This repo | Official files |
+|---|---|---|
+| `planning` | `power-bi-business-analysis` | `references/planning.md`, `planning-part-02.md` |
+| `design` | `power-bi-report-design` | `references/design.md`, `references/design/**` |
+| `authoring` | `power-bi-report-authoring` | `references/authoring.md`, `authoring-part-02/03/04.md`, `references/authoring/**` |
+| `management` | `power-bi-management` | `references/management.md`, `management-part-02/03/04.md` (+ `fabric-common-cli.md`) |
+
+The semantic-model side mirrors Microsoft's `semantic-model-authoring` skill the same way (`power-bi-semantic-model/references/official-workflows.md` + the official modeling/TMDL/metadata/field-parameter/Direct Lake guidelines).
+
+**Keeping in sync:** `npx skills update` refreshes the git-ignored `.agents/skills/` install, then `python scripts/sync-official.py check` reports upstream drift against `official-sync.lock.json` (`sync` copies unmodified files, `lock` records the new baseline). Files with repo path fixes are never overwritten automatically.
 
 ---
 
@@ -169,10 +197,24 @@ You can also jump in mid-pipeline:
 The `power-bi-report-authoring` skill ships Python scripts you can run standalone:
 
 ```bash
-# Full QA pass on a .Report folder (finalize → lint → validate)
+# QA pass on a .Report folder — read-only by default (lint → validate → layout drift)
 python skills/power-bi-report-authoring/scripts/pbir_gate.py \
   --report path/to/MyReport.Report \
   --style analytical
+# add --apply to let the polish stage rewrite a report you just generated
+# (refused on a dirty git tree unless --force-apply; backed up first outside git)
+
+# Generate a page from a layout recipe + slot spec (FHD slots, roles checked against the CLI catalog)
+python skills/power-bi-report-authoring/scripts/build_report_from_layout.py \
+  --report path/to/MyReport.Report \
+  --spec skills/power-bi-report-authoring/references/layout-spec-example.json
+
+# Is the built report still what was approved?
+python skills/power-bi-report-authoring/scripts/check_layout_drift.py --report path/to/MyReport.Report
+
+# Rescale a recipe to another 16:9 canvas / validate a recipe's slot table
+python skills/power-bi-report-design/scripts/rescale_layout.py --layout exec-overview-16x9 --canvas 1280x720 --format md
+python skills/power-bi-report-design/scripts/rescale_layout.py --canvas 1920x1080 --check skills/power-bi-report-design/references/layouts/exec-overview-16x9.md
 ```
 
 Requires Python 3.10+. Install `jsonschema` for full schema validation:
@@ -180,6 +222,20 @@ Requires Python 3.10+. Install `jsonschema` for full schema validation:
 ```bash
 pip install jsonschema
 ```
+
+## Repository tooling (contributors)
+
+```bash
+python scripts/doctor.py                 # environment preflight: Node, CLI versions, az/fab, preview hosts, MCP naming
+python scripts/check_repo.py             # mirror integrity + skill lint + all script tests (what CI runs)
+python scripts/skill_lint.py             # SKILL.md frontmatter, description length/triggers, broken references
+python scripts/sync-official.py check    # drift vs the official Microsoft skills (needs the local .agents/ install)
+python scripts/sync-official.py sync     # pull upstream changes; patched files are three-way merged
+python scripts/sync-official.py lock     # record the new baseline after reviewing a sync
+```
+
+CI (`.github/workflows/repo-checks.yml`, `skill-tests.yml`) runs `check_repo.py` and the script tests on every push/PR.
+Script unit tests live in `skills/**/scripts/tests/` and `scripts/tests/` and are tracked in git.
 
 ---
 
@@ -191,17 +247,19 @@ pip install jsonschema
 
 **MCP tool errors.** Check `.vscode/mcp.json` is configured and restart VS Code. The agent will continue with reduced capabilities if a server is missing.
 
+**`powerbi-report-author` not found / preview unavailable.** Run `npm install -g @microsoft/powerbi-report-authoring-cli@latest`, then `powerbi-report-author doctor` and `powerbi-report-author preview --list-hosts`. Desktop preview needs Power BI Desktop with *Enable external tool access to Power BI Desktop through secure local APIs* turned on (Options → Preview features) and the report opened from its `.pbip`.
+
 ---
 
 ## What Each Skill Does
 
 | Skill | Purpose | Triggers when you say |
 |---|---|---|
-| `power-bi-business-analysis` | Phase 1: requirements interview, KPI selection | "analyze requirements", "what KPIs" |
+| `power-bi-business-analysis` | Phase 1: requirements interview, KPI selection, official report planning (`_brief/report-spec.md` + approval gate) | "analyze requirements", "what KPIs", "create a report", "plan then build" |
 | `power-bi-semantic-model` | Phase 2: star schema, storage modes, RLS, naming conventions, DAX standards, AI/Copilot readiness, REST API | "build the model", "star schema", "DirectLake", "naming conventions", "prepare for Copilot" |
 | `power-bi-dax-development` | Phase 3: DAX measures, time intelligence | "write a measure", "CALCULATE", "YTD" |
-| `power-bi-report-design` | Phase 4a: layouts, charts, themes, design spec | "design a report", "choose chart types" |
-| `power-bi-report-authoring` | Phase 4b/4c: generate PBIR JSON, lint, validate | "build the report", "validate this PBIP" |
-| `power-bi-management` | Phase 6: publish/download/list/delete reports in Fabric (`az rest` Tier-2, MCP-first) | "publish to Fabric", "deploy this report", "download report definition" |
+| `power-bi-report-design` | Phase 4a: archetypes, tone/signature, layouts, charts, themes, Design Spec + `Design Brief:` | "design a report", "choose chart types", "redesign" |
+| `power-bi-report-authoring` | Phase 4b/4c: scaffold/edit PBIR, validate, preview + screenshots (CLI), lint | "build the report", "validate this PBIP", "preview/screenshot" |
+| `power-bi-management` | Phase 6: publish/download/list/update/delete/rebind reports in Fabric (CLI-first: `az rest` + `pack`/`unpack`) | "publish to Fabric", "deploy this report", "download report definition" |
 | `power-bi-performance-troubleshooting` | Cross-cutting: diagnose slow reports | "report is slow", "query timeout" |
 | `power-bi-feedback-iteration` | Phase 5/6: classify feedback, UAT, changelog | "user feedback", "release notes" |

@@ -92,7 +92,10 @@ RETURN
 ### Step 4 — Implement with MCP
 
 Use `measure_operations` to create the measure with: tableName, name, expression,
-formatString, description, displayFolder.
+formatString, description, displayFolder. (No first-party CLI creates or executes
+measures, so MCP is the right tool here; when MCP is unavailable, edit the `.tmdl`
+measure in the local `.SemanticModel/` and validate by reloading — see
+`power-bi-semantic-model` → Tool Selection.)
 
 ### Step 5 — Validate
 

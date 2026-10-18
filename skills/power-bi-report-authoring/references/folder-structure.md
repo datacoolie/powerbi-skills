@@ -1,5 +1,8 @@
 # PBIR Report Folder Structure
 
+> **Repo supplement — not authoritative.** The official layout is in `authoring-part-02.md` (*PBIR File Layout*);
+> create new reports with `powerbi-report-author scaffold` rather than by hand.
+
 Complete annotated folder tree for a `.Report/` generated in PBIR format.
 
 ## Legend

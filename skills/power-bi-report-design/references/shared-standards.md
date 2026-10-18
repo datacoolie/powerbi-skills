@@ -15,7 +15,7 @@
 - ❌ **Combo chart with > 2 series types** — one bar + one line only
 
 ### Data density
-- ❌ **> 8 visuals per page** (Operational style allowed 8-12 — see [`executor-operational.md`](executor-operational.md))
+- ❌ **> 12 visuals per page** (Executive ≤ 6; Operational style allowed up to 14 — see [`executor-operational.md`](executor-operational.md))
 - ❌ **> 6 slicers per page**
 - ❌ **Line chart with < 3 data points** — use a card instead
 - ❌ **Table / matrix with > 20 rows visible at once** — add filter or drillthrough
@@ -60,28 +60,31 @@
 
 | Canvas | Dimensions | When |
 |---|---|---|
-| Standard desktop | 1664 × 936 | Default for all new reports |
-| 16:9 classic | 1280 × 720 | Legacy compatibility |
+| Standard desktop (FHD) | 1920 × 1080 | **Default for all new reports** (official `Design Brief:` default); every layout recipe is authored on it |
+| 16:9 classic | 1280 × 720 | Legacy compatibility (rescale recipes with `scripts/rescale_layout.py`) |
+| 16:9 QHD | 2560 × 1440 | Large wall displays (rescale) |
 | Letter (portrait) | 816 × 1056 | Paginated-style reports |
 | Tooltip | 320 × 240 | Hover tooltip pages (always this size) |
 | Mobile (portrait) | 414 × 736 | `mobileState.json` only |
 
+Brownfield reports keep their existing canvas (including older or smaller pages) unless a resize is approved — rescale recipe slots to it with `scripts/rescale_layout.py`; never mix coordinates from two canvases.
+
 ### Grid discipline
 - **8px snap grid** — every `x`, `y`, `width`, `height` is a multiple of 8
-- **Safe zone** — 16px margin on all four canvas edges (no visual touches the edge)
-- **Gutter** — 16px between visuals (Executive style), 8px (Analytical / Operational)
-- **KPI row** — all cards same height (120px standard); widths equal or follow a 2:1 / 3:1 rhythm
+- **Safe zone** — 16px margin on all four canvas edges (no visual touches the edge); official FHD page margin is 32 px on the 12-column grid
+- **Gutter** — 16px between visuals (Executive style), 8px (Analytical / Operational); 24 px between 12-column tracks
+- **KPI row** — all cards same height (136px standard on FHD); widths equal or follow a 2:1 / 3:1 rhythm
 
-### Standard slot heights
+### Standard slot heights (FHD)
 
-| Slot | Height (1664×936) | Notes |
+| Slot | Height | Notes |
 |---|---|---|
-| Page title bar | 56 | Title + subtitle |
-| KPI banner row | 120 | 4-6 cards |
-| Hero visual | 320-400 | Single lead visual |
-| Supporting grid (3 cols) | 380 | Three 555-wide visuals |
-| Supporting grid (2 cols) | 380 | Two 824-wide visuals |
-| Navigation bar | 48 | Top or left |
+| Page title bar | 64 | Title + subtitle |
+| KPI banner row | 136 | 4-6 cards |
+| Hero visual | 368-464 | Single lead visual |
+| Supporting grid (3 cols) | 440 | Three ~616-wide visuals |
+| Supporting grid (2 cols) | 440 | Two 936-wide visuals |
+| Navigation bar | 56 | Top or left |
 
 ---
 

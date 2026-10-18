@@ -8,15 +8,16 @@ Runs the full polish + lint + schema chain and returns ONE pass/fail verdict:
     2. design_quality_check.py (design lint rules, style-aware)
     3. validate_report.py      (structural cross-ref checks + naming conventions)
     4. powerbi-report-author validate  (CLI schema validation)
+    5. check_layout_drift.py   (built positions vs the approved layout manifest; skipped when none exists)
 
-Stages 1-3 are imported directly; stage 4 uses the CLI subprocess.
+Stages 1-3 and 5 are imported directly; stage 4 uses the CLI subprocess.
 
 Emits a JSON verdict object to stdout and (optionally) writes it to a file.
 
 Usage:
-    python pbir_gate.py --report <path-to-.Report>
+    python pbir_gate.py --report <path-to-.Report>            # read-only: lint + validate (default)
+    python pbir_gate.py --report <path-to-.Report> --apply    # also let finalize_pbir WRITE polish fixes
     python pbir_gate.py --report <path-to-.Report> --style executive
-    python pbir_gate.py --report <path-to-.Report> --dry-run
     python pbir_gate.py --report <path-to-.Report> --json verdict.json
     python pbir_gate.py --report <path-to-.Report> --skip-finalize
     python pbir_gate.py --report <path-to-.Report> --allow-warnings  # pass with warnings
@@ -32,7 +33,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
+import tempfile
 import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
@@ -92,7 +95,7 @@ def stage_finalize(report: Path, dry_run: bool, skip: bool) -> StageResult:
         return StageResult(name="finalize_pbir", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2))
 
 
-def stage_lint(report: Path, style: str, skip: bool) -> tuple[StageResult, int, int]:
+def stage_lint(report: Path, style: str, skip: bool, evidence_dir: Path) -> tuple[StageResult, int, int]:
     if skip:
         return StageResult(name="design_quality_check", ok=True, skipped=True, summary="skipped by flag"), 0, 0
 
@@ -135,7 +138,8 @@ def stage_lint(report: Path, style: str, skip: bool) -> tuple[StageResult, int, 
         check_orphan_pages(report, lint)
         check_contrast(report, lint)
 
-        write_report(lint, report / "design_report.md", style)
+        evidence_dir.mkdir(parents=True, exist_ok=True)
+        write_report(lint, evidence_dir / "design_report.md", style)
 
         errs = len(lint.errors())
         warns = len(lint.warnings())
@@ -179,23 +183,22 @@ def stage_schemas(report: Path, skip: bool) -> StageResult:
         import shutil
         import subprocess
 
-        # Resolve npx via shutil.which() rather than passing the bare command name.
-        # On Windows, npx is a .cmd shim — subprocess.run(["npx", ...]) raises
-        # FileNotFoundError (WinError 2) because CreateProcess cannot launch a
-        # .cmd file without going through cmd.exe. shutil.which() performs the
-        # PATHEXT-aware lookup (resolving to npx.CMD) so the resolved path can
-        # be invoked directly without shell=True on any platform.
-        npx_path = shutil.which("npx")
-        if npx_path is None:
-            elapsed = time.monotonic() - t0
-            return StageResult(name="cli_validate", ok=True, skipped=True,
-                               summary="npx not found on PATH — skipped",
-                               duration_s=round(elapsed, 2))
+        # Prefer the globally installed CLI; fall back to npx. On Windows both are
+        # .cmd shims, so resolve with shutil.which() (PATHEXT-aware) and invoke the
+        # resolved path directly without shell=True.
+        cli_path = shutil.which("powerbi-report-author")
+        if cli_path:
+            cmd = [cli_path, "validate", str(report)]
+        else:
+            npx_path = shutil.which("npx")
+            if npx_path is None:
+                elapsed = time.monotonic() - t0
+                return StageResult(name="cli_validate", ok=True, skipped=True,
+                                   summary="powerbi-report-author and npx not found on PATH — skipped",
+                                   duration_s=round(elapsed, 2))
+            cmd = [npx_path, "powerbi-report-author", "validate", str(report)]
 
-        result = subprocess.run(
-            [npx_path, "powerbi-report-author", "validate", str(report)],
-            capture_output=True, text=True, timeout=120,
-        )
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         elapsed = time.monotonic() - t0
         ok = result.returncode == 0
         # Parse error/warning counts from CLI output
@@ -212,20 +215,91 @@ def stage_schemas(report: Path, skip: bool) -> StageResult:
         return StageResult(name="cli_validate", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400], duration_s=round(elapsed, 2))
 
 
+def _git(args: list[str], cwd: Path) -> subprocess.CompletedProcess | None:
+    import shutil
+    git = shutil.which("git")
+    if not git:
+        return None
+    try:
+        return subprocess.run([git, *args], cwd=str(cwd), capture_output=True, text=True, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def apply_safety(report: Path, force: bool) -> tuple[bool, str, Path | None]:
+    """Gate for --apply: finalize rewrites report files, so make that recoverable.
+
+    Returns (allowed, message, backup_dir).
+    - inside a git work tree: refuse when the report folder has uncommitted changes (they would be
+      mixed with the polish rewrite and become hard to review/revert) unless ``force``;
+    - outside git (or git missing): copy the report to a backup folder before writing.
+    """
+    inside = _git(["rev-parse", "--is-inside-work-tree"], report)
+    if inside is not None and inside.returncode == 0 and inside.stdout.strip() == "true":
+        status = _git(["status", "--porcelain", "--", str(report)], report)
+        dirty = (status.stdout.strip() if status is not None and status.returncode == 0 else "")
+        if dirty and not force:
+            return False, (
+                "--apply refused: the report folder has uncommitted git changes. Commit or stash them "
+                "first (so the polish rewrite is a separate, revertable diff), or pass --force-apply."
+            ), None
+        return True, "git work tree clean — polish changes can be reviewed/reverted with git", None
+    backup = Path(tempfile.gettempdir()) / "pbir-gate-backup" / f"{report.resolve().name}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+    import shutil
+    shutil.copytree(report, backup)
+    return True, f"not in a git work tree — backup written to {backup}", backup
+
+
+def stage_drift(report: Path, manifest: Path | None, tolerance: int) -> StageResult:
+    """Layout drift vs the approved layout manifest (only when a manifest exists)."""
+    manifest = manifest or report.resolve().parent / "_brief" / "layout-manifest.json"
+    if not manifest.is_file():
+        return StageResult(name="layout_drift", ok=True, skipped=True,
+                           summary=f"no layout manifest at {manifest} — skipped")
+    t0 = time.monotonic()
+    try:
+        from check_layout_drift import check
+        findings = check(report, json.loads(manifest.read_text(encoding="utf-8")), tolerance)
+        errors = [f for f in findings if f["level"] == "error"]
+        summary = (f"errors={len(errors)}, warnings={sum(f['level'] == 'warn' for f in findings)}, "
+                   f"extra={sum(f['level'] == 'info' for f in findings)}")
+        if errors:
+            summary += "; " + "; ".join(f"{f.get('visual', '')}: {f['kind']}" for f in errors[:5])
+        return StageResult(name="layout_drift", ok=not errors, summary=summary[:400],
+                           duration_s=round(time.monotonic() - t0, 2))
+    except Exception as exc:  # noqa: BLE001 — a crashing stage is reported, not raised
+        return StageResult(name="layout_drift", ok=False, summary=f"{type(exc).__name__}: {exc}"[:400],
+                           duration_s=round(time.monotonic() - t0, 2))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Single-command Phase 4c gate: finalize + lint + schema-validate.",
         epilog=(
             "Examples:\n"
             "  python pbir_gate.py --report ./MyReport.Report\n"
-            "  python pbir_gate.py --report ./MyReport.Report --style executive --allow-warnings\n"
-            "  python pbir_gate.py --report ./MyReport.Report --dry-run --json verdict.json\n"
+            "  python pbir_gate.py --report ./MyReport.Report --apply --style executive --allow-warnings\n"
+            "  python pbir_gate.py --report ./MyReport.Report --json verdict.json\n"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--report", required=True, type=Path, help="Path to the .Report folder")
     parser.add_argument("--style", default="analytical", choices=["executive", "analytical", "operational"])
-    parser.add_argument("--dry-run", action="store_true", help="Run finalize without writing changes")
+    parser.add_argument("--apply", action="store_true",
+                        help="Let the finalize stage WRITE changes to the report. Without it the gate is "
+                             "read-only (finalize runs as a dry run) — use --apply only on reports generated "
+                             "in this session, never on a brownfield report whose layout must be preserved")
+    parser.add_argument("--manifest", type=Path, default=None,
+                        help="layout manifest for the drift stage (default: <project>/_brief/layout-manifest.json; "
+                             "the stage is skipped when none exists)")
+    parser.add_argument("--drift-tolerance", type=int, default=0, help="allowed per-edge px difference (default 0)")
+    parser.add_argument("--skip-drift", action="store_true", help="Skip the layout-drift stage")
+    parser.add_argument("--force-apply", action="store_true",
+                        help="With --apply: proceed even if the report folder has uncommitted git changes")
+    parser.add_argument("--dry-run", action="store_true", help="Deprecated alias: read-only is now the default")
+    parser.add_argument("--evidence-dir", type=Path, default=None,
+                        help="Where design_report.md is written (default: the report folder with --apply, "
+                             "otherwise <temp>/pbir-gate/<report-name>)")
     parser.add_argument("--skip-finalize", action="store_true", help="Skip finalize_pbir stage")
     parser.add_argument("--skip-lint", action="store_true", help="Skip design_quality_check stage")
     parser.add_argument("--skip-validate", action="store_true", help="Skip structural-validate stage")
@@ -254,12 +328,23 @@ def main() -> int:
         timestamp=datetime.now(timezone.utc).isoformat(),
     )
 
-    # ── Stage 1: finalize ──
-    s1 = stage_finalize(args.report, args.dry_run, args.skip_finalize)
+    # ── Stage 1: finalize (read-only unless --apply) ──
+    dry_run = args.dry_run or not args.apply
+    if args.apply and not args.dry_run and not args.skip_finalize:
+        allowed, message, _backup = apply_safety(args.report, args.force_apply)
+        if not allowed:
+            log.error(message)
+            return 1
+        print(f"pbir_gate: {message}", file=sys.stderr)
+    evidence_dir = args.evidence_dir or (
+        args.report if args.apply
+        else Path(tempfile.gettempdir()) / "pbir-gate" / args.report.resolve().name
+    )
+    s1 = stage_finalize(args.report, dry_run, args.skip_finalize)
     verdict.stages.append(s1)
 
     # ── Stage 2: lint ──
-    s2, errs, warns = stage_lint(args.report, args.style, args.skip_lint)
+    s2, errs, warns = stage_lint(args.report, args.style, args.skip_lint, evidence_dir)
     verdict.stages.append(s2)
     verdict.errors = errs
     verdict.warnings = warns
@@ -272,11 +357,17 @@ def main() -> int:
     s4 = stage_schemas(args.report, args.skip_schemas)
     verdict.stages.append(s4)
 
+    # ── Stage 5: layout drift (vs the approved layout manifest, when present) ──
+    s5 = (StageResult(name="layout_drift", ok=True, skipped=True, summary="skipped by flag")
+          if args.skip_drift else stage_drift(args.report, args.manifest, args.drift_tolerance))
+    verdict.stages.append(s5)
+
     verdict.duration_s = round(time.monotonic() - gate_t0, 2)
 
     # ── Verdict ──
     any_stage_failed = any(not s.ok and not s.skipped for s in verdict.stages)
-    has_errors = errs > 0 or (not s3.ok and not s3.skipped) or (not s4.ok and not s4.skipped)
+    has_errors = errs > 0 or (not s3.ok and not s3.skipped) or (not s4.ok and not s4.skipped) \
+        or (not s5.ok and not s5.skipped)
     has_warnings = warns > 0
 
     if any_stage_failed and not has_errors:

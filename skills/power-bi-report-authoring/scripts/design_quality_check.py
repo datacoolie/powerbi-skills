@@ -9,7 +9,7 @@ Checks (error / warning / info):
   2. E2: Drillthrough page without a back button                        (ERROR)
   3. E3: Bookmark button action points to missing page                  (ERROR)
   4. E4: Page folder vs pages.json pageOrder mismatch (orphan/missing)  (ERROR)
-  5. W1: Page has > 8 visuals (style-aware cap: exec=4, analyt=8, ops=12)  (WARN)
+  5. W1: Page over the style cap (exec=6, analyt=12, ops=14)  (WARN)
   6. W2: Pie / donut chart with > 5 slices                              (WARN)
   7. W3: Visual missing alt text                                        (WARN)
   8. W4: Default page name (starts with "Page" / "Copy of")             (WARN)
@@ -140,7 +140,7 @@ class LintReport:
 
 def check_visual_counts(report_root: Path, style: str, lint: LintReport) -> None:
     """W1: page visual count."""
-    caps = {"executive": 4, "analytical": 8, "operational": 12}
+    caps = {"executive": 6, "analytical": 12, "operational": 14}
     cap = caps.get(style, 8)
 
     page_counts: dict[str, int] = {}

@@ -75,7 +75,7 @@ Then select the chart that makes that answer most obvious for the target audienc
 | **Enhanced drill funnel** | Drill Down Funnel | `funnelDrilldownD423170ED341443BBDECDD3BA5FB49D2` ★ | Funnel with stage drill-down |
 
 ★ = Custom visual — requires `publicCustomVisuals` registration in `report.json`.
-See `custom-visuals.md` for full identifiers, templates, and query roles.
+See `../power-bi-report-authoring/references/custom-visuals-catalog.md` for full identifiers, templates, and query roles (registration mechanics: `../power-bi-report-authoring/references/authoring/custom-visuals.md`).
 
 ---
 
@@ -268,4 +268,4 @@ Never choose a chart to impress — choose it to communicate.
 | Drill funnel | Drill Down Funnel | `funnelDrilldownD423170ED341443BBDECDD3BA5FB49D2` |
 
 All custom visuals require registration in `report.json` → `publicCustomVisuals`.
-See `custom-visuals.md` for complete JSON templates and query role mappings.
+See `../power-bi-report-authoring/references/custom-visuals-catalog.md` for complete JSON templates and query role mappings.

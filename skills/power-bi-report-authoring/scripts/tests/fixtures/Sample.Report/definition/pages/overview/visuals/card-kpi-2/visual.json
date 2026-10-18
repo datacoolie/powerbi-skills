@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "card-kpi-2",
+  "position": {
+    "x": 504,
+    "y": 112,
+    "z": 1200,
+    "height": 128,
+    "width": 448,
+    "tabOrder": 1200
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "YoY Revenue %"
+                }
+              },
+              "queryRef": "_Measures.YoY Revenue %",
+              "nativeQueryRef": "YoY Revenue %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revenue growth versus last year'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

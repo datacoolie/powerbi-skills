@@ -1,5 +1,9 @@
 # Advanced Formatting Patterns
 
+> **Repo supplement — not authoritative.** Start from `authoring/formatting-overview.md` and
+> `authoring/formatting.md`; confirm property names with `powerbi-report-author formatting describe-object`.
+> The official files and the CLI win on any conflict.
+
 Detailed JSON formatting patterns derived from real-world reference reports.
 Use these to produce polished, professional-looking visuals.
 

@@ -140,7 +140,7 @@ Analytical reports are **interactive**:
 ## What NOT to do in Analytical style
 
 - ❌ Single-visual pages (this isn't Executive)
-- ❌ More than 8 visuals per page (cross into Operational territory)
+- ❌ More than 12 visuals per page (official density ceiling — split detail into a drill-through page)
 - ❌ Big-Idea titles that pre-conclude the analysis ("North is failing") — let analysts conclude
 - ❌ Suppressing drillthrough / tooltip pages (under-exploiting interactivity)
 - ❌ Heavy annotations / callouts (belongs to Executive; clutters analyst views)
@@ -151,7 +151,7 @@ Analytical reports are **interactive**:
 
 - [ ] KPI banner with 4-6 cards on page 1
 - [ ] Hero visual present on every main page
-- [ ] Each page has 5-8 visuals (excl. slicers)
+- [ ] Each page has 8-12 visuals (excl. slicers)
 - [ ] At least one drillthrough or tooltip page exists
 - [ ] Cross-filter behavior explicitly set (not default)
 - [ ] Slicers sync across pages where appropriate

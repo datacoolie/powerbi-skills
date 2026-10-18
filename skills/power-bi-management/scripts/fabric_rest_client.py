@@ -1,8 +1,12 @@
 """Fabric REST transport for Power BI report management.
 
-Wraps the Azure CLI (``az rest``) against the Fabric API. This module owns the
-Tier-2 fallback lane: it is used only when no exact Fabric MCP capability exists
-for the requested operation.
+Wraps the Azure CLI (``az rest``) against the Fabric API. This is the CLI lane
+of the ``power-bi-management`` skill; Fabric MCP tools are only a fallback for
+operations the CLI path does not cover.
+
+Every request carries the ``x-ms-fabric-skill: powerbi-report-cli`` telemetry
+header required by Microsoft's ``powerbi-report-cli`` skill (opt out with
+``POWERBI_SKILLS_TELEMETRY=off``).
 
 Design constraints (see plans/260905-fabric-resync/appendix-1.md):
 - Standard library only; the Azure CLI is the sole external dependency.
@@ -16,6 +20,7 @@ Design constraints (see plans/260905-fabric-resync/appendix-1.md):
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import time
@@ -26,6 +31,17 @@ from urllib.parse import urlparse
 FABRIC_RESOURCE = "https://api.fabric.microsoft.com"
 FABRIC_HOST = "api.fabric.microsoft.com"
 FABRIC_BASE = "https://api.fabric.microsoft.com/v1"
+
+TELEMETRY_HEADER_NAME = "x-ms-fabric-skill"
+TELEMETRY_HEADER_VALUE = "powerbi-report-cli"
+_TELEMETRY_OFF_VALUES = {"off", "0", "false", "no"}
+
+
+def telemetry_headers() -> dict[str, str]:
+    """Mandatory skill-attribution header, unless explicitly disabled."""
+    if os.environ.get("POWERBI_SKILLS_TELEMETRY", "").strip().lower() in _TELEMETRY_OFF_VALUES:
+        return {}
+    return {TELEMETRY_HEADER_NAME: TELEMETRY_HEADER_VALUE}
 
 # Terminal LRO states per Fabric long-running-operation contract.
 _LRO_RUNNING = {"notstarted", "running"}
@@ -166,8 +182,10 @@ def az_rest(
         "--resource",
         resource,
     ]
-    for name, value in (extra_headers or {}).items():
-        args += ["--headers", f"{name}={value}"]
+    # One --headers flag with space-separated KEY=VALUE items (az rest contract).
+    all_headers = {**telemetry_headers(), **(extra_headers or {})}
+    if all_headers:
+        args += ["--headers", *(f"{name}={value}" for name, value in all_headers.items())]
     if body_file:
         args += ["--body", f"@{body_file}"]
     if verbose:

@@ -2,6 +2,11 @@
 
 Quick reference mapping modeling tasks to the correct `powerbi-modeling-mcp` tool.
 
+> **Server id.** The same tool set can be registered under different server ids — `powerbi-modeling-mcp`
+> (official name) or `powerbi-authoring-local` (some hosts). Tool names (`measure_operations`,
+> `dax_query_operations`, …) are identical; wherever this repo writes `powerbi-modeling-mcp/<tool>`, use
+> whichever id your host exposes. If neither is connected, fall back to TMDL files.
+
 ## Model Exploration
 
 | Task | Tool | Typical Action |

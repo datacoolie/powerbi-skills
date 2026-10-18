@@ -1,0 +1,26 @@
+{
+  "layout": "exec-overview-16x9",
+  "canvas": "1920x1080",
+  "page": { "name": "overview", "displayName": "Revenue momentum steady; North lags plan" },
+  "slots": {
+    "Page title": { "visualType": "textbox", "text": "Revenue momentum steady; North lags plan" },
+    "KPI 1": { "visualType": "cardVisual", "bindings": { "Data": [{ "table": "_Measures", "measure": "Total Revenue" }] }, "altText": "Total revenue for the selected period" },
+    "KPI 2": { "visualType": "cardVisual", "bindings": { "Data": [{ "table": "_Measures", "measure": "YoY Revenue %" }] }, "altText": "Revenue growth versus last year" },
+    "Hero visual": {
+      "visualType": "lineChart",
+      "bindings": {
+        "Category": [{ "table": "DimDate", "column": "Date" }],
+        "Y": [{ "table": "_Measures", "measure": "Total Revenue" }]
+      },
+      "altText": "Monthly revenue trend"
+    },
+    "Supporting 1": {
+      "visualType": "clusteredBarChart",
+      "bindings": {
+        "Category": [{ "table": "DimProduct", "column": "Category" }],
+        "Y": [{ "table": "_Measures", "measure": "Total Revenue" }]
+      },
+      "altText": "Revenue by product category"
+    }
+  }
+}

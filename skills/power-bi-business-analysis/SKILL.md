@@ -1,16 +1,16 @@
 ---
 name: power-bi-business-analysis
 description: >-
-  Analyze business requirements and define BI strategy for Power BI projects.
-  Use this skill whenever the user wants to analyze business requirements, identify KPIs,
-  define what insights a report should deliver, propose dashboard structure for a business domain,
-  or gather requirements before building a Power BI report or semantic model.
-  Triggers include: "analyze business requirements", "what KPIs should we track",
-  "what insights can we get", "business domain analysis", "requirements gathering",
-  "what should we measure", "what problems can we solve", "propose a dashboard",
-  "what reports do we need", "BI strategy", "define metrics".
-  Do NOT use for actual model building (use power-bi-semantic-model),
-  DAX writing (use power-bi-dax-development), or report generation (use power-bi-report-authoring).
+  Analyze business requirements and define BI strategy for Power BI projects: KPIs, audience,
+  insights, dashboard structure, and requirements gathering before building a report or model.
+  Also owns the official guided new-report flow (planning mode: requirements → locked
+  `_brief/report-spec.md` → explicit approval before any build).
+  Triggers: "analyze business requirements", "what KPIs should we track", "what insights can we get",
+  "business domain analysis", "requirements gathering", "what should we measure", "propose a dashboard",
+  "BI strategy", "define metrics", "create a report", "build a dashboard", "create a report from a
+  semantic model", "plan then implement".
+  Do NOT use for model building (power-bi-semantic-model), DAX (power-bi-dax-development),
+  or report generation (power-bi-report-authoring).
 ---
 
 # Power BI Business Analysis
@@ -57,6 +57,7 @@ Use `microsoft_docs_fetch` to read full articles when excerpts are insufficient.
 | [information-architecture-patterns.md](references/information-architecture-patterns.md) | Step 3 | Archetype-specific page flows, navigation patterns, canvas sizing |
 | [data-gap-analysis-template.md](references/data-gap-analysis-template.md) | Step 3/4 | Requirements-vs-data matrix, gap classification, resolution plan |
 | [requirements-document-template.md](references/requirements-document-template.md) | Step 4 | 10-section document template — the Phase 1 → 2 handoff contract |
+| [planning.md](references/planning.md) → [planning-part-02.md](references/planning-part-02.md) | New-report flow | Official planning mode: rounds, dependency check, `_brief/report-spec.md`, approval gate, publish rules |
 
 ## When to Use This Skill vs. Others
 
@@ -69,6 +70,61 @@ Use `microsoft_docs_fetch` to read full articles when excerpts are insufficient.
 Both this skill and `power-bi-report-design` handle "dashboard planning" — but
 **this skill stops at the page plan**; `power-bi-report-design` turns that plan
 into a Design Spec with specific layouts, recipes, and themes.
+
+## Report planning — official `planning` mode
+
+For **new report / dashboard requests** ("create a report", "build a dashboard
+from this semantic model", "plan then implement") this skill also owns the
+official guided flow from Microsoft's `powerbi-report-cli` **planning** mode —
+verbatim in [references/planning.md](references/planning.md) and
+[references/planning-part-02.md](references/planning-part-02.md) (read both before
+producing the spec; Mode → skill map: `design` → `power-bi-report-design`,
+`authoring` → `power-bi-report-authoring`, `management` → `power-bi-management`,
+`semantic-model-authoring` → `power-bi-semantic-model`).
+
+**Flow:** Define → Inspect → Spec → **Approve** → Build → Validate → Publish.
+Rounds 0–4 (setup & dependency check · audience & job · model inventory & scope ·
+narrative & page plan · design identity, accessibility, delivery), ≤ 5 rounds, one
+question at a time via `ask_user`, never re-asking what the prompt/model already
+answers. Output: a locked **`_brief/report-spec.md`** (template in
+`planning-part-02.md`) embedding the canonical `Design Brief:` produced by
+`power-bi-report-design`.
+
+| This skill's Step | Official planning round |
+|---|---|
+| Step 1 Context (WHO/WHAT/HOW) | Round 0 (entry mode, dependency check) + Round 1 (audience & job) |
+| Step 2 Domain KPIs, Step 3 data gaps | Round 2 (model inventory & scope) |
+| Step 3 Information architecture | Round 3 (narrative & page plan) |
+| Step 4 Requirements Document | Round 4 + locked spec (`_brief/report-spec.md`) |
+
+**Single hand-off rule.** For a **new report**, the locked `_brief/report-spec.md` is the
+one hand-off artifact — do not also circulate a separate Requirements Document. Fold the
+Requirements Document sections into it:
+
+| Requirements Document (this repo) | `_brief/report-spec.md` section (official) |
+|---|---|
+| §1 Business Context | Report identity · Narrative |
+| §2 KPIs and Metrics · §5 Measure Inventory | Model requirements (measures to create/verify — feeds the Measures Gate) |
+| §3 Report Structure (Page Plan) | Page plan |
+| §4 Data Requirements · §7 Access and Security | Semantic model binding · Model requirements |
+| §6 Filter Requirements · §8 Constraints | User decisions and constraints |
+| §9 Open Questions · §10 Sign-Off | Implementation notes · Approval Gate |
+
+Model-only or non-report projects (no report to build) keep the standalone Requirements Document.
+
+> **GREENFIELD APPROVAL BARRIER — MANDATORY.** If a new-report request also says
+> "build" or "publish" but the user has not approved the locked spec in a *prior
+> reply*, stay in planning: persist `_brief/report-spec.md`, ask for explicit
+> approval, and **end the turn**. Do not load authoring/management, edit or
+> scaffold PBIR/semantic-model files, generate synthetic data, call Fabric write
+> APIs, or publish. Build/publish wording in the original request is future scope,
+> not approval. A small edit to an existing report skips planning and goes straight
+> to `power-bi-report-authoring`.
+
+Dependency checklist (record status, never assume): Power BI Desktop, PBIP/PBIR
+project, TMDL model, `powerbi-modeling-mcp` (only for the live-connected-model
+entry mode), `powerbi-report-author` CLI (authoring/preview), `az` CLI (Fabric
+publish), Node.js. A missing dependency marks that phase blocked/manual.
 
 ---
 

@@ -6,16 +6,18 @@ The Polisher runs **after** the Executor finishes Pass 2 and **before** the repo
 1. **Mechanical polish** — run `finalize_pbir.py` (deterministic fixes)
 2. **Design QA** — run `design_quality_check.py` (lint) + human review against Design Spec
 
-> **Preferred:** Run `python scripts/pbir_gate.py --report <path> --style <style>` to execute
-> both phases plus schema validation in one pass/fail command. See the script's `--help` for
-> `--dry-run`, `--skip-finalize`, `--skip-lint`, `--allow-warnings`, and `--json` options.
+> **Preferred:** Run `python skills/power-bi-report-authoring/scripts/pbir_gate.py --report <path> --style <style> --apply` to execute
+> both phases plus schema validation in one pass/fail command. The gate is **read-only unless
+> `--apply`** — use `--apply` only for a report generated in this session, never for brownfield
+> work. See the script's `--help` for `--evidence-dir`, `--skip-finalize`, `--skip-lint`,
+> `--allow-warnings`, and `--json` options.
 > The sections below document each stage individually for troubleshooting.
 
 ---
 
 ## Phase 1 — Mechanical polish
 
-Run `python scripts/finalize_pbir.py --report <path-to-.Report>` with these sub-modules (all on by default):
+Run `python skills/power-bi-report-authoring/scripts/finalize_pbir.py --report <path-to-.Report>` with these sub-modules (all on by default):
 
 | Sub-module | What it fixes |
 |---|---|
@@ -38,15 +40,15 @@ If a mechanical fix would alter semantics (e.g., a deliberately off-grid visual)
 
 ## Phase 2 — Design QA (automated lint)
 
-Run `python scripts/design_quality_check.py --report <path-to-.Report>`. The linter surfaces:
+Run `python skills/power-bi-report-authoring/scripts/design_quality_check.py --report <path-to-.Report>`. The linter surfaces:
 
 | Level | Examples | Polisher response |
 |---|---|---|
 | **Error** (blocks sign-off) | Contrast < 4.5:1; missing drillthrough back button; dead bookmark reference; hard-coded hex after theme pass | Fix before continuing |
-| **Warning** (must acknowledge) | Page has > 8 visuals in Analytical style; pie > 5 slices; default page name "Page 1"; title contains "Sum of" | Fix OR document exception in Design Spec §11 |
+| **Warning** (must acknowledge) | Page has > 12 visuals in Analytical style; pie > 5 slices; default page name "Page 1"; title contains "Sum of" | Fix OR document exception in Design Spec §11 |
 | **Info** | Data label off on a chart with room for labels; tooltip page absent on a dense chart | Discretionary |
 
-The script writes `design_report.md` in the report root — attach this to the handoff to the user.
+The script writes `design_report.md` in the report root (via the gate: the `--evidence-dir`, which defaults to the report root only with `--apply`) — attach this to the handoff to the user.
 
 ---
 
@@ -56,6 +58,9 @@ The linter can't catch everything. Polisher must manually verify:
 
 - [ ] Every page in Design Spec §4 exists with the right slug
 - [ ] Every visual in Design Spec §5 exists at the right position with the right binding
+      (for recipe pages built by `build_report_from_layout.py`, the gate's **layout-drift** stage checks position
+      against `_brief/layout-manifest.json` automatically — a "moved"/"missing" error means the build no longer
+      matches the approved layout: restore it, or re-approve and regenerate the manifest)
 - [ ] Theme file (§6) is applied at report level
 - [ ] Navigation (§8) is wired — click every button, verify target page exists
 - [ ] Mobile layouts (§9) exist for pages flagged "Yes"

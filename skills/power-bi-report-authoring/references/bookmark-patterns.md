@@ -1,5 +1,8 @@
 # Bookmark Patterns (PBIR JSON)
 
+> **Repo supplement — not authoritative.** The official `authoring/bookmark.md` is the source of truth for
+> bookmark metadata, state, groups and validation; use these recipes as examples only.
+
 Complete bookmark implementation patterns for PBIP/PBIR format reports,
 covering toggle visibility, page navigation, slicer state capture,
 and spotlight/focus mode bookmarks.

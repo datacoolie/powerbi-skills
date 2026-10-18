@@ -1,5 +1,8 @@
 # Required Properties per File
 
+> **Repo supplement — not authoritative.** `powerbi-report-author validate` is the source of truth for required
+> properties and `$schema` versions; never edit a `$schema` by hand (copy from `scaffold` output).
+
 Detailed required and optional properties for each PBIR JSON file.
 The JSON template files show the complete structure — this file documents every field.
 

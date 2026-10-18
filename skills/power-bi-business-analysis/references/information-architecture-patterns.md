@@ -38,7 +38,7 @@ Full analytical report = all four layers.
 └──────────────┘
 ```
 
-**Characteristics:** ≤ 4 visuals per page, Big-Idea titles, high whitespace,
+**Characteristics:** ≤ 6 visuals per page, Big-Idea titles, high whitespace,
 minimal slicers (date range only), top button-bar navigation.
 
 ### Analytical Report (5-8 pages)
@@ -57,7 +57,7 @@ minimal slicers (date range only), top button-bar navigation.
 └──────────────┘                                          └──────────────┘
 ```
 
-**Characteristics:** 5-8 visuals per page, KPI row + hero + 3-column grid,
+**Characteristics:** 8-12 visuals per page, KPI row + hero + 3-column grid,
 direct labels, sync slicers across analysis pages, tab or button-bar navigation.
 
 ### Operational Report (6-12 pages)
@@ -77,7 +77,7 @@ direct labels, sync slicers across analysis pages, tab or button-bar navigation.
 └──────────────┘    └──────────────┘
 ```
 
-**Characteristics:** 8-12 visuals per page, large fonts, traffic-light indicators,
+**Characteristics:** 10-14 visuals per page, large fonts, traffic-light indicators,
 heavy use of conditional formatting, mobile layout mandatory, bookmark-based
 filter presets, page navigator or hub-and-spoke navigation.
 
@@ -96,9 +96,9 @@ filter presets, page navigator or hub-and-spoke navigation.
 
 | Canvas | Use When |
 |---|---|
-| 1664 × 936 (default) | Standard desktop consumption |
+| 1920 × 1080 (default, FHD) | Standard desktop consumption, full HD monitors, wall displays |
+| 2560 × 1440 | Large wall displays (rescale layout recipes) |
 | 1280 × 720 | Presentation / projector mode |
-| 1920 × 1080 | Full HD monitors, wall displays |
 | 320 × 240 | Tooltip pages |
 | Custom (letter / A4) | Paginated / print-optimized reports |
 
@@ -115,7 +115,7 @@ For each page, fill this row in the Requirements Document §3:
 2. The hero visual is the largest chart — it dominates the page and answers the question
 3. Supporting visuals provide context, not redundancy (no two charts showing the same thing)
 4. Slicers are listed per-page; global slicers go in a shared slicer panel
-5. If a page needs > 8 visuals, split into two pages
+5. If a page needs > 12 visuals, split into two pages
 
 ---
 

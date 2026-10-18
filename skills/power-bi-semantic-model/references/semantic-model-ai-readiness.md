@@ -19,18 +19,28 @@ Ask the user which consumption methods are planned before scoping the readiness 
 - **Explicit over implicit** - Implicit measures, extension measures defined in reports, and hidden business logic are invisible to AI. If it must be reachable by natural language, it must live in the model as an explicit measure with metadata.
 - **Iterate from observation** - Write descriptions and AI instructions based on real user prompts and Copilot answers. Do not guess.
 
-## Editing Capability
+## Supported Editing Routes
 
-The agent's ability to *apply* a Copilot readiness item depends on (a) whether the item lives in TOM model metadata or in PBIP-only artifacts, and (b) where the model lives. 
+Use the supported editing route for each readiness item. This is a product support policy, not a statement about what might be technically possible through internal or serialized model formats.
 
-| Semantic Model Objects                                                                                   | Editing path                                                                                                                                                                                                           |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **TOM metadata** - names, descriptions, relationships, measures, hidden flags, data types, summarization | **Prioritize MCP** (any source).                                                                                                                                                                                       |
-| **Everything else** - synonyms, AI instructions, AI Data Schema selection, Verified Answers              | **Edit PBIP files** under `<Name>.SemanticModel/Copilot/`. Edit directly on a PBIP project, or via Fabric workspace `getDefinition`/`updateDefinition` round-trip. Not via MCP. PBIX files cannot be edited by Agents. Load [pbip.md](pbip.md) to understand the file structure. |
+| Semantic Model Objects                                                                                   | Supported editing route                                                                                                                                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **TOM metadata** - names, descriptions, relationships, measures, hidden flags, data types, summarization | **Agent-editable.** Apply approved changes through MCP or TMDL.                                                                                                                                                                                                                            |
+| **Prep data for AI artifacts** - AI instructions, AI Data Schema configuration & synonyms, Verified Answers | **User-configured.** The agent may assess the model and draft recommendations, but the user reviews and applies them through the Power BI "Prep data for AI" experience. Do not directly author or modify their persisted representation. See sections [4](#4-ai-instructions), [5](#5-ai-data-schema), and [6](#6-verified-answers). |
 
-When presenting findings to the user, tag each item with its routing so the user knows which fixes the agent can apply and which require Desktop work.
+> **Preservation requirement:** Existing Prep data for AI artifacts are user-authored model state. Preserve them unchanged during unrelated MCP, TMDL, deployment, or metadata operations. Do not remove, regenerate, normalize, or rewrite opaque or unrecognized metadata. If an editing workflow cannot guarantee preservation, stop before writing and route the change through supported Power BI tooling.
+
+When presenting findings, tag each item as **Agent-editable** or **User configuration - Prep data for AI** so the user knows which changes the agent can apply and which recommendations require user review and configuration.
 
 **Important:** When incapable of editing any metadata, refer the user to [copilot-prepare-data-ai](https://learn.microsoft.com/power-bi/create-reports/copilot-prepare-data-ai) documentation.
+
+## Prerequisites
+
+Before starting the readiness review:
+
+- Confirm that Copilot is enabled for the organization.
+- Confirm that Power BI Q&A is enabled for the semantic model. 
+- For a PBIP project, verify that `definition.pbism` has `settings.qnaEnabled` set to `true`.
 
 ## Readiness Checklist
 
@@ -57,6 +67,8 @@ Without this, Copilot will produce poor results regardless of any other configur
 - Anticipate common questions: include predefined measures users are most likely to request (e.g., `YTD Sales`, `MoM Growth`, `ROI`, `CAC`, `LTV`). Copilot answers more reliably when the metric already exists as an explicit measure.
 - Consolidate or clearly differentiate duplicate or overlapping measures.
 - Define logical hierarchies on dimension tables to support drill-down (e.g., `Year > Quarter > Month > Day` on a date dimension; `Country > State > City` on a geography dimension).
+- Set `summarizeBy` correctly on numeric columns - especially `None` for IDs, year, month number, postal codes, etc., to prevent accidental sums.
+- Set the `isDefaultLabel` on the column that defines the natural label for each dimension table, allowing Copilot to identify the table's default "name" column (for example, **Product Name** in the **Product** table).
 
 **DON'T:**
 - Leave unused columns or tables in the model - they pollute the schema Copilot sees and increase the chance of wrong field selection.
@@ -68,8 +80,6 @@ Business-friendly naming is one of the highest-impact changes for Copilot readin
 **DO:**
 - Use human-readable names on every visible table, column, and measure (e.g., `Transaction Amount`, not `TR_AMT` or `tr_amt`).
 - Use the language Copilot will be queried in (typically English) for visible names, even if the source system uses another language.
-- Set `summarizeBy` correctly on numeric columns - especially `None` for IDs, year, month number, postal codes, etc., to prevent accidental sums.
-- Set the `isDefaultLabel` (or equivalent default field) on dimension tables so Copilot can identify the natural "name" column.
 
 **DON'T:**
 - Ship CamelCase, snake_case, UPPER_CASE, or technical abbreviations on visible objects.
@@ -95,7 +105,7 @@ Descriptions provide context that names alone cannot convey. Descriptions writte
 
 AI instructions are freeform text that Copilot reads automatically. They are one of the most impactful controls for conversational BI quality.
 
-> **Editing path:** PBIP-level artifact. See [Editing Capability](#editing-capability).
+> **Supported route:** The agent may analyze the model and draft suggested AI instructions for user review. The user applies approved instructions through the Power BI "Prep data for AI" experience. Do not directly edit their persisted representation, and preserve any existing instructions during unrelated model changes. See [Supported Editing Routes](#supported-editing-routes).
 
 **DO:**
 - Metric routing for ambiguous terms ("when users ask about margin, use `[Standard Margin]`").
@@ -114,34 +124,32 @@ AI instructions are freeform text that Copilot reads automatically. They are one
 **DON'T:**
 - Duplicate large blocks of business logic that already live in descriptions.
 - Encode information that should instead be a measure, a synonym, or a relationship.
-- Rely on instructions to enforce hard rules - the LLM may still ignore them. For non-negotiable behaviour, fix the model itself.
-- Exceed 10.000 characters
+- Restate what descriptions and model metadata already convey.
+- Rely on instructions to enforce hard rules - the LLM may still ignore them. For non-negotiable behavior, fix the model itself.
+- Exceed 10,000 characters
 
 ### 5. AI Data Schema
 
 The AI data schema controls which tables, columns, and measures are exposed to Copilot. It also defines synonyms for tables/columns/measures. Scoping this correctly prevents Copilot from getting confused by helper objects.
 
-> **Editing path:** PBIP-level artifact. See [Editing Capability](#editing-capability).
+> **Supported route:** The agent may draft AI Data Schema recommendations for user review. The user applies approved configuration through the Power BI "Prep data for AI" experience. Only recommend an AI-schema visibility change when the desired AI visibility differs from the model's default visibility (e.g., a measure that should stay visible for reports and ad-hoc exploration but be excluded from AI agents). Do not mirror the report-model visibility as an AI-schema change. See [Supported Editing Routes](#supported-editing-routes).
 
 **DO:**
 - Include only tables, columns, and measures that a business user would meaningfully ask about.
 - Include all dependent objects for selected measures (any column or measure referenced by a selected measure must also be visible to Copilot).
 - Exclude helper measures, intermediate calculations, and technical bridge tables.
 - Exclude duplicate or overlapping measures.
-- Keep the AI schema selection consistent across "Prep for AI" and any Data Agent configuration that points to this model.
-- Configure `synonyms` on tables, columns, and measures for alternative terms users employ (e.g., `Revenue`, `Sales`, `Turnover` for the same measure).
   
 **DON'T:**
 - Default to "expose everything" - it dilutes the signal Copilot uses to pick the right field.
 
 ### 6. Verified Answers
 
-Verified Answers are pre-built report visuals that Copilot can return for specific questions. Detailed authoring of Verified Answers is out of scope for this skill (it requires report-layer work and live testing in Power BI), and the underlying TMDL/MCP surface does not expose Verified Answer content for editing.
+Verified Answers are pre-built report visuals that Copilot can return for specific questions. Detailed authoring of Verified Answers is out of scope for this skill because it requires report-layer work and live testing in Power BI.
 
-> **Editing path:** Don't edit verified answers automatically. Instead suggest good candidates for verified answers and ask the user to configure manually in the tool. See [copilot-prepare-data-ai](https://learn.microsoft.com/power-bi/create-reports/copilot-prepare-data-ai-verified-answers) documentation.
+> **Supported route:** Do not edit Verified Answers automatically. Suggest good candidates and ask the user to configure them through the Power BI "Prep data for AI" experience. See [copilot-prepare-data-ai](https://learn.microsoft.com/power-bi/create-reports/copilot-prepare-data-ai-verified-answers) documentation and [Supported Editing Routes](#supported-editing-routes).
 
 **DO:**
-- When reviewing a PBIP, check whether a Verified Answers definition exists in the project. Note its presence in the readiness summary.
-- If absent and the user is interested, point them to the Power BI Desktop authoring experience - do not attempt to author Verified Answers from this skill.
-- Inspect the model measures, based on the measure names, descriptions recommend the top five questions worth setting as verified answers
+- Inspect the model measures and, based on the measure names and descriptions, recommend the top five questions worth setting as Verified Answers.
+- Prompt the user to configure Verified Answers in the Power BI "Prep data for AI" UI - do not attempt to author Verified Answers from this skill.
 

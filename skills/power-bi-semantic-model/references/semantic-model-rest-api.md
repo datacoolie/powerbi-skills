@@ -55,7 +55,7 @@ az rest --method post \
 
 ## TMDL Definition CRUD (Fabric Items API)
 
-For the full definition envelope and part paths, see [ITEM-DEFINITIONS-CORE.md](../../../common/ITEM-DEFINITIONS-CORE.md#semanticmodel).
+For the full definition envelope and part paths, see [tmdl-reference.md](./tmdl-reference.md) and the Fabric docs for the [semantic model definition](https://learn.microsoft.com/rest/api/fabric/articles/item-management/definitions/semantic-model-definition).
 
 ### TMDL File Structure
 
@@ -137,7 +137,7 @@ az rest --method post --verbose \
 
 > **PowerShell** - use `[Convert]::ToBase64String([System.IO.File]::ReadAllBytes("file"))` instead of `base64 -w 0`.
 
-If the response is `202 Accepted`, poll using the LRO pattern from [COMMON-CLI.md](../../../common/COMMON-CLI.md#long-running-operations-lro-pattern).
+If the response is `202 Accepted`, poll using the LRO pattern from [fabric-common-cli.md](../../power-bi-management/references/fabric-common-cli.md#long-running-operations-lro-pattern).
 
 ### Get/Download Definition
 
@@ -437,7 +437,7 @@ Each entry returned by `GET .../datasources` contains:
 | `datasourceId`      | Data source unique identifier                           |
 | `gatewayId`         | Associated gateway (if on-premises)                     |
 
-For Direct Lake models, the M expression in the TMDL definition reveals the source Lakehouse/Warehouse connection path. See [tmdl-guidelines.md](./tmdl-guidelines.md).
+For Direct Lake models, the M expression in the TMDL definition reveals the source Lakehouse/Warehouse connection path. See [tmdl-reference.md](./tmdl-reference.md).
 
 ### DirectQuery / LiveConnection Refresh Schedule Properties
 

@@ -1,20 +1,27 @@
 # Common Report Patterns
 
+> **Repo supplement — not authoritative.** Reusable component recipes (KPI rows, slicer panels, navigator).
+> Coordinates are FHD 1920×1080. Official topics (`authoring/slicers.md`, `authoring/filters.md`,
+> `authoring/button.md`, `authoring/bookmark.md`) and the CLI win on any conflict.
+
 Reusable layout and component patterns found across real-world Power BI reports.
-Canvas size: 1664×936 (standard).
+Canvas size: 1920×1080 (FHD, default). Coordinates below are on a 1920×1080 canvas, 8-px aligned;
+for another 16:9 canvas scale uniformly and snap edges to the grid (see
+`../../power-bi-report-design/scripts/rescale_layout.py`).
 
 ---
 
 ## KPI Header Row
 
 A row of 3-5 card visuals across the top of a page. Cards are typically
-80-160px wide and 50-70px tall, with themed backgrounds and rounded corners.
+80-160px wide and 50-70px tall on a small canvas (≈ 460 × 72 on FHD with four cards), with themed
+backgrounds and rounded corners.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ card-kpi-1     card-kpi-2     card-kpi-3     card-kpi-4 │
-│ (13,10 w:390)  (416,10 w:390) (819,10 w:390) (1222,10) │
-│ h:65           h:65           h:65           h:65 w:429 │
+│ (16,16 w:460)  (492,16 w:460) (968,16 w:460) (1444,16)  │
+│ h:72           h:72           h:72           h:72 w:460 │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -30,18 +37,18 @@ Each card: `visualType: "card"`, single measure in `Values`, with:
 
 **Top row slicers** (compact dropdown, fits 2-3 across header):
 ```
-slicer-date-range (1100,13 w:551 h:52) — dropdown mode
-slicer-category  (830,13 w:257 h:52) — dropdown mode
+slicer-date-range (1272,16 w:632 h:56) — dropdown mode
+slicer-category  (960,16 w:296 h:56) — dropdown mode
 ```
 
 **Left panel slicers** (vertical stack, used in Detail/Analysis layouts):
 ```
-shape-bg-filter-panel (0,0 w:247 h:936 z:0) — background shape
-slicer-cat1 (13,91 w:221 h:65) — dropdown
-slicer-cat2 (13,169 w:221 h:65) — dropdown
-slicer-cat3 (13,247 w:221 h:65) — dropdown
-slicer-cat4 (13,325 w:221 h:65) — dropdown
-actionButton-reset (13,832 w:221 h:39) — reset filters bookmark
+shape-bg-filter-panel (0,0 w:288 h:1080 z:0) — background shape
+slicer-cat1 (16,104 w:256 h:72) — dropdown
+slicer-cat2 (16,192 w:256 h:72) — dropdown
+slicer-cat3 (16,288 w:256 h:72) — dropdown
+slicer-cat4 (16,376 w:256 h:72) — dropdown
+actionButton-reset (16,960 w:256 h:48) — reset filters bookmark
 ```
 
 All slicers default to:
@@ -105,10 +112,10 @@ Use overlapping background shapes to create distinct visual regions on a page.
 This applies the Gestalt **enclosure** principle:
 
 ```
-Header region:   shape-header-bg (0,0 → 1664×78 z:0) — dark accent color, 0% transparency
-KPI region:      shape-kpi-bg    (0,78 → 1664×130 z:0) — light grey, 20% transparency
-Filter region:   shape-filter-bg (0,0 → 247×936 z:0) — medium grey, 36% transparency
-Content region:  shape-content-bg (260,78 → 1404×858 z:0) — white or transparent
+Header region:   shape-header-bg (0,0 → 1920×88 z:0) — dark accent color, 0% transparency
+KPI region:      shape-kpi-bg    (0,88 → 1920×152 z:0) — light grey, 20% transparency
+Filter region:   shape-filter-bg (0,0 → 288×1080 z:0) — medium grey, 36% transparency
+Content region:  shape-content-bg (304,88 → 1616×992 z:0) — white or transparent
 ```
 Always set `z: 0` on backgrounds so data visuals render on top.
 
@@ -120,7 +127,7 @@ It automatically generates clickable tiles for all visible report pages:
 ```json
 {
   "name": "pageNavigator-main",
-  "position": { "x": 650, "y": 0, "z": 5000, "height": 57, "width": 654, "tabOrder": 0 },
+  "position": { "x": 752, "y": 0, "z": 5000, "height": 64, "width": 752, "tabOrder": 0 },
   "visual": {
     "visualType": "pageNavigator",
     "objects": {
@@ -154,7 +161,7 @@ acts as a clickable icon that navigates to a specific page:
 ```json
 {
   "name": "image-nav-procurement",
-  "position": { "x": 1200, "y": 2, "z": 27000, "height": 46, "width": 50, "tabOrder": 24000 },
+  "position": { "x": 1384, "y": 8, "z": 27000, "height": 56, "width": 56, "tabOrder": 24000 },
   "visual": {
     "visualType": "image",
     "objects": {
@@ -251,7 +258,7 @@ This is one of the most common analytical patterns — "Top 10 Products by Reven
 ```json
 {
   "name": "barChart-top10-products",
-  "position": { "x": 260, "y": 90, "z": 5000, "height": 400, "width": 680, "tabOrder": 500 },
+  "position": { "x": 304, "y": 104, "z": 5000, "height": 464, "width": 784, "tabOrder": 500 },
   "visual": {
     "visualType": "barChart",
     "query": {

@@ -45,12 +45,14 @@ Justification: <1-2 sentences tying it to WHO + STYLE answers>
 
 Reference file: `executor-<executive|analytical|operational>.md`
 
+**Design identity (official design mode):** tone = <name from `design/tone-catalog.md`> · signature = <name from `design/signatures.md`> · how it propagates (type / palette / gridlines / borders / icons): <1 sentence>
+
 ## 4. Page Plan
 
-| # | Page name | Slug | Purpose (1 sentence) | Layout file | Canvas |
-|---|---|---|---|---|---|
-| 1 | Overview | `overview` | | `layouts/exec-overview-16x9.md` | 1664×936 |
-| 2 | … | | | | |
+| # | Page name | Slug | Purpose (1 sentence) | Layout file | Archetype / variant | Canvas |
+|---|---|---|---|---|---|---|
+| 1 | Overview | `overview` | | `layouts/exec-overview-16x9.md` | Executive Summary / A (<data signal>) | 1920×1080 |
+| 2 | … | | | | | |
 
 For each page, the Big-Idea title that will appear at the top:
 
@@ -67,11 +69,11 @@ For each page, list every visual:
 
 | Visual # | Type | Chart template | Position (x,y,w,h) | Measure(s) | Column(s) | Annotation |
 |---|---|---|---|---|---|---|
-| V1 | textbox title | — | 0,0,1664,56 | — | — | Big-Idea title |
-| V2 | card | `chart-templates/kpi-banner.md` | 0,64,236,120 | `[Total Revenue]` | — | target indicator |
-| V3 | card | `chart-templates/kpi-banner.md` | 240,64,236,120 | `[YoY Revenue %]` | — | trend arrow |
-| V4 | line chart | `chart-templates/trend-line.md` | 0,200,1664,320 | `[Total Revenue]` | `DimDate[Date]` | plan reference line |
-| V5 | bar chart | `chart-templates/bar-comparison.md` | 0,536,555,380 | `[Total Revenue]` | `DimProduct[Category]` | top performer highlight |
+| V1 | textbox title | — | 0,0,1920,64 | — | — | Big-Idea title |
+| V2 | card | `chart-templates/kpi-banner.md` | 0,72,272,136 | `[Total Revenue]` | — | target indicator |
+| V3 | card | `chart-templates/kpi-banner.md` | 280,72,272,136 | `[YoY Revenue %]` | — | trend arrow |
+| V4 | line chart | `chart-templates/trend-line.md` | 0,232,1920,368 | `[Total Revenue]` | `DimDate[Date]` | plan reference line |
+| V5 | bar chart | `chart-templates/bar-comparison.md` | 0,616,640,440 | `[Total Revenue]` | `DimProduct[Category]` | top performer highlight |
 | … | | | | | | |
 
 ### Page 2: …
@@ -142,7 +144,7 @@ To be filled after bundled recommendation is presented to the user:
 
 | # | Confirmation | Recommended | User confirmed? |
 |---|---|---|---|
-| 1 | Canvas | 1664×936 | ☐ |
+| 1 | Canvas | 1920×1080 | ☐ |
 | 2 | Page plan | 4 pages as above | ☐ |
 | 3 | Audience | Sales leadership | ☐ |
 | 4 | Style personality | Analytical | ☐ |
@@ -152,6 +154,27 @@ To be filled after bundled recommendation is presented to the user:
 
 All seven must be ☑ before Phase 4b begins.
 ```
+
+---
+
+## Appendix A — Canonical `Design Brief:` (official contract)
+
+The Design Spec is the human-reviewed plan; the **`Design Brief:` YAML block** is
+the machine-readable contract from Microsoft's `powerbi-report-cli` design mode
+that the authoring skill (and the planning `_brief/report-spec.md`) consumes.
+Emit it at the end of the Design Spec (and embed it under "Canonical design
+contract" in `_brief/report-spec.md` when planning ran). Required content:
+
+- `generated_by: powerbi-report-cli`, `contract_version`, `mode` (greenfield | brownfield)
+- `design_identity { tone, signature }` (mirrors §3)
+- `navigation_model` (mirrors §8) and per-page `navigation` actions
+- per page: `name` (insight title), `role`, `archetype`, `layout_variant`, `variant_rationale`, and a mechanical `layout_contract` — `canvas` (the confirmed canvas from Seven Confirmations #1), 12×12 `grid.regions`, non-overlapping `placements` (page title in the header band, slicer band or rail), and `space_audit`
+- `color_map` (measure → base color; `measure_match` or `gradient`) mirroring §6
+
+Schema, brownfield current/target fields, the minimal-brief escape hatch, and the
+validation checklist live in `design/design-brief.md` (+ `design/design-brief-part-02.md`).
+Run `design/pre-flight-checklist.md` before hand-off. The Design Spec §4/§5 and the
+Brief must agree (same pages, same visuals, same bindings).
 
 ---
 

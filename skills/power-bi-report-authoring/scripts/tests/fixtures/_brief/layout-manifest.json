@@ -1,0 +1,64 @@
+{
+  "pages": {
+    "overview": {
+      "layout": "exec-overview-16x9",
+      "canvas": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": "overview",
+      "visuals": [
+        {
+          "slot": "Page title",
+          "visual": "textbox-page-title",
+          "page": "overview",
+          "x": 32,
+          "y": 24,
+          "w": 1856,
+          "h": 64
+        },
+        {
+          "slot": "KPI 1",
+          "visual": "card-kpi-1",
+          "page": "overview",
+          "x": 32,
+          "y": 112,
+          "w": 456,
+          "h": 128
+        },
+        {
+          "slot": "KPI 2",
+          "visual": "card-kpi-2",
+          "page": "overview",
+          "x": 504,
+          "y": 112,
+          "w": 448,
+          "h": 128
+        },
+        {
+          "slot": "Hero visual",
+          "visual": "lineChart-hero-visual",
+          "page": "overview",
+          "x": 32,
+          "y": 264,
+          "w": 1856,
+          "h": 472
+        },
+        {
+          "slot": "Supporting 1",
+          "visual": "clusteredBarChart-supporting-1",
+          "page": "overview",
+          "x": 32,
+          "y": 760,
+          "w": 920,
+          "h": 296
+        }
+      ],
+      "skipped_slots": [
+        "KPI 3",
+        "KPI 4",
+        "Supporting 2"
+      ]
+    }
+  }
+}

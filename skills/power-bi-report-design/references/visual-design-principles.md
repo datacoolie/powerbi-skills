@@ -482,7 +482,7 @@ Composition Checklist:
 □ Consistent margins and alignment (no visual is "floating" off-grid)
 □ Visual density is appropriate for the audience:
   - Executive: sparse (3-5 visuals per page)
-  - Analyst: moderate (6-8 visuals per page)
+  - Analyst: moderate (8-12 visuals per page)
   - Operational: focused (live KPIs + 2-3 action visuals)
 ```
 

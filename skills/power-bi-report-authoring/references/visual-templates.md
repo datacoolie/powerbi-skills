@@ -1,5 +1,9 @@
 # Visual JSON Templates
 
+> **Repo supplement — not authoritative.** Verify every role, formatting object, enum and selector with
+> `powerbi-report-author catalog describe` / `formatting describe-object`, and prefer the official topic file
+> (`authoring/<visual>.md`). Where this file and an official file or the CLI disagree, the official file / CLI wins.
+
 Complete `visual.json` templates for common Power BI visual types in PBIR format.
 Each template includes the required structure with `$schema`, `name`, `position`, and
 the `visual` object containing `visualType`, `query`, and common formatting `objects`.
@@ -1605,8 +1609,8 @@ Use shapes for visual grouping, header backgrounds, and section dividers.
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 936,
-    "width": 1664,
+    "height": 1080,
+    "width": 1920,
     "tabOrder": -1
   },
   "visual": {
@@ -2443,10 +2447,10 @@ No query — automatically shows all visible pages.
   "name": "pageNavigator-nav",
   "position": {
     "x": 0,
-    "y": 900,
+    "y": 1040,
     "z": 15000,
-    "height": 36,
-    "width": 1664,
+    "height": 40,
+    "width": 1920,
     "tabOrder": 0
   },
   "visual": {

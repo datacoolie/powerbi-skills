@@ -1,5 +1,7 @@
 # Mobile Layout
 
+> **Repo supplement — not authoritative.** Validate every `mobile.json` with `powerbi-report-author validate`.
+
 Guidelines and templates for mobile-optimized Power BI report layouts.
 Based on *Power BI — Create Reports* (Microsoft, 2025).
 

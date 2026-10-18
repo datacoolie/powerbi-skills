@@ -227,7 +227,7 @@ In PBIR, it's a visual of type `pageNavigator`:
 ```json
 {
   "name": "page-navigator",
-  "position": { "x": 0, "y": 880, "width": 1664, "height": 56, "z": 15000 },
+  "position": { "x": 0, "y": 1016, "width": 1920, "height": 64, "z": 15000 },
   "visual": {
     "visualType": "pageNavigator",
     "objects": {

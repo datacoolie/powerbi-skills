@@ -4,6 +4,11 @@ Structured output template for Phase 1. Fill every section before handing off
 to Phase 2 (Semantic Model). Sections marked *(optional)* can be left as N/A
 for small projects or Express Path engagements.
 
+> **New reports:** the locked `_brief/report-spec.md` (official planning mode,
+> `planning-part-02.md`) is the single hand-off — use this template as the content
+> checklist for it (mapping table in `SKILL.md`), not as a second document. Use this
+> standalone template for model-only / non-report engagements.
+
 ---
 
 ```markdown

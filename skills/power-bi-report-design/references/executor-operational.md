@@ -15,7 +15,7 @@
 
 ## Density — the deliberate exception
 
-Operational style **intentionally breaks** the ≤ 8 visuals rule. An ops dashboard is a **status board**, not a narrative.
+Operational style **intentionally exceeds** the Analytical 12-visual ceiling (up to 14 on FHD). An ops dashboard is a **status board**, not a narrative.
 
 | Element | Operational rule |
 |---|---|
@@ -162,7 +162,7 @@ If the screen is hybrid (operator supervises, occasionally investigates):
 
 ### Screen size & resolution
 - Confirm in Design Spec §2 the actual screen resolution (1920×1080 vs 3840×2160)
-- Canvas may need to be 1920×1080 with custom size, not standard 1664×936
+- Canvas defaults to 1920×1080; for 3840×2160 displays keep 1920×1080 (16:9, scales cleanly) unless the Design Spec §2 explicitly requires a custom size
 - Test at true resolution before sign-off
 
 ---

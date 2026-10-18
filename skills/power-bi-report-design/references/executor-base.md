@@ -31,7 +31,7 @@ For each page (Design Spec §4):
 3. Generate `page.json` with canvas size and basic properties
 4. For every visual in §5 (Visual Inventory) for this page:
    a. Read the chart-template recipe (e.g., `chart-templates/kpi-banner.md`)
-   b. Read the JSON template in `../power-bi-report-authoring/references/visual-templates.md` (for built-in visuals) or `custom-visuals.md` (for AppSource)
+   b. Read the JSON template in `../power-bi-report-authoring/references/visual-templates.md` (for built-in visuals) or `../power-bi-report-authoring/references/custom-visuals-catalog.md` (for AppSource; registration: `../power-bi-report-authoring/references/authoring/custom-visuals.md`)
    c. Create the visual folder: `pages/<slug>/visuals/<visual-name>/`
    d. Generate `visual.json` with:
       - `position` from §5
@@ -86,6 +86,7 @@ For each page (revisit in Design Spec order):
 ### Positioning
 - All x/y/w/h snapped to 8px grid (from [`shared-standards.md`](shared-standards.md) §2)
 - No overlaps (unless intentional Z-order with explicit comment)
+- **Canvas ≠ FHD 1920×1080?** Recipes are authored on **1920×1080** — use their slot tables as written. For another 16:9 canvas confirmed in the Design Spec/`Design Brief:` (1280×720, 2560×1440, or a brownfield report's existing canvas) run `python scripts/rescale_layout.py --layout <id> --canvas <WxH> [--format md]` and use its slots instead of the recipe's table (exit 2 = rescale introduced overlaps/out-of-canvas slots → pick another layout). Text sizes are not scaled — keep the theme's, then re-check titles and KPI callouts. Validate any hand-edited recipe table with `--check <recipe.md> --canvas <WxH>`.
 
 ---
 

@@ -61,7 +61,7 @@ Rules:
 └──────────────────────────────────────────────────┘
 ```
 
-4 visuals = KPI row (4 cards = 1 visual compositionally) + hero + two supporting. That's the ceiling.
+A typical executive page is 4 visuals — KPI row (4 cards = 1 visual compositionally) + hero + two supporting — and up to **6** on FHD when the extra visuals each answer a distinct question (e.g. a variance/exception list, a callout). Six is the ceiling; never add a visual that repeats a measure already on the page.
 
 ---
 
@@ -128,7 +128,7 @@ If the user's WHAT answer (decision this enables) requires **comparison across 5
 
 ## Checklist before Polisher
 
-- [ ] Every page has ≤ 4 visuals (excl. slicers)
+- [ ] Every page has ≤ 6 visuals (excl. slicers)
 - [ ] Every visual title is Big-Idea phrasing
 - [ ] Hero visual dominates (~40% of page height)
 - [ ] At least one annotation / reference line on the hero visual

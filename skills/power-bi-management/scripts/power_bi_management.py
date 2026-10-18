@@ -1,6 +1,6 @@
 """Command-line interface for Power BI report management on Microsoft Fabric.
 
-Tier-2 fallback lane: use only when no exact Fabric MCP capability exists. All
+CLI-first transport lane (``az rest``): preferred over any Fabric MCP tool. All
 PBIR content authoring stays in ``power-bi-report-authoring``; this CLI only
 transports report items to and from a Fabric workspace.
 
@@ -110,7 +110,15 @@ def cmd_create(args: argparse.Namespace) -> int:
     return 0
 
 
+_OVERWRITE_MSG = (
+    "Refusing to overwrite an existing remote report. Official rule: confirm with the user that "
+    "they agree to overwrite it, then re-run with --confirm-overwrite."
+)
+
+
 def cmd_update_definition(args: argparse.Namespace) -> int:
+    if not args.confirm_overwrite:
+        raise SystemExit(_OVERWRITE_MSG)
     ws = _workspace_id(args)
     report = _report_id(args, ws)
     payload = rio.build_upload_payload(args.definition_dir)
@@ -181,6 +189,10 @@ def cmd_publish_pbip(args: argparse.Namespace) -> int:
         payload = rio.build_upload_payload(staging)
         display_name = args.display_name or report_dir.stem.replace(".Report", "")
         existing = _find_report(ws, display_name)
+        if existing and not args.confirm_overwrite:
+            raise SystemExit(
+                f"{_OVERWRITE_MSG} (report {display_name!r} already exists in workspace {ws})"
+            )
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as fh:
             if existing:
                 json.dump({"definition": payload["definition"]}, fh)
@@ -250,7 +262,7 @@ def _add_report_args(parser: argparse.ArgumentParser) -> None:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="power_bi_management",
-        description="Transport Power BI reports to/from a Fabric workspace (Tier-2).",
+        description="Transport Power BI reports to/from a Fabric workspace (az rest, CLI-first).",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -280,6 +292,8 @@ def build_parser() -> argparse.ArgumentParser:
     _add_workspace_args(p_upd)
     _add_report_args(p_upd)
     p_upd.add_argument("--definition-dir", required=True)
+    p_upd.add_argument("--confirm-overwrite", action="store_true",
+                       help="Required: the user explicitly agreed to overwrite the existing remote report")
     p_upd.set_defaults(func=cmd_update_definition)
 
     p_props = sub.add_parser("update-properties", help="Rename/re-describe a report")
@@ -298,6 +312,9 @@ def build_parser() -> argparse.ArgumentParser:
     _add_workspace_args(p_pub)
     p_pub.add_argument("--report-dir", required=True)
     p_pub.add_argument("--display-name")
+    p_pub.add_argument("--confirm-overwrite", action="store_true",
+                       help="Required when a report with the same name already exists: the user "
+                            "explicitly agreed to overwrite it")
     model = p_pub.add_mutually_exclusive_group()
     model.add_argument("--semantic-model-id")
     model.add_argument("--semantic-model-name")

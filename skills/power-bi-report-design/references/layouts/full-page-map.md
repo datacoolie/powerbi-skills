@@ -3,12 +3,12 @@
 > **Preview:** [![full-page-map preview](../../assets/layout-previews/full-page-map.svg)](../../assets/layout-previews/full-page-map.svg) · variants: [annotated](../../assets/layout-previews/full-page-map-annotated.svg) · [dark](../../assets/layout-previews/full-page-map-dark.svg)
 
 - **id:** `full-page-map`
-- **Canvas:** 1664 × 936
-- **Style personality:** Analytical — One dominant ArcGIS / Esri map occupying ~80% of the canvas + thin slicer strip
+- **Canvas:** 1920 × 1080
+- **Style personality:** Analytical — One dominant ArcGIS / Esri map occupying ~65% of the canvas + thin slicer strip
 - **Audience:** Field sales / territory managers — geography is the primary analysis axis
 - **Visual count:** 4
 - **Pairs with themes:** neutral body with one accent — pattern designed to read on any corporate palette.
-- **Observed in:** `references-pbip/Sales Analysis (CP Demo).Report/` — 'Map' (ArcGIS visual at x≈252, y≈120, w≈1018, h≈590)
+- **Observed in:** `references-pbip/Sales Analysis (CP Demo).Report/` — 'Map' (ArcGIS visual at x≈252, y≈120, w≈1018, h≈590 on that report's own smaller canvas; not scaled)
 
 ---
 
@@ -16,17 +16,17 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
-│ Thin header: title + period + region slicer                   │ 78
+│ Thin header: title + period + region slicer                   │ 64
 ├────────────────────────┬───────────────────────────────────────┤
 │                        │                                       │
 │  Compact slicer rail    │                                      │
 │   · Region              │                                      │
-│   · Channel             │       FULL-CANVAS MAP                │ 780
+│   · Channel             │       FULL-CANVAS MAP                │ 856
 │   · Metric              │                                      │
 │                        │                                       │
 │                        │                                       │
 ├────────────────────────┴───────────────────────────────────────┤
-│ Footer: legend · scale · data-last-refresh                     │ 78
+│ Footer: legend · scale · data-last-refresh                     │ 64
 └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -36,12 +36,12 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Header | 0 | 0 | 1664 | 78 | shape + textbox + slicer(Period) | Title left, period right |
-| Slicer rail | 0 | 78 | 312 | 780 | slicer(Region) + slicer(Channel) + slicer(Metric) | Narrow left column |
-| Map | 312 | 78 | 1352 | 780 | arcGIS / azureMap / shapeMap | Dominant visual |
-| Footer / legend | 0 | 858 | 1664 | 78 | textbox + shape | Metric legend + scale + refresh stamp |
+| Header | 32 | 24 | 1856 | 64 | shape + textbox + slicer(Period) | Title left, period right |
+| Slicer rail | 32 | 112 | 320 | 856 | slicer(Region) + slicer(Channel) + slicer(Metric) | Narrow left column |
+| Map | 368 | 112 | 1520 | 856 | arcGIS / azureMap / shapeMap | Dominant visual |
+| Footer / legend | 32 | 992 | 1856 | 64 | textbox + shape | Metric legend + scale + refresh stamp |
 
-Gutters: 16px between primary zones; 8px inside KPI card rows.
+Gutters: 16px between rail and map; 24px between the header, body and footer bands. Margins 32px (24px top and bottom). Map ≈ 63% of the canvas.
 
 ---
 
@@ -55,7 +55,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 ## Theme + iconography guidance
 
 - **Palette:** Map base neutral; data symbology = sequential (magnitude) or diverging (variance). Avoid decorative colours — let symbology carry meaning.
-- **Logo:** Header top-left at (16, 16) max height 28px.
+- **Logo:** Header top-left at (40, 32) (inset 8px inside the header slot) max height 28px.
 - **Icons:** Small marker glyph in the slicer rail next to 'Metric'.
 - **Fonts:** Header 16pt, slicer labels 10pt, legend 9pt.
 
@@ -71,8 +71,9 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 
 ## Customization allowed
 
-- Add ONE small overlay card (value of selected region) pinned top-right of the map
-- Replace the slicer rail with a collapsible outspace pane → map expands to full width
+- Add ONE small overlay card (value of selected region) pinned top-right of the map, e.g. at (1560, 136, 304, 96) — overlay on the Map slot, keeps the map at full size
+- Replace the slicer rail with a collapsible outspace pane → map expands to x=32 (w=1856)
+- **FHD headroom (optional)**: none — the map is the only analytical visual by design; extra slots would shrink it below 60% (see "NOT allowed").
 
 ## Customization NOT allowed
 

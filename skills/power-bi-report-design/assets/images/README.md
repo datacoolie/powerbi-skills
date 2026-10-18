@@ -15,13 +15,13 @@ placeholder/mocked logos.
 | Folder | Purpose | Max size / asset |
 |---|---|---|
 | `backgrounds/` | Full-canvas backgrounds (textures, gradients). Placed on `shape/background` visuals. | 300 KB, WebP preferred |
-| `banners/` | Header bands at the top of executive pages. 1664 \u00d7 120 px typical. | 150 KB |
+| `banners/` | Header bands at the top of executive pages. 1920 \u00d7 128 px typical. | 150 KB |
 | `dividers/` | Horizontal / vertical dividers between page zones. | 30 KB |
 | `logos/` | Placeholder / demo logos ONLY. **No real customer logos shipped here.** For production-quality industry placeholder marks see [`../logos/`](../logos/) at the asset root. |
 
 ## Rules
 
-1. **Resolution:** match the target canvas — 1664 × 936 (desktop 16:9) or
+1. **Resolution:** match the target canvas — 1920 × 1080 (default desktop 16:9) or
    320 × 568 (phone). Never upscale.
 2. **Compression:** WebP (lossless ≤ 100 KB, lossy ≤ 50 KB). JPEG for photos.
    PNG only when transparency is required and WebP isn't supported.

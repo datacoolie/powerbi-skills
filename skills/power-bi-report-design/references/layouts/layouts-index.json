@@ -1,6 +1,6 @@
 {
   "$schema": "./layouts-index.schema.json",
-  "version": "0.11",
+  "version": "0.12",
   "description": "Curated layout catalog. Strategist selects one layout per page in Design Spec §4.",
   "layouts": [
     {
@@ -9,8 +9,8 @@
       "preview": "exec-overview-16x9.svg",
       "title": "Executive Overview (16:9)",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -31,7 +31,7 @@
         "kpi-heavy",
         "single-page",
         "hero-visual",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Monthly / quarterly business review, single-page landing, or page 1 of multi-page exec report",
       "status": "stable",
@@ -59,35 +59,35 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "kpi-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 88,
+          "y": 104,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hero",
           "x": 16,
-          "y": 193,
-          "w": 937,
-          "h": 727,
+          "y": 224,
+          "w": 1080,
+          "h": 840,
           "role": "hero",
           "visual_type": "hero"
         },
         {
           "name": "supporting-pair",
-          "x": 969,
-          "y": 193,
-          "w": 679,
-          "h": 727,
+          "x": 1120,
+          "y": 224,
+          "w": 784,
+          "h": 840,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -129,8 +129,8 @@
       "preview": "sales-performance.svg",
       "title": "Sales Performance",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -152,7 +152,7 @@
         "kpi-heavy",
         "trend",
         "yoy-comparison",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Sales analytics reports, revenue drill-downs, YoY comparison pages",
       "status": "stable",
@@ -171,44 +171,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "kpi-banner",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hero-trend",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 655,
+          "y": 304,
+          "w": 1080,
+          "h": 760,
           "role": "hero",
           "visual_type": "trend"
         },
         {
           "name": "supporting-grid-3",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 655,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 760,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -257,8 +257,8 @@
       "preview": "drillthrough-detail.svg",
       "title": "Drillthrough Detail",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -278,7 +278,7 @@
         "drillthrough-target",
         "entity-detail",
         "hidden-page",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Target page for drillthrough from any hub page (product detail, customer detail, region detail)",
       "status": "stable",
@@ -291,44 +291,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "back-button",
-          "x": 1484,
+          "x": 1712,
           "y": 16,
-          "w": 164,
-          "h": 65,
+          "w": 192,
+          "h": 80,
           "role": "frame",
           "visual_type": "control"
         },
         {
           "name": "entity-header",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 65,
+          "y": 104,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "detail-grid",
           "x": 16,
-          "y": 170,
-          "w": 1632,
-          "h": 369,
+          "y": 200,
+          "w": 1888,
+          "h": 424,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "transactions-table",
           "x": 16,
-          "y": 551,
-          "w": 1632,
-          "h": 369,
+          "y": 632,
+          "w": 1888,
+          "h": 432,
           "role": "table",
           "visual_type": "table"
         }
@@ -364,8 +364,8 @@
       "preview": "ops-single-screen.svg",
       "title": "Operational Single-Screen Status Board",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "operational",
@@ -389,7 +389,7 @@
         "dark-theme",
         "wall-board",
         "dense",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Shop-floor / control-room live status board; refresh < 5 min; read-only display",
       "status": "stable",
@@ -405,53 +405,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "refresh-indicator",
-          "x": 1484,
+          "x": 1712,
           "y": 16,
-          "w": 164,
-          "h": 65,
+          "w": 192,
+          "h": 80,
           "role": "frame",
           "visual_type": "control"
         },
         {
           "name": "kpi-strip-6",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 88,
+          "y": 104,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "status-matrix",
           "x": 16,
-          "y": 193,
-          "w": 1632,
-          "h": 341,
+          "y": 224,
+          "w": 1888,
+          "h": 392,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "exception-feed",
           "x": 16,
-          "y": 546,
-          "w": 1632,
-          "h": 181,
+          "y": 632,
+          "w": 1888,
+          "h": 208,
           "role": "supporting",
           "visual_type": "chart"
         },
         {
           "name": "sparkline-row-4",
           "x": 16,
-          "y": 739,
-          "w": 1632,
-          "h": 181,
+          "y": 856,
+          "w": 1888,
+          "h": 208,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -491,8 +491,8 @@
       "preview": "finance-pnl-waterfall.svg",
       "title": "Finance P&L Waterfall",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -515,7 +515,7 @@
         "waterfall",
         "plan-vs-actual",
         "variance",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Monthly / quarterly P&L walk, plan-vs-actual bridge, cost composition analysis",
       "status": "stable",
@@ -529,53 +529,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "period-slicer",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "kpi-row-4",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hero-waterfall",
           "x": 16,
-          "y": 265,
-          "w": 1632,
-          "h": 306,
+          "y": 304,
+          "w": 1888,
+          "h": 352,
           "role": "hero",
           "visual_type": "waterfall"
         },
         {
           "name": "cost-breakdown",
           "x": 16,
-          "y": 583,
-          "w": 1632,
-          "h": 163,
+          "y": 672,
+          "w": 1888,
+          "h": 192,
           "role": "supporting",
           "visual_type": "chart"
         },
         {
           "name": "variance-matrix",
           "x": 16,
-          "y": 758,
-          "w": 1632,
-          "h": 162,
+          "y": 872,
+          "w": 1888,
+          "h": 192,
           "role": "table",
           "visual_type": "table"
         }
@@ -620,8 +620,8 @@
       "preview": "mfg-line-status.svg",
       "title": "Manufacturing Line Status (OEE)",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "operational",
@@ -645,7 +645,7 @@
         "oee",
         "dark-theme",
         "wall-board",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Line-level OEE board; discrete manufacturing; shop-floor read-only display",
       "status": "stable",
@@ -661,53 +661,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "oee-kpis-4",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 88,
+          "y": 104,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hourly-output",
           "x": 16,
-          "y": 193,
-          "w": 1632,
-          "h": 153,
+          "y": 224,
+          "w": 1888,
+          "h": 176,
           "role": "supporting",
           "visual_type": "chart"
         },
         {
           "name": "downtime-pareto",
           "x": 16,
-          "y": 358,
-          "w": 1632,
-          "h": 153,
+          "y": 416,
+          "w": 1888,
+          "h": 176,
           "role": "supporting",
           "visual_type": "chart"
         },
         {
           "name": "sparkline-row-3",
           "x": 16,
-          "y": 523,
-          "w": 1632,
-          "h": 152,
+          "y": 600,
+          "w": 1888,
+          "h": 176,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "work-orders-table",
           "x": 16,
-          "y": 687,
-          "w": 1632,
-          "h": 233,
+          "y": 792,
+          "w": 1888,
+          "h": 272,
           "role": "table",
           "visual_type": "table"
         }
@@ -748,8 +748,8 @@
       "preview": "landing-navigation.svg",
       "title": "Landing / Navigation Hub",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -769,7 +769,7 @@
         "navigation-hub",
         "brand",
         "no-data",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Page 1 of any multi-page report; button-based navigation hub; bookmark menu entry point",
       "status": "stable",
@@ -790,35 +790,35 @@
           "name": "hero-banner",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 720,
+          "w": 1888,
+          "h": 832,
           "role": "hero",
           "visual_type": "banner"
         },
         {
           "name": "page-title",
           "x": 16,
-          "y": 748,
-          "w": 1632,
-          "h": 65,
+          "y": 864,
+          "w": 1888,
+          "h": 72,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "nav-button-grid-8",
           "x": 16,
-          "y": 825,
-          "w": 1632,
-          "h": 51,
+          "y": 952,
+          "w": 1888,
+          "h": 56,
           "role": "nav",
           "visual_type": "button-grid"
         },
         {
           "name": "footer-links",
           "x": 16,
-          "y": 888,
-          "w": 1632,
-          "h": 32,
+          "y": 1024,
+          "w": 1888,
+          "h": 40,
           "role": "footer",
           "visual_type": "footer"
         }
@@ -851,8 +851,8 @@
       "preview": "customer-360.svg",
       "title": "Customer 360",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -876,7 +876,7 @@
         "cohort",
         "retention",
         "drillthrough-target",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Customer profile / retention / cohort analysis; CRM-adjacent reports; churn diagnostics",
       "status": "stable",
@@ -898,53 +898,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "profile-header",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 65,
+          "y": 104,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "kpi-row-4",
           "x": 16,
-          "y": 170,
-          "w": 1632,
-          "h": 88,
+          "y": 200,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "cohort-matrix",
           "x": 16,
-          "y": 270,
-          "w": 1632,
-          "h": 295,
+          "y": 312,
+          "w": 1888,
+          "h": 336,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "retention-curve",
           "x": 16,
-          "y": 577,
-          "w": 1632,
-          "h": 166,
+          "y": 664,
+          "w": 1888,
+          "h": 192,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "top-segments",
           "x": 16,
-          "y": 755,
-          "w": 1632,
-          "h": 165,
+          "y": 872,
+          "w": 1888,
+          "h": 192,
           "role": "frame",
           "visual_type": "container"
         }
@@ -984,8 +984,8 @@
       "preview": "marketing-funnel.svg",
       "title": "Marketing Funnel & Attribution",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -1008,7 +1008,7 @@
         "funnel",
         "attribution",
         "channel-mix",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Campaign performance; acquisition funnel; channel ROI; attribution reports",
       "status": "stable",
@@ -1025,53 +1025,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "campaign-slicer",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "funnel-hero",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 225,
+          "y": 192,
+          "w": 1888,
+          "h": 256,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "channel-mix-donut",
           "x": 16,
-          "y": 402,
-          "w": 1632,
-          "h": 224,
+          "y": 464,
+          "w": 1888,
+          "h": 256,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "conversion-kpis-4",
           "x": 16,
-          "y": 638,
-          "w": 1632,
-          "h": 88,
+          "y": 736,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "attribution-table",
           "x": 16,
-          "y": 738,
-          "w": 1632,
-          "h": 182,
+          "y": 848,
+          "w": 1888,
+          "h": 216,
           "role": "frame",
           "visual_type": "container"
         }
@@ -1106,8 +1106,8 @@
       "preview": "geo-territory-map.svg",
       "title": "Geographic / Territory Map",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -1130,7 +1130,7 @@
         "map",
         "territory",
         "ranked",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Sales territory coverage; logistics / delivery maps; store-network reports; any region-scoped analysis",
       "status": "stable",
@@ -1148,53 +1148,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "region-slicer",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 134,
+          "y": 104,
+          "w": 1888,
+          "h": 160,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "map-hero",
           "x": 16,
-          "y": 239,
-          "w": 1632,
-          "h": 238,
+          "y": 272,
+          "w": 1888,
+          "h": 280,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "ranked-bar-side",
           "x": 16,
-          "y": 489,
-          "w": 1632,
-          "h": 126,
+          "y": 568,
+          "w": 1888,
+          "h": 144,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "kpi-stack-3",
           "x": 16,
-          "y": 627,
-          "w": 1632,
-          "h": 88,
+          "y": 720,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "territory-table",
           "x": 16,
-          "y": 727,
-          "w": 1632,
-          "h": 193,
+          "y": 840,
+          "w": 1888,
+          "h": 224,
           "role": "frame",
           "visual_type": "container"
         }
@@ -1232,8 +1232,8 @@
       "preview": "scorecard-kpi-grid.svg",
       "title": "Balanced Scorecard / KPI Grid",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -1255,7 +1255,7 @@
         "scorecard",
         "okr",
         "traffic-light",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Balanced scorecard; OKR dashboard; dense KPI-only monthly review; traffic-light status page",
       "status": "stable",
@@ -1281,35 +1281,35 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "period-toggle",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 636,
+          "y": 104,
+          "w": 1888,
+          "h": 736,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "kpi-grid-12",
           "x": 16,
-          "y": 741,
-          "w": 1632,
-          "h": 88,
+          "y": 856,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "legend-strip",
           "x": 16,
-          "y": 841,
-          "w": 1632,
-          "h": 79,
+          "y": 968,
+          "w": 1888,
+          "h": 96,
           "role": "frame",
           "visual_type": "container"
         }
@@ -1526,8 +1526,8 @@
       "preview": "left-rail-filter-analytical.svg",
       "title": "Left-Rail Filter Analytical",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -1546,7 +1546,7 @@
         "supporting-pair"
       ],
       "tags": [
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "kpi-card-row",
         "left-rail-filter",
         "reflow-enhanced"
@@ -1562,44 +1562,44 @@
           "name": "filter-rail",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 60,
+          "w": 1888,
+          "h": 72,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "title",
           "x": 16,
-          "y": 88,
-          "w": 1632,
-          "h": 65,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "kpi-row",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hero",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 655,
+          "y": 304,
+          "w": 1080,
+          "h": 760,
           "role": "hero",
           "visual_type": "hero"
         },
         {
           "name": "supporting-pair",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 655,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 760,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -1635,8 +1635,8 @@
       "preview": "variance-dual-waterfall.svg",
       "title": "Variance Dual Waterfall",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -1656,7 +1656,7 @@
       ],
       "tags": [
         "bottom-detail-table",
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "reflow-enhanced",
         "variance",
         "waterfall"
@@ -1674,44 +1674,44 @@
           "name": "title",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "slicers",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 143,
+          "y": 104,
+          "w": 1888,
+          "h": 168,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "waterfall-volume",
           "x": 16,
-          "y": 248,
-          "w": 1632,
-          "h": 256,
+          "y": 288,
+          "w": 1888,
+          "h": 296,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "waterfall-price",
           "x": 16,
-          "y": 516,
-          "w": 1632,
-          "h": 256,
+          "y": 592,
+          "w": 1888,
+          "h": 296,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "variance-matrix",
           "x": 16,
-          "y": 784,
-          "w": 1632,
-          "h": 136,
+          "y": 904,
+          "w": 1888,
+          "h": 160,
           "role": "table",
           "visual_type": "table"
         }
@@ -1750,8 +1750,8 @@
       "preview": "kpi-donut-row.svg",
       "title": "KPI Donut Row",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -1769,7 +1769,7 @@
         "trend-pair"
       ],
       "tags": [
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "donut",
         "kpi-heavy",
         "reflow-enhanced",
@@ -1792,35 +1792,35 @@
           "name": "header-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "donut-kpi-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 88,
+          "y": 104,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "variance-cards",
           "x": 16,
-          "y": 193,
-          "w": 1632,
-          "h": 347,
+          "y": 224,
+          "w": 1888,
+          "h": 400,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "trend-pair",
           "x": 16,
-          "y": 552,
-          "w": 1632,
-          "h": 368,
+          "y": 640,
+          "w": 1888,
+          "h": 424,
           "role": "frame",
           "visual_type": "container"
         }
@@ -1851,8 +1851,8 @@
       "preview": "ops-activity-log.svg",
       "title": "Ops Activity Log",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "operational",
@@ -1874,7 +1874,7 @@
       "tags": [
         "action-tab-nav",
         "bottom-detail-table",
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "real-time",
         "reflow-enhanced",
         "status-matrix"
@@ -1892,53 +1892,53 @@
           "name": "title",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "action-tab-nav",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 125,
+          "y": 104,
+          "w": 1888,
+          "h": 144,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "status-banner",
           "x": 16,
-          "y": 230,
-          "w": 1632,
-          "h": 125,
+          "y": 264,
+          "w": 1888,
+          "h": 144,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "run-trend",
           "x": 16,
-          "y": 367,
-          "w": 1632,
-          "h": 125,
+          "y": 424,
+          "w": 1888,
+          "h": 144,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "status-matrix",
           "x": 16,
-          "y": 504,
-          "w": 1632,
-          "h": 223,
+          "y": 584,
+          "w": 1888,
+          "h": 256,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "activity-log-table",
           "x": 16,
-          "y": 739,
-          "w": 1632,
-          "h": 181,
+          "y": 856,
+          "w": 1888,
+          "h": 208,
           "role": "frame",
           "visual_type": "container"
         }
@@ -1971,8 +1971,8 @@
       "preview": "pl-statement-grid.svg",
       "title": "P&L Statement Grid",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -1992,7 +1992,7 @@
       ],
       "tags": [
         "arrow-nav-tabs",
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "card-grid",
         "reflow-enhanced",
         "sparkline",
@@ -2012,44 +2012,44 @@
           "name": "title",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "section-markers",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 79,
+          "y": 104,
+          "w": 1888,
+          "h": 96,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "statement-grid",
           "x": 16,
-          "y": 184,
-          "w": 1632,
-          "h": 411,
+          "y": 216,
+          "w": 1888,
+          "h": 472,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "sparkline-column",
           "x": 16,
-          "y": 607,
-          "w": 1632,
-          "h": 269,
+          "y": 704,
+          "w": 1888,
+          "h": 304,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "footnote",
           "x": 16,
-          "y": 888,
-          "w": 1632,
-          "h": 32,
+          "y": 1024,
+          "w": 1888,
+          "h": 40,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2083,8 +2083,8 @@
       "preview": "budget-actual-grid.svg",
       "title": "Budget vs Actual Grid",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2105,7 +2105,7 @@
       ],
       "tags": [
         "budget-vs-actual",
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "card-grid",
         "pivot-matrix",
         "reflow-enhanced"
@@ -2121,53 +2121,53 @@
           "name": "title",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "period-slicer",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "actual-card-column",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 138,
+          "y": 192,
+          "w": 1888,
+          "h": 160,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "estimate-card-column",
           "x": 16,
-          "y": 315,
-          "w": 1632,
-          "h": 137,
+          "y": 360,
+          "w": 1888,
+          "h": 160,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "trend-chart",
           "x": 16,
-          "y": 464,
-          "w": 1632,
-          "h": 245,
+          "y": 536,
+          "w": 1888,
+          "h": 280,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "pivot-matrix",
           "x": 16,
-          "y": 721,
-          "w": 1632,
-          "h": 199,
+          "y": 832,
+          "w": 1888,
+          "h": 232,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2206,8 +2206,8 @@
       "preview": "qna-explore-page.svg",
       "title": "Q&A Explore Page",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2227,7 +2227,7 @@
         "qna",
         "self-service",
         "full-canvas",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Self-service exploration surface when the model has Q&A synonyms configured",
       "status": "stable",
@@ -2239,26 +2239,26 @@
           "name": "thin-header",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "qna-visual",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 736,
+          "y": 104,
+          "w": 1888,
+          "h": 856,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "suggested-questions-strip",
           "x": 16,
-          "y": 841,
-          "w": 1632,
-          "h": 79,
+          "y": 968,
+          "w": 1888,
+          "h": 96,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2285,8 +2285,8 @@
       "preview": "chiclet-nav-strip.svg",
       "title": "Chiclet Nav Strip",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2307,7 +2307,7 @@
         "footer-strip"
       ],
       "tags": [
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "chiclet-slicer-strip",
         "footer-data-strip",
         "kpi-card-row",
@@ -2330,53 +2330,53 @@
           "name": "header-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "chiclet-slicer-strip",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 79,
+          "y": 104,
+          "w": 1888,
+          "h": 96,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "kpi-row",
           "x": 16,
-          "y": 184,
-          "w": 1632,
-          "h": 88,
+          "y": 216,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hero",
           "x": 16,
-          "y": 284,
-          "w": 1632,
-          "h": 371,
+          "y": 328,
+          "w": 1888,
+          "h": 424,
           "role": "hero",
           "visual_type": "hero"
         },
         {
           "name": "breakdown",
           "x": 16,
-          "y": 667,
-          "w": 1632,
-          "h": 209,
+          "y": 768,
+          "w": 1888,
+          "h": 240,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "footer-strip",
           "x": 16,
-          "y": 888,
-          "w": 1632,
-          "h": 32,
+          "y": 1024,
+          "w": 1888,
+          "h": 40,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2411,8 +2411,8 @@
       "preview": "dimension-nav-hub.svg",
       "title": "Dimension Nav Hub",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -2432,7 +2432,7 @@
         "no-data-visuals",
         "landing-variant",
         "daikin",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Multi-page report (8+ pages) that needs a dedicated 'pick your dimension' entry point distinct from a branded cover. Users jump here from any page via a Home button.",
       "status": "stable",
@@ -2445,26 +2445,26 @@
           "name": "hero-nav-grid",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 783,
+          "w": 1888,
+          "h": 904,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "top-header-bar",
           "x": 16,
-          "y": 811,
-          "w": 1632,
-          "h": 65,
+          "y": 936,
+          "w": 1888,
+          "h": 72,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "footer-data-strip",
           "x": 16,
-          "y": 888,
-          "w": 1632,
-          "h": 32,
+          "y": 1024,
+          "w": 1888,
+          "h": 40,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2496,8 +2496,8 @@
       "preview": "tachometer-gauge-row.svg",
       "title": "Tachometer Gauge Row",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "operational",
@@ -2513,7 +2513,7 @@
         "bottom-detail-table"
       ],
       "tags": [
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "custom-visual-tachometer",
         "gauge-band",
         "kpi-vs-target",
@@ -2534,35 +2534,35 @@
           "name": "gauge-band",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 278,
+          "w": 1888,
+          "h": 320,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "kpi-card-row",
           "x": 16,
-          "y": 306,
-          "w": 1632,
-          "h": 88,
+          "y": 352,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "hero-chart",
           "x": 16,
-          "y": 406,
-          "w": 1632,
-          "h": 277,
+          "y": 472,
+          "w": 1888,
+          "h": 320,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "bottom-detail-table",
           "x": 16,
-          "y": 695,
-          "w": 1632,
-          "h": 225,
+          "y": 800,
+          "w": 1888,
+          "h": 264,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2594,8 +2594,8 @@
       "preview": "full-page-map.svg",
       "title": "Full-Page Map",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2614,7 +2614,7 @@
         "arcgis-esri",
         "territory-analysis",
         "minimal-chrome",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Geographic patterns ARE the story: customer density, route density, store footprint. No other chart would add meaning without competing with the map.",
       "status": "stable",
@@ -2629,26 +2629,26 @@
           "name": "top-header-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "hero-map",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 532,
+          "y": 104,
+          "w": 1888,
+          "h": 616,
           "role": "hero",
           "visual_type": "map"
         },
         {
           "name": "overlay-legend",
           "x": 16,
-          "y": 637,
-          "w": 1632,
-          "h": 283,
+          "y": 736,
+          "w": 1888,
+          "h": 328,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2765,8 +2765,8 @@
       "preview": "cohort-retention-grid.svg",
       "title": "Cohort / Retention Grid",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2782,7 +2782,7 @@
         "bottom-detail-table"
       ],
       "tags": [
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "cohort-analysis",
         "growth-analytics",
         "period-indexed-matrix",
@@ -2803,35 +2803,35 @@
           "name": "left-rail-filter",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 60,
+          "w": 1888,
+          "h": 72,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "cohort-matrix",
           "x": 16,
-          "y": 88,
-          "w": 1632,
-          "h": 345,
+          "y": 104,
+          "w": 1888,
+          "h": 392,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "supporting-chart",
           "x": 16,
-          "y": 445,
-          "w": 1632,
-          "h": 183,
+          "y": 512,
+          "w": 1888,
+          "h": 216,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "bottom-detail-table",
           "x": 16,
-          "y": 640,
-          "w": 1632,
-          "h": 280,
+          "y": 736,
+          "w": 1888,
+          "h": 328,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2863,8 +2863,8 @@
       "preview": "aging-bucket-page.svg",
       "title": "Aging Bucket Page",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2882,7 +2882,7 @@
         "aging-analysis",
         "ar-analysis",
         "bucketed-bars",
-        "canvas-1664x936",
+        "canvas-1920x1080",
         "inventory-aging",
         "reflow-enhanced"
       ],
@@ -2897,26 +2897,26 @@
           "name": "kpi-card-row",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 88,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "bucket-bar-chart",
           "x": 16,
-          "y": 116,
-          "w": 1632,
-          "h": 437,
+          "y": 136,
+          "w": 1888,
+          "h": 504,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "bottom-detail-table",
           "x": 16,
-          "y": 565,
-          "w": 1632,
-          "h": 355,
+          "y": 648,
+          "w": 1888,
+          "h": 416,
           "role": "frame",
           "visual_type": "container"
         }
@@ -2949,8 +2949,8 @@
       "preview": "what-if-parameter-page.svg",
       "title": "What-If Parameter Page",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -2970,7 +2970,7 @@
         "scenario-modeling",
         "parameter-sliders",
         "interactive",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "User must *change an input* (price, FX, volume growth) and watch downstream KPIs / charts update. Requires WHAT-IF parameters or numeric-range slicers wired into measures.",
       "status": "stable",
@@ -2982,35 +2982,35 @@
           "name": "parameter-control-strip",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 79,
+          "w": 1888,
+          "h": 96,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "kpi-card-row",
           "x": 16,
-          "y": 107,
-          "w": 1632,
-          "h": 88,
+          "y": 120,
+          "w": 1888,
+          "h": 104,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "scenario-chart",
           "x": 16,
-          "y": 207,
-          "w": 1632,
-          "h": 387,
+          "y": 240,
+          "w": 1888,
+          "h": 448,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "comparison-table",
           "x": 16,
-          "y": 606,
-          "w": 1632,
-          "h": 314,
+          "y": 696,
+          "w": 1888,
+          "h": 368,
           "role": "frame",
           "visual_type": "container"
         }
@@ -3040,8 +3040,8 @@
       "preview": "advanced-kpi-card-grid.svg",
       "title": "Advanced KPI Card Grid",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -3060,7 +3060,7 @@
         "sparkline-per-card",
         "kpi-dense",
         "growth-review",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Single page must summarize 12-24 KPIs with their trend and variance, and you have the `AdvancedCard` (OKViz / MAQ) custom visual available. Replaces a multi-card row when each KPI deserves its own mini-chart.",
       "status": "stable",
@@ -3079,17 +3079,17 @@
           "name": "top-header-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "advanced-card-grid",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 827,
+          "y": 104,
+          "w": 1888,
+          "h": 960,
           "role": "frame",
           "visual_type": "container"
         }
@@ -3201,8 +3201,8 @@
       "preview": "ultra-dense-kpi-scorecard.svg",
       "title": "Ultra-Dense KPI Scorecard",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -3220,7 +3220,7 @@
         "category-blocks",
         "supply-chain-scorecard",
         "wall-display",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Review meeting requires every KPI on one page, grouped by function (Cost / Inventory / Service / Procurement). Acceptable audience: domain experts who know every metric name. NOT for casual consumers.",
       "status": "stable",
@@ -3234,17 +3234,17 @@
           "name": "top-header-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "container"
         },
         {
           "name": "category-block-grid",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 827,
+          "y": 104,
+          "w": 1888,
+          "h": 960,
           "role": "frame",
           "visual_type": "container"
         }
@@ -5333,8 +5333,8 @@
       "preview": "hr-headcount-attrition.svg",
       "title": "HR Headcount & Attrition",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -5358,7 +5358,7 @@
         "attrition",
         "headcount",
         "kpi-heavy",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Monthly people review; headcount walk from starting to ending balance with hires/exits/transfers and attrition composition",
       "avoid_when": "When exit-reason data is not captured or the org is < 100 employees",
@@ -5401,53 +5401,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "kpi-row-4",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "headcount-bridge",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 322,
+          "y": 304,
+          "w": 1080,
+          "h": 376,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "attrition-waterfall",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 322,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 376,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "exit-reason-bar",
           "x": 16,
-          "y": 599,
-          "w": 1632,
-          "h": 321,
+          "y": 688,
+          "w": 1888,
+          "h": 376,
           "role": "table",
           "visual_type": "table"
         }
@@ -5462,8 +5462,8 @@
       "preview": "hr-recruiting-funnel.svg",
       "title": "Recruiting Funnel",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -5486,7 +5486,7 @@
         "hr",
         "funnel",
         "recruiting",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Talent acquisition review — candidate pipeline, stage conversion, offer acceptance, time-to-fill",
       "avoid_when": "When ATS data exports < 4 pipeline stages",
@@ -5526,53 +5526,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "time-to-fill-kpi",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "candidate-funnel",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 420,
+          "y": 304,
+          "w": 1080,
+          "h": 488,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "offer-accept-rates",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 420,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 488,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "supporting-pair",
           "x": 16,
-          "y": 697,
-          "w": 1632,
-          "h": 223,
+          "y": 808,
+          "w": 1888,
+          "h": 256,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -5587,8 +5587,8 @@
       "preview": "hr-compensation-bands.svg",
       "title": "Compensation Bands & Comparatio",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -5610,7 +5610,7 @@
         "hr",
         "comp",
         "benchmark",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Comp review cycle — salary-band scatter vs market median with comparatio distribution",
       "avoid_when": "When market-data benchmarks aren't licensed or job architecture isn't defined",
@@ -5649,44 +5649,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "salary-band-scatter",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 372,
+          "y": 192,
+          "w": 1080,
+          "h": 424,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "comp-benchmark-panel",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 372,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 424,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "comparatio-heatmap",
           "x": 16,
-          "y": 549,
-          "w": 1632,
-          "h": 371,
+          "y": 632,
+          "w": 1888,
+          "h": 432,
           "role": "table",
           "visual_type": "table"
         }
@@ -5701,8 +5701,8 @@
       "preview": "hr-dei-scorecard.svg",
       "title": "DE&I Scorecard",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -5725,7 +5725,7 @@
         "dei",
         "scorecard",
         "executive",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "DE&I annual / quarterly report; representation by level + geography with trend",
       "avoid_when": "Where local regulation prohibits storing protected attributes in BI",
@@ -5764,44 +5764,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "dei-rep-filter",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "dei-representation-grid",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 317,
+          "y": 192,
+          "w": 1888,
+          "h": 368,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "dei-trend",
           "x": 16,
-          "y": 494,
-          "w": 1632,
-          "h": 207,
+          "y": 568,
+          "w": 1888,
+          "h": 240,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "supporting-pair",
           "x": 16,
-          "y": 713,
-          "w": 1632,
-          "h": 207,
+          "y": 824,
+          "w": 1888,
+          "h": 240,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -5816,8 +5816,8 @@
       "preview": "hr-engagement-survey.svg",
       "title": "Engagement Survey (eNPS)",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -5839,7 +5839,7 @@
         "hr",
         "survey",
         "enps",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Post-survey readout — eNPS headline, driver analysis, comment theme clusters",
       "avoid_when": "When survey n < 30 within a segment (confidentiality risk)",
@@ -5878,44 +5878,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "enps-gauge",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 410,
+          "y": 192,
+          "w": 1080,
+          "h": 472,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "driver-analysis-bar",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 410,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 472,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "comment-theme-cloud",
           "x": 16,
-          "y": 587,
-          "w": 1632,
-          "h": 333,
+          "y": 680,
+          "w": 1888,
+          "h": 384,
           "role": "table",
           "visual_type": "table"
         }
@@ -5930,8 +5930,8 @@
       "preview": "hr-org-chart-drill.svg",
       "title": "Org Chart with Span-of-Control",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -5953,7 +5953,7 @@
         "hr",
         "org-chart",
         "drillthrough-target",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Org design / span-of-control review with manager-level drill",
       "avoid_when": "Matrix / dotted-line heavy orgs where a tree misrepresents structure",
@@ -5992,44 +5992,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "span-of-control-kpi",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "org-chart-tree",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 655,
+          "y": 304,
+          "w": 1080,
+          "h": 760,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "manager-detail-panel",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 655,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 760,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -6044,8 +6044,8 @@
       "preview": "it-incident-postmortem.svg",
       "title": "Incident Postmortem",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -6068,7 +6068,7 @@
         "it",
         "sre",
         "incident",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Post-incident review — MTTR / MTBF trend, timeline reconstruction, root-cause pareto",
       "avoid_when": "Without structured incident data (severity, root_cause, duration)",
@@ -6108,53 +6108,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "mttr-kpis",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "incident-timeline",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 420,
+          "y": 304,
+          "w": 1080,
+          "h": 488,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "rca-pareto",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 420,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 488,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "supporting-pair",
           "x": 16,
-          "y": 697,
-          "w": 1632,
-          "h": 223,
+          "y": 808,
+          "w": 1888,
+          "h": 256,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -6169,8 +6169,8 @@
       "preview": "it-sla-heatmap.svg",
       "title": "SLA Heatmap",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "operational",
@@ -6193,7 +6193,7 @@
         "sla",
         "heatmap",
         "operations",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Weekly SLA review — service × time heatmap with breach cells",
       "avoid_when": "When SLA thresholds aren't defined per service",
@@ -6232,44 +6232,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "sla-service-heatmap",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 410,
+          "y": 192,
+          "w": 1080,
+          "h": 472,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "uptime-rings",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 410,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 472,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "sla-breach-list",
           "x": 16,
-          "y": 587,
-          "w": 1632,
-          "h": 333,
+          "y": 680,
+          "w": 1888,
+          "h": 384,
           "role": "table",
           "visual_type": "table"
         }
@@ -6284,8 +6284,8 @@
       "preview": "it-finops-cost-governance.svg",
       "title": "FinOps Cloud Cost Governance",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -6308,7 +6308,7 @@
         "it",
         "finops",
         "cost",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Monthly cloud spend review — spend by service/team, anomaly detection, budget burn-down",
       "avoid_when": "Without tagged cost data or a per-team budget allocation",
@@ -6349,53 +6349,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "kpi-row-4",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "cloud-spend-stack",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 322,
+          "y": 304,
+          "w": 1080,
+          "h": 376,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "anomaly-flags",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 322,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 376,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "budget-burn-gauge",
           "x": 16,
-          "y": 599,
-          "w": 1632,
-          "h": 321,
+          "y": 688,
+          "w": 1888,
+          "h": 376,
           "role": "table",
           "visual_type": "table"
         }
@@ -6410,8 +6410,8 @@
       "preview": "it-release-train.svg",
       "title": "Release Train (DORA)",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -6434,7 +6434,7 @@
         "it",
         "dora",
         "release",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Engineering effectiveness review — deployment frequency, lead time, change-failure rate, MTTR (DORA)",
       "avoid_when": "Without CI/CD telemetry feeding a consolidated pipeline table",
@@ -6474,53 +6474,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "dora-kpi-strip",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "release-swimlane",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 420,
+          "y": 304,
+          "w": 1080,
+          "h": 488,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "deployment-frequency-trend",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 420,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 488,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "supporting-pair",
           "x": 16,
-          "y": 697,
-          "w": 1632,
-          "h": 223,
+          "y": 808,
+          "w": 1888,
+          "h": 256,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -6535,8 +6535,8 @@
       "preview": "it-service-catalog.svg",
       "title": "Service Catalog Health",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -6558,7 +6558,7 @@
         "it",
         "catalog",
         "health",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Portfolio-level service health overview; tile per service with status + dependency ribbon",
       "avoid_when": "Without CMDB or service registry feeding status per service",
@@ -6595,44 +6595,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "filter-bar",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "service-tile-grid",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 79,
+          "y": 192,
+          "w": 1080,
+          "h": 88,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "dependency-ribbon",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 79,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 88,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "service-health-legend",
           "x": 16,
-          "y": 256,
-          "w": 1632,
-          "h": 664,
+          "y": 296,
+          "w": 1888,
+          "h": 768,
           "role": "table",
           "visual_type": "table"
         }
@@ -6647,8 +6647,8 @@
       "preview": "hc-patient-flow.svg",
       "title": "Patient Flow",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "operational",
@@ -6670,7 +6670,7 @@
         "healthcare",
         "flow",
         "real-time",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Live / daily patient flow review — ED to admit to discharge Sankey with wait times and census",
       "avoid_when": "Outpatient-only settings where flow is linear",
@@ -6709,44 +6709,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "patient-flow-sankey",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 372,
+          "y": 192,
+          "w": 1080,
+          "h": 424,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "wait-time-distribution",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 372,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 424,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "census-heatmap",
           "x": 16,
-          "y": 549,
-          "w": 1632,
-          "h": 371,
+          "y": 632,
+          "w": 1888,
+          "h": 432,
           "role": "table",
           "visual_type": "table"
         }
@@ -6761,8 +6761,8 @@
       "preview": "hc-clinical-quality.svg",
       "title": "Clinical Quality Scorecard",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -6784,7 +6784,7 @@
         "healthcare",
         "quality",
         "scorecard",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Quarterly clinical quality review vs HEDIS-style benchmarks",
       "avoid_when": "Without validated measure definitions or benchmark data",
@@ -6823,44 +6823,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "filter-bar",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "quality-scorecard",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 476,
+          "y": 192,
+          "w": 1080,
+          "h": 544,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "benchmark-panel",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 476,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 544,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "measure-detail-panel",
           "x": 16,
-          "y": 653,
-          "w": 1632,
-          "h": 267,
+          "y": 752,
+          "w": 1888,
+          "h": 312,
           "role": "frame",
           "visual_type": "container"
         }
@@ -6875,8 +6875,8 @@
       "preview": "hc-readmission-analysis.svg",
       "title": "Readmission Analysis",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -6898,7 +6898,7 @@
         "healthcare",
         "readmission",
         "cohort",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "30/60/90-day readmission rates with risk factors and cohort comparison",
       "avoid_when": "Small-volume specialties (n < 50 discharges/month)",
@@ -6936,44 +6936,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "readmission-rate-kpis",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "risk-factor-bar",
           "x": 16,
-          "y": 265,
-          "w": 1632,
-          "h": 355,
+          "y": 304,
+          "w": 1888,
+          "h": 408,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "cohort-compare-line",
           "x": 16,
-          "y": 632,
-          "w": 1632,
-          "h": 288,
+          "y": 728,
+          "w": 1888,
+          "h": 336,
           "role": "table",
           "visual_type": "table"
         }
@@ -6988,8 +6988,8 @@
       "preview": "sales-pipeline-forecast.svg",
       "title": "Pipeline Forecast",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -7012,7 +7012,7 @@
         "sales",
         "pipeline",
         "forecast",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Weekly pipeline forecast — weighted stage-value, velocity, forecast vs quota",
       "avoid_when": "Transactional / e-commerce models without multi-stage pipelines",
@@ -7053,53 +7053,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "velocity-kpis",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "pipeline-stage-bar",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 420,
+          "y": 304,
+          "w": 1080,
+          "h": 488,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "forecast-vs-quota-line",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 420,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 488,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "supporting-pair",
           "x": 16,
-          "y": 697,
-          "w": 1632,
-          "h": 223,
+          "y": 808,
+          "w": 1888,
+          "h": 256,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -7114,8 +7114,8 @@
       "preview": "sales-rep-leaderboard.svg",
       "title": "Rep Leaderboard",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -7137,7 +7137,7 @@
         "sales",
         "leaderboard",
         "rep",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Monthly rep ranking with attainment, win-rate sparkline, goal tracking",
       "avoid_when": "Team-selling models where revenue attribution is shared",
@@ -7177,44 +7177,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "rep-leaderboard",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 476,
+          "y": 192,
+          "w": 1080,
+          "h": 544,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "attainment-gauge",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 476,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 544,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "win-rate-spark",
           "x": 16,
-          "y": 653,
-          "w": 1632,
-          "h": 267,
+          "y": 752,
+          "w": 1888,
+          "h": 312,
           "role": "frame",
           "visual_type": "container"
         }
@@ -7229,8 +7229,8 @@
       "preview": "supply-inventory-abc.svg",
       "title": "Inventory ABC Analysis",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -7253,7 +7253,7 @@
         "supply-chain",
         "inventory",
         "abc",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Inventory classification + turns + stockout risk for SKU portfolio",
       "avoid_when": "Make-to-order businesses where stock levels aren't held centrally",
@@ -7292,53 +7292,53 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "turns-ratio-kpis",
           "x": 16,
-          "y": 165,
-          "w": 1632,
-          "h": 88,
+          "y": 192,
+          "w": 1888,
+          "h": 96,
           "role": "kpi",
           "visual_type": "kpi-card-row"
         },
         {
           "name": "abc-matrix",
           "x": 16,
-          "y": 265,
-          "w": 937,
-          "h": 420,
+          "y": 304,
+          "w": 1080,
+          "h": 488,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "stockout-risk-heatmap",
-          "x": 969,
-          "y": 265,
-          "w": 679,
-          "h": 420,
+          "x": 1120,
+          "y": 304,
+          "w": 784,
+          "h": 488,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "supporting-pair",
           "x": 16,
-          "y": 697,
-          "w": 1632,
-          "h": 223,
+          "y": 808,
+          "w": 1888,
+          "h": 256,
           "role": "supporting",
           "visual_type": "stack"
         }
@@ -7353,8 +7353,8 @@
       "preview": "esg-carbon-scorecard.svg",
       "title": "ESG Carbon Scorecard",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -7376,7 +7376,7 @@
         "esg",
         "carbon",
         "scorecard",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Annual / quarterly Scope 1/2/3 emissions + intensity + target trajectory",
       "avoid_when": "Before emissions inventory is assured / audited",
@@ -7416,44 +7416,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "slicer-row",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "scope-emission-stack",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 410,
+          "y": 192,
+          "w": 1080,
+          "h": 472,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "intensity-trend",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 410,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 472,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "target-trajectory",
           "x": 16,
-          "y": 587,
-          "w": 1632,
-          "h": 333,
+          "y": 680,
+          "w": 1888,
+          "h": 384,
           "role": "table",
           "visual_type": "table"
         }
@@ -7468,8 +7468,8 @@
       "preview": "narrative-story-page.svg",
       "title": "Narrative Story Page",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "executive",
@@ -7491,7 +7491,7 @@
         "narrative",
         "story",
         "executive",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "Text-heavy insight narrative — scrollytelling style with annotated chart and pull-quotes",
       "avoid_when": "Operational audiences expecting dense KPI grids",
@@ -7524,44 +7524,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "narrative-text-panel",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 267,
+          "y": 104,
+          "w": 1888,
+          "h": 312,
           "role": "table",
           "visual_type": "table"
         },
         {
           "name": "annotated-chart-large",
           "x": 16,
-          "y": 372,
-          "w": 937,
-          "h": 504,
+          "y": 432,
+          "w": 1080,
+          "h": 576,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "insight-callouts",
-          "x": 969,
-          "y": 372,
-          "w": 679,
-          "h": 504,
+          "x": 1120,
+          "y": 432,
+          "w": 784,
+          "h": 576,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "footer",
           "x": 16,
-          "y": 888,
-          "w": 1632,
-          "h": 32,
+          "y": 1024,
+          "w": 1888,
+          "h": 40,
           "role": "footer",
           "visual_type": "footer"
         }
@@ -7576,8 +7576,8 @@
       "preview": "comparison-side-by-side.svg",
       "title": "Side-by-Side Comparison",
       "canvas": {
-        "width": 1664,
-        "height": 936
+        "height": 1080,
+        "width": 1920
       },
       "canvas_class": "landscape-16x9",
       "style": "analytical",
@@ -7599,7 +7599,7 @@
         "comparison",
         "ab",
         "cross-domain",
-        "canvas-1664x936"
+        "canvas-1920x1080"
       ],
       "use_when": "A/B comparison canvas — two symmetric halves with a shared slicer",
       "avoid_when": "More than 2 entities to compare — use scorecard-kpi-grid",
@@ -7636,44 +7636,44 @@
           "name": "title-bar",
           "x": 16,
           "y": 16,
-          "w": 1632,
-          "h": 65,
+          "w": 1888,
+          "h": 80,
           "role": "frame",
           "visual_type": "header"
         },
         {
           "name": "shared-slicer",
           "x": 16,
-          "y": 93,
-          "w": 1632,
-          "h": 60,
+          "y": 104,
+          "w": 1888,
+          "h": 72,
           "role": "filter",
           "visual_type": "slicer"
         },
         {
           "name": "compare-left",
           "x": 16,
-          "y": 165,
-          "w": 937,
-          "h": 711,
+          "y": 192,
+          "w": 1080,
+          "h": 816,
           "role": "hero",
           "visual_type": "chart"
         },
         {
           "name": "compare-right",
-          "x": 969,
-          "y": 165,
-          "w": 679,
-          "h": 711,
+          "x": 1120,
+          "y": 192,
+          "w": 784,
+          "h": 816,
           "role": "supporting",
           "visual_type": "stack"
         },
         {
           "name": "footer",
           "x": 16,
-          "y": 888,
-          "w": 1632,
-          "h": 32,
+          "y": 1024,
+          "w": 1888,
+          "h": 40,
           "role": "footer",
           "visual_type": "footer"
         }
@@ -9655,7 +9655,12 @@
       "preview_annotated": "hc-patient-flow-tv-annotated.svg"
     }
   ],
-  "gaps": [],
+  "gaps": [
+    "analytical-canvas Variant C (Small-Multiples-Grid): FHD-native 3x2 / 4x2 small-multiples page (official archetype, no recipe yet)",
+    "narrative-story Variant B (Single-Column-Scroll): FHD-native single-column story page (official archetype, no recipe yet)",
+    "narrative-story Variant C (Annotated-Hero): FHD-native annotated hero chart page (official archetype, no recipe yet)",
+    "comparative-benchmark Variant C (Slope-Graph-First): FHD-native slope-graph-first page (official archetype, no recipe yet)"
+  ],
   "collections": [
     {
       "id": "finance-monthly-close",

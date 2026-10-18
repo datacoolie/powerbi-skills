@@ -3,7 +3,7 @@
 > **Preview:** [![ultra-dense-kpi-scorecard preview](../../assets/layout-previews/ultra-dense-kpi-scorecard.svg)](../../assets/layout-previews/ultra-dense-kpi-scorecard.svg) · variants: [annotated](../../assets/layout-previews/ultra-dense-kpi-scorecard-annotated.svg) · [dark](../../assets/layout-previews/ultra-dense-kpi-scorecard-dark.svg)
 
 - **id:** `ultra-dense-kpi-scorecard`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Analytical — 4–6 labeled category blocks, each packed with 10–20 KPI cards / shapes / mini-charts
 - **Audience:** Supply-chain / ops leaders reviewing 60+ KPIs in one session
 - **Visual count:** 60
@@ -16,15 +16,15 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
-│ Thin title + period slicer                                     │ 52
+│ Thin title + period slicer                                     │ 48
 ├───────────────────┬───────────────────┬───────────────────┬────┤
 │ COST              │ INVENTORY         │ SERVICE           │PROC│
 │ ┌─┐┌─┐┌─┐┌─┐┌─┐   │ ┌─┐┌─┐┌─┐┌─┐┌─┐   │ ┌─┐┌─┐┌─┐┌─┐┌─┐   │┌─┐ │
-│ └─┘└─┘└─┘└─┘└─┘   │ └─┘└─┘└─┘└─┘└─┘   │ └─┘└─┘└─┘└─┘└─┘   │└─┘ │ 416
+│ └─┘└─┘└─┘└─┘└─┘   │ └─┘└─┘└─┘└─┘└─┘   │ └─┘└─┘└─┘└─┘└─┘   │└─┘ │ 472
 │ ┌─┐┌─┐┌─┐┌─┐┌─┐   │ ┌─┐┌─┐┌─┐┌─┐┌─┐   │ ┌─┐┌─┐┌─┐┌─┐┌─┐   │┌─┐ │
 │ └─┘└─┘└─┘└─┘└─┘   │ └─┘└─┘└─┘└─┘└─┘   │ └─┘└─┘└─┘└─┘└─┘   │└─┘ │
 ├───────────────────┼───────────────────┼───────────────────┼────┤
-│ (row 2 categories: Demand / Quality / Supplier / Logistics)    │ 416
+│ (row 2 categories: Demand / Quality / Supplier / Logistics)    │ 472
 └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -34,10 +34,10 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Title band | 0 | 0 | 1664 | 52 | textbox + slicer(Period) | Title + period |
-| Category block × 8 | 0 | 62 | 1664 | 874 | 4×2 grid of category blocks | Each block = label header + 8-12 small KPI card / shape visuals. Typical block size ~316w × 332h |
+| Title band | 24 | 24 | 1872 | 48 | textbox + slicer(Period) | Title + period |
+| Category block × 8 | 24 | 96 | 1872 | 960 | 4×2 grid of category blocks | Each block = label header + 8-12 small KPI card / shape visuals. Typical block size ~456w × 472h (x=24/496/968/1440; y=96/584) |
 
-Gutters: 16px between primary zones; 8px inside KPI card rows.
+Gutters: 16px between category blocks; 24px below the title band; 8px inside KPI card rows.
 
 ---
 
@@ -51,7 +51,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 ## Theme + iconography guidance
 
 - **Palette:** Neutral background; each block header uses a faint background tint. KPI traffic-light (green/amber/red) indicators reserved for threshold breaches.
-- **Logo:** Title band top-left at (16, 8) max height 20px.
+- **Logo:** Title band top-left at (24, 32) max height 20px.
 - **Icons:** Category glyph next to each block header (max 16px).
 - **Fonts:** Title 14pt, block header 10pt Bold, card value 12pt, label 7pt. Micro-type is intentional — audience is domain-expert.
 
@@ -70,6 +70,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 - Change block layout to 3×3 if category count is 9
 - Colour block headers by domain (Finance / Ops / Customer)
 - Link each KPI card to a drillthrough for that metric
+- **FHD headroom (optional):** none — at budget. The page is a 60-visual card/shape page by design, far beyond any visual budget; the extra FHD area makes each block larger (~456 × 472) so the micro-type stays legible.
 
 ## Customization NOT allowed
 

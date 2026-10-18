@@ -16,6 +16,19 @@ Page-layout recipes consumed by the Strategist (for selection) and the Executor
 See [`../../assets/layout-previews/README.md`](../../assets/layout-previews/README.md)
 for the SVG contract.
 
+## Canvas
+
+Every landscape recipe (`.md` slot tables, index `canvas` + `zones_detail`) is authored on
+**1920 × 1080 (FHD)**, the default report canvas. The same recipes serve the other 16:9 canvases through
+`scripts/rescale_layout.py --layout <id> --canvas <WxH> [--format md]` (1280×720, 2560×1440): it scales
+every slot uniformly and snaps edges to the 8-px grid, reads the recipe's own
+`| Slot | x | y | w | h |` table when present (else the index zones), and reports overlaps or
+out-of-canvas slots it introduced. `--check <recipe.md> --canvas <WxH>` validates a recipe's slot table
+(bounds, 8-px grid, unmarked overlaps, 24-px edge margin). Layouts with another aspect ratio (mobile,
+A4, tooltip) are not rescaled — pick the native variant.
+
+Archetype ↔ recipe routing for the official design mode lives in [`archetype-map.md`](archetype-map.md).
+
 ## Structure decision: **flat filesystem, rich metadata**
 
 The catalog is a **flat directory** (one `.md` per layout at the top level) — not
@@ -110,20 +123,22 @@ pixel density. Two landscape canvases are both `landscape-16x9`:
 
 | Density | Tag | Status |
 |---|---|---|
-| 1664 × 936 | `canvas-1664x936` | **Current standard** — all landscape layouts in the catalog target this density |
-| 1280 × 720 | `canvas-1280x720` | Legacy / Power BI-default — reserve if a consumer pins a layout to the smaller density; no catalog entry currently uses it |
+| 1920 × 1080 | `canvas-1920x1080` | **Current standard** — all landscape layouts in the catalog target this density (TV-wall layouts, `tv-wall-1080p`, share it and differ by density/type size) |
+| 1280 × 720 | `canvas-1280x720` | Legacy / Power BI-default — reachable by rescaling; no catalog entry uses it |
 
 Strategist uses these tags to match a layout to the project's target canvas
 without forking the enum for every pixel resolution.
 
-## Reflow vs. zoom (v0.6)
+## Reflow vs. zoom (v0.6, re-based on FHD in v0.12)
 
-Moving from 1280 × 720 to 1664 × 936 adds ~70% of canvas area. A naïve ×1.3
-**zoom** preserves layout proportions but also inflates fonts / padding and
-leaves information density flat. **Reflow** keeps element sizes closer to
-their 1280 × 720 tuning and spends the reclaimed space on additional slots
-— more KPIs, narrative context, secondary panels, benchmark references, and
-drill-adjacent detail.
+Recipes were first tuned for 1280 × 720 and are now authored on
+1920 × 1080 (~2.7× the original area). A naïve **zoom** preserves layout proportions but also
+inflates fonts / padding and leaves information density flat. **Reflow** keeps element sizes close to
+their original tuning and spends the reclaimed space on additional slots — more KPIs, narrative
+context, secondary panels, benchmark references, and drill-adjacent detail. The official design mode
+sets the limits on how much to add (`../design/layout.md` *Space Allocation Rules*, archetype budgets):
+every region used, ≤ 15% empty content cells (≤ 20% executive/narrative), one region ≤ 45% of content
+cells, 7 ± 2 visual groups, and visual budgets Executive ≤ 6 / Analytical ≤ 12 / Operational ≤ 14.
 
 | Mode | Visual count | When to choose |
 |---|---|---|
@@ -176,15 +191,15 @@ These zone names appear across multiple real reports and are the recommended
 spelling when adding `tags` on a new layout. Keep `zones[]` and `tags[]` in
 sync where it makes sense so filter queries hit both.
 
-| Primitive | Typical dimensions (px, on 1664×936) | Purpose | Recommended tag |
+| Primitive | Typical dimensions (px, on 1920×1080) | Purpose | Recommended tag |
 |---|---|---|---|
-| `top-header-bar` | full-width × 62–104 tall | Brand / page title / period selector | `top-header-bar` |
-| `left-rail-filter` | 234–312 wide × full height | Stacked slicers kept visible while reading body | `left-rail-filter` |
-| `chiclet-slicer-strip` | full-width × ~73 tall, 4–6 buttons | Touch-friendly single-select filter, selected-state colour | `chiclet-slicer-strip` |
-| `kpi-card-row` | full-width body × 104–156 tall, 3–6 cards | "What is it?" row immediately below header | `kpi-card-row` |
-| `action-tab-nav` | row of `actionButton`, ~52 tall | Sibling-page wayfinding (selected-state variants) | `action-tab-nav` |
+| `top-header-bar` | full-width × 72–120 tall | Brand / page title / period selector | `top-header-bar` |
+| `left-rail-filter` | 272–360 wide × full height | Stacked slicers kept visible while reading body | `left-rail-filter` |
+| `chiclet-slicer-strip` | full-width × ~80 tall, 4–6 buttons | Touch-friendly single-select filter, selected-state colour | `chiclet-slicer-strip` |
+| `kpi-card-row` | full-width body × 120–176 tall, 3–6 cards | "What is it?" row immediately below header | `kpi-card-row` |
+| `action-tab-nav` | row of `actionButton`, ~56 tall | Sibling-page wayfinding (selected-state variants) | `action-tab-nav` |
 | `arrow-nav-tabs` | `arrowPentagonShape` row | Same intent as tabs, more decorative | `arrow-nav-tabs` |
-| `bottom-detail-table` | full-width × 312–390 tall | Auditable detail under summary visuals | `bottom-detail-table` |
+| `bottom-detail-table` | full-width × 360–440 tall | Auditable detail under summary visuals | `bottom-detail-table` |
 | `footer-data-strip` | full-width × 31–42 tall | Refresh timestamp, source, page owner | `footer-data-strip` |
 | `hidden-filter-panel` | `visualGroup` with `isHidden:true` | Designer-only filter staging area | `hidden-filter-panel` |
 
@@ -299,12 +314,12 @@ doc.collections.find(c => c.id === "finance-monthly-close").layouts
 ```jsonc
 {
   "id": "exec-overview-16x9",
-  "canvas": { "width": 1664, "height": 936 },
+  "canvas": { "width": 1920, "height": 1080 },
   "zones_detail": [
-    { "name": "title-bar", "x": 16, "y": 16, "w": 1632, "h": 56, "role": "frame" },
-    { "name": "kpi-row", "x": 16, "y": 88, "w": 1632, "h": 121, "role": "kpi" },
-    { "name": "hero-trend", "x": 16, "y": 225, "w": 946, "h": 393, "role": "hero", "visual_type": "trend" },
-    { "name": "supporting-pair", "x": 978, "y": 225, "w": 670, "h": 393, "role": "supporting" }
+    { "name": "title-bar", "x": 16, "y": 16, "w": 1888, "h": 80, "role": "frame" },
+    { "name": "kpi-row", "x": 16, "y": 104, "w": 1888, "h": 104, "role": "kpi" },
+    { "name": "hero", "x": 16, "y": 224, "w": 1080, "h": 840, "role": "hero", "visual_type": "hero" },
+    { "name": "supporting-pair", "x": 1120, "y": 224, "w": 784, "h": 840, "role": "supporting" }
   ]
 }
 ```

@@ -26,8 +26,8 @@ Their `.svg` files are the **base preview** for those ids.
 
 ## Rules
 
-1. Size: **1664 × 936** viewBox for desktop, **414 × 736** for mobile,
-   **1920 × 1080** for TV, **816 × 1056** for A4. Schematic only — no real data.
+1. Size: **16:9 viewBox** for desktop/TV (the existing previews use 480 × 270 — proportional, so
+   resolution-independent), **414 × 736** for mobile, **816 × 1056** for A4. Schematic only — no real data.
 2. Dark variants use the theme-aware `<style id="preview-theme">` block with
    `@media (prefers-color-scheme: dark)` switching.
 3. Annotated variants add callouts over the base layout to explain zones.

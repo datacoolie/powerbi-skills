@@ -3,7 +3,7 @@
 > **Preview:** [![left-rail-filter-analytical preview](../../assets/layout-previews/left-rail-filter-analytical.svg)](../../assets/layout-previews/left-rail-filter-analytical.svg) · variants: [annotated](../../assets/layout-previews/left-rail-filter-analytical-annotated.svg) · [dark](../../assets/layout-previews/left-rail-filter-analytical-dark.svg)
 
 - **id:** `left-rail-filter-analytical`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Analytical
 - **Audience:** Analysts, planners, ops managers who filter heavily before reading
 - **Visual count:** 9 (excluding slicers in rail) — reflow-enhanced (was 7)
@@ -16,18 +16,18 @@
 
 ```
 ┌─────────┬──────────────────────────────────────────────────────┐ 0
-│ FILTER  │  Title + subtitle                                   │ 73
+│ FILTER  │  Title + subtitle                                   │ 80
 │  RAIL   ├──────────────────────────────────────────────────────┤
-│ (220w)  │  KPI row (4 multi-row cards)                        │ 130
+│ (328w)  │  KPI row (4 multi-row cards)                        │ 144
 │         ├──────────────────────────────────────────────────────┤
 │ Slicer1 │                                                      │
-│ Slicer2 │           Hero combo chart (wide)                    │ 286
+│ Slicer2 │           Hero combo chart (wide)                    │ 320
 │ Slicer3 │                                                      │
 │ Slicer4 │                                                      │
 │ Slicer5 ├──────────────────────────────────────────────────────┤
-│ Slicer6 │  Supporting chart 1  │  Supporting chart 2           │ 299
+│ Slicer6 │  Supporting chart 1  │  Supporting chart 2           │ 408
 │         │                      │                               │
-└─────────┴──────────────────────────────────────────────────────┘ 936
+└─────────┴──────────────────────────────────────────────────────┘ 1080
 ```
 
 ---
@@ -36,30 +36,30 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Filter rail background | 0 | 0 | 286 | 936 | shape (rect) | Subtle fill to separate from body |
-| Slicer 1–6 | 16 | 94, 208, 322, 437, 551, 666 | 255 | 104 | slicer (dropdown/list) | Stack vertically in rail |
-| Rail footer: reset-filters button | 16 | 863 | 255 | 52 | actionButton | "Clear filters" |
-| Page title | 317 | 21 | 1326 | 42 | textbox | 22pt Semibold |
-| Subtitle | 317 | 65 | 1326 | 23 | textbox | 12pt muted |
-| KPI 1–4 | 317 / 650 / 983 / 1316 | 104 | 317 | 125 | multiRowCard | 12px gutter between cards |
-| Hero combo chart | 317 | 244 | 1331 | 286 | lineStackedColumnComboChart | Trend + bars overlay |
-| Supporting 1 | 317 | 546 | 655 | 369 | bar or column | |
-| Supporting 2 | 993 | 546 | 655 | 369 | donut, matrix, or small-multiple | |
+| Filter rail background | 24 | 24 | 328 | 1032 | shape (rect) | Subtle inset panel to separate from body; behind slicers, logo, reset button |
+| Slicer 1–6 | 40 | 104, 248, 392, 536, 680, 824 | 296 | 128 | slicer (dropdown/list) | Stack vertically in rail |
+| Rail footer: reset-filters button | 40 | 984 | 296 | 56 | actionButton | "Clear filters" |
+| Page title | 376 | 24 | 1520 | 48 | textbox | 22pt Semibold |
+| Subtitle | 376 | 80 | 1520 | 24 | textbox | 12pt muted |
+| KPI 1–4 | 376 / 760 / 1144 / 1528 | 128 | 368 | 144 | cardVisual | 16px gutter between cards |
+| Hero combo chart | 376 | 296 | 1520 | 320 | lineStackedColumnComboChart | Trend + bars overlay |
+| Supporting 1 | 376 | 640 | 752 | 408 | bar or column | |
+| Supporting 2 | 1144 | 640 | 752 | 408 | donutChart, pivotTable, or small-multiple | |
 
-Gutters: 16px between rail and body; 12px between KPIs and between supporting pair. Multiples of 4.
+Gutters: 24px between rail and body and between body rows; 16px between KPIs and between the supporting pair. Edge margin 24px; all multiples of 8.
 
 ---
 
 ## Navigation
 
-Single-page analytical. If part of a multi-page report, rail's top 40px becomes a page-tab strip (actionButtons) and first slicer pushes to y=120.
+Single-page analytical. If part of a multi-page report, rail's top 40px becomes a page-tab strip (actionButtons) and first slicer pushes to y=120 (stack shifts 16px; slicer 6 then ends at y=968, still clear of the reset button at y=984).
 
 ---
 
 ## Theme + iconography guidance
 
 - **Palette:** neutral; reserve one accent for the hero's line overlay. Rail background 4–6% tint of the accent.
-- **Logo:** small company wordmark top-left inside rail at `(12, 12)`, max height 24px — the rail is the page chrome, logo belongs there. Leave title row logo-free.
+- **Logo:** small company wordmark top-left inside rail at `(40, 40)`, max height 24px — the rail is the page chrome, logo belongs there. Leave title row logo-free.
 - **Icons:** one small filter-funnel icon at the top of the rail so users recognize the zone instantly.
 - **Fonts:** Segoe UI; rail slicer labels 10pt muted, values 12pt.
 
@@ -78,7 +78,10 @@ Single-page analytical. If part of a multi-page report, rail's top 40px becomes 
 
 - Collapse rail to 180px if slicers are compact single-select
 - Swap hero to a full-width matrix if analysis is tabular
-- Add a 2nd KPI row if more than 4 KPIs (push hero to y=200, reduce hero h to 200)
+- Add a 2nd KPI row if more than 4 KPIs (2nd row at y=288, h=96; push hero to y=408, reduce hero h to 208)
+- **FHD headroom (optional):** up to two extra slots (visual count 9 → 11, budget ≤ 12). Use on the base layout, not combined with the reflow strip below:
+  1. Narrow **Hero combo chart** to `w=1136` and add `Top/bottom contributors` at `x=1528, y=296, w=368, h=320` (16px gap, aligned to the KPI 4 column) — ranked bar answering "which members drive the hero's movement?".
+  2. Split the supporting row into three: Supporting 1 → `x=376, w=496`, Supporting 2 → `x=888, w=496`, new `Exception list` at `x=1400, y=640, w=496, h=408` (compact table) — answers "which records breach threshold and need action?".
 
 ## Customization NOT allowed
 
@@ -94,12 +97,12 @@ Six slicers are often too many — the 6th slot becomes a **narrative card** tha
 
 ### Integration
 
-Reassign **Slicer 6** (`x=16, y=666, w=255, h=104`) to a narrative card. If 6 slicers are truly required, push the narrative to the body at `x=317, y=244, w=1331, h=32` and shrink the Hero chart by 32px top. Mini-breakdown strip reclaims a 32h band above the supporting pair.
+Reassign **Slicer 6** (`x=40, y=824, w=296, h=128`) to a narrative card. If 6 slicers are truly required, push the narrative to the body at `x=376, y=296, w=1520, h=32` and shrink the Hero chart by 40px from the top (`y=336, h=280`). Mini-breakdown strip reclaims a 32h band above the supporting pair.
 
 ### New slots
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Narrative context card | 16 | 666 | 255 | 104 | multiRowCard | Replaces Slicer 6; reads current filter state + dominant measure in sentence form |
-| Mini-breakdown strip | 317 | 530 | 1331 | 16 | lineChart × 5 (sparkline-mini) | Per-segment sparks above the supporting pair; reduces Supporting charts h to 353 |
+| Narrative context card | 40 | 824 | 296 | 128 | cardVisual | Replaces Slicer 6; reads current filter state + dominant measure in sentence form |
+| Mini-breakdown strip | 376 | 632 | 1520 | 32 | lineChart × 5 (sparkline-mini) | Per-segment sparks above the supporting pair; supporting charts move to y=680 and reduce h to 368 |
 

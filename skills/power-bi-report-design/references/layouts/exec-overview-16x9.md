@@ -3,7 +3,7 @@
 > **Preview:** [![exec-overview-16x9 preview](../../assets/layout-previews/exec-overview-16x9.svg)](../../assets/layout-previews/exec-overview-16x9.svg) · variants: [annotated](../../assets/layout-previews/exec-overview-16x9-annotated.svg) · [dark](../../assets/layout-previews/exec-overview-16x9-dark.svg)
 
 - **id:** `exec-overview-16x9`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Executive (see `../executor-executive.md`)
 - **Audience:** C-suite, board, monthly/quarterly business review
 - **Visual count:** 4 (excluding slicers; usually zero slicers)
@@ -16,27 +16,27 @@
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
 │                                                                │
-│   Big-Idea page title (24pt Semibold)                         │ 56
+│   Big-Idea page title (24pt Semibold)                         │ 64
 │   Subtitle (14pt Regular, muted)                              │
-├────────────────────────────────────────────────────────────────┤ 80
+├────────────────────────────────────────────────────────────────┤ 112
 │                                                                │
 │  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐                  │
-│  │ KPI 1  │ │ KPI 2  │ │ KPI 3  │ │ KPI 4  │                  │ 120
+│  │ KPI 1  │ │ KPI 2  │ │ KPI 3  │ │ KPI 4  │                  │ 128
 │  └────────┘ └────────┘ └────────┘ └────────┘                  │
-├────────────────────────────────────────────────────────────────┤ 216
+├────────────────────────────────────────────────────────────────┤ 264
 │                                                                │
 │                                                                │
 │        HERO visual (trend or primary breakdown)               │
-│                                                                │ 400
+│                                                                │ 472
 │        Reference line(s) / target / prior-year                │
 │                                                                │
-├────────────────────────────────────────────────────────────────┤ 624
+├────────────────────────────────────────────────────────────────┤ 760
 │                                                                │
 │  ┌─────────────────────┐  ┌─────────────────────┐            │
-│  │ Supporting visual 1 │  │ Supporting visual 2 │            │ 280
+│  │ Supporting visual 1 │  │ Supporting visual 2 │            │ 296
 │  │                     │  │                     │            │
 │  └─────────────────────┘  └─────────────────────┘            │
-└────────────────────────────────────────────────────────────────┘ 936
+└────────────────────────────────────────────────────────────────┘ 1080
 ```
 
 ---
@@ -45,22 +45,22 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Page title | 32 | 16 | 1600 | 56 | textbox | Big-Idea phrasing, 24pt Semibold |
-| KPI 1 | 32 | 80 | 384 | 120 | card | Apply `chart-templates/kpi-banner.md` |
-| KPI 2 | 432 | 80 | 384 | 120 | card | |
-| KPI 3 | 832 | 80 | 384 | 120 | card | |
-| KPI 4 | 1232 | 80 | 400 | 120 | card | |
-| Hero visual | 32 | 216 | 1600 | 400 | line OR bar | `chart-templates/trend-line.md` or `bar-comparison.md` |
-| Supporting 1 | 32 | 632 | 792 | 280 | varies | |
-| Supporting 2 | 840 | 632 | 792 | 280 | varies | |
+| Page title | 32 | 24 | 1856 | 64 | textbox | Big-Idea phrasing, 24pt Semibold |
+| KPI 1 | 32 | 112 | 456 | 128 | card | Apply `chart-templates/kpi-banner.md` |
+| KPI 2 | 504 | 112 | 448 | 128 | card | |
+| KPI 3 | 968 | 112 | 448 | 128 | card | |
+| KPI 4 | 1432 | 112 | 456 | 128 | card | |
+| Hero visual | 32 | 264 | 1856 | 472 | line OR bar | `chart-templates/trend-line.md` or `bar-comparison.md` |
+| Supporting 1 | 32 | 760 | 920 | 296 | varies | |
+| Supporting 2 | 968 | 760 | 920 | 296 | varies | |
 
-Gutters: 16px between KPIs, 16px between supporting, 16px vertical between zones. All multiples of 8.
+Gutters: 16px between KPIs, 16px between supporting, 24px vertical between zones. Margins 32px (24px top and bottom). All multiples of 8.
 
 ---
 
 ## Navigation
 
-Single-page — no navigation bar. If multi-page, add 48h button bar at y=72 and push KPI row down to y=128.
+Single-page — no navigation bar. If multi-page, add a 48h button bar at y=96 (x=32, w=1856) and push the KPI row down to y=168 (Hero then starts at y=320 with h=416).
 
 ---
 
@@ -86,7 +86,8 @@ Single-page — no navigation bar. If multi-page, add 48h button bar at y=72 and
 
 - Swap KPI count 3-5 (adjust widths proportionally, keep 16px gutter)
 - Replace supporting-pair with single full-width visual if hero is itself small-multiple
-- Add bottom footnote row (y=904, h=24) for methodology text
+- Add bottom footnote row (y=1032, h=24) for methodology text — shrink Supporting 1/2 to h=248 so they end at y=1008
+- **FHD headroom (optional)**: none — the base table is already at this layout's own 4-visual Executive cap (see "Customization NOT allowed").
 
 ## Customization NOT allowed
 

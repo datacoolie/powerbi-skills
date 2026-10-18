@@ -3,7 +3,7 @@
 > **Preview:** [![cohort-retention-grid preview](../../assets/layout-previews/cohort-retention-grid.svg)](../../assets/layout-previews/cohort-retention-grid.svg) · variants: [annotated](../../assets/layout-previews/cohort-retention-grid-annotated.svg) · [dark](../../assets/layout-previews/cohort-retention-grid-dark.svg)
 
 - **id:** `cohort-retention-grid`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Analytical — Period-indexed cohort matrix (cohort vs. age-in-months) + supporting ranking / trend
 - **Audience:** Customer analytics leads, growth / retention analysts
 - **Visual count:** 9 — reflow-enhanced (was 7)
@@ -16,19 +16,19 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
-│ Header: title · cohort-month slicer · metric toggle            │ 78
+│ Header: title · cohort-month slicer · metric toggle            │ 88
 ├────────────────┬───────────────────────────────────────────────┤
 │                │                                               │
-│ Slicer rail    │   COHORT MATRIX (rows = cohort, cols = M+n)   │ 572
+│ Slicer rail    │   COHORT MATRIX (rows = cohort, cols = M+n)   │ 640
 │  · Cohort      │                                               │
 │  · Segment     │                                               │
 │  · Metric      │                                               │
 │                │                                               │
 ├────────────────┼───────────────────────┬───────────────────────┤
-│                │  Retention curve      │  Cohort size bars     │ 260
+│                │  Retention curve      │  Cohort size bars     │ 296
 │                │  (line, indexed)      │  (by cohort month)    │
 │                │                       │                       │
-└────────────────┴───────────────────────┴───────────────────────┘
+└────────────────┴───────────────────────┴───────────────────────┘ 1080
 ```
 
 ---
@@ -37,13 +37,13 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Header | 0 | 0 | 1664 | 78 | shape + textbox + slicer | Title + cohort-month + metric toggle |
-| Slicer rail | 0 | 78 | 312 | 858 | slicer × 3 | Cohort / Segment / Metric |
-| Cohort matrix | 322 | 88 | 1331 | 572 | matrix (with conditional formatting gradient) | Rows = cohort month, columns = age bucket (M+0..M+11) |
-| Retention curve | 322 | 671 | 650 | 260 | lineChart | Indexed retention% by age bucket, series = segment |
-| Cohort size bars | 983 | 671 | 671 | 260 | clusteredColumnChart | # customers per cohort month |
+| Header | 0 | 0 | 1920 | 88 | shape + textbox + slicer | Title + cohort-month + metric toggle |
+| Slicer rail | 24 | 104 | 336 | 480 | slicer × 3 | Cohort / Segment / Metric; the rail column below it (y=600..1056) is free for the optional FHD headroom slots |
+| Cohort matrix | 384 | 104 | 1512 | 640 | pivotTable (with conditional formatting gradient) | Rows = cohort month, columns = age bucket (M+0..M+11) |
+| Retention curve | 384 | 760 | 736 | 296 | lineChart | Indexed retention% by age bucket, series = segment |
+| Cohort size bars | 1136 | 760 | 760 | 296 | clusteredColumnChart | # customers per cohort month |
 
-Gutters: 16px between primary zones; 8px inside KPI card rows.
+Gutters: 24px edge margin; 16px between zones; 8px inside KPI card rows.
 
 ---
 
@@ -57,7 +57,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 ## Theme + iconography guidance
 
 - **Palette:** Sequential single-hue for cohort matrix (data-ink); neutral rest. Retention curve uses one accent.
-- **Logo:** Header top-left at (16, 16) max height 24px.
+- **Logo:** Header top-left at (24, 32) max height 24px.
 - **Icons:** Optional clock / funnel glyph next to 'Cohort'.
 - **Fonts:** Header 16pt, matrix cells 10pt, axis 9pt.
 
@@ -75,6 +75,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 
 - Change matrix conditional formatting from absolute counts to row-% (index)
 - Replace cohort-size bars with a lifetime-value line chart
+- FHD headroom (optional): up to two extra slots in the free rail column below the slicers (no overlap with existing slots; Analytical budget of 12 stays respected) — **Retention by segment** at `x=24, y=600, w=336, h=224` (clusteredBarChart, M+3 retention % per segment: which segment keeps customers best?) and **Early-life retention trend** at `x=24, y=840, w=336, h=216` (lineChart, M+1 retention % by cohort month: are newer cohorts retaining better than older ones?)
 
 ## Customization NOT allowed
 
@@ -89,12 +90,12 @@ Cohort matrix is the star but without a **benchmark line** on the retention curv
 
 ### Integration
 
-Retention curve shrinks from `w=650` to `w=510`; benchmark callout panel occupies `x=842, y=671, w=130, h=260`. Cohort-quality KPI fits in the header right side at `x=1280, y=16, w=363, h=52`.
+Retention curve shrinks from `w=736` to `w=576`; benchmark callout panel occupies `x=976, y=760, w=144, h=296`. Cohort-quality KPI fits in the header right side at `x=1488, y=16, w=408, h=56`.
 
 ### New slots
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Cohort-quality KPI | 1280 | 16 | 363 | 52 | card | Avg M+3 retention % + trend arrow (vs prior cohort); 18pt value |
-| Benchmark callout | 842 | 671 | 130 | 260 | card + shape | Industry benchmark band shown as horizontal reference line on curve, with value card |
+| Cohort-quality KPI | 1488 | 16 | 408 | 56 | card | Avg M+3 retention % + trend arrow (vs prior cohort); 18pt value; overlay on the Header band |
+| Benchmark callout | 976 | 760 | 144 | 296 | card + shape | Industry benchmark band shown as horizontal reference line on curve, with value card; overlay on the strip freed when Retention curve shrinks to w=576 |
 

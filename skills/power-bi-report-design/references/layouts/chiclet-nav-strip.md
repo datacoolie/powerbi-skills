@@ -3,7 +3,7 @@
 > **Preview:** [![chiclet-nav-strip preview](../../assets/layout-previews/chiclet-nav-strip.svg)](../../assets/layout-previews/chiclet-nav-strip.svg) · variants: [annotated](../../assets/layout-previews/chiclet-nav-strip-annotated.svg) · [dark](../../assets/layout-previews/chiclet-nav-strip-dark.svg)
 
 - **id:** `chiclet-nav-strip`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Analytical / operational hybrid — button-driven navigation
 - **Audience:** Power-user sales / commercial / trade teams, kiosks with touch-friendly filters
 - **Visual count:** 10 (chiclet button slicer row + 4 KPI cards + 2 body charts + 1 footer strip) — reflow-enhanced (was 8)
@@ -16,18 +16,18 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
-│ Header bar: title + logo                                      │ 62
+│ Header bar: title + logo                                      │ 72
 ├────────────────────────────────────────────────────────────────┤
-│ [ChicletSlicer button row — category / region / channel]      │ 73
+│ [ChicletSlicer button row — category / region / channel]      │ 72
 ├────────────────────────────────────────────────────────────────┤
-│ KPI1    KPI2    KPI3    KPI4                                  │ 114
+│ KPI1    KPI2    KPI3    KPI4                                  │ 120
 ├───────────────────────────────┬────────────────────────────────┤
 │                               │                                │
-│  Main chart (hero)            │  Breakdown / secondary        │ 546
+│  Main chart (hero)            │  Breakdown / secondary        │ 696
 │                               │                                │
 ├───────────────────────────────┴────────────────────────────────┤
-│ Footer strip: "Data refreshed {ts} · Source · Owner"          │ 42
-└────────────────────────────────────────────────────────────────┘ 936
+│ Footer strip: "Data refreshed {ts} · Source · Owner"          │ 48
+└────────────────────────────────────────────────────────────────┘ 1080
 ```
 
 ---
@@ -36,21 +36,21 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Header bar (shape) | 0 | 0 | 1664 | 62 | shape | Accent fill |
-| Page title | 31 | 16 | 1300 | 31 | textbox | 18pt Semibold, on header |
-| Chiclet slicer row | 0 | 62 | 1664 | 73 | chicletSlicer (custom visual) | Horizontal buttons, single-select |
-| KPI 1–4 | 31 / 437 / 842 / 1248 | 156 | 385 | 104 | card | Left-accent colour stripe |
-| Main chart | 31 | 281 | 988 | 598 | lineStackedColumnComboChart OR barChart | Hero |
-| Breakdown chart | 1040 | 281 | 593 | 598 | donutChart / horizontalBar / matrix | |
-| Footer strip (shape + text) | 0 | 894 | 1664 | 42 | shape + textbox | Refresh time, data source, page owner |
+| Header bar (shape) | 0 | 0 | 1920 | 72 | shape | Accent fill |
+| Page title | 32 | 16 | 1312 | 40 | textbox | 18pt Semibold, on header; overlay on the header bar |
+| Chiclet slicer row | 0 | 72 | 1920 | 72 | chicletSlicer (custom visual) | Horizontal buttons, single-select |
+| KPI 1–4 | 24 / 496 / 968 / 1440 | 168 | 456 | 120 | card | Left-accent colour stripe |
+| Main chart | 24 | 312 | 1160 | 696 | lineStackedColumnComboChart OR barChart | Hero |
+| Breakdown chart | 1200 | 312 | 696 | 696 | donutChart / barChart / pivotTable | |
+| Footer strip (shape + text) | 0 | 1032 | 1920 | 48 | shape + textbox | Refresh time, data source, page owner |
 
-Gutters: 16px between KPIs, 16px between hero and breakdown. Chiclet row spans edge-to-edge on purpose — it reads as the primary filter surface.
+Gutters: 16px between KPIs, 16px between hero and breakdown; 24px between the chrome bands (header / chiclet row), KPI row, charts and footer. Chiclet row spans edge-to-edge on purpose — it reads as the primary filter surface.
 
 ---
 
 ## Navigation
 
-- Chiclet row IS the single filter control. If multiple filter dimensions are needed, stack two chiclet rows (push KPI row to y=176, hero to y=272, shrink hero h to 404).
+- Chiclet row IS the single filter control. If multiple filter dimensions are needed, stack two chiclet rows (push KPI row to y=248, hero to y=432, shrink hero h to 576).
 - Optional page-tab strip can replace the footer (footer becomes `actionButton` row) — but choose one or the other, never both.
 
 ---
@@ -58,7 +58,7 @@ Gutters: 16px between KPIs, 16px between hero and breakdown. Chiclet row spans e
 ## Theme + iconography guidance
 
 - **Palette:** chiclet buttons use the theme's primary accent for selected state, muted neutral for unselected. KPI card left-stripe takes the same accent.
-- **Logo:** right-aligned in header at `(x=1196, y=12)` max height 24px; title anchors to the left. This mirrors how many branded sales dashboards place their corporate mark away from the main reading flow.
+- **Logo:** right-aligned in header at `(x=1384, y=24)` max height 24px; title anchors to the left. This mirrors how many branded sales dashboards place their corporate mark away from the main reading flow.
 - **Icons:** small category glyph per chiclet (same weight across all buttons). No other icons elsewhere.
 - **Fonts:** chiclet label 12pt Semibold; KPI value 26pt; footer 10pt muted.
 
@@ -77,7 +77,8 @@ Gutters: 16px between KPIs, 16px between hero and breakdown. Chiclet row spans e
 
 - Add a second chiclet row for a second low-cardinality dimension
 - Swap the breakdown chart for a small-multiples grid (keep the same slot)
-- Replace the footer with an `actionButton` page-tab row (keep h=32)
+- Replace the footer with an `actionButton` page-tab row (keep h=48)
+- FHD headroom (optional): none — the base slots already tile the full FHD canvas (the extra area is absorbed by taller hero/breakdown charts), so there is no free area for another slot
 
 ## Customization NOT allowed
 
@@ -93,12 +94,12 @@ Selected chiclet(s) answer *which filter*; a **summary commentary band** below t
 
 ### Integration
 
-Insert **Chiclet row 2** at `y=140, h=62` — pushes KPI row to `y=214`, Main/Breakdown charts to `y=339`, and compresses chart `h` from `598` to `555`. Summary commentary sits between KPIs and charts at `y=325, h=14`.
+Insert **Chiclet row 2** at `y=152, h=72` — pushes KPI row to `y=248`, Main/Breakdown charts to `y=432`, and compresses chart `h` from `696` to `576`. Summary commentary sits between KPIs and charts at `y=384, h=24`.
 
 ### New slots
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Chiclet row 2 | 0 | 140 | 1664 | 62 | chicletSlicer (custom visual) | Secondary dimension (channel / segment / team); single-select |
-| Summary commentary | 31 | 325 | 1602 | 14 | textbox | 1-line interpretation of current filter + KPI state; 11pt muted |
+| Chiclet row 2 | 0 | 152 | 1920 | 72 | chicletSlicer (custom visual) | Secondary dimension (channel / segment / team); single-select |
+| Summary commentary | 24 | 384 | 1872 | 24 | textbox | 1-line interpretation of current filter + KPI state; 11pt muted |
 

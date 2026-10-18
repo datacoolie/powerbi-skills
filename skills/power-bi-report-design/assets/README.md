@@ -34,7 +34,7 @@ manifest (see per-folder docs for schema).
    - Icons: 24×24 SVG viewBox (scale via CSS/PBIR format pane).
    - Chart previews: 320×180 SVG (16:9) — matches Design Spec §5 inline preview.
    - Slicer previews: 320×180 SVG (16:9).
-   - Layout previews: 1664×936 SVG (desktop), 414×736 (mobile), 1920×1080 (TV),
+   - Layout previews: 480×270 viewBox SVG (desktop 16:9 — proportional, resolution-independent), 414×736 (mobile), 1920×1080 (TV),
      816×1056 (A4). Schematic only — no real data.
    - Backgrounds: ≤ 300 KB each; WebP preferred, JPEG fallback.
 5. **Index files validate against JSON Schemas** in each folder. CI will fail if

@@ -2,7 +2,7 @@
 
 > **Preview:** [![esg-carbon-scorecard preview](../../assets/layout-previews/esg-carbon-scorecard.svg)](../../assets/layout-previews/esg-carbon-scorecard.svg) · variants: [annotated](../../assets/layout-previews/esg-carbon-scorecard-annotated.svg) · [dark](../../assets/layout-previews/esg-carbon-scorecard-dark.svg)
 
-- Canvas: `1664×936` (landscape-16x9)
+- Canvas: `1920×1080` (landscape-16x9)
 - Style: `executive` · Domain: `esg`
 - Visuals: 6
 - Zones: `title-bar, slicer-row, scope-emission-stack, intensity-trend, target-trajectory`
@@ -24,5 +24,8 @@ Before emissions inventory is assured / audited
 - required_measures: `co2e`, `intensity`
 - required_dimensions: `scope`, `entity`
 - date_grain: `month`
+
+## Customization allowed
+- **FHD headroom (optional)**: none — at budget (6 visuals = Executive ≤ 6 cap).
 
 See `layouts-index.json` for full machine-readable entry including `zones_detail[]`.

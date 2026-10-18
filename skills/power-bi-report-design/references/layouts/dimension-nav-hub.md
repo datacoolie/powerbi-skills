@@ -3,7 +3,7 @@
 > **Preview:** [![dimension-nav-hub preview](../../assets/layout-previews/dimension-nav-hub.svg)](../../assets/layout-previews/dimension-nav-hub.svg) · variants: [annotated](../../assets/layout-previews/dimension-nav-hub-annotated.svg) · [dark](../../assets/layout-previews/dimension-nav-hub-dark.svg)
 
 - **id:** `dimension-nav-hub`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Executive — Full-page button grid jumping to every dimension / sub-report
 - **Audience:** All report consumers — entry point to multi-page reports
 - **Visual count:** 7
@@ -16,7 +16,7 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
-│ Logo · Report title · Period selector · Back/Home              │ 104
+│ Logo · Report title · Period selector · Back/Home              │ 120
 ├────────────────────────────────────────────────────────────────┤
 │                                                                │
 │   ┌──────┐  ┌──────┐  ┌──────┐                                 │
@@ -27,7 +27,7 @@
 │   │Series│  │  KW  │  │Svc.St│   (three big nav tiles row 2)   │
 │   └──────┘  └──────┘  └──────┘                                 │
 ├────────────────────────────────────────────────────────────────┤
-│ Footer: "Last refresh · Data source · Contact owner"           │ 52
+│ Footer: "Last refresh · Data source · Contact owner"           │ 64
 └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -37,12 +37,12 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Header band | 0 | 0 | 1664 | 104 | shape + image + textbox | Logo left, title centre, period slicer right |
-| Tile row 1 · 3 tiles | 104 | 156 | 1456 | 312 | actionButton(s) with background image | Each tile ~360w x 240h, 20px gutter |
-| Tile row 2 · 3 tiles | 104 | 494 | 1456 | 312 | actionButton(s) with background image | Mirror row 1 |
-| Footer | 0 | 884 | 1664 | 52 | textbox | Metadata strip |
+| Header band | 0 | 0 | 1920 | 120 | shape + image + textbox | Logo left, title centre, period slicer right |
+| Tile row 1 · 3 tiles | 120 | 192 | 1680 | 368 | actionButton(s) with background image | Each tile ~544w x 368h, 24px gutter |
+| Tile row 2 · 3 tiles | 120 | 584 | 1680 | 368 | actionButton(s) with background image | Mirror row 1 |
+| Footer | 0 | 1016 | 1920 | 64 | textbox | Metadata strip |
 
-Gutters: 16px between primary zones; 8px inside KPI card rows.
+Gutters: 24px between tiles and between the two tile rows; 16px minimum from tiles to header / footer.
 
 ---
 
@@ -56,7 +56,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 ## Theme + iconography guidance
 
 - **Palette:** Brand hero colour as tile fill; neutral page background.
-- **Logo:** Top-left header at (24, 24) max height 32px. Locked.
+- **Logo:** Top-left header at (24, 44) max height 32px. Locked.
 - **Icons:** One large icon per tile (48-64px) — dimension glyph (user, calendar, factory, pin).
 - **Fonts:** Title 22pt Semibold, tile label 16pt Semibold, metadata 10pt Regular.
 
@@ -74,6 +74,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 
 - Add a small 'Getting started' textbox in one empty corner (max 3 lines)
 - Replace the 2x3 grid with a 3x2 grid if dimension names are long
+- FHD headroom (optional): none — at budget (navigation page: the extra FHD space goes into larger tiles and icons; data visuals are not allowed here)
 
 ## Customization NOT allowed
 

@@ -2,7 +2,7 @@
 
 > **Preview:** [![comparison-side-by-side preview](../../assets/layout-previews/comparison-side-by-side.svg)](../../assets/layout-previews/comparison-side-by-side.svg) · variants: [annotated](../../assets/layout-previews/comparison-side-by-side-annotated.svg) · [dark](../../assets/layout-previews/comparison-side-by-side-dark.svg)
 
-- Canvas: `1664×936` (landscape-16x9)
+- Canvas: `1920×1080` (landscape-16x9)
 - Style: `analytical` · Domain: `cross-domain`
 - Visuals: 6
 - Zones: `title-bar, shared-slicer, compare-left, compare-right, footer`
@@ -26,3 +26,8 @@ More than 2 entities to compare — use scorecard-kpi-grid
 - date_grain: `any`
 
 See `layouts-index.json` for full machine-readable entry including `zones_detail[]`.
+
+## Customization allowed
+
+- Swap the right-hand stack for a mirror of the left half when both sides need identical visuals
+- FHD headroom (optional): none — the two compare halves already tile the canvas below the shared slicer, and an extra slot on one side would break the A/B symmetry; spend the extra FHD space on larger halves instead

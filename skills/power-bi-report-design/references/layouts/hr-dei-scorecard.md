@@ -2,7 +2,7 @@
 
 > **Preview:** [![hr-dei-scorecard preview](../../assets/layout-previews/hr-dei-scorecard.svg)](../../assets/layout-previews/hr-dei-scorecard.svg) · variants: [annotated](../../assets/layout-previews/hr-dei-scorecard-annotated.svg) · [dark](../../assets/layout-previews/hr-dei-scorecard-dark.svg)
 
-- Canvas: `1664×936` (landscape-16x9)
+- Canvas: `1920×1080` (landscape-16x9)
 - Style: `executive` · Domain: `hr`
 - Visuals: 7
 - Zones: `title-bar, dei-rep-filter, dei-representation-grid, dei-trend, supporting-pair`
@@ -24,5 +24,8 @@ Where local regulation prohibits storing protected attributes in BI
 - required_measures: `representation_pct`
 - required_dimensions: `level`, `dimension`
 - date_grain: `quarter`
+
+## Customization allowed
+- **FHD headroom (optional)** — none — at budget (Executive pages stay at or below 6 visuals; this layout is already at its limit).
 
 See `layouts-index.json` for full machine-readable entry including `zones_detail[]`.

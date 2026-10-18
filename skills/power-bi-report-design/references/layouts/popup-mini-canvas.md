@@ -16,17 +16,17 @@
 
 ```
 ┌─────────────────────────────────┐ 0
-│ Title + period                  │ 44
+│ Title + period                  │ 64
 ├─────────────┬─────────────┬─────┤
-│ KPI 1       │ KPI 2       │ KPI3│ 80
+│ KPI 1       │ KPI 2       │ KPI3│ 72
 ├─────────────┴─────────────┴─────┤
 │                                 │
 │                                 │
-│   PRIMARY CHART (line / bars)   │ 360
+│   PRIMARY CHART (line / bars)   │ 312
 │                                 │
 │                                 │
 ├─────────────────────────────────┤
-│ Footer: last-refresh            │ 26
+│ Footer: last-refresh            │ 24
 └─────────────────────────────────┘
 ```
 
@@ -36,14 +36,14 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Header | 0 | 0 | 600 | 44 | shape + textbox + slicer(Period) | Title + period |
-| KPI card 1 | 8 | 52 | 192 | 80 | card | Primary metric |
-| KPI card 2 | 204 | 52 | 192 | 80 | card | Comparison metric |
-| KPI card 3 | 400 | 52 | 192 | 80 | card | Delta / mix |
-| Primary chart | 8 | 140 | 584 | 370 | lineChart or clusteredColumnChart | One chart — no secondary viz |
-| Footer | 0 | 524 | 600 | 26 | textbox | Last refresh stamp |
+| Header | 24 | 24 | 552 | 40 | shape + textbox + slicer(Period) | Title + period |
+| KPI card 1 | 24 | 80 | 168 | 72 | card | Primary metric |
+| KPI card 2 | 216 | 80 | 168 | 72 | card | Comparison metric |
+| KPI card 3 | 408 | 80 | 168 | 72 | card | Delta / mix |
+| Primary chart | 24 | 168 | 552 | 312 | lineChart or clusteredColumnChart | One chart — no secondary viz |
+| Footer | 24 | 496 | 552 | 24 | textbox | Last refresh stamp |
 
-Gutters: 16px between primary zones; 8px inside KPI card rows.
+Margins: 24px on the 600 × 550 mini canvas. Gaps: 16px between bands, 24px between KPI cards. All slots multiples of 8.
 
 ---
 
@@ -57,7 +57,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 ## Theme + iconography guidance
 
 - **Palette:** Single accent across all KPIs + chart series. No competing colours.
-- **Logo:** Top-left at (8, 10) max height 20px. Optional.
+- **Logo:** Top-left at (24, 24) max height 20px. Optional.
 - **Icons:** Max 1 glyph per KPI card.
 - **Fonts:** Header 14pt Semibold, KPI value 20pt, chart axis 8pt.
 
@@ -65,9 +65,9 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 
 ## When NOT to use this layout
 
-- ❌ Page will be viewed standalone in Power BI Service — use full 1664×936 `exec-overview-16x9`
+- ❌ Page will be viewed standalone in Power BI Service — use full 1920×1080 `exec-overview-16x9`
 - ❌ Audience needs drillthrough — popup has no room for navigation chrome
-- ❌ More than 3 KPIs needed — switch canvas to 1664×936
+- ❌ More than 3 KPIs needed — use the full 1920×1080 `exec-overview-16x9` instead of this 600×550 popup
 
 ---
 
@@ -75,6 +75,7 @@ Gutters: 16px between primary zones; 8px inside KPI card rows.
 
 - Change canvas to 800×500 for wider embeds
 - Swap the primary chart for a small matrix (≤ 5 rows)
+- **FHD headroom (optional)**: none — fixed 600 × 550 embed canvas (not an FHD page) with no free area; the one-glance rule below forbids a second chart.
 
 ## Customization NOT allowed
 

@@ -3,7 +3,7 @@
 > **Preview:** [![finance-pnl-waterfall preview](../../assets/layout-previews/finance-pnl-waterfall.svg)](../../assets/layout-previews/finance-pnl-waterfall.svg) · variants: [annotated](../../assets/layout-previews/finance-pnl-waterfall-annotated.svg) · [dark](../../assets/layout-previews/finance-pnl-waterfall-dark.svg)
 
 - **id:** `finance-pnl-waterfall`
-- **Canvas:** 1664 × 936
+- **Canvas:** 1920 × 1080
 - **Style personality:** Analytical (see `../executor-analytical.md`)
 - **Audience:** CFO, controllers, FP&A analysts
 - **Visual count:** 6 (hero waterfall + supporting)
@@ -14,26 +14,26 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐ 0
-│  Big-Idea P&L title (24pt)                 [Period slicer]    │ 64
+│  Big-Idea P&L title (24pt)                 [Period slicer]    │ 88
 ├────────────────────────────────────────────────────────────────┤
 │  ┌──────────┐┌──────────┐┌──────────┐┌──────────┐              │
 │  │ Revenue  ││  COGS    ││Gross Marg││Net Income│              │ 128
 │  │ + delta  ││ + delta  ││ + delta  ││ + delta  │              │
 │  └──────────┘└──────────┘└──────────┘└──────────┘              │
-├────────────────────────────────────────────────────────────────┤ 208
+├────────────────────────────────────────────────────────────────┤ 264
 │                                                                │
 │    ██ ↑ +Rev                                                   │
 │    ██                ↓ -COGS                                   │
-│  ██──────────────────██ =Gross     ↓ -OpEx                     │ 440
+│  ██──────────────────██ =Gross     ↓ -OpEx                     │ 480
 │                         ────────────██                         │
 │                                     ────────────── = Net       │
 │        HERO: P&L WATERFALL (actual or vs plan)                │
-├────────────────────────────────────────────────────────────────┤ 664
+├────────────────────────────────────────────────────────────────┤ 768
 │  ┌─────────────────────┐  ┌─────────────────────┐             │
-│  │ Cost breakdown bar  │  │ Variance matrix     │             │ 248
+│  │ Cost breakdown bar  │  │ Variance matrix     │             │ 288
 │  │ (top N categories)  │  │ (line × plan/act)   │             │
 │  └─────────────────────┘  └─────────────────────┘             │
-└────────────────────────────────────────────────────────────────┘ 936
+└────────────────────────────────────────────────────────────────┘ 1080
 ```
 
 ---
@@ -42,12 +42,17 @@
 
 | Slot | x | y | w | h | Visual type | Notes |
 |---|---|---|---|---|---|---|
-| Page title | 32 | 16 | 1200 | 48 | textbox | Big-Idea framing |
-| Period slicer | 1248 | 16 | 384 | 48 | slicer | Horizontal dropdown |
-| KPI 1-4 | 32+(i×408) | 88 | 392 | 112 | card | Revenue / COGS / GM / NI + YoY% |
-| Hero waterfall | 32 | 216 | 1600 | 440 | waterfallChart | `chart-templates/waterfall-bridge.md` |
-| Cost breakdown | 32 | 672 | 792 | 248 | clusteredBarChart | `bar-comparison.md`, top-N opex categories |
-| Variance matrix | 840 | 672 | 792 | 248 | pivotTable | `matrix-scorecard.md`, lines × plan / actual / var% |
+| Page title | 32 | 24 | 1400 | 64 | textbox | Big-Idea framing |
+| Period slicer | 1448 | 24 | 440 | 64 | slicer | Horizontal dropdown |
+| KPI 1 | 32 | 112 | 456 | 128 | card | Revenue + YoY% |
+| KPI 2 | 504 | 112 | 448 | 128 | card | COGS + YoY% |
+| KPI 3 | 968 | 112 | 448 | 128 | card | Gross Margin + YoY% |
+| KPI 4 | 1432 | 112 | 456 | 128 | card | Net Income + YoY% |
+| Hero waterfall | 32 | 264 | 1856 | 480 | waterfallChart | `chart-templates/waterfall-bridge.md` |
+| Cost breakdown | 32 | 768 | 920 | 288 | clusteredBarChart | `bar-comparison.md`, top-N opex categories |
+| Variance matrix | 968 | 768 | 920 | 288 | pivotTable | `matrix-scorecard.md`, lines × plan / actual / var% |
+
+Gutters: 16px inside a row (title ↔ slicer, KPIs, supporting pair), 24px between rows. Margins 32px (24px top and bottom).
 
 ---
 
@@ -73,6 +78,12 @@
 - ❌ Revenue-only story (use `sales-performance` layout)
 - ❌ > 10 waterfall categories (split into Revenue Walk + Cost Walk pages)
 - ❌ Executive who can't absorb a waterfall (swap hero for a 2-bar Plan vs Actual)
+
+---
+
+## Customization allowed
+
+- **FHD headroom (optional)** — one extra slot carved from the hero (visual count 6 → 7, within the Analytical ≤ 12 budget): *Margin % trend* line at (1272, 264, 616, 480); shrink Hero waterfall to w=1224. Answers "is the margin rate improving or eroding over time?" — a rate-over-time question the period-bridge waterfall cannot show.
 
 ---
 

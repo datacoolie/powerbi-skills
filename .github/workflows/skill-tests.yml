@@ -32,7 +32,6 @@ jobs:
           skills/power-bi-management/scripts
           skills/power-bi-report-design/scripts
           skills/power-bi-report-authoring/scripts
-          scripts
 
       - name: Install pytest
         run: python -m pip install pytest

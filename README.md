@@ -165,8 +165,6 @@ Replace `<package-name-for-the-server>` with the actual MCP server package name 
 
 The semantic-model side mirrors Microsoft's `semantic-model-authoring` skill the same way (`power-bi-semantic-model/references/official-workflows.md` + the official modeling/TMDL/metadata/field-parameter/Direct Lake guidelines).
 
-**Keeping in sync:** `npx skills update` refreshes the git-ignored `.agents/skills/` install, then `python scripts/sync-official.py check` reports upstream drift against `official-sync.lock.json` (`sync` copies unmodified files, `lock` records the new baseline). Files with repo path fixes are never overwritten automatically.
-
 ---
 
 ## Use It
@@ -223,19 +221,10 @@ Requires Python 3.10+. Install `jsonschema` for full schema validation:
 pip install jsonschema
 ```
 
-## Repository tooling (contributors)
+## Tests
 
-```bash
-python scripts/doctor.py                 # environment preflight: Node, CLI versions, az/fab, preview hosts, MCP naming
-python scripts/check_repo.py             # mirror integrity + skill lint + all script tests (what CI runs)
-python scripts/skill_lint.py             # SKILL.md frontmatter, description length/triggers, broken references
-python scripts/sync-official.py check    # drift vs the official Microsoft skills (needs the local .agents/ install)
-python scripts/sync-official.py sync     # pull upstream changes; patched files are three-way merged
-python scripts/sync-official.py lock     # record the new baseline after reviewing a sync
-```
-
-CI (`.github/workflows/repo-checks.yml`, `skill-tests.yml`) runs `check_repo.py` and the script tests on every push/PR.
-Script unit tests live in `skills/**/scripts/tests/` and `scripts/tests/` and are tracked in git.
+CI (`.github/workflows/skill-tests.yml`) runs the skill script tests on every push/PR.
+Script unit tests live in `skills/**/scripts/tests/` and are tracked in git.
 
 ---
 

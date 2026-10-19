@@ -26,8 +26,7 @@ the latest modeling guidance before making design decisions.
 **Use PowerBI Modeling MCP** (`powerbi-modeling-mcp/*` — your host may register the same tool set as
 `powerbi-authoring-local`) for live model operations —
 exploring tables, creating relationships, configuring columns, testing queries.
-Read `references/mcp-tool-reference.md` for the complete tool mapping. Run `python scripts/doctor.py`
-at the repo root to check the surrounding CLIs.
+Read `references/mcp-tool-reference.md` for the complete tool mapping. 
 
 ## Quick Reference
 

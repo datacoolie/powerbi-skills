@@ -82,9 +82,8 @@ repo each mode is a skill: `planning` → `power-bi-business-analysis`, `design`
 
 **Install the report CLI once (Node ≥ 20):** `npm install -g @microsoft/powerbi-report-authoring-cli@latest`
 (bundles the Desktop bridge — no separate `powerbi-desktop` install), then run the **preflight**
-`python scripts/doctor.py` (checks Node, `powerbi-report-author` ≥ 0.5.0 and its own doctor, preview hosts,
-`az`/`az login`, optional `fab`, Python; `--json` for agents, `--strict` for CI). Run it before Phase 4b and
-whenever a CLI call fails unexpectedly. Fabric calls need `az login` (or `fab auth login`) and carry the
+`powerbi-report-author doctor` (plus `node --version`, `az account show`, optional `fab --version`) before
+Phase 4b and whenever a CLI call fails unexpectedly. Fabric calls need `az login` (or `fab auth login`) and carry the
 mandatory `x-ms-fabric-skill: powerbi-report-cli` header (the management helper adds it; with
 `fab api` pass `-H "x-ms-fabric-skill=powerbi-report-cli"`). Optional: `pip install ms-fabric-cli` for
 the `fab` CLI used for OneLake/lakehouse discovery and `fab api`.
